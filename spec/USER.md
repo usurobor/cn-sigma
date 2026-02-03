@@ -1,7 +1,7 @@
 # USER.md - About Your Human
 
-- **Name:** Axiom
-- **What to call them:** Axiom
+- **Name:** usurobor
+- **What to call them:** usurobor
 - **Pronouns:** *(unspecified)*
 - **Timezone:** ET (Eastern Time)
 
