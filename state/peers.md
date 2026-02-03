@@ -1,4 +1,4 @@
-# Peers (state) – v0.2.0
+# Peers – v0.2.0
 
 Current list of peers for this hub.
 Drives GitHub stars and any peer-related sync skills.
