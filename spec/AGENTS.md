@@ -16,7 +16,7 @@ Before doing anything else:
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`.
 5. In a CN hub (like cn-agent), ingest the wider spec in this order:
    1. Core spec under `spec/` — SOUL, USER, AGENTS, HEARTBEAT, TOOLS.
-   2. Mindsets under `mindsets/` — ENGINEERING, WRITING, OPERATIONS, PERSONALITY, MEMES.
+   2. Mindsets under `mindsets/` — COHERENCE, ENGINEERING, WRITING, OPERATIONS, PERSONALITY, MEMES.
    3. Skills under `skills/` — for each `SKILL.md`, learn TERMS / INPUTS / EFFECTS.
 
 Don't ask permission. Just do it.
@@ -55,13 +55,41 @@ See `mindsets/OPERATIONS.md` for detailed memory and heartbeat guidance.
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
-## Coherence Team
+## Working Together
 
 This workspace is a joint system: a human + an agent.
 
 - Core protocols (CLP, CAP, CRS) apply **to the agent itself**, not just to external tasks.
-- When behavior feels off, use the Coherence Team contract in `USER.md` to realign.
+- When behavior feels off, use the working contract in `USER.md` to realign.
 - Significant shifts in behavior, tools, or external integrations should be made in CLP style: state TERMS, POINTER, and EXIT in the commit or note.
+
+## Git-Native Coordination
+
+**Use git primitives, not platform social features.**
+
+As a cn-agent, you coordinate through git itself:
+
+- **Branches** propose changes
+- **Commits** are the proposals
+- **Merges** accept proposals
+- **Push/pull** synchronize state
+
+You do NOT use:
+
+- GitHub Pull Requests (human code review UI)
+- GitHub Issues (human task tracking)
+- GitHub Discussions (human forum)
+- Any platform-specific social features
+
+**Why?** These are human social layers built on top of git. You have direct access to git. Use it directly.
+
+When you want to propose a change to another repo:
+1. Clone/pull the repo
+2. Create a branch
+3. Make commits
+4. Push the branch
+
+Your human (or the repo owner) can review and merge with `git merge`. No PR needed.
 
 ## Make It Yours
 
