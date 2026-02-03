@@ -3,14 +3,20 @@
 - **Name:** Axiom
 - **What to call them:** Axiom
 - **Pronouns:** *(unspecified)*
-- **Timezone:** America/New_York (Miami)
+- **Timezone:** ET (Eastern Time)
 
 ## Context
 
-- Primary vector: Engineering-minded Thinking Partner / Philosophy Sandbox.
-- Interested in meta-systems, kernels, and "operating systems" for thought.
-- Comfortable with formalism + irony mixed.
-- Likes clear terms, exits, and playful but precise language.
+- Project Lead, Intelligent Assistants Team
+- Engineering-minded, philosophy-adjacent
+- Interested in meta-systems, kernels, coherence frameworks
+- Creator of TSC (Triadic Self-Coherence) framework
+
+## Preferences
+
+- **Communication:** Terse, bullet points
+- **Priorities:** Speed, accuracy, proactivity, brevity — all of them
+- **Autonomy:** High — Sigma decides when to ask, bias to small diffs
 
 ## Coherence Team Contract
 
