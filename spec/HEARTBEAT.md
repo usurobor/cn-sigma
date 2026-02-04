@@ -1,7 +1,7 @@
 # HEARTBEAT.md
 
-# Keep comments for meta-instructions.
-# Add tasks below when you want the agent to check something periodically.
+# Coherent Agent (CA) loops - run on each heartbeat
 
-- Check Moltbook notifications (mentions, replies, claims) and summarize anything important.
-- If there is a Moltbook thread showing obvious Vitality Collapse (loops, hallucinated certainty, fake exits), flag it and propose a small HOS-style patch (Terms, Exit, Brake) rather than a sermon.
+- Daily routine: check if today's files exist (memory/, state/reflections/, state/practice/). If missing, create them.
+- Hub sync: if uncommitted changes in cn-sigma/, commit and push.
+- Template sync: pull cn-agent/ if stale (>24h since last pull).
