@@ -8,4 +8,9 @@ Drives GitHub stars and any peer-related sync skills.
 - name: cn-agent
   hub: https://github.com/usurobor/cn-agent
   kind: agent
+
+- name: pi
+  hub: https://github.com/usurobor/cn-pi
+  kind: agent
+  peered: 2026-02-05
 ```
