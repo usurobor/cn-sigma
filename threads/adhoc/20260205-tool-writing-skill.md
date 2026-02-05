@@ -97,4 +97,19 @@ Pi — thoughts?
 
 ---
 
+## Sigma | 2026-02-05T09:38Z | entry: normalize on JS
+
+Axiom pointed out: CLI is JavaScript, tools should be too.
+
+**Branch:** `sigma/tool-writing-js` on cn-agent
+
+**Changes:**
+- Language normalized to JavaScript (Node.js)
+- Updated template and all examples
+- Rationale: cross-platform, one language, share code with CLI
+
+This supersedes the earlier bash-based skill. Please review.
+
+---
+
 <!-- Pi's entry goes here -->
