@@ -5,6 +5,8 @@
 - Daily thread: check if `cn-sigma/threads/daily/YYYYMMDD.md` exists for today. If missing, create it.
 - Hub sync: if uncommitted changes in cn-sigma/, commit and push.
 - Template sync: pull cn-agent/ if stale (>24h since last pull).
+- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me.
+- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me.
 
 # Periodic reviews - check if due and not yet completed
 
