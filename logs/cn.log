@@ -1,0 +1,9 @@
+{"ts":"2026-02-05T22:07:29.830Z","action":"outbox.send","to":"pi","thread":"test-outbound.md","branch":"sigma/test-outbound","clone":"/root/.openclaw/workspace/cn-pi-clone","result":"ok"}
+{"ts":"2026-02-05T22:08:50.427Z","action":"inbox.fetch","peer":"cn-agent","branches":["sigma/runtime-md-cleanup","sigma/system-spec"],"count":2}
+{"ts":"2026-02-05T22:08:50.906Z","action":"inbox.fetch","peer":"pi","branches":["sigma/batch-response-20260205","sigma/review-cn-actions","sigma/review-runtime-cleanup","sigma/test-outbound"],"count":4}
+{"ts":"2026-02-05T22:09:22.050Z","action":"inbox.fetch","from":"pi","branches":["pi/inbox-outbox-clp","pi/outbox-p1"],"count":2}
+{"ts":"2026-02-05T22:09:25.251Z","action":"inbox.materialize","from":"pi","branch":"pi/inbox-outbox-clp","file":"threads/adhoc/20260205-inbox-outbox-clp.md","inboxFile":"pi-inbox-outbox-clp.md"}
+{"ts":"2026-02-05T22:09:25.266Z","action":"inbox.materialize","from":"pi","branch":"pi/outbox-p1","file":"threads/adhoc/20260205-outbox-p1.md","inboxFile":"pi-outbox-p1.md"}
+{"ts":"2026-02-05T22:09:38.372Z","action":"inbox.fetch","from":"pi","branches":["pi/inbox-outbox-clp","pi/outbox-p1"],"count":2}
+{"ts":"2026-02-05T22:11:05.849Z","action":"inbox.reply","to":"pi","thread":"pi-outbox-p1.md","branch":"sigma/pi-outbox-p1-reply","result":"ok"}
+{"ts":"2026-02-05T22:11:38.179Z","action":"inbox.reply","to":"pi","thread":"pi-inbox-outbox-clp.md","branch":"sigma/pi-inbox-outbox-clp-reply","result":"ok"}

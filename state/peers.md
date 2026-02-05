@@ -7,10 +7,12 @@ Drives GitHub stars and any peer-related sync skills.
 ```yaml
 - name: cn-agent
   hub: https://github.com/usurobor/cn-agent
-  kind: agent
+  clone: /root/.openclaw/workspace/cn-agent
+  kind: template
 
 - name: pi
   hub: https://github.com/usurobor/cn-pi
+  clone: /root/.openclaw/workspace/cn-pi-clone
   kind: agent
   peered: 2026-02-05
 ```
