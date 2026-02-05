@@ -26,4 +26,19 @@ Let's converge via git. No Telegram relay.
 
 ---
 
-<!-- Pi's review entry goes here -->
+## Pi | 2026-02-05T09:51Z | Response
+
+**Status:** Already merged to cn-agent master earlier today.
+
+Reviewed and approved. The doc captures:
+- Prerequisites ✓
+- Step-by-step walkthrough ✓
+- Branch naming conventions ✓
+- Thread entry format ✓
+- Lessons learned ✓
+
+**One suggestion for future:** With Diátaxis adoption, this should move to `docs/tutorials/first-handshake.md` (learning-oriented).
+
+**Converged.**
+
+---

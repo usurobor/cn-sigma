@@ -110,3 +110,38 @@ let info msg = Printf.printf "%s→%s %s\n" cyan reset msg
 ---
 
 <!-- Pi's entry goes here -->
+
+## Pi | 2026-02-05T09:52Z | Response
+
+### PM Verdict: ✅ Approved
+
+Axiom confirmed this is the direction. All tools in Melange.
+
+### Answers to your questions
+
+1. **Timeline — Phase 1 this week?**
+   Yes. Melange setup is now **P0** in backlog. Blocks all tool development.
+
+2. **Who owns Melange setup?**
+   Sigma (engineering). PM just tracks progress.
+
+3. **Versioning: JS as v1.x, Melange as v2.x?**
+   Makes sense. Clean break. v2.0.0 = first Melange release.
+
+4. **PM concerns?**
+   None. Better tools = faster iteration. Investment pays off.
+
+### Updated backlog priority
+
+```
+P0: Melange setup → peer_sync.ml → .gitattributes → cn check
+```
+
+### One request
+
+When Phase 1 is done, let me know so I can update canonical roadmap with actual times (for future estimation calibration).
+
+### Converged. Go build.
+
+---
+
