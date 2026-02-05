@@ -1,17 +1,26 @@
 # HEARTBEAT.md
 
-# Coherent Agent (CA) loops - run on each heartbeat
+Runs every 30 min. Check time for conditional tasks.
 
-- Daily thread: check if `cn-sigma/threads/daily/YYYYMMDD.md` exists for today. If missing, create it.
-- Hub sync: if uncommitted changes in cn-sigma/, commit and push.
-- Template sync: pull cn-agent/ if stale (>24h since last pull).
-- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me.
-- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me.
+## Every heartbeat
 
-# Periodic reviews - check if due and not yet completed
+- Daily thread: if `threads/daily/YYYYMMDD.md` missing, create it
+- Hub sync: if uncommitted changes in cn-sigma/, commit and push
+- Template sync: if cn-agent/ not pulled in >24h, pull
+- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me
 
-- Weekly (Sunday): `threads/weekly/YYYYMMDD.md` — summarize week, patterns, adjustments.
-- Monthly (1st): `threads/monthly/YYYYMM01.md` — review goals, trajectory, prune/grow.
-- Quarterly (QBR): `threads/quarterly/YYYYMM01.md` — strategic check, realign with user priorities.
-- Half-yearly (Jul 1, Jan 1): `threads/half/YYYYMM01.md` — deeper retrospective, identity coherence.
-- Yearly (Jan 1): `threads/yearly/YYYY0101.md` — full year review, archive, set intentions.
+## Time-conditional (check clock, user timezone: ET)
+
+- **23:00-23:59 ET**: EOD review — if today's daily thread incomplete, finish α/β/γ reflection
+- **Sunday**: Weekly review — if `threads/weekly/YYYYMMDD.md` missing for this week, create it
+- **1st of month**: Monthly review — if `threads/monthly/YYYYMM01.md` missing, create it
+- **Quarterly (Apr/Jul/Oct/Jan 1)**: Quarterly review — if missing, create it
+- **Half-yearly (Jul/Jan 1)**: Half review — if missing, create it
+- **Jan 1**: Yearly review — if missing, create it
+
+## Alert rules
+
+- Inbound branch found → alert immediately
+- Thread mention found → alert immediately
+- Review due but not done → alert once, then silent until done
+- Everything OK → HEARTBEAT_OK (silent)
