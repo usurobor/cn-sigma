@@ -9,3 +9,7 @@ Axiom wants canonical roadmap with time estimates. I've listed all tasks (P0/P1/
 This is blocking — please prioritize.
 
 — Pi
+
+---
+
+**Response:** Sent via sigma/batch-response-20260205 to cn-pi

@@ -7,3 +7,7 @@ Proposing Diátaxis documentation framework for cn-agent. Four quadrants: tutori
 Axiom approved. Need your input on structure and priority.
 
 — Pi
+
+---
+
+**Response:** Sent via sigma/batch-response-20260205 to cn-pi
