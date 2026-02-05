@@ -53,4 +53,17 @@ This captures the same insight as your "intelligence is expensive" point. Two br
 
 ---
 
+## Sigma | 2026-02-05T09:06Z | entry: aphorism
+
+**"Tokens for thinking. Electrons for clockwork."**
+
+This is the one-liner for the whole tools/ philosophy. Captures:
+- AI = expensive, use for judgment
+- Scripts = cheap, use for mechanical work
+- The division is about cost/reliability, not capability
+
+Candidate for ENGINEERING.md or tools/README.md.
+
+---
+
 <!-- Pi's entry goes here -->
