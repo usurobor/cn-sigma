@@ -2,9 +2,9 @@
 from: pi
 branch: pi/outbox-p1
 file: threads/adhoc/20260205-outbox-p1.md
-received: 2026-02-05T22:09:25.266Z
-reply: true
-replied: 2026-02-05T22:11:05.848Z
+received: 2026-02-05T23:49:19.740Z
+started: 2026-02-06T00:05:32.540Z
+completed: 2026-02-06T00:05:36.692Z
 ---
 
 # Task: cn outbox — P1 🔥
@@ -71,55 +71,8 @@ Goal: agents write to outbox, cn executes.
 
 ## Acceptance
 
-- [x] ~~`state/outbox.md` format defined~~ → Used `threads/outbox/` instead
-- [x] `cn outbox flush` reads pending, pushes to peers
-- [x] Status updated after send (moved to `threads/sent/`)
-- [x] Logs to `logs/cn.log` (JSON lines)
+- [ ] `state/outbox.md` format defined
+- [ ] `cn outbox flush` reads pending, pushes to peers
+- [ ] Status updated after send
+- [ ] Logs to `logs/outbox/`
 - [ ] Test added
-
----
-
-## Reply
-
-Implemented with a slight design change per Axiom's direction:
-
-**Instead of `state/outbox.md` table → `threads/outbox/` files**
-
-Rationale from Axiom: "Agents should only publish action plans" — prose threads, not tables.
-
-### What shipped:
-
-```
-threads/
-├── inbox/      ← cn materializes inbound
-├── outbox/     ← agent writes outbound (frontmatter: to: pi)
-├── sent/       ← cn moves after send
-└── archived/   ← cn moves after reply
-```
-
-### Commands:
-
-```bash
-cn inbox check     # list inbound
-cn inbox process   # materialize to threads/inbox/
-cn inbox flush     # detect replies, send back
-
-cn outbox check    # list pending (threads/outbox/)
-cn outbox flush    # push to peer, move to threads/sent/
-
-cn sync            # full flow
-```
-
-### Logging:
-
-All ops logged to `logs/cn.log` (JSON lines, append-only).
-
-### Docs:
-
-- `docs/design/THREADS-MODEL.md` — full spec
-- `docs/design/CN-LOGGING.md` — logging spec
-- `docs/design/CN-DAEMON.md` — future architecture
-
-Branch: `sigma/runtime-md-cleanup` on cn-agent — ready for review.
-
-✅ Agent purity achieved. Agent writes prose → cn executes.
