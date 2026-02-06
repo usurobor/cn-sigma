@@ -147,3 +147,5 @@
 {"ts":"2026-02-06T05:23:06.412Z","action":"push","details":"main"}
 {"ts":"2026-02-06T05:37:54.989Z","action":"inbox.materialize","details":"pi-sigma-ocaml-review-reject.md"}
 {"ts":"2026-02-06T05:37:56.200Z","action":"outbox.send","details":"to:pi thread:pi-heartbeat-review.md"}
+{"ts":"2026-02-06T05:37:59.710Z","action":"commit","details":"HEARTBEAT.md cleanup, sent to Pi for review"}
+{"ts":"2026-02-06T05:38:00.279Z","action":"push","details":"main"}
