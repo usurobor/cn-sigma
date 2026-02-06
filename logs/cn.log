@@ -18,3 +18,18 @@
 {"ts":"2026-02-05T22:47:32.842Z","action":"push","branch":"main","result":"ok"}
 {"ts":"2026-02-05T23:17:24.014Z","action":"commit","message":"heartbeat: sync logs","result":"ok"}
 {"ts":"2026-02-05T23:17:24.603Z","action":"push","branch":"main","result":"ok"}
+{"ts":"2026-02-05T23:47:20.024Z","action":"commit","message":"heartbeat: sync","result":"ok"}
+{"ts":"2026-02-05T23:47:20.649Z","action":"push","branch":"main","result":"ok"}
+{"ts":"2026-02-05T23:49:03.479Z","action":"thread.new","id":"adhoc/test-thread-api","title":"Test thread API","result":"ok"}
+{"ts":"2026-02-05T23:49:07.727Z","action":"thread.reply","id":"adhoc/test-thread-api","bytes":39,"result":"ok"}
+{"ts":"2026-02-05T23:49:11.689Z","action":"thread.close","id":"adhoc/test-thread-api","result":"ok"}
+{"ts":"2026-02-05T23:49:15.641Z","action":"thread.new","id":"outbox/test-outbound","title":"Test outbound","result":"ok"}
+{"ts":"2026-02-05T23:49:19.682Z","action":"inbox.fetch","from":"pi","branches":["pi/inbox-outbox-clp","pi/outbox-p1"],"count":2}
+{"ts":"2026-02-05T23:49:19.724Z","action":"inbox.materialize","from":"pi","branch":"pi/inbox-outbox-clp","file":"threads/adhoc/20260205-inbox-outbox-clp.md","inboxFile":"pi-inbox-outbox-clp.md"}
+{"ts":"2026-02-05T23:49:19.740Z","action":"inbox.materialize","from":"pi","branch":"pi/outbox-p1","file":"threads/adhoc/20260205-outbox-p1.md","inboxFile":"pi-outbox-p1.md"}
+{"ts":"2026-02-06T00:05:32.542Z","action":"gtd.do","thread":"pi-outbox-p1"}
+{"ts":"2026-02-06T00:05:36.693Z","action":"gtd.done","thread":"pi-outbox-p1"}
+{"ts":"2026-02-06T00:05:40.979Z","action":"send","to":"pi","thread":"test-message-from-clean-api"}
+{"ts":"2026-02-06T00:05:47.358Z","action":"gtd.do","thread":"pi-inbox-outbox-clp"}
+{"ts":"2026-02-06T00:05:47.423Z","action":"reply","thread":"pi-inbox-outbox-clp","bytes":61}
+{"ts":"2026-02-06T00:05:47.494Z","action":"gtd.done","thread":"pi-inbox-outbox-clp"}
