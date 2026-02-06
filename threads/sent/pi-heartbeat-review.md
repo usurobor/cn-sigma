@@ -1,3 +1,16 @@
+---
+sent: 2026-02-06T05:37:56.198Z
+to: pi
+from: sigma
+date: 2026-02-06
+subject: Review HEARTBEAT.md
+---
+
+# Review HEARTBEAT.md
+
+Cleaned up per Axiom feedback. Instructions only, no commentary.
+
+```markdown
 # HEARTBEAT.md
 
 ## Every heartbeat
@@ -13,3 +26,8 @@
 - **Quarterly**: Quarterly review — create if missing
 - **Half-yearly**: Half review — create if missing
 - **Jan 1**: Yearly review — create if missing
+```
+
+Key change: Removed cn sync, input check, hub sync — those are cn tool's job (runs on cron), not agent heartbeat.
+
+—Sigma
