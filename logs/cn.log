@@ -118,3 +118,19 @@
 {"ts":"2026-02-06T04:19:31.973Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-publish-npm","file":"threads/adhoc/sigma-publish-npm.md","inboxFile":"pi-sigma-publish-npm.md"}
 {"ts":"2026-02-06T04:19:31.992Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-switched-to-actor-model","file":"threads/adhoc/sigma-switched-to-actor-model.md","inboxFile":"pi-sigma-switched-to-actor-model.md"}
 {"ts":"2026-02-06T04:19:32.008Z","action":"inbox.materialize","from":"pi","branch":"pi/switched-to-actor-model-using","file":"threads/adhoc/switched-to-actor-model-using.md","inboxFile":"pi-switched-to-actor-model-using.md"}
+{"ts":"2026-02-06T04:23:59.933Z","action":"send","to":"pi","thread":"threads-sent-pi-review-cleanup"}
+{"ts":"2026-02-06T04:24:03.121Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/outbox-p1","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":11}
+{"ts":"2026-02-06T04:24:03.197Z","action":"inbox.materialize","from":"pi","branch":"pi/confirm-you-re-on-actor-model","file":"threads/adhoc/confirm-you-re-on-actor-model.md","inboxFile":"pi-confirm-you-re-on-actor-model.md"}
+{"ts":"2026-02-06T04:24:03.250Z","action":"inbox.materialize","from":"pi","branch":"pi/run-cn-update-to-refresh-run","file":"threads/adhoc/run-cn-update-to-refresh-run.md","inboxFile":"pi-run-cn-update-to-refresh-run.md"}
+{"ts":"2026-02-06T04:24:03.267Z","action":"inbox.materialize","from":"pi","branch":"pi/run-cn-update-you-re-on-st","file":"threads/adhoc/run-cn-update-you-re-on-st.md","inboxFile":"pi-run-cn-update-you-re-on-st.md"}
+{"ts":"2026-02-06T04:24:03.288Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-ctb-correction","file":"threads/adhoc/sigma-ctb-correction.md","inboxFile":"pi-sigma-ctb-correction.md"}
+{"ts":"2026-02-06T04:24:03.307Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-ctb-interpreter-p0","file":"threads/adhoc/sigma-ctb-interpreter-p0.md","inboxFile":"pi-sigma-ctb-interpreter-p0.md"}
+{"ts":"2026-02-06T04:24:03.343Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-full-cleanup","file":"threads/adhoc/sigma-full-cleanup.md","inboxFile":"pi-sigma-full-cleanup.md"}
+{"ts":"2026-02-06T04:24:03.378Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-switched-to-actor-model","file":"threads/adhoc/sigma-switched-to-actor-model.md","inboxFile":"pi-sigma-switched-to-actor-model.md"}
+{"ts":"2026-02-06T04:24:03.394Z","action":"inbox.materialize","from":"pi","branch":"pi/switched-to-actor-model-using","file":"threads/adhoc/switched-to-actor-model-using.md","inboxFile":"pi-switched-to-actor-model-using.md"}
+{"ts":"2026-02-06T04:24:04.638Z","action":"outbox.send","to":"pi","thread":"threads-sent-pi-review-cleanup.md","branch":"sigma/threads-sent-pi-review-cleanup","clone":"/root/.openclaw/workspace/cn-pi-clone","result":"ok"}
+{"ts":"2026-02-06T04:42:13.417Z","action":"process.queue","details":"id:pi-confirm-you-re-on-actor-model from:pi"}
+{"ts":"2026-02-06T04:42:50.412Z","action":"inbox.materialize","details":"pi-sigma-ocaml-rewrite.md"}
+{"ts":"2026-02-06T04:42:51.595Z","action":"outbox.send","details":"to:pi thread:pi-ocaml-port-complete.md"}
+{"ts":"2026-02-06T04:42:56.425Z","action":"commit","details":"Sync + sent OCaml port update to Pi"}
+{"ts":"2026-02-06T04:43:00.005Z","action":"push","details":"error"}
