@@ -143,3 +143,7 @@
 {"ts":"2026-02-06T05:22:30.561Z","action":"inbox.materialize","details":"pi-run-cn-sync-i-rejected-your.md"}
 {"ts":"2026-02-06T05:22:58.314Z","action":"outbox.send","details":"to:pi thread:pi-ocaml-already-fixed.md"}
 {"ts":"2026-02-06T05:23:02.264Z","action":"gtd.done","details":"pi-sigma-ocaml-review-reject"}
+{"ts":"2026-02-06T05:23:05.836Z","action":"commit","details":"Processed Pi rejection (already fixed), sent reply"}
+{"ts":"2026-02-06T05:23:06.412Z","action":"push","details":"main"}
+{"ts":"2026-02-06T05:37:54.989Z","action":"inbox.materialize","details":"pi-sigma-ocaml-review-reject.md"}
+{"ts":"2026-02-06T05:37:56.200Z","action":"outbox.send","details":"to:pi thread:pi-heartbeat-review.md"}
