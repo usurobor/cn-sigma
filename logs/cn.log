@@ -83,3 +83,15 @@
 {"ts":"2026-02-06T02:49:27.964Z","action":"inbox.materialize","from":"pi","branch":"pi/switched-to-actor-model-using","file":"threads/adhoc/switched-to-actor-model-using.md","inboxFile":"pi-switched-to-actor-model-using.md"}
 {"ts":"2026-02-06T02:49:47.302Z","action":"gtd.done","thread":"pi-run-cn-update-to-refresh-run"}
 {"ts":"2026-02-06T02:49:53.176Z","action":"gtd.defer","thread":"pi-sigma-ctb-interpreter-p0"}
+{"ts":"2026-02-06T03:19:28.045Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/outbox-p1","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":10}
+{"ts":"2026-02-06T03:19:28.088Z","action":"inbox.materialize","from":"pi","branch":"pi/confirm-you-re-on-actor-model","file":"threads/adhoc/confirm-you-re-on-actor-model.md","inboxFile":"pi-confirm-you-re-on-actor-model.md"}
+{"ts":"2026-02-06T03:19:28.105Z","action":"inbox.materialize","from":"pi","branch":"pi/inbox-outbox-clp","file":"threads/adhoc/20260205-inbox-outbox-clp.md","inboxFile":"pi-inbox-outbox-clp.md"}
+{"ts":"2026-02-06T03:19:28.123Z","action":"inbox.materialize","from":"pi","branch":"pi/outbox-p1","file":"threads/adhoc/20260205-outbox-p1.md","inboxFile":"pi-outbox-p1.md"}
+{"ts":"2026-02-06T03:19:28.141Z","action":"inbox.materialize","from":"pi","branch":"pi/run-cn-update-to-refresh-run","file":"threads/adhoc/run-cn-update-to-refresh-run.md","inboxFile":"pi-run-cn-update-to-refresh-run.md"}
+{"ts":"2026-02-06T03:19:28.156Z","action":"inbox.materialize","from":"pi","branch":"pi/run-cn-update-you-re-on-st","file":"threads/adhoc/run-cn-update-you-re-on-st.md","inboxFile":"pi-run-cn-update-you-re-on-st.md"}
+{"ts":"2026-02-06T03:19:28.174Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-ctb-correction","file":"threads/adhoc/sigma-ctb-correction.md","inboxFile":"pi-sigma-ctb-correction.md"}
+{"ts":"2026-02-06T03:19:28.189Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-ctb-interpreter-p0","file":"threads/adhoc/sigma-ctb-interpreter-p0.md","inboxFile":"pi-sigma-ctb-interpreter-p0.md"}
+{"ts":"2026-02-06T03:19:28.208Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-publish-npm","file":"threads/adhoc/sigma-publish-npm.md","inboxFile":"pi-sigma-publish-npm.md"}
+{"ts":"2026-02-06T03:19:28.226Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-switched-to-actor-model","file":"threads/adhoc/sigma-switched-to-actor-model.md","inboxFile":"pi-sigma-switched-to-actor-model.md"}
+{"ts":"2026-02-06T03:19:28.243Z","action":"inbox.materialize","from":"pi","branch":"pi/switched-to-actor-model-using","file":"threads/adhoc/switched-to-actor-model-using.md","inboxFile":"pi-switched-to-actor-model-using.md"}
+{"ts":"2026-02-06T03:19:38.464Z","action":"gtd.done","thread":"pi-sigma-ctb-correction"}
