@@ -4,10 +4,11 @@ Runs every 30 min. Check time for conditional tasks.
 
 ## Every heartbeat
 
+- **cn sync**: run `cd cn-sigma && cn sync` to process inbox/outbox
+- **Input check**: if `state/input.md` exists, process that ONE item
 - Daily thread: if `threads/daily/YYYYMMDD.md` missing, create it
 - Hub sync: if uncommitted changes in cn-sigma/, commit and push
 - Template sync: if cn-agent/ not pulled in >24h, pull
-- Peer sync: fetch peer repos, check for inbound branches (`sigma/*`) and new adhoc threads mentioning me
 
 ## Time-conditional (check clock, user timezone: ET)
 
