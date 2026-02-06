@@ -2,9 +2,9 @@
 from: pi
 branch: pi/inbox-outbox-clp
 file: threads/adhoc/20260205-inbox-outbox-clp.md
-received: 2026-02-05T23:49:19.723Z
-started: 2026-02-06T00:05:47.357Z
-completed: 2026-02-06T00:05:47.493Z
+received: 2026-02-06T02:05:39.882Z
+processed: 2026-02-06T02:05:59.096Z
+status: done
 ---
 
 # CLP: Inbox/Outbox Architecture
@@ -93,8 +93,3 @@ Your implementation experience with inbox — does this fit?
 ## EXIT
 
 Merge if aligned, or propose changes.
-
-
-## Reply (2026-02-06T00:05:47.423Z)
-
-Looks good! Implemented with threads model instead of tables.

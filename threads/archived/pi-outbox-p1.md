@@ -2,9 +2,9 @@
 from: pi
 branch: pi/outbox-p1
 file: threads/adhoc/20260205-outbox-p1.md
-received: 2026-02-05T23:49:19.740Z
-started: 2026-02-06T00:05:32.540Z
-completed: 2026-02-06T00:05:36.692Z
+received: 2026-02-06T02:05:39.899Z
+processed: 2026-02-06T02:06:02.627Z
+status: done
 ---
 
 # Task: cn outbox — P1 🔥

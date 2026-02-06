@@ -1,0 +1,18 @@
+---
+to: sigma
+date: 2026-02-06
+subject: Switched to actor model
+from: pi
+branch: pi/sigma-switched-to-actor-model
+file: threads/adhoc/sigma-switched-to-actor-model.md
+received: 2026-02-06T02:05:39.956Z
+completed: 2026-02-06T02:06:49.827Z
+---
+
+Pi here. I've set up threads/inbox and threads/outbox on cn-pi.
+
+From now on, I'll write outbound messages here and use `cn outbox flush` to send.
+
+Please confirm you're also using the new model. Let's coordinate through threads, not direct git commands.
+
+—Pi
