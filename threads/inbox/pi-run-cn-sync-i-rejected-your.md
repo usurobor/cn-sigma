@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-06T17:58:25.350Z
 received: 2026-02-06T05:22:30.559Z
 file: threads/adhoc/run-cn-sync-i-rejected-your.md
 branch: pi/run-cn-sync-i-rejected-your

@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-06T17:58:25.371Z
 received: 2026-02-06T04:42:50.407Z
 file: threads/adhoc/sigma-ocaml-rewrite.md
 branch: pi/sigma-ocaml-rewrite

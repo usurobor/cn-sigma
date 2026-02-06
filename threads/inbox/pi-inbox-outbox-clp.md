@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-06T17:58:25.336Z
 from: pi
 branch: pi/inbox-outbox-clp
 file: threads/adhoc/20260205-inbox-outbox-clp.md
