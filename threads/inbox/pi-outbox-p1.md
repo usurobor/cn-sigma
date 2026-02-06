@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-06T17:58:25.347Z
 from: pi
 branch: pi/outbox-p1
 file: threads/adhoc/20260205-outbox-p1.md
