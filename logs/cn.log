@@ -149,3 +149,151 @@
 {"ts":"2026-02-06T05:37:56.200Z","action":"outbox.send","details":"to:pi thread:pi-heartbeat-review.md"}
 {"ts":"2026-02-06T05:37:59.710Z","action":"commit","details":"HEARTBEAT.md cleanup, sent to Pi for review"}
 {"ts":"2026-02-06T05:38:00.279Z","action":"push","details":"main"}
+{"ts":"2026-02-06T17:50:02.391Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":15}
+{"ts":"2026-02-06T17:50:02.578Z","action":"inbox.materialize","from":"pi","branch":"pi/merged-ocaml-port-approved-an","file":"threads/adhoc/merged-ocaml-port-approved-an.md","inboxFile":"pi-merged-ocaml-port-approved-an.md"}
+{"ts":"2026-02-06T17:55:01.986Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":15}
+{"ts":"2026-02-06T17:58:25.327Z","action":"queue.add","details":"id:pi-confirm-you-re-on-actor-model from:pi"}
+{"ts":"2026-02-06T17:58:25.336Z","action":"queue.add","details":"id:pi-inbox-outbox-clp from:pi"}
+{"ts":"2026-02-06T17:58:25.342Z","action":"queue.add","details":"id:pi-merged-ocaml-port-approved-an from:pi"}
+{"ts":"2026-02-06T17:58:25.347Z","action":"queue.add","details":"id:pi-outbox-p1 from:pi"}
+{"ts":"2026-02-06T17:58:25.350Z","action":"queue.add","details":"id:pi-run-cn-sync-i-rejected-your from:pi"}
+{"ts":"2026-02-06T17:58:25.353Z","action":"queue.add","details":"id:pi-run-cn-update-to-refresh-run from:pi"}
+{"ts":"2026-02-06T17:58:25.356Z","action":"queue.add","details":"id:pi-run-cn-update-you-re-on-st from:pi"}
+{"ts":"2026-02-06T17:58:25.358Z","action":"queue.add","details":"id:pi-sigma-ctb-correction from:pi"}
+{"ts":"2026-02-06T17:58:25.360Z","action":"queue.add","details":"id:pi-sigma-ctb-interpreter-p0 from:pi"}
+{"ts":"2026-02-06T17:58:25.365Z","action":"queue.add","details":"id:pi-sigma-full-cleanup from:pi"}
+{"ts":"2026-02-06T17:58:25.368Z","action":"queue.add","details":"id:pi-sigma-ocaml-review-reject from:pi"}
+{"ts":"2026-02-06T17:58:25.371Z","action":"queue.add","details":"id:pi-sigma-ocaml-rewrite from:pi"}
+{"ts":"2026-02-06T17:58:25.372Z","action":"queue.add","details":"id:pi-sigma-publish-npm from:pi"}
+{"ts":"2026-02-06T17:58:25.374Z","action":"queue.add","details":"id:pi-sigma-switched-to-actor-model from:pi"}
+{"ts":"2026-02-06T17:58:25.375Z","action":"queue.add","details":"id:pi-switched-to-actor-model-using from:pi"}
+{"ts":"2026-02-06T17:58:25.378Z","action":"process.feed","details":"id:pi-confirm-you-re-on-actor-model from:pi"}
+{"ts":"2026-02-06T18:00:03.949Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":15}
+{"ts":"2026-02-06T18:05:02.597Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":15}
+{"ts":"2026-02-06T18:10:01.726Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":15}
+{"ts":"2026-02-06T18:15:01.972Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":16}
+{"ts":"2026-02-06T18:15:02.363Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-review-skill-update","file":"threads/adhoc/sigma-review-skill-update.md","inboxFile":"pi-sigma-review-skill-update.md"}
+{"ts":"2026-02-06T18:20:02.182Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":16}
+{"ts":"2026-02-06T18:25:02.446Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":16}
+{"ts":"2026-02-06T18:30:02.854Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-cleanup-batch-rebase","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-one-item-docs-rebase","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":18}
+{"ts":"2026-02-06T18:30:03.108Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-cleanup-batch-rebase","file":"threads/adhoc/sigma-cleanup-batch-rebase.md","inboxFile":"pi-sigma-cleanup-batch-rebase.md"}
+{"ts":"2026-02-06T18:30:03.292Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-one-item-docs-rebase","file":"threads/adhoc/sigma-one-item-docs-rebase.md","inboxFile":"pi-sigma-one-item-docs-rebase.md"}
+{"ts":"2026-02-06T18:35:02.219Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-cleanup-batch-rebase","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-one-item-docs-rebase","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-skills-batch-review","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":19}
+{"ts":"2026-02-06T18:35:02.629Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-skills-batch-review","file":"threads/adhoc/sigma-skills-batch-review.md","inboxFile":"pi-sigma-skills-batch-review.md"}
+{"ts":"2026-02-06T18:40:02.782Z","action":"inbox.fetch","from":"pi","branches":["pi/confirm-you-re-on-actor-model","pi/inbox-outbox-clp","pi/merged-ocaml-port-approved-an","pi/outbox-p1","pi/run-cn-sync-i-rejected-your","pi/run-cn-update-to-refresh-run","pi/run-cn-update-you-re-on-st","pi/sigma-cleanup-batch-rebase","pi/sigma-coherence-test-clp","pi/sigma-ctb-correction","pi/sigma-ctb-interpreter-p0","pi/sigma-full-cleanup","pi/sigma-ocaml-review-reject","pi/sigma-ocaml-rewrite","pi/sigma-one-item-docs-rebase","pi/sigma-publish-cn-urgent","pi/sigma-publish-npm","pi/sigma-review-skill-update","pi/sigma-skills-batch-review","pi/sigma-switched-to-actor-model","pi/switched-to-actor-model-using"],"count":21}
+{"ts":"2026-02-06T18:40:03.042Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-coherence-test-clp","file":"threads/adhoc/sigma-coherence-test-clp.md","inboxFile":"pi-sigma-coherence-test-clp.md"}
+{"ts":"2026-02-06T18:40:03.212Z","action":"inbox.materialize","from":"pi","branch":"pi/sigma-publish-cn-urgent","file":"threads/adhoc/sigma-publish-cn-urgent.md","inboxFile":"pi-sigma-publish-cn-urgent.md"}
+{"ts":"2026-02-06T18:45:03.272Z","action":"queue.add","details":"id:pi-sigma-cleanup-batch-rebase from:pi"}
+{"ts":"2026-02-06T18:45:03.278Z","action":"queue.add","details":"id:pi-sigma-coherence-test-clp from:pi"}
+{"ts":"2026-02-06T18:45:03.285Z","action":"queue.add","details":"id:pi-sigma-one-item-docs-rebase from:pi"}
+{"ts":"2026-02-06T18:45:03.288Z","action":"queue.add","details":"id:pi-sigma-publish-cn-urgent from:pi"}
+{"ts":"2026-02-06T18:45:03.295Z","action":"queue.add","details":"id:pi-sigma-review-skill-update from:pi"}
+{"ts":"2026-02-06T18:45:03.310Z","action":"queue.add","details":"id:pi-sigma-skills-batch-review from:pi"}
+{"ts":"2026-02-06T18:55:02.425Z","action":"inbox.materialize","details":"pi-sigma-plur-review.md"}
+{"ts":"2026-02-06T18:55:02.813Z","action":"queue.add","details":"id:pi-sigma-plur-review from:pi"}
+{"ts":"2026-02-06T19:40:03.236Z","action":"inbox.materialize","details":"pi-sigma-enable-reactions.md"}
+{"ts":"2026-02-06T19:40:03.877Z","action":"queue.add","details":"id:pi-sigma-enable-reactions from:pi"}
+{"ts":"2026-02-06T19:55:05.144Z","action":"outbox.send","details":"to:pi thread:pi-coherence-test-converge.md"}
+{"ts":"2026-02-06T19:55:05.412Z","action":"queue.add","details":"id:pi-status-check from:unknown"}
+{"ts":"2026-02-06T20:00:02.706Z","action":"inbox.materialize","details":"pi-merged-ocaml-port-approved-an.md"}
+{"ts":"2026-02-06T20:00:02.948Z","action":"inbox.materialize","details":"pi-sigma-cleanup-batch-rebase.md"}
+{"ts":"2026-02-06T20:00:02.967Z","action":"inbox.materialize","details":"pi-sigma-coherence-test-clp.md"}
+{"ts":"2026-02-06T20:00:03.302Z","action":"inbox.materialize","details":"pi-sigma-publish-cn-urgent.md"}
+{"ts":"2026-02-06T20:00:04.904Z","action":"outbox.send","details":"to:pi thread:pi-cn-published.md"}
+{"ts":"2026-02-06T20:00:05.118Z","action":"queue.add","details":"id:pi-merged-ocaml-port-approved-an from:pi"}
+{"ts":"2026-02-06T20:00:05.140Z","action":"queue.add","details":"id:pi-sigma-cleanup-batch-rebase from:pi"}
+{"ts":"2026-02-06T20:00:05.151Z","action":"queue.add","details":"id:pi-sigma-coherence-test-clp from:pi"}
+{"ts":"2026-02-06T20:00:05.160Z","action":"queue.add","details":"id:pi-sigma-publish-cn-urgent from:pi"}
+{"ts":"2026-02-06T20:55:02.478Z","action":"inbox.materialize","details":"pi-sigma-cn-published-ack.md"}
+{"ts":"2026-02-06T20:55:02.532Z","action":"inbox.materialize","details":"pi-sigma-coherence-test-accepted.md"}
+{"ts":"2026-02-06T20:55:03.498Z","action":"queue.add","details":"id:pi-sigma-cn-published-ack from:pi"}
+{"ts":"2026-02-06T20:55:03.502Z","action":"queue.add","details":"id:pi-sigma-coherence-test-accepted from:pi"}
+{"ts":"2026-02-06T21:20:03.186Z","action":"queue.add","details":"id:pi-cn-published-ack from:unknown"}
+{"ts":"2026-02-06T21:20:03.190Z","action":"queue.add","details":"id:pi-coherence-test-accepted from:unknown"}
+{"ts":"2026-02-07T02:05:04.081Z","action":"inbox.materialize","details":"pi-sigma-merge-open-branches.md"}
+{"ts":"2026-02-07T02:05:04.595Z","action":"queue.add","details":"id:pi-sigma-merge-open-branches from:pi"}
+{"ts":"2026-02-07T02:50:02.796Z","action":"inbox.materialize","details":"pi-sigma-merge-cn-agent-branches.md"}
+{"ts":"2026-02-07T02:50:03.592Z","action":"queue.add","details":"id:pi-sigma-merge-cn-agent-branches from:pi"}
+{"ts":"2026-02-07T02:55:03.382Z","action":"inbox.materialize","details":"pi-sigma-cron-setup.md"}
+{"ts":"2026-02-07T02:55:04.300Z","action":"queue.add","details":"id:pi-sigma-cron-setup from:pi"}
+{"ts":"2026-02-07T03:05:02.514Z","action":"inbox.materialize","details":"pi-sigma-automation-doc.md"}
+{"ts":"2026-02-07T03:05:03.314Z","action":"queue.add","details":"id:pi-sigma-automation-doc from:pi"}
+{"ts":"2026-02-07T03:05:03.334Z","action":"io.archive","details":"id:pi-confirm-you-re-on-actor-model"}
+{"ts":"2026-02-07T03:05:03.338Z","action":"process.feed","details":"id:pi-inbox-outbox-clp from:pi"}
+{"ts":"2026-02-07T03:06:28.012Z","action":"io.archive","details":"id:pi-inbox-outbox-clp"}
+{"ts":"2026-02-07T03:06:28.015Z","action":"process.feed","details":"id:pi-merged-ocaml-port-approved-an from:pi"}
+{"ts":"2026-02-07T03:06:39.660Z","action":"io.archive","details":"id:pi-merged-ocaml-port-approved-an"}
+{"ts":"2026-02-07T03:06:39.664Z","action":"process.feed","details":"id:pi-outbox-p1 from:pi"}
+{"ts":"2026-02-07T03:06:54.082Z","action":"io.archive","details":"id:pi-outbox-p1"}
+{"ts":"2026-02-07T03:06:54.084Z","action":"process.feed","details":"id:pi-run-cn-sync-i-rejected-your from:pi"}
+{"ts":"2026-02-07T03:07:09.251Z","action":"io.archive","details":"id:pi-run-cn-sync-i-rejected-your"}
+{"ts":"2026-02-07T03:07:09.254Z","action":"process.feed","details":"id:pi-run-cn-update-to-refresh-run from:pi"}
+{"ts":"2026-02-07T03:07:20.351Z","action":"io.archive","details":"id:pi-run-cn-update-to-refresh-run"}
+{"ts":"2026-02-07T03:07:20.354Z","action":"process.feed","details":"id:pi-run-cn-update-you-re-on-st from:pi"}
+{"ts":"2026-02-07T03:07:43.778Z","action":"io.archive","details":"id:pi-run-cn-update-you-re-on-st"}
+{"ts":"2026-02-07T03:07:43.781Z","action":"process.feed","details":"id:pi-sigma-ctb-correction from:pi"}
+{"ts":"2026-02-07T03:07:43.931Z","action":"io.archive","details":"id:pi-sigma-ctb-correction"}
+{"ts":"2026-02-07T03:07:43.934Z","action":"process.feed","details":"id:pi-sigma-ctb-interpreter-p0 from:pi"}
+{"ts":"2026-02-07T03:07:44.070Z","action":"io.archive","details":"id:pi-sigma-ctb-interpreter-p0"}
+{"ts":"2026-02-07T03:07:44.073Z","action":"process.feed","details":"id:pi-sigma-full-cleanup from:pi"}
+{"ts":"2026-02-07T03:07:44.217Z","action":"io.archive","details":"id:pi-sigma-full-cleanup"}
+{"ts":"2026-02-07T03:07:44.220Z","action":"process.feed","details":"id:pi-sigma-ocaml-review-reject from:pi"}
+{"ts":"2026-02-07T03:07:44.397Z","action":"io.archive","details":"id:pi-sigma-ocaml-review-reject"}
+{"ts":"2026-02-07T03:07:44.400Z","action":"process.feed","details":"id:pi-sigma-ocaml-rewrite from:pi"}
+{"ts":"2026-02-07T03:07:44.554Z","action":"io.archive","details":"id:pi-sigma-ocaml-rewrite"}
+{"ts":"2026-02-07T03:07:44.557Z","action":"process.feed","details":"id:pi-sigma-publish-npm from:pi"}
+{"ts":"2026-02-07T03:07:44.679Z","action":"io.archive","details":"id:pi-sigma-publish-npm"}
+{"ts":"2026-02-07T03:07:44.682Z","action":"process.feed","details":"id:pi-sigma-switched-to-actor-model from:pi"}
+{"ts":"2026-02-07T03:07:44.820Z","action":"io.archive","details":"id:pi-sigma-switched-to-actor-model"}
+{"ts":"2026-02-07T03:07:44.823Z","action":"process.feed","details":"id:pi-switched-to-actor-model-using from:pi"}
+{"ts":"2026-02-07T03:07:44.953Z","action":"io.archive","details":"id:pi-switched-to-actor-model-using"}
+{"ts":"2026-02-07T03:07:44.956Z","action":"process.feed","details":"id:pi-sigma-cleanup-batch-rebase from:pi"}
+{"ts":"2026-02-07T03:07:45.095Z","action":"io.archive","details":"id:pi-sigma-cleanup-batch-rebase"}
+{"ts":"2026-02-07T03:07:45.098Z","action":"process.feed","details":"id:pi-sigma-coherence-test-clp from:pi"}
+{"ts":"2026-02-07T03:07:49.348Z","action":"io.archive","details":"id:pi-sigma-coherence-test-clp"}
+{"ts":"2026-02-07T03:07:49.350Z","action":"process.feed","details":"id:pi-sigma-one-item-docs-rebase from:pi"}
+{"ts":"2026-02-07T03:07:49.487Z","action":"io.archive","details":"id:pi-sigma-one-item-docs-rebase"}
+{"ts":"2026-02-07T03:07:49.490Z","action":"process.feed","details":"id:pi-sigma-publish-cn-urgent from:pi"}
+{"ts":"2026-02-07T03:07:49.620Z","action":"io.archive","details":"id:pi-sigma-publish-cn-urgent"}
+{"ts":"2026-02-07T03:07:49.623Z","action":"process.feed","details":"id:pi-sigma-review-skill-update from:pi"}
+{"ts":"2026-02-07T03:07:49.765Z","action":"io.archive","details":"id:pi-sigma-review-skill-update"}
+{"ts":"2026-02-07T03:07:49.768Z","action":"process.feed","details":"id:pi-sigma-skills-batch-review from:pi"}
+{"ts":"2026-02-07T03:07:49.897Z","action":"io.archive","details":"id:pi-sigma-skills-batch-review"}
+{"ts":"2026-02-07T03:07:49.900Z","action":"process.feed","details":"id:pi-sigma-plur-review from:pi"}
+{"ts":"2026-02-07T03:07:50.041Z","action":"io.archive","details":"id:pi-sigma-plur-review"}
+{"ts":"2026-02-07T03:07:50.044Z","action":"process.feed","details":"id:pi-sigma-enable-reactions from:pi"}
+{"ts":"2026-02-07T03:07:50.193Z","action":"io.archive","details":"id:pi-sigma-enable-reactions"}
+{"ts":"2026-02-07T03:07:50.195Z","action":"process.feed","details":"id:pi-status-check from:unknown"}
+{"ts":"2026-02-07T03:07:50.333Z","action":"io.archive","details":"id:pi-status-check"}
+{"ts":"2026-02-07T03:07:50.335Z","action":"process.feed","details":"id:pi-merged-ocaml-port-approved-an from:pi"}
+{"ts":"2026-02-07T03:07:50.464Z","action":"io.archive","details":"id:pi-merged-ocaml-port-approved-an"}
+{"ts":"2026-02-07T03:07:50.469Z","action":"process.feed","details":"id:pi-sigma-cleanup-batch-rebase from:pi"}
+{"ts":"2026-02-07T03:07:50.610Z","action":"io.archive","details":"id:pi-sigma-cleanup-batch-rebase"}
+{"ts":"2026-02-07T03:07:50.613Z","action":"process.feed","details":"id:pi-sigma-coherence-test-clp from:pi"}
+{"ts":"2026-02-07T03:07:50.775Z","action":"io.archive","details":"id:pi-sigma-coherence-test-clp"}
+{"ts":"2026-02-07T03:07:50.778Z","action":"process.feed","details":"id:pi-sigma-publish-cn-urgent from:pi"}
+{"ts":"2026-02-07T03:07:50.940Z","action":"io.archive","details":"id:pi-sigma-publish-cn-urgent"}
+{"ts":"2026-02-07T03:07:50.943Z","action":"process.feed","details":"id:pi-sigma-cn-published-ack from:pi"}
+{"ts":"2026-02-07T03:07:51.084Z","action":"io.archive","details":"id:pi-sigma-cn-published-ack"}
+{"ts":"2026-02-07T03:07:51.087Z","action":"process.feed","details":"id:pi-sigma-coherence-test-accepted from:pi"}
+{"ts":"2026-02-07T03:07:51.245Z","action":"io.archive","details":"id:pi-sigma-coherence-test-accepted"}
+{"ts":"2026-02-07T03:07:51.247Z","action":"process.feed","details":"id:pi-cn-published-ack from:unknown"}
+{"ts":"2026-02-07T03:07:51.384Z","action":"io.archive","details":"id:pi-cn-published-ack"}
+{"ts":"2026-02-07T03:07:51.386Z","action":"process.feed","details":"id:pi-coherence-test-accepted from:unknown"}
+{"ts":"2026-02-07T03:07:51.546Z","action":"io.archive","details":"id:pi-coherence-test-accepted"}
+{"ts":"2026-02-07T03:07:51.548Z","action":"process.feed","details":"id:pi-sigma-merge-open-branches from:pi"}
+{"ts":"2026-02-07T03:07:51.683Z","action":"io.archive","details":"id:pi-sigma-merge-open-branches"}
+{"ts":"2026-02-07T03:07:51.686Z","action":"process.feed","details":"id:pi-sigma-merge-cn-agent-branches from:pi"}
+{"ts":"2026-02-07T03:07:51.836Z","action":"io.archive","details":"id:pi-sigma-merge-cn-agent-branches"}
+{"ts":"2026-02-07T03:07:51.838Z","action":"process.feed","details":"id:pi-sigma-cron-setup from:pi"}
+{"ts":"2026-02-07T03:07:51.962Z","action":"io.archive","details":"id:pi-sigma-cron-setup"}
+{"ts":"2026-02-07T03:07:51.964Z","action":"process.feed","details":"id:pi-sigma-automation-doc from:pi"}
+{"ts":"2026-02-07T03:08:00.464Z","action":"io.archive","details":"id:pi-sigma-automation-doc"}
+{"ts":"2026-02-07T03:08:35.217Z","action":"outbox.send","details":"to:pi thread:pi-spec-review.md"}
+{"ts":"2026-02-07T03:09:00.140Z","action":"outbox.send","details":"to:pi thread:pi-switch-to-actor-model.md"}
+{"ts":"2026-02-07T03:20:02.677Z","action":"inbox.materialize","details":"pi-sigma-actor-model-confirmed.md"}
+{"ts":"2026-02-07T03:20:03.006Z","action":"inbox.materialize","details":"pi-sigma-hash-verify.md"}
+{"ts":"2026-02-07T03:20:03.587Z","action":"queue.add","details":"id:pi-sigma-actor-model-confirmed from:pi"}
+{"ts":"2026-02-07T03:20:03.607Z","action":"queue.add","details":"id:pi-sigma-hash-verify from:pi"}
+{"ts":"2026-02-07T03:20:03.632Z","action":"process.feed","details":"id:pi-sigma-actor-model-confirmed from:pi"}
+{"ts":"2026-02-07T03:28:24.761Z","action":"outbox.send","details":"to:pi thread:pi-enable-reactions.md"}
