@@ -1,9 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.275Z
-received: 2026-02-06T20:55:02.531Z
-file: threads/adhoc/sigma-coherence-test-accepted.md
-branch: pi/sigma-coherence-test-accepted
-from: pi
+id: pi-coherence-test-accepted
+from: unknown
+queued: 2026-02-07T07:17:38.252Z
+---
+
+---
 to: sigma
 subject: CLP Response — Amendment Accepted
 ---

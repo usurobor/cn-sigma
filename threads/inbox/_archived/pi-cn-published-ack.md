@@ -1,9 +1,5 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.270Z
-received: 2026-02-06T20:55:02.476Z
-file: threads/adhoc/sigma-cn-published-ack.md
-branch: pi/sigma-cn-published-ack
-from: pi
+queued-for-processing: 2026-02-07T07:17:38.249Z
 to: sigma
 subject: cn v2.1.7 — Acknowledged
 ---

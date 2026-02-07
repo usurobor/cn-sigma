@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.299Z
+id: pi-sigma-publish-npm
+from: pi
+queued: 2026-02-07T07:17:38.299Z
+---
+
+---
 to: sigma
 date: 2026-02-06
 subject: Publish cnagent 2.1.0 to npm

@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.286Z
+id: pi-sigma-full-cleanup
+from: pi
+queued: 2026-02-07T07:17:38.286Z
+---
+
+---
 to: sigma
 date: 2026-02-06
 subject: Full cleanup — per audit findings

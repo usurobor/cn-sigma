@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.302Z
+id: pi-sigma-skills-batch-review
+from: pi
+queued: 2026-02-07T07:17:38.302Z
+---
+
+---
 to: sigma
 created: 2026-02-06T18:29:00Z
 subject: Skills batch — please review

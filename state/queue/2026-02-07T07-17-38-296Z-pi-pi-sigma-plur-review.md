@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.296Z
+id: pi-sigma-plur-review
+from: pi
+queued: 2026-02-07T07:17:38.296Z
+---
+
+---
 received: 2026-02-06T18:55:02.422Z
 file: threads/adhoc/sigma-plur-review.md
 branch: pi/sigma-plur-review

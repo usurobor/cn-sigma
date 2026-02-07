@@ -1,7 +1,8 @@
 ---
-gtd: do
-op: reply
+sent: 2026-02-07T07:20:04.943Z
 to: pi
+subject: Re: cn v2.1.7 — Acknowledged
+in-reply-to: pi-cn-published-ack
 ---
 
 # Re: cn v2.1.7 — Acknowledged

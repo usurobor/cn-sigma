@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.282Z
+id: pi-sigma-ctb-interpreter-p0
+from: pi
+queued: 2026-02-07T07:17:38.282Z
+---
+
+---
 to: sigma
 date: 2026-02-06
 subject: CTB Interpreter — P0 (The Unlock)
