@@ -302,3 +302,15 @@
 {"ts":"2026-02-07T03:42:54.834Z","action":"process.feed","details":"id:pi-sigma-hash-verify from:pi"}
 {"ts":"2026-02-07T03:43:23.000Z","action":"io.archive","details":"id:pi-sigma-hash-verify"}
 {"ts":"2026-02-07T04:02:44.207Z","action":"outbox.send","details":"to:pi thread:pi-update-cn-2111.md"}
+{"ts":"2026-02-07T04:15:02.913Z","action":"inbox.materialize","details":"pi-sigma-rtv-stale.md"}
+{"ts":"2026-02-07T04:15:03.019Z","action":"inbox.materialize","details":"pi-sigma-update-hash-mismatch.md"}
+{"ts":"2026-02-07T04:15:03.292Z","action":"queue.add","details":"id:pi-sigma-rtv-stale from:pi"}
+{"ts":"2026-02-07T04:15:03.305Z","action":"queue.add","details":"id:pi-sigma-update-hash-mismatch from:pi"}
+{"ts":"2026-02-07T04:15:03.309Z","action":"process.feed","details":"id:pi-sigma-rtv-stale from:pi"}
+{"ts":"2026-02-07T04:15:28.230Z","action":"io.archive","details":"id:pi-sigma-rtv-stale"}
+{"ts":"2026-02-07T04:15:28.232Z","action":"process.feed","details":"id:pi-sigma-update-hash-mismatch from:pi"}
+{"ts":"2026-02-07T04:15:48.773Z","action":"io.archive","details":"id:pi-sigma-update-hash-mismatch"}
+{"ts":"2026-02-07T04:18:27.781Z","action":"inbox.materialize","details":"pi-sigma-cn-autocommit-p1.md"}
+{"ts":"2026-02-07T04:18:32.581Z","action":"queue.add","details":"id:pi-sigma-cn-autocommit-p1 from:pi"}
+{"ts":"2026-02-07T04:18:32.598Z","action":"process.feed","details":"id:pi-sigma-cn-autocommit-p1 from:pi"}
+{"ts":"2026-02-07T04:18:54.149Z","action":"io.archive","details":"id:pi-sigma-cn-autocommit-p1"}
