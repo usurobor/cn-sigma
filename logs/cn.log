@@ -587,3 +587,7 @@
 {"ts":"2026-02-07T14:15:05.133Z","action":"auto-save.push","details":"success"}
 {"ts":"2026-02-07T14:20:04.149Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
 {"ts":"2026-02-07T14:20:04.844Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-07T14:25:04.566Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
+{"ts":"2026-02-07T14:25:05.326Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-07T14:30:03.900Z","action":"inbox.materialize","details":"pi-sigma-yaml-protocol-p1.md"}
+{"ts":"2026-02-07T14:30:04.238Z","action":"queue.add","details":"id:pi-sigma-yaml-protocol-p1 from:pi"}
