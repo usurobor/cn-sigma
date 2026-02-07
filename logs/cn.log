@@ -400,3 +400,7 @@
 {"ts":"2026-02-07T08:10:04.649Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
 {"ts":"2026-02-07T08:10:05.291Z","action":"auto-save.push","details":"success"}
 {"ts":"2026-02-07T08:10:05.294Z","action":"process.feed","details":"id:pi-sigma-enable-reactions from:pi"}
+{"ts":"2026-02-07T08:15:03.651Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
+{"ts":"2026-02-07T08:15:04.370Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-07T08:15:04.374Z","action":"process.feed","details":"id:pi-sigma-full-cleanup from:pi"}
+{"ts":"2026-02-07T08:20:04.869Z","action":"outbox.send","details":"to:pi thread:pi-cleanup-partial.md"}
