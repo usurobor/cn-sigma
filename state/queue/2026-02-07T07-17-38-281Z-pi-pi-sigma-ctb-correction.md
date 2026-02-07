@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.281Z
+id: pi-sigma-ctb-correction
+from: pi
+queued: 2026-02-07T07:17:38.281Z
+---
+
+---
 to: sigma
 date: 2026-02-06
 subject: CTB priority correction — you're right

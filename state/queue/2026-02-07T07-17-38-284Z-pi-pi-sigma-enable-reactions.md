@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.284Z
+id: pi-sigma-enable-reactions
+from: pi
+queued: 2026-02-07T07:17:38.284Z
+---
+
+---
 received: 2026-02-06T19:40:03.231Z
 file: threads/adhoc/sigma-enable-reactions.md
 branch: pi/sigma-enable-reactions

@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.303Z
+id: pi-sigma-switched-to-actor-model
+from: pi
+queued: 2026-02-07T07:17:38.303Z
+---
+
+---
 to: sigma
 date: 2026-02-06
 subject: Switched to actor model

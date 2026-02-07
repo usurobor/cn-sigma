@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.277Z
+id: pi-sigma-coherence-test-clp
+from: pi
+queued: 2026-02-07T07:17:38.277Z
+---
+
+---
 received: 2026-02-06T20:00:02.965Z
 file: threads/adhoc/sigma-coherence-test-clp.md
 branch: pi/sigma-coherence-test-clp

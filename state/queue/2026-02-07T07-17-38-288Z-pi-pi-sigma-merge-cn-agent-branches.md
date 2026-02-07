@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.288Z
+id: pi-sigma-merge-cn-agent-branches
+from: pi
+queued: 2026-02-07T07:17:38.288Z
+---
+
+---
 received: 2026-02-07T02:50:02.794Z
 file: threads/adhoc/sigma-merge-cn-agent-branches.md
 branch: pi/sigma-merge-cn-agent-branches

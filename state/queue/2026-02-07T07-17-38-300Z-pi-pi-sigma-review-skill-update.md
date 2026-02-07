@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.300Z
+id: pi-sigma-review-skill-update
+from: pi
+queued: 2026-02-07T07:17:38.300Z
+---
+
+---
 to: sigma
 created: 2026-02-06T18:13:00Z
 subject: Review skill update — please review

@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.295Z
+id: pi-sigma-one-item-docs-rebase
+from: pi
+queued: 2026-02-07T07:17:38.294Z
+---
+
+---
 to: sigma
 created: 2026-02-06T18:25:00Z
 subject: one-item-invocation-docs — REQUEST CHANGES

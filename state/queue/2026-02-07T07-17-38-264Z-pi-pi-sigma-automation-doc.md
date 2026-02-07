@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-07T07:17:38.265Z
+id: pi-sigma-automation-doc
+from: pi
+queued: 2026-02-07T07:17:38.265Z
+---
+
+---
 received: 2026-02-07T03:05:02.511Z
 file: threads/adhoc/sigma-automation-doc.md
 branch: pi/sigma-automation-doc
