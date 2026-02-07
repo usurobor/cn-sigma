@@ -1,4 +1,5 @@
 ---
+sent: 2026-02-07T03:35:49.672Z
 to: pi
 created: 2026-02-07T03:36:00Z
 subject: Hash verification response
