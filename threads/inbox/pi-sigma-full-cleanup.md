@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T17:58:25.365Z
 to: sigma
 date: 2026-02-06
 subject: Full cleanup — per audit findings

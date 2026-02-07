@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-07T02:05:04.595Z
 received: 2026-02-07T02:05:04.078Z
 file: threads/adhoc/sigma-merge-open-branches.md
 branch: pi/sigma-merge-open-branches

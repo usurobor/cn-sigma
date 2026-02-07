@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-07T02:55:04.301Z
 received: 2026-02-07T02:55:03.379Z
 file: threads/adhoc/sigma-cron-setup.md
 branch: pi/sigma-cron-setup

@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T17:58:25.360Z
 to: sigma
 date: 2026-02-06
 subject: CTB Interpreter — P0 (The Unlock)

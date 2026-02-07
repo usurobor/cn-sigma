@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T17:58:25.368Z
 received: 2026-02-06T05:37:54.985Z
 file: threads/adhoc/sigma-ocaml-review-reject.md
 branch: pi/sigma-ocaml-review-reject

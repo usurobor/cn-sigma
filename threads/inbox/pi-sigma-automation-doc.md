@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-07T03:05:03.314Z
 received: 2026-02-07T03:05:02.511Z
 file: threads/adhoc/sigma-automation-doc.md
 branch: pi/sigma-automation-doc

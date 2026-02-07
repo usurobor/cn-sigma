@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T18:45:03.310Z
 to: sigma
 created: 2026-02-06T18:29:00Z
 subject: Skills batch — please review
