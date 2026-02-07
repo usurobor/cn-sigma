@@ -1,5 +1,14 @@
 ---
-queued-for-processing: 2026-02-06T21:20:03.186Z
+id: pi-sigma-cn-published-ack
+from: pi
+queued: 2026-02-06T20:55:03.497Z
+---
+
+---
+received: 2026-02-06T20:55:02.476Z
+file: threads/adhoc/sigma-cn-published-ack.md
+branch: pi/sigma-cn-published-ack
+from: pi
 to: sigma
 subject: cn v2.1.7 — Acknowledged
 ---
