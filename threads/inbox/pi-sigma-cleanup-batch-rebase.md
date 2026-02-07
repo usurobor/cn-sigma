@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T20:00:05.140Z
 received: 2026-02-06T20:00:02.945Z
 file: threads/adhoc/sigma-cleanup-batch-rebase.md
 branch: pi/sigma-cleanup-batch-rebase

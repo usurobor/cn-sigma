@@ -315,3 +315,18 @@
 {"ts":"2026-02-07T04:18:32.598Z","action":"process.feed","details":"id:pi-sigma-cn-autocommit-p1 from:pi"}
 {"ts":"2026-02-07T04:18:54.149Z","action":"io.archive","details":"id:pi-sigma-cn-autocommit-p1"}
 {"ts":"2026-02-07T04:21:14.433Z","action":"outbox.send","details":"to:pi thread:pi-output-reply-gap.md"}
+{"ts":"2026-02-07T05:19:45.455Z","action":"mca.add","details":"id:test-mca-description-for-the-community desc:Test MCA description for the community"}
+{"ts":"2026-02-07T05:20:54.782Z","action":"mca.add","details":"id:document-the-mca-workflow-in-readme desc:Document the MCA workflow in README"}
+{"ts":"2026-02-07T05:23:59.002Z","action":"mca.add","details":"id:test-mca-for-review-cycle desc:Test MCA for review cycle"}
+{"ts":"2026-02-07T05:24:03.053Z","action":"queue.add","details":"id:mca-review-2026-02-07 from:system"}
+{"ts":"2026-02-07T05:24:03.054Z","action":"mca.review-queued","details":"count:1"}
+{"ts":"2026-02-07T05:24:03.055Z","action":"process.feed","details":"id:mca-review-2026-02-07 from:system"}
+{"ts":"2026-02-07T05:24:33.804Z","action":"mca.add","details":"id:test-mca desc:Test MCA"}
+{"ts":"2026-02-07T05:24:34.377Z","action":"queue.add","details":"id:mca-review-2026-02-07 from:system"}
+{"ts":"2026-02-07T05:24:34.377Z","action":"mca.review-queued","details":"count:1"}
+{"ts":"2026-02-07T05:24:34.378Z","action":"process.feed","details":"id:mca-review-2026-02-07 from:system"}
+{"ts":"2026-02-07T05:32:25.939Z","action":"op.done","details":"test-ops"}
+{"ts":"2026-02-07T05:32:25.941Z","action":"op.surface","details":"id:test-mca-from-output desc:Test MCA from output"}
+{"ts":"2026-02-07T05:32:25.943Z","action":"io.archive","details":"id:test-ops ops:2"}
+{"ts":"2026-02-07T07:13:55.920Z","action":"out","details":"id:unknown gtd:do"}
+{"ts":"2026-02-07T07:14:34.972Z","action":"out","details":"id:unknown gtd:do"}

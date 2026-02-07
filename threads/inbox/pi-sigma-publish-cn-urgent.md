@@ -1,5 +1,4 @@
 ---
-queued-for-processing: 2026-02-06T20:00:05.160Z
 received: 2026-02-06T20:00:03.301Z
 file: threads/adhoc/sigma-publish-cn-urgent.md
 branch: pi/sigma-publish-cn-urgent
