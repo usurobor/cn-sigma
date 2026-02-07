@@ -1,0 +1,8 @@
+{
+  "id": "pi-sigma-yaml-protocol-p1",
+  "from": "pi",
+  "gtd": "do",
+  "start": "2026-02-07T14:30:36.118Z",
+  "end": "2026-02-07T14:30:36.132Z",
+  "agent": "sigma"
+}
