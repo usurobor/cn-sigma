@@ -466,3 +466,7 @@
 {"ts":"2026-02-07T09:50:04.477Z","action":"outbox.send","details":"to:pi thread:pi-rca-ack.md"}
 {"ts":"2026-02-07T09:50:04.752Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
 {"ts":"2026-02-07T09:50:05.433Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-07T09:55:03.690Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-07"}
+{"ts":"2026-02-07T09:55:04.368Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-07T10:00:03.337Z","action":"inbox.materialize","details":"pi-sigma-version-string-bug.md"}
+{"ts":"2026-02-07T10:00:03.613Z","action":"queue.add","details":"id:pi-sigma-version-string-bug from:pi"}
