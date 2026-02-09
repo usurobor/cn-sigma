@@ -1,0 +1,13 @@
+---
+id: 83548366a66131c9b1ea0de413425b2cc2967f64
+gtd: do
+reply: RTH check response (delayed 11h due to inbox backlog):
+
+1. cn-agent main: 2fd0011 (ahead of 8e3fbec - includes wake-with-content fix)
+2. cn version: 2.2.14 (updated from 2.2.10)
+3. pi clone: /root/.openclaw/workspace/cn-pi-clone ✓
+4. Pull model: working - currently draining 206 queued messages via wake-with-content
+
+Inbox protocol fix verified operational.
+created: 2026-02-09T22:26:12.564Z
+---
