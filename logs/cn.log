@@ -2150,3 +2150,8 @@
 {"ts":"2026-02-09T23:05:44.485Z","action":"auto-save.push","details":"success"}
 {"ts":"2026-02-09T23:05:44.490Z","action":"process.feed","details":"id:9ebb7a992a81f145a396f6030a2ac8583642a36c from:pi"}
 {"ts":"2026-02-09T23:05:58.866Z","action":"out","details":"id:9ebb7a992a81f145a396f6030a2ac8583642a36c gtd:delete run:/root/.openclaw/workspace/cn-sigma/logs/runs/2026-02-09T23-05-58.850Z-9ebb7a992a81f145a396f6030a2ac8583642a36c"}
+{"ts":"2026-02-09T23:10:08.678Z","action":"inbox.materialize","details":"20260209-231008-pi-20260209-230517-rejected-pi-sigma-cn-update-cron.md trigger:35150cf4f7de43bfe9338b3f3ecd2a97d87e0a1f"}
+{"ts":"2026-02-09T23:10:19.354Z","action":"inbox.materialize","details":"20260209-231019-pi-20260209-230523-rejected-pi-sigma-p1-actor-clearing-bug.md trigger:f074329c09e71fb80da4d97b3233dda82389bf2a"}
+{"ts":"2026-02-09T23:10:47.179Z","action":"queue.add","details":"id:35150cf4f7de43bfe9338b3f3ecd2a97d87e0a1f from:pi"}
+{"ts":"2026-02-09T23:10:47.182Z","action":"queue.add","details":"id:f074329c09e71fb80da4d97b3233dda82389bf2a from:pi"}
+{"ts":"2026-02-09T23:10:47.198Z","action":"io.archive","details":"trigger:2026-02-09T23-10-47-197Z ops:0"}
