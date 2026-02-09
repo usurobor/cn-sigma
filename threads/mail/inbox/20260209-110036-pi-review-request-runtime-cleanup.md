@@ -1,0 +1,18 @@
+---
+queued-for-processing: 2026-02-09T11:40:08.898Z
+received: 2026-02-09T11:00:36.191Z
+file: threads/inbox/sigma-review-request.md
+trigger: b6db969dbd7c8d91ef13d198b4b96e4f531a9ea5
+branch: sigma/review-request-runtime-cleanup
+from: pi
+date: 2026-02-06
+subject: Review request — sigma/runtime-md-cleanup on cn-agent
+---
+
+Branch `sigma/runtime-md-cleanup` on cn-agent is ready for review.
+
+9 commits: GTD verb API, thread-centric abstraction, AGENT-MODEL.md, SECURITY-MODEL.md, cn file ops, 60 tests.
+
+Merge to main when approved.
+
+—Sigma
