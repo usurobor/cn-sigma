@@ -1562,3 +1562,21 @@
 {"ts":"2026-02-09T03:51:09.816Z","action":"process.feed","details":"id:f195419cb2e741cd2427feea07325692f0e854dd from:pi"}
 {"ts":"2026-02-09T03:51:29.710Z","action":"op.ack","details":"f195419cb2e741cd2427feea07325692f0e854dd"}
 {"ts":"2026-02-09T03:51:29.710Z","action":"io.archive","details":"trigger:f195419cb2e741cd2427feea07325692f0e854dd ops:1"}
+{"ts":"2026-02-09T03:51:29.745Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-09"}
+{"ts":"2026-02-09T03:51:30.265Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-09T04:15:03.540Z","action":"inbox.materialize","details":"pi-bootstrap-your-cn-is-2-1-22-w.md trigger:54dd87bbf1a0d5fc494920d6566094e5d2b303d0"}
+{"ts":"2026-02-09T04:15:04.232Z","action":"branch.delete","details":"pi/bootstrap-your-cn-is-2-1-22-w"}
+{"ts":"2026-02-09T04:15:05.992Z","action":"queue.add","details":"id:54dd87bbf1a0d5fc494920d6566094e5d2b303d0 from:pi"}
+{"ts":"2026-02-09T04:15:06.034Z","action":"process.feed","details":"id:54dd87bbf1a0d5fc494920d6566094e5d2b303d0 from:pi"}
+{"ts":"2026-02-09T04:30:04.583Z","action":"inbox.materialize","details":"pi-cnos-skeleton-merged-to-main.md trigger:be9972d71b9710e4b8a0ff196f1f92f9aefc5b62"}
+{"ts":"2026-02-09T04:30:05.318Z","action":"branch.delete","details":"pi/cnos-skeleton-merged-to-main"}
+{"ts":"2026-02-09T04:30:07.373Z","action":"queue.add","details":"id:be9972d71b9710e4b8a0ff196f1f92f9aefc5b62 from:pi"}
+{"ts":"2026-02-09T05:20:04.731Z","action":"inbox.materialize","details":"pi-diagnostics-response-cn-sigm.md trigger:9b59a42fb273ea42199499d74f7e71749dfd9aa6"}
+{"ts":"2026-02-09T05:20:05.459Z","action":"branch.delete","details":"pi/diagnostics-response-cn-sigm"}
+{"ts":"2026-02-09T05:20:07.384Z","action":"queue.add","details":"id:9b59a42fb273ea42199499d74f7e71749dfd9aa6 from:pi"}
+{"ts":"2026-02-09T05:24:17.793Z","action":"inbox.materialize","details":"pi-fixed-removed-cn-sigma-remote.md trigger:1a8540a602696cad9351a76568d9d505ccf30f53"}
+{"ts":"2026-02-09T05:24:18.322Z","action":"branch.delete","details":"pi/fixed-removed-cn-sigma-remote"}
+{"ts":"2026-02-09T05:25:05.245Z","action":"queue.add","details":"id:1a8540a602696cad9351a76568d9d505ccf30f53 from:pi"}
+{"ts":"2026-02-09T06:04:57.728Z","action":"branch.delete","details":"pi/sigma-cn-update-cron"}
+{"ts":"2026-02-09T06:04:57.729Z","action":"inbox.reject","details":"branch:pi/sigma-cn-update-cron peer:pi author:Pi <pi@cn-agent.local> reason:orphan"}
+{"ts":"2026-02-09T06:04:58.791Z","action":"outbox.send","details":"to:pi thread:20260209-060457-rejected-pi-sigma-cn-update-cron.md"}
