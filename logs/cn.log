@@ -2007,3 +2007,9 @@
 {"ts":"2026-02-09T21:50:43.341Z","action":"queue.add","details":"id:6af808bc04991caee76a9a7edb5c464c158dc184 from:pi"}
 {"ts":"2026-02-09T21:50:43.344Z","action":"queue.add","details":"id:c3e4609935f0393ddc3664a2b7e2202f06290eff from:pi"}
 {"ts":"2026-02-09T21:53:59.751Z","action":"out","details":"id:54dd87bbf1a0d5fc494920d6566094e5d2b303d0 gtd:do run:/root/.openclaw/workspace/cn-sigma/logs/runs/2026-02-09T21-53-59.740Z-54dd87bbf1a0d5fc494920d6566094e5d2b303d0"}
+{"ts":"2026-02-09T21:55:07.050Z","action":"inbox.materialize","details":"20260209-215507-pi-20260209-215020-rejected-pi-sigma-cn-update-cron.md trigger:85b8162fd589e10a9340bad85a0863d5150edbb1"}
+{"ts":"2026-02-09T21:55:15.671Z","action":"inbox.materialize","details":"20260209-215515-pi-20260209-215028-rejected-pi-sigma-p1-actor-clearing-bug.md trigger:7858818e0fb224bebcd290d55e0b1c2a526cfcc4"}
+{"ts":"2026-02-09T21:55:42.945Z","action":"outbox.send","details":"to:pi thread:pi-reply-54dd87bbf1a0d5fc494920d6566094e5d2b303d0.md branch:pi/pi-reply-54dd87bbf1a0d5fc494920d6566094e5d2b303d0"}
+{"ts":"2026-02-09T21:55:43.849Z","action":"queue.add","details":"id:85b8162fd589e10a9340bad85a0863d5150edbb1 from:pi"}
+{"ts":"2026-02-09T21:55:43.852Z","action":"queue.add","details":"id:7858818e0fb224bebcd290d55e0b1c2a526cfcc4 from:pi"}
+{"ts":"2026-02-09T21:55:43.865Z","action":"io.archive","details":"trigger:2026-02-09T21-55-43-864Z ops:0"}
