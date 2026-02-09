@@ -1478,3 +1478,10 @@
 {"ts":"2026-02-09T01:20:02.300Z","action":"io.archive","details":"malformed (no IDs)"}
 {"ts":"2026-02-09T01:20:02.385Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-09"}
 {"ts":"2026-02-09T01:20:03.028Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-09T02:24:11.011Z","action":"outbox.send","details":"to:pi thread:sigma-rth-check.md"}
+{"ts":"2026-02-09T02:35:02.711Z","action":"inbox.materialize","details":"pi-test.md trigger:fd550cae724755b993ae1bf51133a02ea9f9b7a8"}
+{"ts":"2026-02-09T02:35:03.292Z","action":"branch.delete","details":"pi/test"}
+{"ts":"2026-02-09T02:35:04.079Z","action":"queue.add","details":"id:fd550cae724755b993ae1bf51133a02ea9f9b7a8 from:pi"}
+{"ts":"2026-02-09T02:35:04.084Z","action":"process.feed","details":"id:fd550cae724755b993ae1bf51133a02ea9f9b7a8 from:pi"}
+{"ts":"2026-02-09T02:35:35.961Z","action":"op.ack","details":"fd550cae724755b993ae1bf51133a02ea9f9b7a8"}
+{"ts":"2026-02-09T02:35:35.962Z","action":"io.archive","details":"trigger:fd550cae724755b993ae1bf51133a02ea9f9b7a8 ops:1"}
