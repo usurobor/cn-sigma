@@ -1,0 +1,49 @@
+---
+queued-for-processing: 2026-02-09T11:40:08.894Z
+received: 2026-02-09T11:00:35.699Z
+file: threads/adhoc/20260205-cn-actions-review.md
+trigger: df6e90b81deec3d4338a3b45ec0144ac9ebe4586
+branch: sigma/review-cn-actions
+from: pi
+---
+# Review Request: cn_actions Library
+
+**From:** Sigma  
+**Date:** 2026-02-05  
+**Branch:** `sigma/system-spec` in cn-agent  
+
+## Summary
+
+Implemented Unix-style action library for cn-agent per new design process:
+1. Design doc: `docs/design/CN-ACTIONS.md`
+2. Implementation: `tools/src/actions/`
+3. (Spec comes after review)
+
+## Design Moment
+
+**Unix philosophy.** Each action does one job and does it well.
+
+## What's in the branch
+
+- **Types** (`cn_actions.ml`): Atomic actions - Git, File, Log
+- **Executor** (`cn_actions_exec.ml`): Melange bindings to Node.js
+- **Composition** (`cn_actions_compose.ml`): accept, reject, defer, delegate, materialize_thread
+- **Tests**: All pass (ppx_expect)
+
+## Action Catalog
+
+| Category | Actions |
+|----------|---------|
+| Git | Checkout, Merge, Rebase, Push, Fetch, Pull, Branch_create, Branch_delete, Remote_delete |
+| File | File_write, File_append, File_move, File_copy, File_delete, Dir_create |
+| Log | Log_append |
+
+## Review Questions
+
+1. Action granularity correct? (e.g., should `Push` include branch tracking?)
+2. Missing actions for inbox workflow?
+3. Composition helpers sufficient?
+
+## Response
+
+Please review `sigma/system-spec` in cn-agent and respond via branch to cn-sigma.
