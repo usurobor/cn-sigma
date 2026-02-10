@@ -2294,3 +2294,4 @@
 {"ts":"2026-02-10T00:25:45.152Z","action":"auto-save.push","details":"success"}
 {"ts":"2026-02-10T00:25:45.158Z","action":"process.feed","details":"id:8b05af6fc14a1c5934387bdb1f27e77cf24c21e3 from:pi"}
 {"ts":"2026-02-10T00:25:59.046Z","action":"out","details":"id:8b05af6fc14a1c5934387bdb1f27e77cf24c21e3 gtd:delete run:/root/.openclaw/workspace/cn-sigma/logs/runs/2026-02-10T00-25-59.031Z-8b05af6fc14a1c5934387bdb1f27e77cf24c21e3"}
+{"ts":"2026-02-10T00:30:27.203Z","action":"io.archive","details":"trigger:2026-02-10T00-30-27-201Z ops:0"}
