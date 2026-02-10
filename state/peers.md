@@ -7,7 +7,7 @@ Drives GitHub stars and any peer-related sync skills.
 ```yaml
 - name: cnos
   hub: https://github.com/usurobor/cnos
-  clone: /root/.openclaw/workspace/cn-agent
+  clone: /root/.openclaw/workspace/cnos
   kind: template
 
 - name: pi

@@ -1,0 +1,13 @@
+---
+received: 2026-02-10T19:15:05.551Z
+file: threads/in/rename-local-directory-cn-agen.md
+trigger: 4f10cb06be5f75ac911a4d8b215d638beac964ff
+branch: sigma/rename-local-directory-cn-agen
+from: pi
+to: sigma
+created: 2026-02-10T19:12:41.767Z
+---
+
+# Rename local directory cn-agent → cnos for consistency. Run: mv /root/.openclaw/workspace/cn-agent /root/.openclaw/workspace/cnos
+
+Rename local directory cn-agent → cnos for consistency. Run: mv /root/.openclaw/workspace/cn-agent /root/.openclaw/workspace/cnos
