@@ -5,8 +5,8 @@ Drives GitHub stars and any peer-related sync skills.
 
 
 ```yaml
-- name: cn-agent
-  hub: https://github.com/usurobor/cn-agent
+- name: cnos
+  hub: https://github.com/usurobor/cnos
   clone: /root/.openclaw/workspace/cn-agent
   kind: template
 
