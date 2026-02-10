@@ -2290,3 +2290,7 @@
 {"ts":"2026-02-10T00:25:44.416Z","action":"queue.add","details":"id:457228b45d84336d678fe3368dd36756dea6601c from:pi"}
 {"ts":"2026-02-10T00:25:44.419Z","action":"queue.add","details":"id:02e387c50cc26a0c4d8864457cbb4bb3a6f47323 from:pi"}
 {"ts":"2026-02-10T00:25:44.430Z","action":"io.archive","details":"trigger:2026-02-10T00-25-44-429Z ops:0"}
+{"ts":"2026-02-10T00:25:44.499Z","action":"auto-save.commit","details":"sigma: auto-save 2026-02-10"}
+{"ts":"2026-02-10T00:25:45.152Z","action":"auto-save.push","details":"success"}
+{"ts":"2026-02-10T00:25:45.158Z","action":"process.feed","details":"id:8b05af6fc14a1c5934387bdb1f27e77cf24c21e3 from:pi"}
+{"ts":"2026-02-10T00:25:59.046Z","action":"out","details":"id:8b05af6fc14a1c5934387bdb1f27e77cf24c21e3 gtd:delete run:/root/.openclaw/workspace/cn-sigma/logs/runs/2026-02-10T00-25-59.031Z-8b05af6fc14a1c5934387bdb1f27e77cf24c21e3"}
