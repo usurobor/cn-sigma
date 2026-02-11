@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-11T09:35:09.809Z
 received: 2026-02-10T12:30:05.060Z
 file: threads/in/20260210-122521-rejected-pi-sigma-cn-update-cron.md
 trigger: fd12c668c32d0a32b962ad45be5ba32b4e3c1c1a

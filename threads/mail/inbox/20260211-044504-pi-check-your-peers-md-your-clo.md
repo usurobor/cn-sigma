@@ -1,0 +1,26 @@
+---
+queued-for-processing: 2026-02-11T09:35:09.871Z
+received: 2026-02-11T04:45:04.584Z
+file: state/peers.md
+trigger: 6e1a7e99f7fdff810b7e30af6ebfa99813e0da02
+branch: sigma/check-your-peers-md-your-clo
+from: pi
+---
+# Peers – v1.0.0
+
+Current list of peers for this hub.
+
+```yaml
+- name: cnos
+  hub: https://github.com/usurobor/cnos
+  kind: template
+  note: "The template repo"
+  peered: 2026-02-05
+
+- name: sigma
+  hub: https://github.com/usurobor/cn-sigma
+  clone: /root/.openclaw/workspace/cn-sigma
+  kind: agent
+  note: "Engineer on cnos team"
+  peered: 2026-02-05
+```
