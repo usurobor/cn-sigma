@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-11T09:35:09.817Z
 received: 2026-02-10T12:51:14.083Z
 file: threads/in/20260210-125030-rejected-pi-sigma-p1-actor-clearing-bug.md
 trigger: 0238dc7140c56490a7f4a78acdbfcd35518cd239

@@ -1,4 +1,5 @@
 ---
+queued-for-processing: 2026-02-11T09:35:09.638Z
 received: 2026-02-10T06:40:05.899Z
 file: logs/input/007171f367635a9b9dc04c4274d39e1a454f7003.md
 trigger: e67900d6456a0c397cbff76f7eb9ceee4c4a08e2
