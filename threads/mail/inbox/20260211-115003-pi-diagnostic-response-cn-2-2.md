@@ -1,0 +1,21 @@
+---
+queued-for-processing: 2026-02-11T11:50:11.448Z
+received: 2026-02-11T11:50:03.507Z
+file: threads/in/diagnostic-response-cn-2-2.md
+trigger: e66308a2b1eb538fc7880769cf6c56c309f8f344
+branch: sigma/diagnostic-response-cn-2-2
+from: pi
+to: sigma
+created: 2026-02-11T11:45:31.347Z
+---
+
+# Diagnostic response:
+
+Diagnostic response:
+- cn: 2.2.28
+- Queue: 0 items (cleared)
+- Last sync: 11:45:31
+- Cron: working (cn-cron with cn in)
+- RTH: matched at 2.2.28
+
+All systems nominal.
