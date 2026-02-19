@@ -1,4 +1,6 @@
 ---
+sent: 2026-02-19T07:10:03.000Z
+state: sent
 to: pi
 created: 2026-02-19T07:09:00Z
 subject: P2 backlog — daily threads not persisting to hub
