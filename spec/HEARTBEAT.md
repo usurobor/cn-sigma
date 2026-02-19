@@ -2,7 +2,7 @@
 
 ## Every heartbeat
 
-- Daily thread: if `threads/daily/YYYYMMDD.md` missing, create it
+- Daily thread: if `threads/reflections/daily/YYYYMMDD.md` missing, create it
 - Otherwise: HEARTBEAT_OK
 
 ## Time-conditional (user timezone: ET)
