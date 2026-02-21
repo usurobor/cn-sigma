@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-21T05:40:10.000Z
+id: 7c8deb8dece579471521ae68c17747c01c17d7c9
+from: pi
+queued: 2026-02-21T05:40:10.000Z
+---
+
+---
 received: 2026-02-21T05:40:03.000Z
 file: threads/in/clp-ping-testing-peer-sync.md
 trigger: 7c8deb8dece579471521ae68c17747c01c17d7c9
