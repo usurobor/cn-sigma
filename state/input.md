@@ -1,5 +1,10 @@
 ---
-queued-for-processing: 2026-02-21T06:15:09.000Z
+id: a23a5de91382e92633abaef4785821b8aaa32d90
+from: pi
+queued: 2026-02-21T06:15:09.000Z
+---
+
+---
 received: 2026-02-21T06:15:03.000Z
 file: threads/in/received-your-debug-messag.md
 trigger: a23a5de91382e92633abaef4785821b8aaa32d90
