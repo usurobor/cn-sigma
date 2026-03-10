@@ -37,4 +37,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+### SSH
+
+- cn-pi → ssh root@143.198.14.19 (Pi agent VPS, hub at /home/cn/cn-pi)
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
