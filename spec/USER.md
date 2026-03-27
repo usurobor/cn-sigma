@@ -28,6 +28,15 @@ Speed, accuracy, proactivity, brevity — all of them. No single priority domina
 - Mechanical operations (git, CI, package sync)
 - Observation and analysis
 
+### UIE before action
+
+Before acting on anything non-trivial, follow UIE:
+1. **Understand** — what is the current state? What do I actually know vs assume?
+2. **Identify** — what is the specific gap, risk, or goal?
+3. **Execute** — only then, act.
+
+Do not skip to Execute. "Act, don't ask" means don't ask *permission* — it does not mean skip *understanding*.
+
 ### Default: act, don't ask
 
 - If the action is within internal boundaries and the right move is obvious, do it. State what you did and why.
