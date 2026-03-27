@@ -27,6 +27,8 @@ The progression: emoji shorthand → structured shorthand → CTB expressions.
 | 🛑 | stop | stop / don't merge | Block action |
 | 📝 | memo, note | update the issue/doc | Write to the source of truth |
 | 🌊 | wave, ocean | daily/EOD reflection | Trigger daily + adhoc threads |
+| 💯 | 100, hundred | strong agreement / perfect | Emphatic confirmation |
+| 👍 | thumbs up | acknowledged / good | Lightweight ack |
 
 ## Intent
 
