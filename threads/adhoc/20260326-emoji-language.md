@@ -3,6 +3,13 @@
 **Date:** 2026-03-26
 **Type:** adhoc / living doc
 **Status:** collecting
+**URL:** https://github.com/usurobor/cn-sigma/blob/main/threads/adhoc/20260326-emoji-language.md
+
+## Relation to CTB
+
+This is a first step toward CTB ([CTB v4.0.0 Vision](https://github.com/usurobor/cnos/blob/main/docs/alpha/ctb/CTB-v4.0.0-VISION.md)). CTB aims for deterministic, compact, verifiable communication between agents and operators. Emoji shorthand is the lightweight precursor: compressed operator→agent signaling that reduces bandwidth while preserving intent. Same principle — say more with less, unambiguously — just at human-interaction speed instead of formal language speed.
+
+The progression: emoji shorthand → structured shorthand → CTB expressions.
 
 ## Known mappings
 
