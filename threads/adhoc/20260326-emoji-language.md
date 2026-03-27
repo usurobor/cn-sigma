@@ -32,6 +32,10 @@ The progression: emoji shorthand → structured shorthand → CTB expressions.
 
 Build toward emoji-based shorthand for common operator commands. Reduces friction, increases speed. Track new mappings as they emerge naturally — don't invent, observe.
 
+## Skill
+
+Promoted to cnos skill: `src/agent/skills/agent/emoji-language/SKILL.md`
+
 ## Rules
 
 - Only add mappings observed in actual use
