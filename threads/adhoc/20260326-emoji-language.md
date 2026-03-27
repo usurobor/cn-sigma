@@ -6,20 +6,20 @@
 
 ## Known mappings
 
-| Emoji | Meaning | Context |
-|-------|---------|---------|
-| 🧢 | cap it / apply CAP / just do it | Stop deliberating, act |
-| 🔍 | review this | PR or artifact review |
-| 🚢 | ship it / merge | Approve and merge |
-| 🧠 | MCI / capture as learning | Write adhoc thread or memory |
-| ⚡ | MCA / act now | Execute, don't plan |
-| 🔄 | CLP / iterate on divergence | Run convergence loop |
-| 📸 | snapshot / capture state | Daily, memory, or state dump |
-| 🧹 | clean up | Remove stale artifacts |
-| ✅ | approved / go | Confirmation |
-| 🛑 | stop / don't merge | Block action |
-| 📝 | update the issue/doc | Write to the source of truth |
-| 🌊 | daily/EOD reflection | Trigger daily + adhoc threads |
+| Emoji | iOS keyboard | Meaning | Context |
+|-------|-------------|---------|---------|
+| 🧢 | cap | cap it / apply CAP / just do it | Stop deliberating, act |
+| 🔍 | search, magnifying | review this | PR or artifact review |
+| 🚢 | ship | ship it / merge | Approve and merge |
+| 🧠 | brain | MCI / capture as learning | Write adhoc thread or memory |
+| ⚡ | zap, lightning | MCA / act now | Execute, don't plan |
+| 🔄 | arrows, cycle | CLP / iterate on divergence | Run convergence loop |
+| 📸 | camera, snap | snapshot / capture state | Daily, memory, or state dump |
+| 🧹 | broom | clean up | Remove stale artifacts |
+| ✅ | check | approved / go | Confirmation |
+| 🛑 | stop | stop / don't merge | Block action |
+| 📝 | memo, note | update the issue/doc | Write to the source of truth |
+| 🌊 | wave, ocean | daily/EOD reflection | Trigger daily + adhoc threads |
 
 ## Intent
 
