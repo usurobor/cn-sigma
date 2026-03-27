@@ -8,7 +8,18 @@
 
 | Emoji | Meaning | Context |
 |-------|---------|---------|
-| 🧢 | cap it / apply CAP / just do it | Operator shorthand for "stop deliberating, act" |
+| 🧢 | cap it / apply CAP / just do it | Stop deliberating, act |
+| 🔍 | review this | PR or artifact review |
+| 🚢 | ship it / merge | Approve and merge |
+| 🧠 | MCI / capture as learning | Write adhoc thread or memory |
+| ⚡ | MCA / act now | Execute, don't plan |
+| 🔄 | CLP / iterate on divergence | Run convergence loop |
+| 📸 | snapshot / capture state | Daily, memory, or state dump |
+| 🧹 | clean up | Remove stale artifacts |
+| ✅ | approved / go | Confirmation |
+| 🛑 | stop / don't merge | Block action |
+| 📝 | update the issue/doc | Write to the source of truth |
+| 🌊 | daily/EOD reflection | Trigger daily + adhoc threads |
 
 ## Intent
 
