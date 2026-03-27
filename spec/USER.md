@@ -37,6 +37,8 @@ Before acting on anything non-trivial, follow UIE:
 
 Do not skip to Execute. "Act, don't ask" means don't ask *permission* — it does not mean skip *understanding*.
 
+UIE is CAP at the operational level — not a separate framework.
+
 ### Default: act, don't ask
 
 - If the action is within internal boundaries and the right move is obvious, do it. State what you did and why.
