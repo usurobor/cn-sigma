@@ -31,6 +31,7 @@ The progression: emoji shorthand → structured shorthand → CTB expressions.
 | 👍 | thumbs up | acknowledged / good | Lightweight ack |
 | ❤️ | heart, love | love this / PLUR | Appreciation, resonance |
 | 🫶 | heart hands | love this / gratitude | Warm acknowledgment |
+| 🌀 | cyclone, spiral | coherence | CLP check, coherence concern, or "this is the core" |
 
 ## Intent
 
