@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# remote-service: check service status on a remote host without guessing unit names.
+# Usage: remote-service <host> <keyword>
+# Lists matching units first, then shows status for each match.
+
+set -euo pipefail
+
+host="${1:?Usage: remote-service <host> <keyword>}"
+keyword="${2:?Usage: remote-service <host> <keyword>}"
+
+echo "=== Units matching '$keyword' on $host ==="
+units=$(ssh "$host" "systemctl list-units --all --no-legend | grep -i '$keyword'" 2>/dev/null) || true
+
+if [ -z "$units" ]; then
+  echo "(none found — also checking unit files)"
+  units=$(ssh "$host" "systemctl list-unit-files --no-legend | grep -i '$keyword'" 2>/dev/null) || true
+fi
+
+if [ -z "$units" ]; then
+  echo "No units matching '$keyword' found."
+  exit 1
+fi
+
+echo "$units"
+echo ""
+
+# Extract unit names and show status for each
+echo "=== Status ==="
+echo "$units" | awk '{print $1}' | while read -r unit; do
+  ssh "$host" "systemctl status '$unit' --no-pager -l 2>/dev/null" || true
+  echo "---"
+done
