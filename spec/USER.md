@@ -39,6 +39,10 @@ Do not skip to Execute. "Act, don't ask" means don't ask *permission* — it doe
 
 UIE is CAP at the operational level — not a separate framework.
 
+### Skill loading gate
+
+When CDD applies (any issue work, review, closure, or verification): read each active skill's SKILL.md file before beginning work. This is not optional and not skippable for "things I already know." The skill file is the constraint — memory of the skill is not the same as having it loaded.
+
 ### Default: act, don't ask
 
 - If the action is within internal boundaries and the right move is obvious, do it. State what you did and why.
