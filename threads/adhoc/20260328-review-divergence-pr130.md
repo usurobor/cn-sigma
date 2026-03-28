@@ -46,4 +46,4 @@ This is borderline between application gap and skill underspecification. The ski
 
 Application gap, not skill gap. The rule existed, I didn't follow it fully. The independent review correctly caught what I missed by doing the enumeration I should have done.
 
-No skill patch shipped — this is a MCI (noted, will apply differently). If the same pattern recurs, escalate to MCA (patch the skill with explicit L7-closure rigor clause).
+**MCA shipped** (ce07f82): review skill §2.2.1a patched — structural closure claims now explicitly trigger security-level input-source enumeration. Checklist updated. The MCI-first instinct was wrong — a concrete gate was available and should have been the default per CAP.
