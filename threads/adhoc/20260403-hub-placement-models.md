@@ -1,50 +1,36 @@
-# Hub placement models for sandboxed agents
+---
+title: Hub placement models — design + plan shipped
+date: 2026-04-03
+status: active
+relates_to: ["#156"]
+---
 
-**Date:** 2026-04-03
-**Context:** Attempted to cnosify a repo under Claude Code. `.cn/` in-repo conflates project and agent state. Need a model that works for agents confined to a single directory.
+## What happened
 
-## Problem
+Operator provided full design doc for hub placement models. Core reframe: #156 is not "git submodule support" — it's "split hub_root from workspace_root."
 
-Claude Code (and similar sandboxed agents) operate inside a single repo checkout. They can't maintain a separate standalone hub elsewhere. The question: how does a confined agent get a cnos hub?
+## Design decisions
 
-## Options evaluated
+- **Two explicit roots**: `hub_root` (state/threads/spec/vendor) and `workspace_root` (project source tree)
+- **Standalone mode**: current behavior, roots collapse to same directory
+- **Attached mode**: roots are distinct, hub mounted inside workspace
+- **Nested clone as default backend**: independent history, no parent-repo gitlink churn, better for high-churn hub state
+- **Submodule as optional backend**: useful when parent repo wants to pin hub checkout
+- **Placement manifest** (`.cn/placement.json`): local placement truth, only file project repo should track
+- `.cn/hub/` should be gitignored by project
 
-### 1. `.cn/` in-repo (committed)
-- ❌ Conflates project and agent state in one history
-- ❌ Every cn sync / inbox / reflection pollutes project commits
-- ❌ Permission mismatch (agent needs push for state, may not have project push)
-- ❌ Agent memory trapped in project repo
+## Artifacts produced
 
-### 2. `.cn/` gitignored
-- ✅ Project history stays clean
-- ❌ Hub state is ephemeral — lost between sessions
-- ❌ No durable memory, threads, or reflections
-- Acceptable only for stateless/disposable agent sessions
+- Design: `docs/alpha/HUB-PLACEMENT-MODELS.md`
+- Plan: `docs/gamma/cdd/3.33.0/PLAN-hub-placement-models.md` (10 steps)
+- Issue #156 updated with full body
 
-### 3. `.cn/` as git submodule
-- ✅ Hub is a standalone repo with its own history and remote
-- ✅ Agent pushes state to hub remote, not project remote
-- ✅ Project repo only tracks a pointer commit
-- ✅ No history pollution
-- ✅ Sandboxed agent sees `.cn/` as a normal directory
-- ✅ Portable — hub can be mounted in any project
-- ✅ `cn deps restore` works inside the submodule
+## Submodule pushback assessment
 
-## Decision
+Submodule wrong as default because hubs are high-churn. Parent repo `git status` dirty constantly. Root split is the real architecture; backends are implementation details behind the placement abstraction.
 
-Git submodule is the most coherent model for sandboxed agents.
+## What to watch
 
-## Workflow
-
-1. `git submodule add <hub-repo-url> .cn`
-2. Agent sees `.cn/` with full hub structure (spec, threads, state, vendor)
-3. Agent pushes hub state changes to hub remote
-4. Project repo tracks submodule pointer only
-5. Hub is portable across projects
-
-## Watch for
-
-- `cn init` may need a mode for "init as submodule" vs "init standalone"
-- `cn sync` needs to push to the submodule remote, not the parent repo remote
-- Submodule update on clone requires `git submodule update --init`
-- Some CI environments handle submodules poorly
+- Implementation sequencing: placement manifest + resolver first, then hub discovery refactor, then executor root split
+- Risk: scattered `hub_root` assumptions throughout current codebase — audit needed during step 3
+- Nested clone `.cn/hub/` must be in project `.gitignore`
