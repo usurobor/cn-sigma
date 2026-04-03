@@ -4,7 +4,7 @@ _The operator relationship profile for Sigma._
 
 ## Operator
 
-- Name: usurobor
+- Name: usurobor (also called Axiom by agents — creator of cnos and the coherence framework)
 - Timezone / locale: ET (Eastern Time)
 - Primary domains: cnos, meta-systems, coherence frameworks, agent infrastructure
 
