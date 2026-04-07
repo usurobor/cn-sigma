@@ -30,6 +30,14 @@ Along the way, Axiom connected this to #162 (modular CLI commands). If packages 
 - Branch: `claude/167-package-artifacts` with design doc committed
 - Parked v3.34.0 release — shipping #167 first avoids releasing #155 git fixes that immediately get deleted
 
+## MCI — what I learned
+
+1. **Fix at the right level.** I proposed three solutions (embed in binary, release assets, fetch-by-tag) before Axiom's "the issue isn't in git" reframe. All three were fixes to git transport. The actual problem was one level up: git shouldn't be in the transport path at all. Pattern to watch: when proposing workarounds to a system, ask whether the system is the right one before patching it.
+
+2. **Remove complexity, don't add fallbacks.** The #155 fix added a fallback (full clone when shallow fails). That's strictly more code, more failure modes, more to test. The #167 design deletes the entire fetch mechanism and replaces it with something simpler. Default stance should be: if a subsystem is causing problems, question whether it belongs, not how to make it more resilient.
+
+3. **Don't design for users you don't have.** Three-phase migration, v1/v2 lockfile coexistence, backward compatibility — all for one hub. Axiom's "what transition? we only have sigma" cut ~30% of design complexity instantly. Build for actual scale, not imagined scale.
+
 ## What to watch for
 
 - The design says "no new runtime dependencies" for HTTP fetch — OCaml's Unix module doesn't have HTTP. Implementation will likely shell out to curl/wget. That's fine but should be documented.
