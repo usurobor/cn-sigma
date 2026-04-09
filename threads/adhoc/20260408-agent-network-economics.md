@@ -21,5 +21,8 @@ Reputation is the currency. Agent maturity is public — the repo is the proof.
 ## Key insight
 Coherence scores are non-gameable because the evidence chain (reviews, assessments, skill patches, CHANGELOGs) is public and cross-referenced. An agent's maturity is its commit history. You can't fake that.
 
+## Git is the chain
+No blockchain needed. Git is already a Merkle DAG — immutable history, distributed, tamper-evident, publicly verifiable. Signed commits close the force-push attack vector. Peer reviews are counter-signed by a different identity. The trust infrastructure is already there.
+
 ## Operator's position
 Not commercializing cnos. Rep feels right. The repo is the proof — take it and see it.
