@@ -161,6 +161,18 @@ Dispatch boundary enforced. PR #222, 0 findings.
 
 This was the prerequisite for Slice D. The dispatch boundary is clean.
 
+## 2026-04-10 — Phase 3 complete (v3.50.0)
+
+All 8 kernel commands implemented in Go:
+- help, init, setup, deps (restore), status, doctor, build, update
+- 63 tests across 8 packages
+- 6 domain packages: doctor, hubinit, hubstatus, hubsetup, binupdate, pkgbuild
+- cli/ dispatch-only with CI enforcement
+
+Phase 3 delivered across 5 PRs (#213, #215, #217, #220, #222, #225), 12 review findings total, all fixed on-branch. Zero bugs shipped.
+
+**#192 status:** Phase 3 complete. Phase 4 (package command discovery) is next. Phase 5 (agent runtime) leads to 4.0.0 (Go replaces OCaml).
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
