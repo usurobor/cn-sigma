@@ -55,6 +55,19 @@ Compared to alternatives:
 - Git-native transport model
 - CDD process
 
+## 2026-04-10 — Prerequisites met, Phase 1 scoped
+
+All prerequisites shipped:
+- Move 2 complete (v3.41.0)
+- #180 doc coherence shipped (v3.42.0)
+- #192 updated with narrow 4-phase scope
+
+**Phase 1 target:** package/index/lockfile/restore — Go binary handles `cn deps restore` end-to-end.
+
+Operator review confirmed: "Ready to begin a disciplined Go kernel transition: yes. Fully ready for Go transition: no, not for the whole system." The intelligence-bearing assets are package content classes; the kernel is substrate that installs, validates, and exposes them. The kernel transitions; the content stays.
+
+**Do not start with:** skills, A2A workflows, package-authored behavior, activation/runtime registries.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
