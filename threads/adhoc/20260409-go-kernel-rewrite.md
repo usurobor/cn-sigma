@@ -68,6 +68,20 @@ Operator review confirmed: "Ready to begin a disciplined Go kernel transition: y
 
 **Do not start with:** skills, A2A workflows, package-authored behavior, activation/runtime registries.
 
+## 2026-04-10 — Phase 1 shipped (v3.43.0)
+
+PR #206 merged at `8d1437f`, released as v3.43.0 at `a07564d`.
+
+- 13 tests, stdlib-only, Go 1.22
+- `internal/pkg/` mirrors `src/lib/cn_package.ml` (types + JSON)
+- `internal/restore/` mirrors `src/cmd/cn_deps.ml` restore path (HTTP only)
+- Go CI workflow added
+- Two-agent cycle: Claude authored (0–7a), Sigma reviewed/released/assessed (8–13)
+
+**Review findings (follow-up):** F2 (HTTP timeout), F3 (traversal hardening), F4 (IO in pure pkg — purity boundary gap). F4 is the priority: the `src/lib/` vs `src/cmd/` discipline should carry into Go before expanding scope.
+
+**#192 status:** Phase 1 complete. Growing → low in encoding lag.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
