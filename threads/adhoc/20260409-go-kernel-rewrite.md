@@ -120,6 +120,17 @@ Architecture design docs also shipped this cycle:
 **#212 status:** Slice A done. Remaining: B (doctor), C (build), D (update + setup).
 **#192 status:** Phase 3 in progress. 4 kernel commands implemented (help, init, deps, status), 4 remaining.
 
+## 2026-04-10 — Phase 3 Slice B shipped (v3.47.0)
+
+`doctor` command. PR #217, 2 review rounds. 15+ checks across 5 categories: prerequisites, hub structure, package system, runtime contract, git remote.
+
+- 2 findings: F1 (optional file showed ✗ instead of ✓), F2 (test didn't assert success). Both fixed on-branch.
+- 30 Go tests total
+- Also shipped: git-cn package design (#218), package restructuring target (#186), capabilities field, kernel command migration (#216)
+
+**#212 status:** Slices A+B done. Remaining: C (build), D (update + setup).
+**#192 status:** Phase 3 in progress. 5 kernel commands implemented (help, init, deps, status, doctor), 3 remaining.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
