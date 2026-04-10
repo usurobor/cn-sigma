@@ -82,6 +82,16 @@ PR #206 merged at `8d1437f`, released as v3.43.0 at `a07564d`.
 
 **#192 status:** Phase 1 complete. Growing → low in encoding lag.
 
+## 2026-04-10 — Phase 1 purity fixed (v3.44.0)
+
+PR #208: `internal/pkg/` is now truly pure (zero `os` imports). `Parse*` (pure, `[]byte`) vs `Read*` (IO, path) mirrors `src/lib/` vs `src/cmd/`. HTTP timeout and traversal hardening also fixed. β gap from v3.43.0 closed.
+
+Design docs converged:
+- GO-KERNEL-COMMANDS.md v1.2 — `CommandSpec` + `Invocation` + `Command` interface, 3 review iterations
+- HYBRID-LLM-ROUTING.md v0.1 — body-plane routing, deferred
+
+**Next:** #209 Phase 2 — CLI entrypoint + command dispatch. Design reviewed and ready.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
