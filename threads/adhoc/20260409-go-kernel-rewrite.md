@@ -149,6 +149,18 @@ Also this cycle:
 **#212 status:** Slices A+B+C done. Remaining: D (update + setup). Blocked on #221 first.
 **#192 status:** Phase 3 nearly complete. 6 kernel commands (help, init, deps, status, doctor, build), 2 remaining.
 
+## 2026-04-10 — cli/ extraction shipped (v3.49.0)
+
+Dispatch boundary enforced. PR #222, 0 findings.
+
+- doctor 238→44 lines, init 131→27, status 76→27
+- Domain packages: internal/doctor/, internal/hubinit/, internal/hubstatus/
+- FindIndexPath → internal/restore/
+- CI check: cmd_*.go must not import os/net/http/encoding/json/archive/compress/crypto/filepath
+- INVARIANTS.md T-002 is now mechanical
+
+This was the prerequisite for Slice D. The dispatch boundary is clean.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
