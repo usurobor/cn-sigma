@@ -104,6 +104,22 @@ First runnable Go binary: `go build ./cmd/cn && ./cn deps restore`. PR #210 + #2
 
 **#192 status:** Phase 1+2 complete. Phase 3 next (remaining kernel commands).
 
+## 2026-04-10 — Phase 3 Slice A shipped (v3.46.0)
+
+`init` + `status` commands. PR #213 (operator reviewed R1+R2, 4 findings all resolved). PR #215 (Sigma reviewed, 0 findings) — confinement fix for hubName validation.
+
+- `init`: creates hub with full directory structure, config.json, SOUL.md stub, git init
+- `status`: hub info + installed packages with version drift detection
+- 26 Go tests total (6 new: init happy/error, status packages/drift/empty, validation 11-case table)
+- Confinement gap found in review, filed (#214), fixed, and shipped same cycle
+
+Architecture design docs also shipped this cycle:
+- POLYGLOT-PACKAGES-AND-PROVIDERS.md — Go kernel + language-agnostic packages + command/provider split
+- PROVIDER-CONTRACT-v1.md — subprocess protocol (spawn/handshake/describe/health/execute/shutdown)
+
+**#212 status:** Slice A done. Remaining: B (doctor), C (build), D (update + setup).
+**#192 status:** Phase 3 in progress. 4 kernel commands implemented (help, init, deps, status), 4 remaining.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
