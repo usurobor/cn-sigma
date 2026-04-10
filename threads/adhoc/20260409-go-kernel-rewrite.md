@@ -131,6 +131,24 @@ Architecture design docs also shipped this cycle:
 **#212 status:** Slices A+B done. Remaining: C (build), D (update + setup).
 **#192 status:** Phase 3 in progress. 5 kernel commands implemented (help, init, deps, status, doctor), 3 remaining.
 
+## 2026-04-10 — Phase 3 Slice C shipped (v3.48.0)
+
+`build` command. PR #220, 2 review rounds, 3 findings (close errors, NeedsHub, purity split). All fixed on-branch.
+
+- 3 modes: build (tarball + index + checksums), check (CI), clean
+- `pkgbuild` package with pure/IO split (ParseManifestData / ReadManifest)
+- Targets new BUILD-AND-DIST layout: src/packages/ → dist/packages/
+- 35 Go tests total
+
+Also this cycle:
+- INVARIANTS.md: architectural constraints now a validated CDD surface
+- eng/go §2.17 (purity boundary) + §2.18 (dispatch boundary) — derive from invariants
+- CDD lifecycle: invariants at 4 touchpoints
+- #221 filed: cli/ extraction (dispatch boundary enforcement)
+
+**#212 status:** Slices A+B+C done. Remaining: D (update + setup). Blocked on #221 first.
+**#192 status:** Phase 3 nearly complete. 6 kernel commands (help, init, deps, status, doctor, build), 2 remaining.
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
