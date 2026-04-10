@@ -92,6 +92,18 @@ Design docs converged:
 
 **Next:** #209 Phase 2 — CLI entrypoint + command dispatch. Design reviewed and ready.
 
+## 2026-04-10 — Phase 2 shipped (v3.45.0)
+
+First runnable Go binary: `go build ./cmd/cn && ./cn deps restore`. PR #210 + #211 merged.
+
+- `internal/cli/`: CommandSpec, Invocation, Command interface, Registry with tier precedence + Available(hasHub)
+- `cmd/cn/main.go`: hub discovery (walk up for .cn/), registry setup, dispatch
+- `deps restore` + `help` commands, 20 tests total
+- §7.0 gate validated: 3 B-level findings fixed on-branch before merge
+- Recurring pattern: Claude reimplements stdlib functions (3 occurrences). Needs eng/go skill patch.
+
+**#192 status:** Phase 1+2 complete. Phase 3 next (remaining kernel commands).
+
 ## MCI freeze alignment
 
 MCI freeze declared in v3.38.0 post-release assessment. The stabilization work (Move 2 + #180) is the prerequisite. No new design commitments until implementation catches up — which is exactly what "finish boundaries, then rewrite" requires.
