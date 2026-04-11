@@ -6,14 +6,23 @@
 
 ## Current state (post-restructure)
 
+**Structurally aligned. Not yet behaviorally complete.**
+
+### What is true now
+- Repo layout matches the design: `src/{go,packages,ocaml}` → `dist/`
 - Go CLI: 8 kernel commands, 63 tests, all green
-- Repo: `src/{go,packages,ocaml}` → `dist/` — clean layout
 - Packages: cnos.core (21 skills, 3 commands), cnos.cdd (1+6 skills), cnos.eng (19 skills)
 - All 47 skills have triggers in frontmatter
-- Manifests declare exposed/internal skills
+- Manifests declare exposed/internal skills with activation metadata
 - OCaml ceased in CI/release — retained as reference implementation
+- Package manifests already declare commands — Go just can't dispatch them yet
+
+### What is not true yet
+- `dist/` is a derived convention, not a tracked layer — gitignored, not visible on main
+- Runtime contract hasn't caught up to the package/runtime registry model (no activation_index, command registry, orchestrator registry, or provider registry)
+- Package command discovery/dispatch not shipped — manifests declare, Go ignores
+- cnos.core is still heavy — the lean-core design is only partially realized (agent/*, ops/*, commands all still in core)
 - Pi: stopped, running v3.50.0 OCaml binary (last deployed version)
-- VPS: Go binary v3.50.0 installed
 
 ## What remains
 
@@ -79,6 +88,23 @@ The big one. Port the OCaml agent runtime to Go.
 **Estimated scope:** the majority of the work — months, not weeks
 **Ships as:** v4.0.0
 
+## Also needed (cross-cutting)
+
+### dist/ visibility
+`dist/` is gitignored — purely ephemeral build output. Docs should say this explicitly rather than implying it's a tracked structural layer. Add a README stub or .gitkeep, or just be clear in docs.
+
+### Runtime contract v2
+Current runtime contract surfaces `installed_packages`, `active_overrides`, `capabilities`, `peers`. Needs to grow:
+- `activation_index` — keyword → skill mapping
+- `commands` — discovered commands with source tier
+- `orchestrators` — registered orchestrators
+- `providers` — registered providers + health (later)
+
+This is the runtime self-model catching up to the package structure.
+
+### cnos.core slimming
+The package split started (cnos.cdd and cnos.eng extracted). But core still holds 21 skills + 3 commands. The long-term lean-core design suggests further extraction — but only when there's actual content that warrants a new package. YAGNI still applies.
+
 ## Milestones
 
 | Milestone | Signal |
@@ -86,6 +112,7 @@ The big one. Port the OCaml agent runtime to Go.
 | Phase 4 done | `cn daily` works from Go binary |
 | Phase 4.5 done | `cn build` produces dist/ from src/packages/ |
 | Phase 4.7 done | `cn doctor` shows activation table |
+| Runtime contract v2 | wake emits activation_index + command registry |
 | Phase 5 alpha | `cn agent` runs one cycle in Go |
 | Phase 5 beta | Daemon mode works, Pi migrated to Go |
 | v4.0.0 | OCaml deleted, full Go runtime, all commands |
@@ -96,3 +123,4 @@ The big one. Port the OCaml agent runtime to Go.
 - OCaml is reference, not dependency — read it, don't link it
 - Tests before port — write Go tests from OCaml behavior, then implement
 - YAGNI — add packages/features when needed, not before
+- Structure can lead behavior, but don't claim behavioral completeness from structural alignment
