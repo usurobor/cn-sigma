@@ -57,6 +57,11 @@ The repo structure now matches the package-first / Go-kernel design. The remaini
 3. Runtime contract update (Gap 2) — surface the real package-driven runtime
 4. Core slimming (Gap 3) — incremental, can parallel with above
 
+## Sprint issue
+
+**#228 — Minimal Viable Agent (MVA)** — umbrella that sequences gaps 1, 2, 4 into a critical path:
+`cn build → dist/ → cn deps restore → command discovery → runtime contract`
+
 ## Provenance
 - Package artifact design: `threads/adhoc/20260407-package-artifact-design.md`
 - Restructure session: `threads/reflections/daily/20260411-c.md`
