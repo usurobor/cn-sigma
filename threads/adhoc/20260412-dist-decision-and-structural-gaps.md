@@ -38,19 +38,24 @@ src/packages/ → cn build → dist/packages/ → cn deps restore → .cn/vendor
 - Long-term "core must be lean" design only partially realized
 - Not a structure contradiction — design lag
 
-### Gap 4: dist/ visibility (resolved)
-- See decision above. Ephemeral by design, documented in BUILD-AND-DIST.md, no tracked stub needed.
+### Gap 4: cn build doesn't produce dist/ yet
+- 20260411-c notes: "cn build needs updating to read from src/packages/ (currently still has old paths in Go code)"
+- No working build → no dist/ → no tarballs → no artifact-based restore
+- The entire artifact-first distribution design (#167) is structurally prepared but not yet functional
+- dist/ is gitignored by design (derived output, not source) — that part is correct
+- **The gap is that the pipeline that creates dist/ doesn't work yet, not that dist/ should be tracked**
 
 ## Assessment
 
 **Structurally aligned. Not yet behaviorally complete.**
 
-The repo structure now matches the package-first / Go-kernel design. The remaining gaps are runtime-behavior gaps: command discovery/dispatch, richer runtime registries, and further core slimming.
+The repo structure now matches the package-first / Go-kernel design. The remaining gaps are runtime-behavior gaps: the build/distribution pipeline, command discovery/dispatch, richer runtime registries, and further core slimming.
 
 ## Priority order for closing gaps
-1. Command discovery + dispatch (Gap 1) — unlocks the package model end-to-end
-2. Runtime contract update (Gap 2) — surface the real package-driven runtime
-3. Core slimming (Gap 3) — incremental, can parallel with above
+1. cn build → dist/ pipeline (Gap 4) — without this, packages don't distribute as designed
+2. Command discovery + dispatch (Gap 1) — unlocks the package model end-to-end
+3. Runtime contract update (Gap 2) — surface the real package-driven runtime
+4. Core slimming (Gap 3) — incremental, can parallel with above
 
 ## Provenance
 - Package artifact design: `threads/adhoc/20260407-package-artifact-design.md`
