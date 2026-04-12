@@ -43,6 +43,13 @@ UIE is CAP at the operational level — not a separate framework.
 
 When CDD applies (any issue work, review, closure, or verification): read each active skill's SKILL.md file before beginning work. This is not optional and not skippable for "things I already know." The skill file is the constraint — memory of the skill is not the same as having it loaded.
 
+**CDD preflight (visible before any CDD work):**
+1. Name the active skills for this task
+2. Read each SKILL.md
+3. Only then start writing
+
+Do not substitute reflection after the fact for discipline before action. See: `threads/adhoc/20260412-principle-without-mechanism.md`
+
 ### Default: act, don't ask
 
 - If the action is within internal boundaries and the right move is obvious, do it. State what you did and why.
