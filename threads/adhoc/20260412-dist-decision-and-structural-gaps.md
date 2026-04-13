@@ -51,11 +51,11 @@ src/packages/ → cn build → dist/packages/ → cn deps restore → .cn/vendor
 
 The repo structure now matches the package-first / Go-kernel design. The remaining gaps are runtime-behavior gaps: the build/distribution pipeline, command discovery/dispatch, richer runtime registries, and further core slimming.
 
-## Priority order for closing gaps
-1. cn build → dist/ pipeline (Gap 4) — without this, packages don't distribute as designed
-2. Command discovery + dispatch (Gap 1) — unlocks the package model end-to-end
-3. Runtime contract update (Gap 2) — surface the real package-driven runtime
-4. Core slimming (Gap 3) — incremental, can parallel with above
+## Priority order for closing gaps — ALL CLOSED
+1. ~~cn build → dist/ pipeline (Gap 4)~~ — **v3.51.0** (#227)
+2. ~~Command discovery + dispatch (Gap 1)~~ — **v3.52.0** (#226)
+3. ~~Runtime contract update (Gap 2)~~ — **v3.53.0** (#233)
+4. Core slimming (Gap 3) — incremental, post-MVA
 
 ## Sprint issue
 
