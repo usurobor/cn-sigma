@@ -1,4 +1,4 @@
-# How the Triad Articulated
+# How the Triad Emerged
 
 **Date:** 2026-04-14
 
@@ -84,4 +84,6 @@ We did not start with metaphysics and then impose it on engineering. We started 
 
 Only after it changed did we see what kind of structure had articulated. We solved practical problems — handoff cost, isolation, dispatch — and the architecture articulated itself.
 
-That is the real significance of the triad in cnos. It was not merely asserted. It was discovered in the process of trying to engineer coherence.
+Only later did we recognize the fit more clearly. TSC does not say that development roles are intrinsically different substances. TSC Core treats α, β, and γ symmetrically, and TSC Operational treats role as gauge rather than essence. In the cnos thesis, the same triad appears as pattern, relation, and evolution: three irreducible descriptions of one coherent whole. The development triad was therefore not TSC reduced to job titles. It was one more operational articulation of the same coherence law.
+
+That is the real significance of the triad in cnos. It was not merely asserted. It was discovered in the process of trying to engineer coherence, and then recognized as something the theory had already been describing from another angle.
