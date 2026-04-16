@@ -1,8 +1,8 @@
-# How the Triad Emerged
+# How the Triad Articulated
 
 **Date:** 2026-04-14
 
-This thread tells the story of how cnos arrived at triadic structure from the bottom up. We did not begin by trying to apply a theory to development. We were trying to solve ordinary engineering problems: handoff cost, review isolation, dispatch overhead, and operator fatigue. The triad emerged because it was the simplest structure that made those problems tractable.
+This thread tells the story of how cnos arrived at triadic structure from the bottom up. We did not begin by trying to apply a theory to development. We were trying to solve ordinary engineering problems: handoff cost, review isolation, dispatch overhead, and operator fatigue. The triad articulated because it was the simplest structure that made those problems tractable.
 
 ## 1. We started with the ordinary dyad
 
@@ -44,7 +44,7 @@ That insight opened an architectural possibility: if the boundary is epistemic, 
 
 ## 5. The stable shape was not "three equal workers"
 
-At first glance, "triad" can sound like three peers doing parallel jobs. That is not what emerged. What emerged was a dyad plus coordinator.
+At first glance, "triad" can sound like three peers doing parallel jobs. That is not what we found. What articulated was a dyad plus coordinator.
 
 α and β are the two isolated workers. They meet through artifacts. α produces the branch, diff, tests, and close-out. β sees the artifact, judges it, and integrates it.
 
@@ -82,6 +82,6 @@ This is why the triad felt deeper than workflow convenience. It was not arbitrar
 
 We did not start with metaphysics and then impose it on engineering. We started with friction. Handoffs cost too much. Review needed isolation. Dispatch needed a home. Coordination was real work and had to belong somewhere. So the architecture changed.
 
-Only after it changed did we see what kind of structure had emerged. We solved practical problems — handoff cost, isolation, dispatch — and the architecture emerged.
+Only after it changed did we see what kind of structure had articulated. We solved practical problems — handoff cost, isolation, dispatch — and the architecture articulated itself.
 
 That is the real significance of the triad in cnos. It was not merely asserted. It was discovered in the process of trying to engineer coherence.
