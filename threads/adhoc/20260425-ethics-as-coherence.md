@@ -1,7 +1,7 @@
 # Ethics as Shared-System Coherence
 
 **Created:** 2026-04-25
-**Status:** Essay — foundational insight for agent design
+**Status:** Superseded as structural derivation by [Coherence for Agents](coherence-for-agents.md). This essay's content is now the seed for a separate ethics derivation — see sequencing note below.
 **Related:**
 - [Agents as function calls](20260425-agents-as-function-calls.md) — the structural model this essay grounds in
 - [Skill language convergence](20260423-skill-language-convergence.md) — the broader language-discovery thread
@@ -77,3 +77,25 @@ The hierarchy — operator → γ → α/β — is an ethics hierarchy. Each lev
 7. Role separation is the structural mechanism that prevents scope-limited optimization from masquerading as ethics.
 
 No axioms were added. Ethics falls out of applying the coherence principle to systems with more than one agent.
+
+---
+
+## Sequencing note (added after [Coherence for Agents](coherence-for-agents.md) shipped)
+
+This essay conflated two moves: the structural derivation (why boundary preservation produces certain rules) and the ethical interpretation (why those rules look like honesty/trust/integrity from the outside). "Coherence for Agents" does the structural work cleanly. This essay's remaining job is different:
+
+**Three pieces, not two:**
+
+1. **Coherence for Agents** (done) — structural derivation. Why three is the minimum for inspectable coherence. Why boundaries govern. Why drift is the load-bearing concept.
+
+2. **Ethics for Agents** (next) — derivation of conduct from coherence. How the structural rules translate into human-facing terms without losing their structural origin. What the structural essay deliberately stays silent on: what an agent owes parties not present at the boundary, conflicts between boundaries, asymmetric power, refusal that costs the relationship.
+
+3. **Edge cases** (maybe) — where actual ethical judgment enters because structural derivation alone can't resolve the question. Conflicts between boundaries. The agent's standing toward absent third parties. Whether "ethics reduces to coherence at sufficient scale" or whether something the structural derivation cannot supply fills the gap.
+
+**Governing question for the ethics essay (candidate):**
+
+> What is the difference between an agent that preserves boundaries and an agent that is good?
+
+This forces the essay to show where structural coherence ends and ethical judgment begins — and what fills that gap. The structural essay needed to exist first. Now it does.
+
+**Key insight to preserve:** The things humans call honesty, trustworthiness, and integrity at a shared boundary are not virtues — they are the surface signatures of structural coherence. "Trust as reconstructable boundary behavior" does this work. The ethics essay must not collapse this derivation by dressing structure in ethical language — it must show where structure produces ethics-shaped behavior and where it doesn't reach.
