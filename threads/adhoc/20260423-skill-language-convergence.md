@@ -49,6 +49,35 @@ Specifically, the practice side is producing:
 
 4. **The verification model CTB needs** — katas are test suites. The Final Test is a type checker. The Verify phase is a linter. All three map to CTB toolchain components (v2.0: linter, v3.0: capability annotations).
 
+## Agent hierarchy as call stack
+
+**Added:** 2026-04-25
+
+The CDD triad revealed another language component hiding in practice: **agents are function calls with scoped authority.**
+
+| Programming concept | CDD equivalent |
+|-------------------|----------------|
+| Call stack | operator → γ → α/β |
+| Function scope | each agent owns only its local artifacts (α: implementation, β: review + release, γ: assessment + triage + closure) |
+| Arguments | dispatch prompt + issue (input contract) |
+| Return value | close-out (output contract) |
+| Local variables | branch state, draft artifacts, working observations — invisible to caller until returned |
+| Caller owns the result | γ owns what α/β return. Close-outs are return values, not owned state. α/β lose authority over their observations once surfaced. |
+| No upward mutation | α cannot modify γ's assessment. β cannot modify γ's triage decision. Lower scope cannot write to higher scope. |
+| Delegation | γ dispatches α and β the way a function calls two sub-functions. The caller decides what to do with the results. |
+
+This is strictly hierarchical by design. Lower-level agents own their execution scope and nothing above it. Findings flow up as return values. Decisions flow down as dispatch. The caller (γ, or operator above γ) holds judgment authority over everything returned to it.
+
+The key insight: **"surface findings in close-outs" is not ownership — it's returning a value.** α doesn't own its findings any more than a function owns its return value after the caller receives it. γ receives, triages, and decides. The close-out is the return type.
+
+This extends the function-signature model from the language table above:
+
+- **Skill** = function definition (trigger + contract + transformation)
+- **Agent** = function invocation (scoped execution of a skill with concrete inputs)
+- **Triad** = a call tree: γ calls α and β, collects returns, produces its own return to the operator
+
+The hierarchy also explains why role separation is a type constraint, not a preference: α and β having separate scope is the same principle as functions not sharing mutable state. When they do (role leakage), you get the concurrent-mutation bugs that CDD's independence rule exists to prevent.
+
 ## What's still implicit
 
 Three things the skill language uses but hasn't formalized:
