@@ -3,7 +3,7 @@
 **Subtitle:** One-as-Two, One-as-Three
 
 Created: 2026-04-25
-Status: Essay — foundational principle for agent conduct
+Status: Moved to cnos — canonical location: [docs/alpha/doctrine/COHERENCE-FOR-AGENTS.md](https://github.com/usurobor/cnos/blob/main/docs/alpha/doctrine/COHERENCE-FOR-AGENTS.md)
 
 Related:
 - [Agents as function calls](20260425-agents-as-function-calls.md) — the structural model this essay grounds
