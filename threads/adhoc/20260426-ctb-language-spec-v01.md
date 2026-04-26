@@ -32,6 +32,16 @@ Solid v0.1. The three docs are properly separated by concern. The spec makes the
 
 Both are tracked in **#275** (CTB Language Spec v0.2: typed contract grammar + cross-package aspect precedence), filed as P2.
 
+## Direction
+
+The arc from here:
+
+1. **v0.1** (this) — names the language: signatures, scope, dispatch, composition, effect-plan boundary
+2. **#275** (v0.2) — makes it enforceable: typed contract grammar for `inputs`/`outputs`, cross-package aspect precedence. Without types, a loader can't check satisfaction.
+3. **#175** (CTB → orchestrator IR compiler) — makes it executable: compiles skill signatures into orchestrator intermediate representation. Depends on #275's contract grammar — can't compile what isn't typed.
+
+The trajectory is: name it → enforce it → compile it. Each step is blocked by the previous one.
+
 ## Authority chain
 
 - Vision (`CTB-v4.0.0-VISION.md`) governs strategy
