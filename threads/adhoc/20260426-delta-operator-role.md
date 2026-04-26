@@ -33,9 +33,17 @@ Created `operator/SKILL.md` in cnos.cdd as the δ role — the operator's contra
 
 ## Significance
 
-This is the first addition to CDD's role model since the triad (α/β/γ) was established. CDD §1.4 previously said "γ may be the operator or a third agent" — the operator surface was implicit, distributed across "γ/operator" references in β step 8, γ §2.6, and ad-hoc convention. δ makes it explicit: a named role with a skill, a contract, gates, and a signal protocol.
+δ is the first concrete instance of whole-to-whole composition from `COHERENCE-FOR-AGENTS.md`. The essay predicts this exactly:
 
-The triad becomes a tetrad for substantial cycles where the operator is a distinct participant. For two-agent configurations where the operator serves as γ, δ and γ collapse — the operator holds both coordination and gate authority. The skill handles this: "If δ is unavailable, γ may execute gates directly."
+> A triad stabilizes, appears at its external boundary as one articulated whole. A fourth agent does not create a new primitive form; it creates a new two-sided boundary.
+
+That's what happened. The triad (α/β/γ) is one-as-three: producer, judge, inspectable boundary. δ is not a fourth triad role — δ creates a new **one-as-two** relation with the triad-as-whole. The triad owns the cycle's internal coherence; δ owns the boundary between the triad and the platform (external gates, session routing, override authority).
+
+The δ skill's §5 ("What the operator does NOT do") is the structural enforcement of this: δ does not implement (α), does not review (β), does not triage (γ). δ holds the external boundary. Crossing it without an override declaration breaks the coherence record — exactly the essay's prediction that guessing at a boundary is the beginning of drift.
+
+CDD §1.4 previously said "γ may be the operator or a third agent" — the operator surface was implicit, distributed across "γ/operator" references. δ makes it explicit: a named role with a contract, gates, and a signal protocol. When the operator serves as γ (two-agent config), δ and γ collapse — one person holds both coordination and external boundary. The skill handles this: "If δ is unavailable, γ may execute gates directly."
+
+The essay's recurrence pattern: one-as-two (model ↔ environment) → one-as-three (triad, inspectable boundary) → one-as-two again (triad ↔ δ, next scale). This session is evidence that the pattern works as described.
 
 ## Cross-references
 
