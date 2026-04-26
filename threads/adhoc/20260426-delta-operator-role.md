@@ -31,6 +31,21 @@ Created `operator/SKILL.md` in cnos.cdd as the δ role — the operator's contra
 - §3.2: execute on request, not on observation
 - §2.2: bash polling pattern (not fabricated CLI)
 
+## Significance
+
+This is the first addition to CDD's role model since the triad (α/β/γ) was established. CDD §1.4 previously said "γ may be the operator or a third agent" — the operator surface was implicit, distributed across "γ/operator" references in β step 8, γ §2.6, and ad-hoc convention. δ makes it explicit: a named role with a skill, a contract, gates, and a signal protocol.
+
+The triad becomes a tetrad for substantial cycles where the operator is a distinct participant. For two-agent configurations where the operator serves as γ, δ and γ collapse — the operator holds both coordination and gate authority. The skill handles this: "If δ is unavailable, γ may execute gates directly."
+
+## Cross-references
+
+- CDD.md β step 8: now defers to δ (was "γ/operator")
+- γ SKILL.md: δ in inputs, calls, load order (step 5)
+- γ §2.6: waits for δ completion signal before close-out triage
+- δ §3.4: signal γ after release-phase gates
+- δ §3.2: execute on request, not on observation
+- δ §2.1: heartbeat observation ≠ gate request
+
 ## Open questions
 
 - Should δ have its own git identity (`delta@cdd.{project}`)? Currently not needed — δ doesn't commit CDD artifacts. But this session's patches were committed under sigma's identity, not δ's.
