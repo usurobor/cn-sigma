@@ -54,6 +54,16 @@ The essay's recurrence pattern: one-as-two (model ↔ environment) → one-as-th
 - δ §3.2: execute on request, not on observation
 - δ §2.1: heartbeat observation ≠ gate request
 
+## Theory-practice convergence
+
+The essay `COHERENCE-FOR-AGENTS.md` was written 2026-04-25. δ was built 2026-04-26 from pure operational need ("we need someone to push tags and route prompts"). Nobody read the essay and designed δ from it. The structure emerged independently from practice and landed exactly where the theory predicted: a new one-as-two boundary at the next scale after the triad stabilized.
+
+This is prediction, not description after the fact. The recurrence pattern (one-as-two → one-as-three → one-as-two again) is the actual shape coherent systems take when they grow.
+
+**The failure in the same session proves the theory too.** When asked to describe δ's significance, Sigma wrote "triad becomes a tetrad" — counting parts. The essay's closing line: "the system grows by composing wholes, not by counting parts." The agent doing the work demonstrated the exact failure mode the essay names, in the same session where the evidence for the theory was being produced.
+
+The correction came from the operator, not from the agent. The agent had loaded the essay's adhoc thread reference (`coherence-for-agents.md`) but had never read the essay itself. The theory was in the repo; the practice was in the session; neither connected until the operator pointed at the gap. That gap — theory available but not consulted — is itself a coherence failure: model (essay exists) ↔ reality (agent didn't read it) with no closing response until prompted.
+
 ## Open questions
 
 - Should δ have its own git identity (`delta@cdd.{project}`)? Currently not needed — δ doesn't commit CDD artifacts. But this session's patches were committed under sigma's identity, not δ's.
