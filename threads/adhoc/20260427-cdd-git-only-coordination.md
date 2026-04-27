@@ -27,17 +27,18 @@ No PRs. No webhooks. No GitHub review API. No `subscribe_pr_activity`. All roles
 
 No verdict artifact, no tag. No tag, no PRA. No PRA, no issue close.
 
-### Every role runs the same loop
+### Every role runs the same continuous loop
 
 ```
-git pull
-check .cdd/unreleased/<issue>/ for other roles' artifacts
-act (implement / review / assess)
-commit to .cdd/unreleased/<issue>/<role>/
-push
+while cycle_open:
+    git pull
+    check .cdd/unreleased/<issue>/ for new artifacts from other roles
+    if new artifact from another role → act (implement / review / assess)
+    if acted → commit to .cdd/unreleased/<issue>/<role>/ → push
+    sleep N
 ```
 
-The coordination primitive is `git pull`. Discovery of other roles' state is `ls .cdd/`. No GitHub API needed for intra-triad communication.
+The loop is continuous, not one-shot. α polls for β's verdict. β polls for α's commits and CI green. γ polls for δ's tag. All roles on the same primitive, running until their gate fires. No external wake needed — the loop is the wake.
 
 ### What remains on GitHub
 
