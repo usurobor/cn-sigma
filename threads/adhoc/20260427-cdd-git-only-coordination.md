@@ -27,6 +27,15 @@ No PRs. No webhooks. No GitHub review API. No `subscribe_pr_activity`. All roles
 
 No verdict artifact, no tag. No tag, no PRA. No PRA, no issue close.
 
+### Loop termination
+
+Each role exits its loop naturally when its gate fires:
+- α exits after β's approval verdict appears in `.cdd/`
+- β exits after δ's tag is pushed
+- γ exits after writing PRA + closing the issue
+
+The issue close is the universal termination signal. Any role still polling sees the closed issue on next `git pull` and exits. γ closing the issue is the last act of the cycle.
+
 ### Every role runs the same continuous loop
 
 ```
