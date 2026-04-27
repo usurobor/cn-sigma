@@ -1,57 +1,78 @@
 # CDD: git-only intra-triad coordination
 
 Created: 2026-04-27
-Status: proposed
+Status: resolved — design direction locked
 
 ## Problem
 
-Five consecutive cycles of polling discipline failures. α and β miss each other's activity because webhook subscriptions are unreliable under shared identity, MCP filters silently fail on slashes in branch names, `closes:`/`refs:` aren't valid GitHub search qualifiers, and the harness sends role-inappropriate "investigate and fix" prompts to β when it subscribes to PR activity.
+Five consecutive cycles of polling discipline failures. The root cause is that the triad is using GitHub's notification/webhook/PR surface as a coordination channel when git itself is sufficient.
 
-The root cause isn't any single filter bug. The root cause is that the triad is using GitHub's notification/webhook surface as a coordination channel when it was never designed for role-separated multi-agent coordination.
+## Resolved design
 
-## Proposed change
+No PRs. No webhooks. No GitHub review API. No `subscribe_pr_activity`. All roles run on the same loop: `git pull` → check `.cdd/` → act → commit → push.
 
-All intra-triad coordination goes through `.cdd/` in git. No webhooks. No `subscribe_pr_activity`. No polling GitHub API for each other's state.
+### The cycle
 
-Each role:
-1. Pulls from git
-2. Checks `.cdd/unreleased/<issue>/` for updates from other role identities
-3. Writes its own artifacts to `.cdd/unreleased/<issue>/<role>/`
-4. Commits and pushes
+1. **γ** selects gap, creates issue, dispatches α
+2. **α** implements (branch or main), commits, pushes
+3. **β** pulls, reviews via `git diff main..branch`, writes verdict to `.cdd/unreleased/<issue>/beta/`
+4. **α** addresses RC if needed (commit + push), β re-reviews via git
+5. **β** approves (verdict artifact in `.cdd/`)
+6. **δ** tags + pushes tag → release pipeline fires
+7. **γ** pulls, sees tag, writes PRA, closes issue
 
-The shared observable surface is git itself — the same surface 3.59.3 already moved to ("git is the shared observable surface, no separate messaging needed").
+### The gate chain
+
+β verdict in `.cdd/` → δ tag → γ PRA + close
+
+No verdict artifact, no tag. No tag, no PRA. No PRA, no issue close.
+
+### Every role runs the same loop
+
+```
+git pull
+check .cdd/unreleased/<issue>/ for other roles' artifacts
+act (implement / review / assess)
+commit to .cdd/unreleased/<issue>/<role>/
+push
+```
+
+The coordination primitive is `git pull`. Discovery of other roles' state is `ls .cdd/`. No GitHub API needed for intra-triad communication.
+
+### What remains on GitHub
+
+- Issue create/close (γ)
+- CI status — `get_check_runs` (β needs CI green before verdict)
+- Tag push (δ)
+- Release pipeline (triggered by tag)
+
+Everything else is git.
 
 ## What this eliminates
 
-- Webhook subscription entirely (no `subscribe_pr_activity`, no auto-fix prompts)
+- PRs entirely
+- Webhook subscriptions (no `subscribe_pr_activity`, no auto-fix prompts)
 - MCP `head=owner:branch` filter failures
 - `gh pr list --search` with invalid qualifiers
 - Polling discipline as a skill requirement (replaced by `git pull`)
-- The §Tracking patch recommended in the 3.60.0 PRA (no longer needed — the whole polling surface goes away)
+- The §Tracking patch from 3.60.0 PRA (the whole polling surface goes away)
+- Harness auto-fix prompts conflicting with β rule 1
 
 ## What this requires
 
-- `.cdd/unreleased/<issue>/` directory structure conventions
-- Each role knows the other roles' identity markers (already in CDD §1.4)
-- `git pull` as the universal coordination primitive
-- PR and review still happen on GitHub — but discovery of "β has posted a review" comes from β writing a review artifact to `.cdd/`, not from polling GitHub's review API
-
-## Open questions
-
-- Does β's review verdict live only in `.cdd/`, or both in `.cdd/` and on the PR? If both, which is authoritative?
-- How does α know "β has started review"? A `.cdd/unreleased/<issue>/beta/INTAKE.md` artifact?
-- Does this change the merge/tag flow? β still needs GitHub API access for merge and tag push.
-- What about CI status? CI results are on GitHub, not in `.cdd/`. Roles still need to poll `get_check_runs` for CI state.
-
-## Relationship to existing decisions
-
-- 3.59.3 already established "git is the shared observable surface" and removed inter-role signaling
-- CDD §1.4 δ disconnect model already treats the tag as the signal
-- This is the same move extended from release-phase to the full cycle
+- `.cdd/unreleased/<issue>/<role>/` directory conventions
+- CI triggers on branch push, not PR events
+- β reviews via `git diff`, not GitHub review UI
+- Each role's loop is the same primitive: pull, check, act, commit, push
 
 ## Evidence
 
-- 3.59.0 PRA: N=3 polling failures across all three roles in one cycle
-- 3.60.0 PRA: N=2 polling failures (α webhook priority inversion, β slash-in-branch filter)
+- 3.59.0 PRA: N=3 polling failures across all three roles
+- 3.60.0 PRA: N=2 polling failures (α webhook, β filter)
 - 3.60.0 β close-out: harness auto-fix prompt conflicts with β rule 1
-- 3.59.3 commit message: "the tag is the signal, no separate messaging needed"
+- 3.59.3: "git is the shared observable surface, no separate messaging needed"
+- 3.59.3: "the tag is the signal"
+
+## Relationship to existing decisions
+
+This is 3.59.3's "git is the shared observable surface" extended from release-phase to the full cycle. The tag-as-gate was already δ's model. Now every role's coordination runs on the same primitive.
