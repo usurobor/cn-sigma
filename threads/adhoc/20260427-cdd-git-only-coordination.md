@@ -49,12 +49,34 @@ while cycle_open:
 
 The loop is continuous, not one-shot. α polls for β's verdict. β polls for α's commits and CI green. γ polls for δ's tag. All roles on the same primitive, running until their gate fires. No external wake needed — the loop is the wake.
 
-### What remains on GitHub
+### Issues move to `.cdd/` too
 
-- Issue create/close (γ)
+Issues become directories in `.cdd/issues/<id>/`. A root index (`ISSUES.md` or `.cdd/ISSUES.md`) is the grep surface — id, title, status, owner. No GitHub issue API needed.
+
+```
+.cdd/
+├── ISSUES.md              ← index: id, title, status, owner
+├── issues/
+│   ├── 279/
+│   │   ├── ISSUE.md       ← body (problem, ACs, non-goals)
+│   │   ├── alpha/         ← α artifacts
+│   │   ├── beta/          ← β verdict
+│   │   └── gamma/         ← PRA, close-out
+│   └── 280/
+│       └── ...
+└── releases/
+    └── 3.60.0/
+        └── ...
+```
+
+`git log .cdd/issues/279/` is the full cycle history. `grep "open" ISSUES.md` is the backlog. No API.
+
+## What remains on GitHub
+
 - CI status — `get_check_runs` (β needs CI green before verdict)
-- Tag push (δ)
+- Tag push (δ) — triggers release pipeline
 - Release pipeline (triggered by tag)
+- Public visibility (optional — GitHub issues as pointers to `.cdd/` if external tracking is wanted)
 
 Everything else is git.
 
