@@ -1,32 +1,46 @@
-# SOUL as CTB Skill Signature
+# SOUL as Agent Type
 
-**Date:** 2026-04-28
+**Date:** 2026-04-28 (reframed same day)
 **Issue:** #284
-**Status:** Filed, pending γ dispatch for triadic cycle
+**Status:** Rewritten. Original framing (SOUL as CTB module) was wrong.
 
-## What happened
+## The reframe
 
-During discussion of #283 (replacing GH PRs with `.cdd/unreleased/{N}/` artifacts), the CTB language spec was loaded to connect it to the SOUL implementation. The mapping turned out to be direct and complete:
+The SOUL is not a module. Not a skill. Not a callable. Not something you dispatch.
 
-- Every structural element CTB LANGUAGE-SPEC v0.1 names (module identity, governing question, inputs/outputs, scope, visibility, invariants, authority hierarchy, global aspects) is present in the SOUL — as prose.
-- None of it is structured, declared, or checkable.
+The SOUL is a **type constraint** on the agent — the typeclass definition (Haskell), the behaviour spec (Erlang), the typing context Γ (process calculi).
 
-The SOUL is the agent's **activation context** — the environment every skill loads into. CTB's scope model (§3) maps to the SOUL's authority constraints. CTB's "no upward mutation" (§8.4) maps to the SOUL's continuity rule (§3.6). CTB's global aspects (§7) map to the SOUL's invariants (§3).
+### Why "module" was wrong
 
-## Key observation
+The original framing tried to add frontmatter to SOUL.md as if it were a module with inputs/outputs/scope. But:
+- You don't dispatch a SOUL
+- It has no inputs/outputs
+- It doesn't transform anything
+- It applies to ALL dispatches, not one
 
-The SOUL is not "like" a CTB module. It IS one — the language just hasn't caught up to the practice. The frontmatter migration is mechanical; every field already exists in prose.
+### Why "type" is right
+
+| What the SOUL does | Module? | Type? |
+|---|---|---|
+| Defines operations (observe, identify, execute, verify) | ❌ Modules are dispatched | ✅ Typeclasses define required operations |
+| Defines laws (invariants) | ❌ Modules don't carry laws | ✅ Typeclass laws constrain all instances |
+| Applies across all nested dispatches | ❌ Modules have local scope | ✅ Type constraints propagate through the stack |
+| Has instances (cn-sigma, cn-pi) | ❌ Modules are instantiated by dispatch | ✅ Types are instantiated by declaration |
+| Changes only through explicit protocol | ❌ Modules are stateless | ✅ Types don't change at runtime |
+
+### The structure
+
+**SOUL template** = typeclass definition (operations + laws + required bindings)
+**Concrete SOUL** = typeclass instance (binds operations to specific behaviour)
 
 ## Connection to #277
 
-Issue #277 (SOUL.md rewrite to skill form with UIE-V agent loop) is the content rewrite. #284 is the structural bridge to CTB. They're complementary:
-- #277 = what the SOUL says (content, UIE-V loop)
-- #284 = how the SOUL is expressed (CTB signature, frontmatter, aspect declaration)
-
-Both may converge into one implementation cycle.
+Still complementary:
+- #277 = SOUL content (UIE-V loop, what the laws say)
+- #284 = SOUL form (type declaration, how it's expressed)
 
 ## What to watch
 
-- Whether `soul` needs to be a new `artifact_class` or fits under existing classes
-- Whether the SOUL-as-global-aspect model works when multiple packages are loaded (SEMANTICS-NOTES §12 open question)
-- How invariant structuring interacts with the prose → `.coh` migration path
+- LANGUAGE-SPEC v0.2 needs a new kind: `agent-type` distinct from `agent-module`
+- How type constraints propagate when agents compose (typeclass constraint propagation)
+- Whether invariants can be checked mechanically in the future (the type-checking question)
