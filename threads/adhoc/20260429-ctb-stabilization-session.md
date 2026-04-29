@@ -47,10 +47,26 @@ The core claim now on main:
 
 **Risk:** Premature formalization — spec is precise before runtime exists. Mitigation: stabilize before promote, don't promote before implement.
 
+## Status (end of day)
+
+- #290 merged (AC2)
+- #291 merged (AC1 + §15 witness theater risk note)
+- #297 filed (TSC formal grounding for CTB docs)
+- #299 open (README realignment — coherence-system first)
+
 ## Remaining sequence
 
-1. Merge #290 and #291
-2. AC3: join obligations (result algebra now stable)
-3. AC4: syntax status
-4. AC5+AC6: checklist + example
-5. Separate PR: promote v0.2 (mechanical mv after stabilization)
+1. AC3: join obligations (result algebra now stable from AC1)
+2. AC4: syntax status
+3. AC5+AC6: checklist + example
+4. Separate PR: promote v0.2 (mechanical mv after stabilization)
+5. File ctb-check v0 issue (after #289 wraps)
+6. File adversarial tri() test cases issue
+
+## Risk: witness theater
+
+Named during this session. CTB's witness/close-out model can fail if witness fields become persuasive structure without accountable evidence. Added as §15 non-normative risk note in v0.2 draft. Mitigation: every new CTB concept after #289 ships with valid fixture, invalid fixture, and checker rule. ctb-check should draw from TSC-Oper's witness-independence pattern (W1–W4).
+
+## README framing correction
+
+First attempt (#298) was too CTB-forward. Corrected in #299: cnos is a recurrent coherence system first. CTB is one emerging language/checker layer inside that system, not the top-level frame. Hierarchy: coherence principle → CN protocol → coherent agent → cn runtime → CTB.
