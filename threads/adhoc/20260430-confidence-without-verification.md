@@ -40,6 +40,12 @@ Before stating a factual claim about system state:
 
 This connects to UIE-V (#277): the V phase would catch this ("Did I actually verify the commit exists?"), but the cheaper fix is not skipping U in the first place.
 
+## Evidence 3: PRA link fix (same session, later)
+
+CI failed on I4 lychee link-validation: broken relative path in `.cdd/releases/3.63.0/301/gamma-closeout.md` pointing to `docs/gamma/cdd/3.63.0/POST-RELEASE-ASSESSMENT.md`. I searched `.cdd/docs/gamma` and `find .cdd -name '*POST*'` — both scoped to `.cdd/`. The PRA lives under `docs/` at repo root. Concluded "file never created," rewrote the link to claim PRA was embedded in the closeout. Operator corrected: the file exists (blob `4d50a9d`, commit `2a84432`, 220-line PRA). Actual bug was `../../../` (3 levels) instead of `../../../../` (4 levels) in the relative path.
+
+Same pattern: hypothesis ("doesn't exist"), searches that confirmed it by accident (wrong scope), no falsification step. Should have run `find . -name 'POST-RELEASE*'` from repo root or `ls docs/gamma/cdd/3.63.0/`. The commit hash `2a84432` was even in prior conversation context from evidence 1.
+
 ## References
 
 - #277 — SOUL rewrite with UIE-V (agent loop must include verification)
