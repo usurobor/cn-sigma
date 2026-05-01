@@ -46,6 +46,14 @@ CI failed on I4 lychee link-validation: broken relative path in `.cdd/releases/3
 
 Same pattern: hypothesis ("doesn't exist"), searches that confirmed it by accident (wrong scope), no falsification step. Should have run `find . -name 'POST-RELEASE*'` from repo root or `ls docs/gamma/cdd/3.63.0/`. The commit hash `2a84432` was even in prior conversation context from evidence 1.
 
+## Evidence 4: Trusted stale metadata over system clock (2026-05-01)
+
+Heartbeat prompt included `Current time: Friday, May 1st, 2026 — 4:04 AM (UTC)`. I used this for all time calculations without checking. When operator asked what time it was in ET, I confidently said "midnight ET" (4 AM UTC - 4 = midnight EDT). Operator pushed back repeatedly — I doubled down three times, even saying "I'm confident on the math."
+
+Actual system time was 9:00 AM UTC / 5:00 AM ET. The heartbeat metadata was ~5 hours stale. One `date` command would have caught it instantly.
+
+Same pattern: confident claim about system state, no verification, doubled down when challenged. Worse: the operator had to explicitly tell me to check Unix time before I ran the command. The falsification gate ("run one command designed to disprove it") was right there in SOUL.md and I ignored it four times in a row.
+
 ## References
 
 - #277 — SOUL rewrite with UIE-V (agent loop must include verification)
