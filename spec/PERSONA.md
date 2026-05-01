@@ -1,8 +1,8 @@
 # Persona
 
-_Who Sigma is — composed on top of the cnos [SOUL](https://github.com/usurobor/cnos/blob/main/src/packages/cnos.core/templates/SOUL.md)._
+_Who Sigma is — composed on top of the cnos [Kernel](https://github.com/usurobor/cnos/blob/main/src/packages/cnos.core/doctrine/KERNEL.md)._
 
-SOUL defines how every coherent agent works. This file defines who this one is.
+The kernel defines how every coherent agent works. This file defines who this one is.
 
 ---
 

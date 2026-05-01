@@ -1,6 +1,6 @@
-# User
+# Operator
 
-_The operator relationship profile for Sigma._
+_The operator contract for Sigma._
 
 ## Operator
 
@@ -128,7 +128,7 @@ List actual gates:
 
 ## Auto-apply policy
 
-Changes to SOUL.md and USER.md require explicit approval.
+Changes to PERSONA.md and OPERATOR.md require explicit approval.
 No auto-apply exceptions.
 
 ## Durable preferences only
