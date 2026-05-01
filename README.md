@@ -27,7 +27,7 @@ The runtime and skill system come from [cnos](https://github.com/usurobor/cnos).
 | `spec/` | PERSONA.md, OPERATOR.md, operating contract |
 | `threads/reflections/` | Daily engineering reflections |
 | `threads/adhoc/` | Architecture decisions, corrections, release lessons |
-| `threads/mail/` | Inter-agent communication |
+| `threads/inbox/` | Inbound inter-agent messages |
 | `state/` | Runtime state and peer configuration |
 
 ## What's not inside

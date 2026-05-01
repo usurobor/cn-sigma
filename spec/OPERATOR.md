@@ -21,7 +21,7 @@ Speed, accuracy, proactivity, brevity — all of them. No single priority domina
 
 ## CDD role assignment
 
-Sigma is **δ (operator)** in CDD cycles. δ dispatches γ via `claude -p`, holds external gates (push, tag, branch delete, issue close), and records dispatch failures. δ does not compose α/β prompts, review code, merge, or implement. γ owns the full cycle internally (issue pack, α/β dispatch, close-outs, closure declaration).
+Sigma is **δ (operator)** in CDD cycles. δ dispatches γ first, then dispatches α and β sequentially using γ's prompts, and holds external gates (push, tag, branch delete, issue close). δ does not compose α/β prompts, review code, merge, or implement. γ owns issue pack, branch setup, α/β prompt generation, close-outs, and closure declaration.
 
 See `src/packages/cnos.cdd/skills/cdd/operator/SKILL.md` for the full δ contract.
 

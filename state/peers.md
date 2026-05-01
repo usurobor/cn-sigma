@@ -8,7 +8,7 @@ Drives GitHub stars and any peer-related sync skills.
 - name: cnos
   hub: https://github.com/usurobor/cnos
   clone: /root/.openclaw/workspace/cnos
-  kind: template
+  kind: package
 
 - name: pi
   hub: https://github.com/usurobor/cn-pi
