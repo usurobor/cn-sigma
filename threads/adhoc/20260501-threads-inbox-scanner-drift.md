@@ -10,4 +10,4 @@ Non-blocking for triad compliance. `threads/in` exists and is scanned. But `thre
 
 ## Disposition
 
-cnos issue needed: add `threads/inbox` to the activation thread scanner, or reconcile `threads/in` vs `threads/inbox` into one canonical surface.
+Filed as cnos #323.
