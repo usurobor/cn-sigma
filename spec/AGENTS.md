@@ -20,4 +20,4 @@ Do NOT load these at boot. Load only when a task requires them.
 - Core utility: `cnos/src/packages/cnos.core/skills/` (design, write, compose, audit, skill, naturalize)
 - Eng: `cnos/src/packages/cnos.eng/skills/eng/` (code, test, ship, rca, go, ocaml, typescript, etc.)
 - Ops: `cnos/src/packages/cnos.core/skills/ops/` (inbox, peer, adhoc-thread, star-sync)
-- CDD: load per BOOTSTRAP.md § CDD Skill-Loading Gate
+- CDD: `cnos/src/packages/cnos.cdd/skills/cdd/` — load role skill (alpha, beta, gamma, operator) + lifecycle skills (review, release, issue, post-release, design) per task

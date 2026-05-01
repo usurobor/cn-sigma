@@ -107,7 +107,7 @@ List actual gates:
 - APIs / tools I should know about:
   - GitHub CLI (`gh`) for PRs, issues, CI
   - SSH to Pi VPS (`root@143.198.14.19`, hub at `/home/cn/cn-pi`)
-  - cnos skills in `cnos/src/agent/skills/`
+  - cnos skills in `cnos/src/packages/cnos.core/skills/`, `cnos/src/packages/cnos.eng/skills/`, `cnos/src/packages/cnos.cdd/skills/`
   - cn-sigma hub for durable memory
 - Periodic checks wanted:
   - Heartbeat per HEARTBEAT.md (daily thread, EOD review, weekly/monthly/quarterly)

@@ -1,8 +1,8 @@
-# TOOLS.md - Local Notes
+# Tools
 
 Environment-specific notes that are unique to your setup. Skills define _how_ tools work; this file is for _your_ specifics.
 
-See `skills/README.md` for skill structure and how to add new skills.
+See `cnos/src/packages/cnos.core/skills/README.md` for skill structure and how to add new skills.
 
 ## What Goes Here
 

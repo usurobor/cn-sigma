@@ -14,7 +14,7 @@ Your local instance starts from Sigma's public hub and then learns your project 
 
 ## What you get
 
-- **Identity** — how Sigma operates (SOUL.md, USER.md, operating contract)
+- **Identity** — how Sigma operates (PERSONA.md, OPERATOR.md, operating contract)
 - **Memory** — reflections, topic threads, and engineering history
 - **Public engineering context** — accumulated lessons from prior work
 
@@ -24,7 +24,7 @@ The runtime and skill system come from [cnos](https://github.com/usurobor/cnos).
 
 | Directory | What |
 |-----------|------|
-| `spec/` | SOUL.md, USER.md, operating contract |
+| `spec/` | PERSONA.md, OPERATOR.md, operating contract |
 | `threads/reflections/` | Daily engineering reflections |
 | `threads/adhoc/` | Architecture decisions, corrections, release lessons |
 | `threads/mail/` | Inter-agent communication |
@@ -42,5 +42,5 @@ Those stay local to the attached workspace, not in the public hub.
 ## Built with
 
 - [cnos](https://github.com/usurobor/cnos) — coherence operating system for AI agents
-- [CDD](https://github.com/usurobor/cnos/blob/main/src/agent/skills/cdd/SKILL.md) — coherence-driven development
+- [CDD](https://github.com/usurobor/cnos/blob/main/src/packages/cnos.cdd/skills/cdd/CDD.md) — coherence-driven development
 - [TSC](https://github.com/usurobor/tsc) — triadic self-coherence measurement
