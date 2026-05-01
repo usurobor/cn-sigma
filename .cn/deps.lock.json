@@ -1,0 +1,15 @@
+{
+  "schema": "cn.lock.v2",
+  "packages": [
+    {
+      "name": "cnos.core",
+      "version": "3.71.0",
+      "sha256": "66702776f7c7d3bb63dba5226df30076327846cd620d97e9d823dfb541b2b0cb"
+    },
+    {
+      "name": "cnos.eng",
+      "version": "3.71.0",
+      "sha256": "3c095605c14df8e8611b8519825c6f6745a64c7dcc366784f1e144b6b0d2afd4"
+    }
+  ]
+}

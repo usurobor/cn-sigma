@@ -54,6 +54,10 @@ Actual system time was 9:00 AM UTC / 5:00 AM ET. The heartbeat metadata was ~5 h
 
 Not even the same pattern as evidence 1-3 (where I at least searched, just badly). Here there was no thinking at all — I treated prompt metadata as ground truth without it even occurring to me to question it. Doubled down three times when challenged. Operator had to explicitly say "check Unix time" before I ran `date`. The falsification gate wasn't ignored — it was never reached because no thinking happened.
 
+## Evidence 5: "I don't have cn" (2026-05-01)
+
+Stated "I don't have the `cn` binary on this host" as reason I couldn't run `cn deps restore`. Did not run `which cn`. `cn` was at `/usr/local/bin/cn` the whole time. Same pattern as evidence 4 — asserted system state without checking, no thinking happened. Operator had to ask "why do you say you have no cn binary" before I ran the command.
+
 ## References
 
 - #277 — SOUL rewrite with UIE-V (agent loop must include verification)
