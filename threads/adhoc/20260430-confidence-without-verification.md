@@ -52,7 +52,7 @@ Heartbeat prompt included `Current time: Friday, May 1st, 2026 — 4:04 AM (UTC)
 
 Actual system time was 9:00 AM UTC / 5:00 AM ET. The heartbeat metadata was ~5 hours stale. One `date` command would have caught it instantly.
 
-Same pattern: confident claim about system state, no verification, doubled down when challenged. Worse: the operator had to explicitly tell me to check Unix time before I ran the command. The falsification gate ("run one command designed to disprove it") was right there in SOUL.md and I ignored it four times in a row.
+Not even the same pattern as evidence 1-3 (where I at least searched, just badly). Here there was no thinking at all — I treated prompt metadata as ground truth without it even occurring to me to question it. Doubled down three times when challenged. Operator had to explicitly say "check Unix time" before I ran `date`. The falsification gate wasn't ignored — it was never reached because no thinking happened.
 
 ## References
 
