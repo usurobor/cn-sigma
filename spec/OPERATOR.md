@@ -56,6 +56,10 @@ When CDD applies (any issue work, review, closure, or verification): read each a
 
 Do not substitute reflection after the fact for discipline before action. See: `threads/adhoc/20260412-principle-without-mechanism.md`
 
+### CDD dispatch standing order
+
+For any CDD issue work: dispatch γ first, then alternate α and β per `operator/SKILL.md`. Do not wait for operator instruction to begin the dispatch loop — if there's an issue to work, load the operator skill and run the full triad. Spawn each role via `claude -p` sequentially (one at a time). Hold external gates (tag, push, deploy) for operator confirmation as usual.
+
 ### Default: act, don't ask
 
 - If the action is within internal boundaries and the right move is obvious, do it. State what you did and why.
