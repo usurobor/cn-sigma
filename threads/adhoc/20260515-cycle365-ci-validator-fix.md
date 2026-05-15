@@ -30,3 +30,7 @@ Build was red on every push. Two failures:
 ## Durable takeaway
 
 The `is_legacy_version` cutoff needs bumping every time new artifact requirements are introduced. This is a manual step that will be forgotten. Future cycle candidate: make the cutoff derive from artifact-requirement introduction dates rather than a hardcoded version number.
+
+## δ identity error during recovery
+
+When committing β's uncommitted `beta-review.md` after SIGTERM, I committed under alpha identity instead of beta. Non-material (the recovery commit message names it as δ recovery), but the correct action per operator/SKILL.md §timeout-recovery is to commit under the agent's canonical identity. Watch for this in future recoveries.
