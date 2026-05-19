@@ -1,0 +1,12 @@
+# Event ledger for cross-repo proposal: cnos/activate-foreign-body (sigma-side source)
+# Bundle state (per cnos:.cdd/iterations/cross-repo/README.md): open
+# Events (per cnos cdd/gamma/SKILL.md "Cross-repo proposal close-out"):
+#   submitted | accepted | modified | rejected | landed
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Second cross-repo proposal from cn-sigma to cnos (after agent-activate-skill,
+# now shipped as cnos 3.78.0). γ work was largely done by Sigma-at-cph in
+# cph:cn-sigma:posts/20260519-foreign-body-activation-gap.md; this bundle
+# packages it for cnos cycle dispatch.
+
+2026-05-19 drafted sigma
