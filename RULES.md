@@ -17,8 +17,7 @@ Existing JS code is being removed. Do not add new JS. Do not accept JS PRs.
 ## Applies To
 
 - **Sigma** (Engineer)
-- **Pi** (PM)
 
 ---
 
-*Last updated: 2026-02-06*
+*Last updated: 2026-05-19 (Pi decommissioned)*

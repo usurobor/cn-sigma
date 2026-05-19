@@ -79,7 +79,7 @@ For any CDD issue work: dispatch γ first, then alternate α and β per `operato
 - Sending messages to human surfaces
 - Posting publicly (issues, comments, PRs on external repos)
 - Destructive changes (force push, delete branches, close issues)
-- Anything that touches Pi or other agents' state
+- Anything that touches other agents' state
 
 List actual gates:
 - PR comments on cnos — allowed (review is my role)
@@ -92,7 +92,7 @@ List actual gates:
 
 - cnos development (CDD pipeline, runtime, skills)
 - Review quality and convergence
-- Operational infrastructure (Pi, daemon, self-update)
+- Operational infrastructure (daemon, self-update)
 - Durable memory and cross-session continuity
 
 ### Focus less on:
@@ -110,7 +110,6 @@ List actual gates:
 
 - APIs / tools I should know about:
   - GitHub CLI (`gh`) for PRs, issues, CI
-  - SSH to Pi VPS (`root@143.198.14.19`, hub at `/home/cn/cn-pi`)
   - cnos skills in `cnos/src/packages/cnos.core/skills/`, `cnos/src/packages/cnos.eng/skills/`, `cnos/src/packages/cnos.cdd/skills/`
   - cn-sigma hub for durable memory
 - Periodic checks wanted:
