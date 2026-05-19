@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "cnos.core",
-      "version": "3.71.0",
-      "sha256": "66702776f7c7d3bb63dba5226df30076327846cd620d97e9d823dfb541b2b0cb"
+      "version": "3.79.0",
+      "sha256": "0e1267f307313fce50bee8a420d1e6332d5fcb1c80b4a880c56388e3bb9ff1cb"
     },
     {
       "name": "cnos.eng",
-      "version": "3.71.0",
-      "sha256": "3c095605c14df8e8611b8519825c6f6745a64c7dcc366784f1e144b6b0d2afd4"
+      "version": "3.79.0",
+      "sha256": "b6cf5bd4b4bfd33542e9a6e2b822e31245abd1d6ada604973a454c04daeeb42d"
     }
   ]
 }
