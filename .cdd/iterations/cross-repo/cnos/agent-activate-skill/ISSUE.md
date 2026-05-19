@@ -226,6 +226,15 @@ Why:
 
 ---
 
+## Source Proposal
+
+- Source: `usurobor/cn-sigma:.cdd/iterations/cross-repo/cnos/agent-activate-skill/`
+- Source commit: filled at filing (cn-sigma main HEAD when this bundle lands)
+- Disposition: pending (to be set by cnos γ at acceptance)
+- Delta: none at filing; record any modifications cnos γ makes to this body
+
+---
+
 ## Implementation guidance
 
 - Branch: `cycle/{N}` per CDD convention.
