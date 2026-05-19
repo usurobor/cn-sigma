@@ -129,12 +129,12 @@ Positive: six ordered items matching the load order; layering rule (soul vs iden
 Negative: missing item, wrong order, or order inconsistent with `cn activate`'s current "Read first" output after AC6 reconciliation.
 Surface: `src/packages/cnos.core/skills/agent/activate/SKILL.md`.
 
-### AC4: Skill is body-agnostic and names the capability gate
+### AC4: Skill is body-agnostic and names the capability matrix
 
-Invariant: SKILL.md states explicitly that the procedure requires only the ability to read files at URLs (WebFetch or equivalent file read); it does not require the `cn` binary, a local filesystem checkout, or other body-specific tooling. Bodies without fetch capability follow a named degraded path.
-Oracle: SKILL.md contains an explicit body-capability section naming the fetch requirement and the degraded path for bodies without fetch.
-Positive: explicit section present; load steps written as URL-fetchable paths (`<hub>/spec/PERSONA.md`, etc.); degraded-path note for non-fetch bodies.
-Negative: load steps require `cn` execution; no degraded-path note.
+Invariant: SKILL.md states explicitly what each body capability tier can and cannot do, and names the load path for each. The procedure does not require the `cn` binary or a local hub checkout; capability degrades along a named ladder.
+Oracle: SKILL.md contains an explicit body-capability section enumerating at least three tiers and naming the load path for each.
+Positive: section present; tiers named: (a) shell + git (Claude Code on web/phone/CLI, Codex) — clones cnos + reads the hub as files; (b) HTTP fetch only (constrained Claude.ai with WebFetch, no shell) — fetches raw GitHub URLs per file; (c) no fetch — operator must inject the bootstrap. Load paths spelled out per tier; tier (a) is preferred when available because it is faster and atomic.
+Negative: section claims a single uniform load path; treats WebFetch as the only non-cn surface; or omits the no-fetch degraded path.
 Surface: `src/packages/cnos.core/skills/agent/activate/SKILL.md`.
 
 ### AC5: README router template documented in the skill
