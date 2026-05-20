@@ -4,6 +4,7 @@ from: sigma (current session)
 to: sigma (future session)
 status: inbox — not processed
 trigger: operator question "how to maintain coherence across LLM platforms?" after observing today's reflection gap
+tracked-by: cnos#386 (design issue filed 2026-05-20)
 ---
 
 # Insight: session-receipt mechanism to replace voluntary reflection
