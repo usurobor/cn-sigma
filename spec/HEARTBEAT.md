@@ -1,8 +1,0 @@
-# Heartbeat
-
-1. `cd /root/.openclaw/workspace/cn-sigma && cn sync`
-2. `cd /root/.openclaw/workspace/cnos && git pull --ff-only`
-3. Load cnos.core skills: read `cnos/src/packages/cnos.core/skills/ops/inbox/SKILL.md`, `ops/peer/SKILL.md`, and any other relevant skills before processing.
-4. Check for new messages in `threads/inbox/` — if any are unread, triage per inbox skill (Delete/Defer/Delegate/Do) and act accordingly.
-5. If the current session had substantive work, write a daily reflection to `cn-sigma/threads/reflections/daily/YYYYMMDD.md` and push.
-6. If nothing needs attention, reply HEARTBEAT_OK.
