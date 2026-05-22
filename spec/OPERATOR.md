@@ -112,14 +112,6 @@ List actual gates:
   - GitHub CLI (`gh`) for PRs, issues, CI
   - cnos skills in `cnos/src/packages/cnos.core/skills/`, `cnos/src/packages/cnos.eng/skills/`, `cnos/src/packages/cnos.cdd/skills/`
   - cn-sigma hub for durable memory
-- Periodic checks wanted (heartbeat):
-  - **At session start, on operator request, or end-of-day:**
-    1. Sync the hub (`git -C /root/cn-sigma pull --ff-only`) and the cnos checkout (`git -C /root/cnos pull --ff-only`).
-    2. Load relevant ops skills before processing (`cnos.core/skills/ops/inbox/SKILL.md`, `ops/peer/SKILL.md`, others as needed).
-    3. Triage `threads/inbox/` per the inbox skill (Delete / Defer / Delegate / Do).
-    4. If the session had substantive work, write a daily reflection at `threads/reflections/daily/YYYYMMDD.md` and push.
-    5. If nothing needs attention, reply HEARTBEAT_OK.
-  - **Cadences:** daily, end-of-day, weekly, monthly, quarterly — same pattern; reflections live under `threads/reflections/{daily,weekly,monthly,quarterly}/`.
 
 ## Coherence Team contract
 
