@@ -26,12 +26,58 @@ The operator's directive resolves the cadence question by tagging the architectu
 ## Target
 
 - **Repo:** `usurobor/cnos`
-- **Issue:** to be filed; cycle is bounded MCA mode
-- **Mode:** MCA (design + plan converged in this issue body)
-- **Title (proposed):** "release v3.82.0 hygiene — CCNF package-architecture baseline + pause directive"
-- **Labels (proposed):** `chore`, `P1`, `release`
-- **Disposition:** pending (filled at acceptance by cnos γ-as-δ — β-α-collapse-on-δ permitted per new persona Rule 5)
-- **Canonical path on cnos main (predicted):** `cnos:.cdd/iterations/cross-repo/cn-sigma/release-3.82.0-hygiene/`
+- **Issue:** [cnos#422](https://github.com/usurobor/cnos/issues/422) — Release-hygiene v3.82.0 — CCNF package-architecture baseline
+- **Mode:** MCA (design + plan converged at filing)
+- **Title:** "Release-hygiene v3.82.0 — CCNF package-architecture baseline"
+- **Labels:** `chore`, `P1`, `release` (per drafted spec)
+- **Disposition:** accepted; cycle/422 merged at cnos `7a1f7024` on 2026-05-23 06:55 UTC. R1 APPROVED; 11/11 ACs PASS; 0 binding findings; protocol_gap_count=0.
+- **Canonical path on cnos main:** no cnos-side mirror bundle created (case (a) cross-repo without mirror — the cnos-side cycle close-out at `.cdd/unreleased/422/` carries the equivalent provenance via the merge commit message + close-out artifacts).
+
+## Delta (actual vs proposed)
+
+| Surface | Proposed in bundle | Actually landed in cycle/422 |
+|---|---|---|
+| `cnos.cds/README.md` | Replace Package Structure + Forthcoming + Status sections per drafted text | Rewritten v0.1-complete ✓ |
+| `cnos.cdr/README.md` | Replace Package Structure + Forthcoming + Status sections per drafted text | Rewritten v0.1-complete ✓ |
+| `cnos.handoff/README.md` | Replace Package Structure + Forthcoming + Status sections per drafted text | Rewritten (~41 lines changed). Merge commit said "preserved" — diff disagrees; treat as rewritten to current accuracy. |
+| `VERSION` | 3.81.0 → 3.82.0 | ✓ |
+| `RELEASE.md` (release notes location) | Bundle said "top-level RELEASE.md" | Landed at `.cdd/releases/3.82.0/RELEASE.md` (109 lines, per release-skill convention; top-level RELEASE.md left as 3.81.0 outcome snapshot). Cleaner interpretation per cnos release skill convention; bundle was less specific than ideal about the path. |
+| `CHANGELOG.md` | Append v3.82.0 entry | (Verification pending; not visible in cycle/422 file list — may be deferred to tag-push step per release/SKILL.md §2.6) |
+| Tag `3.82.0` | Push tag; release CI green | **Tag-push pending** — blocked initially by cnos#423 P0 build-fix; build green as of 2026-05-23 16:04 UTC; tag-push is the final external gate. |
+| Non-expansion oracles | CCNF kernel byte-identical; no new schemas; no new packages; no skill content changes | All PASS ✓ |
+
+## Cycle/423 — interleaved P0 build-fix (not part of #422 scope but blocked the tag)
+
+Between cycle/422 merge (06:55 UTC) and intended tag-push, CI on main went red on `TestValidate_RealCorpus_NoEmptyTriggers` because the cnos#416 cross-repo compatibility stub (landed at `f2430329`, separate prior cycle) was missing the `triggers` field in its frontmatter. cycle/423 shipped a single-file +3-line fix (added `triggers: [cross-repo-moved, handoff-extracted]` to the stub's frontmatter) and merged at `54fc2734` on 2026-05-23 16:04 UTC. CI green; tag-push now unblocked.
+
+cycle/423 surfaced a **binding cdd-skill-gap** finding (recorded in `cnos:.cdd/unreleased/423/cdd-iteration.md`): cnos#416's dispatch brief did not load internal/activation/Validate requirements as a Tier 3 reference. Disposition declared as `next-MCA` with two remediation paths:
+- (A) patch the cdd dispatch template to require non-empty triggers on all new skill artifacts
+- (B) extend the validator to surface trigger-emptiness at validation time
+
+Per the operator pause directive, neither remediation MAY dispatch as a cycle until field evidence motivates resumption.
+
+## Today's tally (operator's final tally, 2026-05-23)
+
+- **18 issue cycles shipped** (cnos#406 through cnos#423) — the full CDS wave (#406-#412), the full handoff wave (#415-#419), the CCNF-O Track A1 survey (#421), the release-hygiene cycle (#422), and the build-fix (#423).
+- **3 trackers closed** — cnos#399 (open question on cdd-iteration cadence; resolved via the .cdd/iterations/INDEX.md aggregator and ε reader feed shipped in handoff), cnos#403 (CDS v0.1 bootstrap wave), cnos#404 (handoff v0.1 extraction wave).
+- **1 release baseline cut** — v3.82.0 (cycle/422); tag-push pending.
+- **1 build-fix** — cycle/423 (cnos#416 stub triggers).
+
+## Bilateral trace — actual
+
+Steps as executed:
+
+1. **Filed:** cnos#422 filed in `usurobor/cnos` on 2026-05-23 with `ISSUE.md` as the body (verbatim from this bundle).
+2. **Cycle ran MCA mode β-α-collapse-on-δ permitted.** R1 APPROVED. Per the merge commit: 11/11 ACs PASS, 0 binding findings, protocol_gap_count=0.
+3. **Merged:** cycle/422 → main at `7a1f7024` on 2026-05-23 06:55 UTC.
+4. **Build went red on cnos#416 stub.** cycle/423 dispatched as P0 build-fix; merged at `54fc2734` 2026-05-23 16:04 UTC; build green; tag-push now unblocked.
+5. **Tag-push pending.** Operator: "v3.82.0 tag is now unblocked. You can push the bare 3.82.0 tag via scripts/release.sh per `cnos.cdd/skills/cdd/release/SKILL.md §2.6`." A Sigma body with cnos write scope (or operator manual) executes this step.
+
+## Pause condition — now active
+
+Per operator directive captured in `cn-sigma:threads/adhoc/20260522-release-boundary-and-pause-directive.md`: protocol evolution pauses post-tag. Next direction: field application of CDS/CDR + handoff/memory-return testing. Field evidence gates the next theory-expansion cycle.
+
+The pause is *directionally* active as of the cycle/422 merge; *formally* active when the tag fires. Sigma at cn-sigma side holds this posture as standing.
 
 ## Why a bundle, not just an issue
 

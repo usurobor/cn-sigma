@@ -9,3 +9,8 @@
 # protocol"). Bounded scope; hard stop after tag v3.82.0.
 
 2026-05-22 drafted sigma
+2026-05-23 submitted gamma-as-delta@cnos cnos#422
+2026-05-23 accepted gamma-as-delta@cnos cnos#422
+2026-05-23 merged gamma-as-delta@cnos cnos#422 7a1f7024
+2026-05-23 build-fix-required gamma-as-delta@cnos cnos#423 54fc2734 (P0; unrelated; cnos#416 cross-repo stub missing triggers)
+2026-05-23 tag-unblocked gamma-as-delta@cnos (build green; tag-push pending)
