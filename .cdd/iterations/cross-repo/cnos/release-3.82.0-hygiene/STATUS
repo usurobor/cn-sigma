@@ -1,0 +1,11 @@
+# Event ledger for cross-repo proposal: cnos/release-3.82.0-hygiene (sigma-side source)
+# Bundle state (per cnos:.cdd/iterations/cross-repo/README.md): open
+# Events (per cnos cdd/gamma/SKILL.md "Cross-repo proposal close-out"):
+#   submitted | accepted | modified | rejected | landed
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Third cross-repo proposal from cn-sigma to cnos. Direct operator
+# directive ("cut a release boundary, then stop expanding the
+# protocol"). Bounded scope; hard stop after tag v3.82.0.
+
+2026-05-22 drafted sigma
