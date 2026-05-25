@@ -1,0 +1,11 @@
+# Event ledger for cross-repo proposal: cnos/coherence-audit-request (sigma-side source)
+# Bundle state (per cnos:.cdd/iterations/cross-repo/README.md): open
+# Events: submitted | accepted | modified | rejected | landed
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Audit charter (terms-of-reference), not the audit itself. Operator-requested
+# external coherence audit of cdd/cds/cdr. Sigma is EXCLUDED as auditor
+# (authoring stake; α≠β firebreak at architecture scope). Pause-aligned
+# assessment. The audit is run by an external actor the operator routes to.
+
+2026-05-24 drafted sigma
