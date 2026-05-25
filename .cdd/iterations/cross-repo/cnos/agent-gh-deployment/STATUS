@@ -1,0 +1,12 @@
+# Event ledger for cross-repo proposal: cnos/agent-gh-deployment (sigma-side source)
+# Bundle state (per cnos:.cdd/iterations/cross-repo/README.md): open
+# Events:
+#   submitted | accepted | modified | rejected | landed
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Master/tracker issue. Operator-directed ("we need to do this next").
+# Captures the end goal: agent activation on GitHub via three paths
+# (template repo / cn activate / deployable GH Action). Scoping artifact
+# authored under the v3.82.0 pause; sub-dispatch is operator-gated.
+
+2026-05-24 drafted sigma
