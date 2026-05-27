@@ -12,7 +12,7 @@ Case (a) operator-directed cross-repo proposal. cn-sigma operator issued the dir
 
 ## Upstream — operator directive
 
-Operator (usurobor / Axiom), 2026-05-24: "Create a master issue using cdd design and write skills to capture the end goal: an agent can be activated on GH via either templates repo or by running cn activate in the repo or if there's a way to deploy a GH action my way too."
+Operator (usurobor / Axiom), 2026-05-27: "Create a master issue using cdd design and write skills to capture the end goal: an agent can be activated on GH via either templates repo or by running cn activate in the repo or if there's a way to deploy a GH action my way too."
 
 The directive followed the five-essay read + the GitHub-Actions-as-compute realization. The master tracker is the scoping artifact for the field-application direction the v3.82.0 pause named.
 

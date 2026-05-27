@@ -1,6 +1,6 @@
 ---
 title: The foundational layer — what cn-sigma's persona is the conduct surface of
-date: 2026-05-24
+date: 2026-05-27
 status: adhoc
 scope: foundational-orientation
 ---

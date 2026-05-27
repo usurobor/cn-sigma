@@ -12,9 +12,9 @@ Case (a) operator-directed cross-repo proposal. cn-sigma operator requested an e
 
 ## Upstream — operator directive
 
-Operator (usurobor / Axiom), 2026-05-24: "We should also request an external audit of our cdd, cds, cdr for coherence."
+Operator (usurobor / Axiom), 2026-05-27: "We should also request an external audit of our cdd, cds, cdr for coherence."
 
-Followed the architecture judgment that cell design needs no CDD refactor (`cn-sigma:threads/adhoc/20260524-cell-design-no-refactor.md`). The audit is the right first check before any refactor talk: an independent coherence read on whether the v3.82.0 baseline holds together. Order: audit → field-test → (if evidence warrants) refactor.
+Followed the architecture judgment that cell design needs no CDD refactor (`cn-sigma:threads/adhoc/20260527-cell-design-no-refactor.md`). The audit is the right first check before any refactor talk: an independent coherence read on whether the v3.82.0 baseline holds together. Order: audit → field-test → (if evidence warrants) refactor.
 
 ## The critical constraint — Sigma is not the auditor
 
@@ -50,4 +50,4 @@ Pause-aligned: an external coherence audit is assessment of the shipped baseline
 - **Route to a non-authoring actor.** A fresh Claude/Codex session with no history on these packages is the most available external auditor today; a human reviewer or TSC-mechanical (post-Wave-1) are alternatives.
 - The audit subject is cdd/cds/cdr per the operator's named scope; handoff is adjacent-relation only.
 - Findings feed `cdd-iteration.md` / ε as protocol-gap candidates if actionable.
-- Companion: `cn-sigma:threads/adhoc/20260524-cell-design-no-refactor.md` — the architecture judgment this audit precedes (audit → field-test → refactor-only-if-evidence).
+- Companion: `cn-sigma:threads/adhoc/20260527-cell-design-no-refactor.md` — the architecture judgment this audit precedes (audit → field-test → refactor-only-if-evidence).
