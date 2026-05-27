@@ -33,9 +33,23 @@ This is the first cross-repo bundle authored *after* the procedural fix (grep/re
 - **Issue:** to be filed; master/tracker
 - **Kind:** tracking (umbrella; coordinates subs; does not implement)
 - **Title (proposed):** "Agent activation on GitHub — three deployment paths to a running hub (master tracker)"
-- **Labels (proposed):** `tracking`, `P2`, `core`
-- **Disposition:** pending
+- **Labels (proposed):** `tracking`, `P2`, `core`, `handoff` (handoff added per external review — this is deployment/handoff transport, not only core activation)
+- **Disposition:** reviewed externally 2026-05-27; accepted directionally with 7 precision edits incorporated pre-filing (see "External review" below); ready to file
 - **Canonical path on cnos main (predicted):** `cnos:.cdd/iterations/cross-repo/cn-sigma/agent-gh-deployment/`
+
+## External review (2026-05-27)
+
+A third party reviewed `BRIEF.md` + `ISSUE.md` and accepted the bundle directionally as the right master/tracker shape. Verdict: file into cnos with precision edits. Seven edits incorporated pre-filing (each verified against cnos primary sources before applying — `cn sync`/`cn agent` semantics confirmed against `docs/beta/guides/AUTOMATION.md`):
+
+1. **`cn sync` vs `cn agent`** — sync = transport-only tick; `cn agent` (oneshot) = full reasoning wake (maintain_once + drain_queue, already includes maintenance). Removed the `cn sync → process → cn agent` sequencing; Sub D owns the exact command. Sub D renamed accordingly.
+2. **Stub vs full-fidelity** — Sub A/Sub C MAY ship stub/transport wake today; MUST NOT claim full agent wake until Sub D ships the Go `cn agent` oneshot surface. Made explicit in the runtime constraint + both subs.
+3. **Scheduled-workflow liveness** — softened the over-confident "commit activity keeps the schedule alive": public dormant repos get scheduled workflows auto-disabled (~60 days inactivity); `workflow_dispatch` manual wake is required; liveness is part of the field test. (This was the verify-don't-assert item from `20260519-git-read-and-untested-limits.md`, now confirmed.)
+4. **6-field receipt explicit in ACs** — AC3 now lists all six fields (who/what/where/credentials/evidence/who-accepts), not just a pointer to the essay.
+5. **Auth separation** — `GITHUB_TOKEN` (own-repo write only) vs model API key (model call only); no peer-write credential in the base case; private peer reads = separate optional credential later.
+6. **"repo is the agent" framing** — lead with the precise "the hub repo stores the agent's durable continuity," then the slogan "the repo is the agent at rest; the runner is the agent awake." Matches AGENT-CONTINUITY's actual framing ("the hub is the body; the agent is the continuity it preserves").
+7. **Sub A → Sub C ordering** — explicit: Sub A ships a stub workflow first; Sub C later adopts/replaces it as the canonical reusable form. Avoids the A-waits-C-waits-D circular stall.
+
+The review validated the α≠β firebreak: the reviewer (no authoring stake) caught the `cn sync`/`cn agent` conflation that Sigma (deep authoring stake) had glossed. This is exactly why the brief invited external review and why Sigma excluded itself as auditor on the coherence-audit charter.
 
 ## Proposed sub-issues (envelope, not binding)
 

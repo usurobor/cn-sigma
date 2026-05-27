@@ -45,9 +45,9 @@ Treat the agent as **durable continuity stored in a Git repository** (the "hub")
 
 Four parts:
 
-### 1. The repo is the agent; the runner is temporary
+### 1. The hub repo stores the agent's durable continuity
 
-The Git repo holds the agent's identity, operating contract, memory, and accumulated receipts. A "runner" (a model session, a CLI, a CI job) is temporary machinery that *enters* the agent, does bounded work, and writes evidence back. Kill the runner — the agent persists in the repo. This separates **deployment** (keeping a process alive) from **activation** (a runner entering durable continuity). You deploy a runner; you activate continuity.
+The Git repo holds the agent's identity, operating contract, memory, accumulated receipts, and open obligations. A "runner" (a model session, a CLI, a CI job) is temporary machinery that *enters* the agent, does bounded work, and writes evidence back. Kill the runner — the agent persists in the repo. This separates **deployment** (keeping a process alive) from **activation** (a runner entering durable continuity). In shorthand: **the repo is the agent at rest; the runner is the agent awake.** You deploy a runner; you activate continuity.
 
 *Falsifiable by:* a runner activates, does work, disappears; a second, unrelated runner reconstructs the full state from the repo alone (no shared session). If it can't, the continuity isn't durable.
 
@@ -59,9 +59,13 @@ Any runner becomes the agent by following a fixed, documented procedure: read th
 
 ### 3. GitHub Actions as serverless compute
 
-A scheduled (or manually triggered) GitHub Actions workflow provides the ephemeral compute: it wakes, checks out the repo, runs the agent loop (fetch peers' published state, process inbound, act, write receipts), commits, pushes, and exits. No always-on daemon. The repo's own commit activity keeps the schedule alive.
+A scheduled (or manually triggered) GitHub Actions workflow provides the ephemeral compute: it wakes, checks out the repo, runs the agent loop (fetch peers' published state, process inbound, act, write receipts), commits, pushes, and exits. No always-on daemon.
 
-*Falsifiable by:* a sleeping repo wakes on schedule, processes new input, writes its own reply/receipt, pushes, and sleeps — observable purely in git history, with no server running between wakes.
+A wake has two fidelities: a **transport-only tick** (sync peers, materialize/flush, no reasoning) and a **full reasoning wake** (one maintenance cycle plus a bounded queue drain that calls the model, then exit). The exact runner command is a runtime detail, not fixed by this design.
+
+**Liveness caveat (honest):** for *active* repos, ordinary commit activity can keep scheduled wakes alive. But GitHub auto-disables scheduled workflows in public repos after ~60 days of inactivity — so a genuinely dormant agent's schedule can be turned off. v1 therefore also provides a manual wake (`workflow_dispatch`), and the scheduled-liveness behavior is itself part of the field test, not an assumption.
+
+*Falsifiable by:* a sleeping repo wakes on schedule, processes new input, writes its own reply/receipt, pushes, and sleeps — observable purely in git history, with no server running between wakes. (And: a dormant repo's schedule survives, or the manual-wake fallback is demonstrated.)
 
 ### 4. Store-and-forward sociality (read peers, write self)
 
@@ -79,7 +83,16 @@ All three route into the *same* activation procedure; none redefines it.
 
 ### Governance: workflows are effect surfaces
 
-A workflow file is "a command waiting for another machine to run." Any workflow a deployment path ships carries a structured receipt naming: who authorized it, what it runs, where, with what credentials, what evidence returns, and who may accept the result. This keeps remote execution auditable rather than a hidden capability.
+A workflow file is "a command waiting for another machine to run." Any workflow a deployment path ships carries a structured receipt naming six fields: (1) who authorized it, (2) what it runs, (3) where it runs, (4) with what credentials/permissions, (5) what evidence returns, (6) who may accept the result. This keeps remote execution auditable rather than a hidden capability.
+
+### Credentials: two separate authorities, neither peer-facing
+
+The base case needs exactly two credentials, kept distinct:
+
+- **`GITHUB_TOKEN`** — the platform-default token, scoped to the agent's **own repo only** (write for commits/pushes; PR/issue authority within its own repo). It can write self; it cannot write peers.
+- **Model API key** (e.g. `ANTHROPIC_API_KEY`) — model-call authority only. This is the irreducible friction floor: no template can pre-fill it; the operator supplies it.
+
+No **peer write** credential exists in the base case — that is what makes read-peers/write-self enforceable rather than aspirational. If *private* peer reads are needed later, that is a separate, optional credential, never part of the base install.
 
 ---
 
