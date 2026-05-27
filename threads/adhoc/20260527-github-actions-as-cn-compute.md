@@ -1,9 +1,10 @@
 ---
 title: GitHub Actions as CN Compute
-date: 2026-05-24
+date: 2026-05-27
+drafted: 2026-05-24 (operator)
 status: adhoc
 scope: realization
-author: usurobor (operator realization; filed verbatim by Sigma)
+author: usurobor (operator realization; drafted 2026-05-24, filed verbatim by Sigma 2026-05-27)
 ---
 
 # GitHub Actions as CN Compute
@@ -190,9 +191,9 @@ That is enough to prove GitHub can host CN compute.
 
 ---
 
-## Sigma note (filed 2026-05-24)
+## Sigma note (filed 2026-05-27)
 
-Filed verbatim from operator realization. One transmission glyph repaired (`â` → `→` in the Boundary section). Otherwise unchanged.
+Filed verbatim from operator realization (operator drafted 2026-05-24; filed to hub 2026-05-27). One transmission glyph repaired (`â` → `→` in the Boundary section). Otherwise unchanged.
 
 **Why this is pause-aligned, not pause-violating.** The 2026-05-22 release-boundary directive (`threads/adhoc/20260522-release-boundary-and-pause-directive.md`) paused *protocol evolution* and named the post-tag direction as "field application of CDS/CDR + handoff/memory-return testing." This realization is exactly that axis — an infrastructure adapter for the existing social substrate, not a new protocol surface. Its own §Boundary makes the constraint explicit: no CCNF-O, no issue-proposal schemas, no new task runner, no protocol change. It is an adapter from GitHub Actions to the existing `cn` loop.
 
@@ -208,7 +209,7 @@ Filed verbatim from operator realization. One transmission glyph repaired (`â` 
 
 ---
 
-## Three-essay synthesis (added 2026-05-24, after operator prompted "did you read the FIDO essay?")
+## Three-essay synthesis (added 2026-05-27, after operator prompted "did you read the FIDO essay?")
 
 This realization is not standalone. It is the compute-projection face of a primitive cnos already formalized across three essays. I read them only after the operator prompted — the recurrence note below records that.
 
@@ -218,7 +219,7 @@ This realization is not standalone. It is the compute-projection face of a primi
 |---|---|---|
 | `cnos:docs/gamma/essays/FIDONET-AND-CNOS.md` (v1.0.0, 2026-05-12) | **Transport shape** | Store-and-forward is the natural substrate for autonomous agents; `cn sync` is the mailer; the wake cycle is the scheduled poll; "cnos inherits from FidoNet, not from Slack." |
 | `cnos:docs/gamma/essays/BOX-AND-THE-RUNNER.md` (DRAFT v0.1.0, 2026-05-23) | **Effect governance** | Remote-runner delegation is an effect surface; "the agent boundary is the full path from intention to effect"; every effect-bearing artifact needs a 6-field receipt. |
-| This realization (2026-05-24) | **Compute projection** | GitHub Actions as the ephemeral compute that wakes the repo, runs the cn loop, pushes, and disappears. |
+| This realization (operator-drafted 2026-05-24) | **Compute projection** | GitHub Actions as the ephemeral compute that wakes the repo, runs the cn loop, pushes, and disappears. |
 
 The three compose: FidoNet says *what shape the network has* (store-and-forward, poll-driven, read-peers/write-self). BOX-AND-THE-RUNNER says *how the wake's effects are governed* (the workflow is a remote-runner delegation; it needs a receipt). This realization says *what hosts the wake* (Actions runner as the modern modem).
 

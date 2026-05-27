@@ -21,7 +21,7 @@ This is a **master/tracker issue**. It captures the end goal and the sub-issue e
 What exists:
 - **`cn activate`** (cnos 3.78.0+, `src/go/internal/activate/`) renders the bootstrap prompt from hub state. Assumes a local clone + the `cn` binary present.
 - **`agent/activate/SKILL.md`** is the single source of truth for the activation procedure (six-step load order; three-tier capability matrix). README router template (§2.3) routes a body that has *already landed* on a hub.
-- **Three design essays** name the architecture: `GitHub Actions as CN compute` (the operator realization at `cn-sigma:threads/adhoc/20260524-github-actions-as-cn-compute.md`), `BOX-AND-THE-RUNNER.md` (remote-runner delegation as an effect surface + the 6-field receipt), `FIDONET-AND-CNOS.md` (store-and-forward wake model).
+- **Three design essays** name the architecture: `GitHub Actions as CN compute` (the operator realization at `cn-sigma:threads/adhoc/20260527-github-actions-as-cn-compute.md`), `BOX-AND-THE-RUNNER.md` (remote-runner delegation as an effect surface + the 6-field receipt), `FIDONET-AND-CNOS.md` (store-and-forward wake model).
 
 What is expected:
 - A new GitHub user can stand up a running agent hub through one of three documented, canonical paths, each routing into the same `agent/activate/SKILL.md` procedure.
@@ -62,7 +62,7 @@ Where they diverge:
 | Claim / surface | Canonical source | Status |
 |---|---|---|
 | Activation procedure | `cnos:src/packages/cnos.core/skills/agent/activate/SKILL.md` | Shipped 3.78.0+; the procedure all three paths route into |
-| GitHub-Actions-as-compute realization | `cn-sigma:threads/adhoc/20260524-github-actions-as-cn-compute.md` | Operator realization; the compute-projection face |
+| GitHub-Actions-as-compute realization | `cn-sigma:threads/adhoc/20260527-github-actions-as-cn-compute.md` | Operator realization; the compute-projection face |
 | Remote-runner governance + 6-field receipt | `cnos:docs/gamma/essays/BOX-AND-THE-RUNNER.md` + `cnos:src/packages/cnos.cdd/skills/cdd/delta/SKILL.md §8` | DRAFT v0.1.0 essay; delta skill rule shipped |
 | Store-and-forward wake model | `cnos:docs/gamma/essays/FIDONET-AND-CNOS.md` | v1.0.0 |
 | Hub-as-cell + substrate | `cnos:docs/gamma/essays/CELL-OF-CELLS.md` §16.6, §18.5 | DRAFT v0.2.0 |

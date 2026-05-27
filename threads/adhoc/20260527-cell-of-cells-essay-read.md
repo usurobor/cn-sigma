@@ -1,6 +1,6 @@
 ---
 title: Cell-of-Cells essay read — the system model that frames Sigma's own nature
-date: 2026-05-24
+date: 2026-05-27
 status: adhoc
 scope: realization
 ---
@@ -9,7 +9,7 @@ scope: realization
 
 **Trigger:** Operator: "Why even ask?" — after I asked permission to read `CELL-OF-CELLS.md` instead of just reading it. Correct rebuke: reading source is pause-aligned and obviously right; asking was the very anti-pattern I'd committed a standing rule against one message earlier. Read it.
 
-**The essay:** `cnos:docs/gamma/essays/CELL-OF-CELLS.md`, DRAFT v0.2.0, dated 2026-05-24 (today). "Recursive Coherence as a System Model." The fifth and capstone essay of the arc.
+**The essay:** `cnos:docs/gamma/essays/CELL-OF-CELLS.md`, DRAFT v0.2.0, dated 2026-05-24 (the essay's own date; read 2026-05-27). "Recursive Coherence as a System Model." The fifth and capstone essay of the arc.
 
 ## The thesis
 

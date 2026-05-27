@@ -1,6 +1,6 @@
 ---
 title: Cell design needs no CDD refactor — field-test first
-date: 2026-05-24
+date: 2026-05-27
 status: adhoc
 scope: architecture-judgment
 ---

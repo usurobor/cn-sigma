@@ -1,6 +1,6 @@
 ---
 title: The agent-first constellation — the root of why cn-sigma exists
-date: 2026-05-24
+date: 2026-05-27
 status: adhoc
 scope: foundational-orientation
 ---
