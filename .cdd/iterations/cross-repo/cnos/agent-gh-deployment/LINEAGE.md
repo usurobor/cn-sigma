@@ -30,12 +30,31 @@ This is the first cross-repo bundle authored *after* the procedural fix (grep/re
 ## Target
 
 - **Repo:** `usurobor/cnos`
-- **Issue:** to be filed; master/tracker
+- **Issue:** [cnos#431](https://github.com/usurobor/cnos/issues/431) — **filed** by a parallel cnos session at `cn-sigma@6c95b53`; master/tracker; open. Mirror at `cnos:.cdd/iterations/cross-repo/cn-sigma/agent-gh-deployment/`.
 - **Kind:** tracking (umbrella; coordinates subs; does not implement)
-- **Title (proposed):** "Agent activation on GitHub — three deployment paths to a running hub (master tracker)"
-- **Labels (proposed):** `tracking`, `P2`, `core`, `handoff` (handoff added per external review — this is deployment/handoff transport, not only core activation)
-- **Disposition:** reviewed externally 2026-05-27; accepted directionally with 7 precision edits incorporated pre-filing (see "External review" below); ready to file
-- **Canonical path on cnos main (predicted):** `cnos:.cdd/iterations/cross-repo/cn-sigma/agent-gh-deployment/`
+- **Title:** "Agent activation on GitHub — three deployment paths to a running hub (master tracker)"
+- **Labels (filed):** `tracking`, `P2`, `core`. **Reconciliation pending:** add `handoff` (per external review).
+- **Disposition:** filed (accepted as tracker, open, sub-dispatch operator-gated). **STALE vs source — reconciliation pending (see below).**
+- **Canonical path on cnos main:** `cnos:.cdd/iterations/cross-repo/cn-sigma/agent-gh-deployment/`
+
+## Post-filing drift — cnos#431 needs reconciliation
+
+cnos#431 was filed from the bundle at `cn-sigma@6c95b53` (the original master tracker). The source bundle has since advanced **past** what cnos#431 carries — the same post-filing-divergence pattern as cnos#379's AC4 fold-in:
+
+| Advance | Source commit | In cnos#431? |
+|---|---|---|
+| `BRIEF.md` added (third-party-review problem/solution statement) | `10c8cbc` | ❌ not referenced |
+| 7 external-review precision edits to ISSUE.md (cn sync/agent, stub-vs-full, liveness, 6-field AC, auth split, framing, Sub A→C ordering) | `66febb5` | ❌ pre-edit body |
+| `handoff` label | `66febb5` | ❌ labels still `tracking,P2,core` |
+
+**Reconciliation needed (a cnos-scoped body must apply — cn-sigma session cannot edit cnos#431):**
+1. Update cnos#431 body to the current `ISSUE.md` (the 7 precision edits).
+2. Add the `handoff` label.
+3. Add a reference to `BRIEF.md` (the external-review brief) — e.g. a "Reviewer brief" link in the issue body.
+4. Refresh the cnos-side mirror (`cnos:.cdd/iterations/cross-repo/cn-sigma/agent-gh-deployment/`) ISSUE.md + LINEAGE Delta + STATUS `modified` event.
+5. Pin the reconciled source SHA in the mirror (current cn-sigma main HEAD).
+
+Until reconciled, cnos#431 is a valid tracker but reflects the pre-review bundle. The drift is non-blocking (the subs aren't dispatched; the tracker's shape is unchanged), but the BRIEF and the `cn sync`/`cn agent` correction should land before any sub is dispatched so implementers read the corrected runtime framing.
 
 ## External review (2026-05-27)
 
