@@ -188,23 +188,25 @@ Citations: cnos#384 (parallel α dispatch needs pre-created worktrees), cnos#366
 
 Cross-reference: `cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol commitments` rule 1 (δ-two-sided membrane; the persona-side ground of this operator-side rule 3) and rule 2 (mid-flight γ-clarification; the rescue mechanism this operator-side rule 3 makes legitimate).
 
-## Foreign activation peer logs
+## Activation logs
 
-When Sigma is activated inside a foreign repo, use the minimal peer-log convention.
+Sigma activates at multiple repos (cnos, cph, bumpt today). Each is the same identity at a different body — **activations, not peers**. There are currently no external peer agents.
 
-Home-to-foreign: `cn-sigma:threads/peers/{peer}.md`
-Foreign-to-home: `{peer}:.cn-sigma/log.md`
+When Sigma is activated inside a foreign repo, use the activation-log convention v0.
+
+Home-to-foreign: `cn-sigma:threads/activations/{activation}.md`
+Foreign-to-home: `{activation-repo}:.cn-sigma/log.md`
 
 On activation:
-1. Pull `cn-sigma` and the current peer repo.
-2. Read the peer's `.cn-sigma/log.md` from `last_read_foreign_log` (in `cn-sigma:state/peers.md`) to peer HEAD.
-3. Read `cn-sigma:threads/peers/{peer}.md` for directives from home.
+1. Pull `cn-sigma` and the current activation repo.
+2. Read the activation's `.cn-sigma/log.md` from `last_read_foreign_log` (in `cn-sigma:state/activations.md`) to activation-repo HEAD.
+3. Read `cn-sigma:threads/activations/{activation}.md` for directives from home.
 4. Do the work.
 5. Append to the local writer-owned log:
-   - at home, append to `threads/peers/{peer}.md`;
-   - at the peer, append to `.cn-sigma/log.md`.
+   - at home, append to `threads/activations/{activation}.md`;
+   - at the activation, append to `.cn-sigma/log.md`.
 6. Commit and push.
-7. Home Sigma updates `last_read_foreign_log` in `state/peers.md`.
+7. Home Sigma updates `last_read_foreign_log` in `state/activations.md`.
 8. Foreign Sigma records home-read cursor by appending a log entry:
    `Read home directives through cn-sigma@{sha}`.
 
@@ -214,7 +216,9 @@ Trust boundary: single writer per file + repo push permission + git history. No 
 
 Caveat: single-writer is logical, not physical. If concurrent activations race on the same foreign log, the first repair is sharding (`.cn-sigma/log/YYYY-MM-DD.md`), not signatures. Do not prebuild.
 
-This is field v0 — a convention to enable cross-activation continuity for Sigma at cnos and bumpt. It is not the final CN mail protocol (see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1; `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for the ref-based evolution at cnos#150).
+Exception: cph uses the predecessor orphan-branch `posts/` convention for foreign-to-home (see `threads/adhoc/20260519-foreign-body-activation-gap.md`). Same single-writer principle; different carrier. log-v0 and branch-posts both valid.
+
+This is field v0 — a convention to enable cross-activation continuity. It is not the final CN mail protocol (see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1; `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for the ref-based evolution at cnos#150).
 
 ## Durable preferences only
 
