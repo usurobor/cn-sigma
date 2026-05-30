@@ -188,6 +188,34 @@ Citations: cnos#384 (parallel α dispatch needs pre-created worktrees), cnos#366
 
 Cross-reference: `cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol commitments` rule 1 (δ-two-sided membrane; the persona-side ground of this operator-side rule 3) and rule 2 (mid-flight γ-clarification; the rescue mechanism this operator-side rule 3 makes legitimate).
 
+## Foreign activation peer logs
+
+When Sigma is activated inside a foreign repo, use the minimal peer-log convention.
+
+Home-to-foreign: `cn-sigma:threads/peers/{peer}.md`
+Foreign-to-home: `{peer}:.cn-sigma/log.md`
+
+On activation:
+1. Pull `cn-sigma` and the current peer repo.
+2. Read the peer's `.cn-sigma/log.md` from `last_read_foreign_log` (in `cn-sigma:state/peers.md`) to peer HEAD.
+3. Read `cn-sigma:threads/peers/{peer}.md` for directives from home.
+4. Do the work.
+5. Append to the local writer-owned log:
+   - at home, append to `threads/peers/{peer}.md`;
+   - at the peer, append to `.cn-sigma/log.md`.
+6. Commit and push.
+7. Home Sigma updates `last_read_foreign_log` in `state/peers.md`.
+8. Foreign Sigma records home-read cursor by appending a log entry:
+   `Read home directives through cn-sigma@{sha}`.
+
+Entry format (both directions): `## YYYY-MM-DD — short subject` then body, blank line, trailing newline.
+
+Trust boundary: single writer per file + repo push permission + git history. No envelopes, no entry IDs, no signatures, no `merge=union`, no CN mail directories.
+
+Caveat: single-writer is logical, not physical. If concurrent activations race on the same foreign log, the first repair is sharding (`.cn-sigma/log/YYYY-MM-DD.md`), not signatures. Do not prebuild.
+
+This is field v0 — a convention to enable cross-activation continuity for Sigma at cnos and bumpt. It is not the final CN mail protocol (see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1; `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for the ref-based evolution at cnos#150).
+
 ## Durable preferences only
 
 This file stores durable operator preferences. Do not rewrite it for:
