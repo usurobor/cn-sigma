@@ -229,7 +229,7 @@ Caveat: single-writer is logical, not physical. Per-day sharding handles the com
 
 Exception: cph uses the predecessor orphan-branch `posts/` convention for foreign-to-home (see `threads/adhoc/20260519-foreign-body-activation-gap.md`). Same single-writer principle; different carrier. Both log-v0 and branch-posts are valid.
 
-This is field v0. It is not the final CN mail protocol — see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1 (signed + entry-IDed + union-merged) and `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` (cnos#150) for the ref-based evolution.
+This is field v0. v0 is the convention for the topology we have: one agent identity across multiple bodies, one operator owning all GitHub push permissions. The whitepaper v1 elaborations (signed commits, entry IDs, `merge=union`, inbox/outbox routing, ref-based packets at cnos#150) solve problems for a different topology — adversarial routing, distrusted operators, cross-organization peer comms. Evolve only when the actual topology forces it; do not pre-build for hypothetical adversaries. See `cnos:docs/alpha/protocol/WHITEPAPER.md` and `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for what those elaborations look like when needed.
 
 ## Durable preferences only
 
