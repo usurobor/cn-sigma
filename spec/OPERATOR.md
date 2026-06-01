@@ -192,33 +192,44 @@ Cross-reference: `cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol com
 
 Sigma activates at multiple repos (cnos, cph, bumpt today). Each is the same identity at a different body — **activations, not peers**. There are currently no external peer agents.
 
-When Sigma is activated inside a foreign repo, use the activation-log convention v0.
+This section is the cn-sigma side of the **Agent Activation Log Convention v0** — canonical spec at `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md`. The convention is not Sigma-specific; Sigma is the first adopter.
 
-Home-to-foreign: `cn-sigma:threads/activations/{activation}.md`
-Foreign-to-home: `{activation-repo}:.cn-sigma/log.md`
+Terminology (per the canonical spec §0):
+- **Agent** — coherent identity rooted in a home hub (e.g. cn-sigma).
+- **Activation** — the same agent identity in another body (e.g. Sigma-at-cnos).
+- **Peer** — a different agent identity with its own hub and keys (none currently registered; cn-rho would be one).
+
+The two artifacts (both per-day sharded, single-writer, append-only):
+
+| Surface | Single writer | Direction |
+|---|---|---|
+| `{activation-repo}:.cn-sigma/logs/YYYYMMDD.md` | Sigma at that activation | foreign → home |
+| `cn-sigma:threads/activations/{activation}/YYYYMMDD.md` | Sigma at home | home → foreign |
+
+Both directions are date-sharded. The stream owner differs, but the stream shape is symmetric — each activation is a long-lived narrative channel, and durable channels are smaller, more mergeable, and more readable when split by day.
 
 On activation:
 1. Pull `cn-sigma` and the current activation repo.
-2. Read the activation's `.cn-sigma/log.md` from `last_read_foreign_log` (in `cn-sigma:state/activations.md`) to activation-repo HEAD.
-3. Read `cn-sigma:threads/activations/{activation}.md` for directives from home.
+2. Read the activation's `.cn-sigma/logs/` from `last_read_foreign_log` (in `cn-sigma:state/activations.md`) to activation-repo HEAD — walk the directory; any file changed since the cursor is in range.
+3. Read `cn-sigma:threads/activations/{activation}/` for directives from home — walk the directory from the activation-side cursor (the activation scans its own logs for the last `Read home directives through cn-sigma@{sha}` entry) forward to cn-sigma HEAD.
 4. Do the work.
-5. Append to the local writer-owned log:
-   - at home, append to `threads/activations/{activation}.md`;
-   - at the activation, append to `.cn-sigma/log.md`.
+5. Append to the local writer-owned surface (create today's file if it doesn't exist yet):
+   - at home, append to `threads/activations/{activation}/YYYYMMDD.md`;
+   - at the activation, append to `.cn-sigma/logs/YYYYMMDD.md`.
 6. Commit and push.
 7. Home Sigma updates `last_read_foreign_log` in `state/activations.md`.
-8. Foreign Sigma records home-read cursor by appending a log entry:
-   `Read home directives through cn-sigma@{sha}`.
+8. The activation records the home-read cursor inline:
+   `## YYYY-MM-DD — Read home directives through cn-sigma@{sha}`.
 
-Entry format (both directions): `## YYYY-MM-DD — short subject` then body, blank line, trailing newline.
+Entry format (both directions): `## YYYY-MM-DD — short subject` then body, blank line, trailing newline. No frontmatter, no entry IDs, no envelopes.
 
-Trust boundary: single writer per file + repo push permission + git history. No envelopes, no entry IDs, no signatures, no `merge=union`, no CN mail directories.
+Trust boundary: single writer per file + repo push permission + git history. No `merge=union`, no CN mail directories. Good enough until volume forces real signing.
 
-Caveat: single-writer is logical, not physical. If concurrent activations race on the same foreign log, the first repair is sharding (`.cn-sigma/log/YYYY-MM-DD.md`), not signatures. Do not prebuild.
+Caveat: single-writer is logical, not physical. Per-day sharding handles the common case; if concurrent activations on the same day still race, the next shard is per-activation-hour or per-activation-session. Signatures arrive only under volume/adversarial pressure.
 
-Exception: cph uses the predecessor orphan-branch `posts/` convention for foreign-to-home (see `threads/adhoc/20260519-foreign-body-activation-gap.md`). Same single-writer principle; different carrier. log-v0 and branch-posts both valid.
+Exception: cph uses the predecessor orphan-branch `posts/` convention for foreign-to-home (see `threads/adhoc/20260519-foreign-body-activation-gap.md`). Same single-writer principle; different carrier. Both log-v0 and branch-posts are valid.
 
-This is field v0 — a convention to enable cross-activation continuity. It is not the final CN mail protocol (see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1; `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for the ref-based evolution at cnos#150).
+This is field v0. It is not the final CN mail protocol — see `cnos:docs/alpha/protocol/WHITEPAPER.md` for v1 (signed + entry-IDed + union-merged) and `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` (cnos#150) for the ref-based evolution.
 
 ## Durable preferences only
 
