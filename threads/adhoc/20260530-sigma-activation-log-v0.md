@@ -149,3 +149,49 @@ This is a field convention to enable Sigma cross-activation continuity. It is no
 - **CELL-OF-CELLS §16.6 (project evidence stays in project repo; persona memory goes home)** — this is the implementation. Project evidence at bumpt stays there; Sigma's persona-memory return uses `bumpt:.cn-sigma/log.md` → home read.
 - **20260519 foreign-body activation gap** — that adhoc proposed `.cn-sigma/` at foreign repos and the peer-branch posts/ convention for cph; v0 names what gets written there as a single log file and the loop that reads it. cph keeps the orphan-branch posts/ form as a valid alternative carrier.
 - **cn-rho (peer, researcher persona)** — out of scope for v0. When/if registered in `state/peers.md`, a cross-persona comms convention (different problem) will be designed separately.
+
+---
+
+## Update 2026-06-01 — Convergence at cnos: per-day sharding both directions; generalized to "Agent activation log v0"
+
+After Sigma-at-cnos activated on 2026-05-30 and worked the channel for two days, the convention converged at the cnos canonical spec — `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md` (latest commit `8a56be0`). The cn-sigma side now mirrors that canonical form.
+
+### What converged
+
+1. **Generalized name.** "Sigma activation log v0" → "Agent Activation Log Convention v0". Sigma is the first adopter, not the protocol name. `{agent}` template (sigma, rho, …) replaces persona-specific paths. This adhoc's filename keeps the original `sigma-activation-log-v0` slug — append-only discipline, the artifact name reflects the moment it was authored — but the convention it documents is now agent-level.
+
+2. **Per-day sharding both directions.** Original v0 had single files per channel (`<repo>:.cn-sigma/log.md`, `cn-sigma:threads/activations/<name>.md`). Converged form is per-day under per-activation directories:
+   - Foreign-to-home: `{activation-repo}:.cn-sigma/logs/YYYYMMDD.md`
+   - Home-to-foreign: `cn-sigma:threads/activations/{activation}/YYYYMMDD.md`
+   - Symmetric. The original framing ("home volume is too low to shard") is replaced: both sides shard because each activation is a long-lived narrative channel that's smaller, more mergeable, and more readable when split by day — not because of volume.
+   - The cursor (a Git commit SHA) spans the directory naturally; no per-file cursor needed.
+
+3. **Agent / activation / peer §0 distinction made explicit in the canonical spec.** Sigma's original adhoc framed this; the cnos spec lifted it into §0 as the conceptual ground for the whole convention.
+
+### What changed at cn-sigma today (2026-06-01)
+
+- `threads/activations/{cnos,bumpt,cph}.md` → `threads/activations/{cnos,bumpt,cph}/{README.md, 20260530.md}` per the new per-day structure. The 2026-05-30 directives I authored on the original single-file surfaces are preserved verbatim in each `20260530.md` shard.
+- `state/activations.md`: `foreign_log: ".cn-sigma/log.md"` → `".cn-sigma/logs/"`; `home_log: "threads/activations/{name}.md"` → `"threads/activations/{name}/"`; `last_read_foreign_log: null` → `8a56be0` for cnos (the cursor I advanced this intake).
+- `spec/OPERATOR.md § Activation logs`: rewritten to mirror the canonical cnos spec — per-day shards both directions, agent/activation/peer §0 frame, pointer to `AGENT-ACTIVATION-LOG-v0.md` as canonical.
+- This update section appended.
+
+### Companion essays (cnos side)
+
+Three gamma-essays landed at cnos during the cnos-side iteration. They are essay-class — substrate the spec lives on top of, not normative extensions:
+
+- `cnos:docs/gamma/essays/AGENT-ACTIVATION-LOGS-AND-EVENTUAL-CONSISTENCY.md` — descriptive lineage; Bayou as nearest prior art; four session guarantees mapped onto v0; scaling path (cursors → vector-clock state → CRDTs → signed feeds).
+- `cnos:docs/gamma/essays/AGENT-COMMS-FUTURES-KISS.md` — prescriptive gates; what NOT to add until topology demands it; YAGNI tests per mechanism; migration ladder as pressure map.
+- `cnos:docs/gamma/essays/AGENT-MEMORY-LOG-STRUCTURED.md` (v3, retitled "Agent Memory Is Coherence-Preserving Log Structure") — memory as coherence-preserving compaction over append-only evidence; rank ≠ frequency ontology; TSC as the measurement ground (α=pattern, β=relation, γ=process).
+
+The triad sits beside the spec without expanding it. Memory cycle (cnos#100, deferred until MCI freeze lifts) was cross-referenced via comment on the issue.
+
+### Held items (operator's call)
+
+- Whether to fold a short "Origins and analogues" section into `AGENT-ACTIVATION-LOG-v0.md` pointing at the essays.
+- Two prose-polish tightenings in memory essay v3 (bridge sentence; tighter compaction question).
+- Whether the other two essays gain a "see also TSC measurement framing" reference.
+- A small cnos-side stale reference: `cnos:.cn-sigma/logs/README.md` still cites `SIGMA-PEER-LOG-v0.md` (renamed to `AGENT-ACTIVATION-LOG-v0.md` in commit `d4d2dc7`). Cnos-Sigma noted but held the fix; flagged for its next activation.
+
+### Pause posture
+
+Convergence is field convention, not protocol evolution. The v3.82.0 protocol-evolution pause still holds. The CN protocol itself remains at v1 per the whitepaper; cnos#150 is the named evolution path; v0 (now agent-generalized) is the bridge.
