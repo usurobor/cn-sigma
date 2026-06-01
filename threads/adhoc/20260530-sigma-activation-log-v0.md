@@ -259,3 +259,32 @@ It isn't a claim that v0 is the right convention for every possible future. It's
 If the v3.82.0 pause eventually lifts and the topology shifts, the doors to v1 elaborations stay open. Evolve incrementally, pay the cost when the cost is justified.
 
 Pause-aligned: this is a framing change in how we describe v0's relationship to v1, not a protocol change. v0's mechanics are unchanged.
+
+---
+
+## Update 2026-06-01 (later) — cph reassigned to cn-rho's domain; activations list trimmed
+
+Operator direction: cph is removed from Sigma's activations and reassigned to **cn-rho's domain** when cn-rho registers as a peer. Historical references to cph in the convergence narrative above (e.g., "today's three activations: cnos / cph / bumpt") reflect the state at time of writing; they are preserved verbatim as append-only discipline requires.
+
+Going forward:
+- Sigma's activations are **cnos and bumpt only.**
+- cph's `cn-sigma` orphan branch (the 2026-05-19 foreign-body-activation-gap post) is historical Sigma material; the channel itself is dormant from cn-sigma's side.
+- When cn-rho registers as a peer in `state/peers.md`, cph becomes one of cn-rho's activations. The cn-sigma → cph relationship becomes cross-agent (peer↔peer), not cross-body (activation↔home). Peer↔peer comms convention will be designed then; deferred per YAGNI.
+
+### Why this matters for the topology framing
+
+The reframe above (v0 as destination, not bridge) rests on the claim that we have **one agent identity, multiple bodies, one operator owning all push permissions**. cn-rho will share the operator (still Axiom) but is a different agent identity. When cn-rho registers, the topology becomes "two agents, each with their own activations, same operator." That's still simpler than the Moltbook-shaped adversarial topology v1 was designed for — same operator means GitHub permissions still serve as the trust anchor.
+
+Two-agent topology MAY surface needs the activation-log v0 didn't address (cross-agent routing, who-reads-what-when between cn-sigma and cn-rho). The peer-comms convention is exactly that design problem. Deferred to when cn-rho registers; YAGNI says don't prebuild.
+
+### What shipped at cn-sigma this push
+
+- `state/activations.md` → v1.2.0: cph entry removed; trailing "Removed: cph (2026-06-01)" section records the reassignment.
+- `state/peers.md` → v1.1.0: cn-rho noted as pending registration; cph reassignment explained.
+- `spec/OPERATOR.md § Activation logs`: opening line now says "cnos, bumpt"; cn-rho noted as prototypical pending peer; cph exception clause removed.
+- `threads/activations/cph/` directory deleted (only contained the README; no log entries were ever made on the home-to-foreign side).
+- This update section appended.
+
+### Pause posture
+
+Reassignment is a registry-shape change, not protocol evolution. v3.82.0 holds.

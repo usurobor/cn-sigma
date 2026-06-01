@@ -1,4 +1,4 @@
-# Activations – v1.1.0
+# Activations – v1.2.0
 
 Places where Sigma activates (same identity, multiple bodies).
 This is **not** a peer list — there are currently no external peer agents.
@@ -16,16 +16,6 @@ Drives GitHub stars and the activation-log convention (see `spec/OPERATOR.md § 
   last_read_foreign_log: 8a56be0
   notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself.
 
-- name: cph
-  hub: https://github.com/usurobor/cph
-  role: activation
-  channel: cn-sigma (orphan branch)
-  activated: 2026-05-19
-  convention: branch-posts
-  foreign_log: "posts/ on the cn-sigma branch (orphan, long-lived)"
-  home_log: "threads/activations/cph/"
-  notes: Uses the predecessor orphan-branch posts/ convention (see threads/adhoc/20260519-foreign-body-activation-gap.md), not .cn-sigma/logs/. Same Sigma identity; sandboxed body that can only push to its own repo.
-
 - name: bumpt
   hub: https://github.com/usurobor/bumpt
   role: activation
@@ -36,3 +26,11 @@ Drives GitHub stars and the activation-log convention (see `spec/OPERATOR.md § 
   last_read_foreign_log: ac8838e
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
 ```
+
+## Removed: cph (2026-06-01)
+
+cph was registered as a Sigma activation on 2026-05-19 (the inaugural foreign-body-activation-gap post used the orphan-branch `posts/` convention). Per operator direction 2026-06-01, cph is reassigned to **cn-rho's domain** when cn-rho registers as a peer. Until then, cph is not in any agent's activations list.
+
+Historical references remain at:
+- `threads/adhoc/20260519-foreign-body-activation-gap.md` — the inaugural post + ingestion record
+- `threads/adhoc/20260530-sigma-activation-log-v0.md` — the convention writeup, which references cph in the convergence narrative (preserved as-authored; the reassignment is noted in the Update section)
