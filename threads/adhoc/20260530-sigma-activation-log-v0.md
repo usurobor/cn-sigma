@@ -13,7 +13,7 @@ A minimal field convention to enable Sigma's cross-activation continuity at cnos
 
 - **Is:** a two-file, single-writer, append-only convention with split cursors, governed by repo push permission and git history.
 - **Isn't:** signing, envelopes, entry IDs, `merge=union`, CN mail directories, packet refs.
-- **Isn't:** the final CN mail protocol. See `cnos:docs/alpha/protocol/WHITEPAPER.md` v3.0.0 for Protocol v1 (signed + entry-IDed + union-merged) and `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` (cnos#150) for the ref-based packet evolution. v0 is the bridge to today's volume.
+- **Isn't:** the same as Protocol v1 or cnos#150's ref-based packets. The whitepaper v1 (signed + entry-IDed + union-merged) and cnos#150 (root commits behind refs) solve problems for a different topology — adversarial routing, distrusted operators, cross-organization peer comms. v0 is the convention for the topology we actually have. See `## Reframe 2026-06-01` at the bottom for the explicit position.
 
 ## Activations vs peers (terminology)
 
@@ -194,4 +194,68 @@ The triad sits beside the spec without expanding it. Memory cycle (cnos#100, def
 
 ### Pause posture
 
-Convergence is field convention, not protocol evolution. The v3.82.0 protocol-evolution pause still holds. The CN protocol itself remains at v1 per the whitepaper; cnos#150 is the named evolution path; v0 (now agent-generalized) is the bridge.
+Convergence is field convention, not protocol evolution. The v3.82.0 protocol-evolution pause still holds. The CN protocol itself remains at v1 per the whitepaper; cnos#150 names a possible later evolution. See `## Reframe 2026-06-01` below for the explicit position on whether we expect to ever migrate.
+
+---
+
+## Reframe 2026-06-01 — v0 as the destination, not the bridge
+
+Operator surfaced a sharp question after the home intake: *if v0 is the simpler thing that works, why are we calling it a bridge to whitepaper v1?*
+
+Honest answer: we shouldn't be. Reframing.
+
+### What v1 adds over v0, and when each becomes load-bearing
+
+| v1 elaboration | Solves | Needed when |
+|---|---|---|
+| `cn.json` + pubkeys + signed commits | Anti-impersonation when push permission isn't the trust anchor | An agent we don't operate is on the network, OR GitHub OAuth becomes untrusted |
+| `merge=union` driver | Concurrent writers to the same file | Single-writer + path sharding breaks (per-day → per-hour → per-session can defer indefinitely) |
+| `entry_id` (ULID) per message | Stable cross-citation when files move/get rewritten | A message needs to be referenced from outside the file — but append-only discipline means files don't get rewritten anyway |
+| Frontmatter per thread file | Machine-readable metadata for indexers/feeds | A second implementer needs to parse our threads programmatically |
+| `threads/inbox/` + `threads/outbox/` | Cross-agent message routing | Peer agents exist with different trust boundaries |
+| Ref-based packets (cnos#150) | Transport-authoritative ordering + equivocation detection | Adversarial routing surfaces; ordering attacks happen |
+
+Every row is "later problem." None are problems we have today. Most are problems we may never have.
+
+### What v0 keeps from the whitepaper's spirit (load-bearing claims)
+
+- Git as the substrate
+- Open source / forkable / inspectable
+- Offline-first replication (every body is a clone)
+- Substrate/projection boundary (GitHub is projection; repo is substrate)
+- Append-only history with deterministic parsing (markdown + git)
+- Coherence as the metric
+
+These are the actual load-bearing claims. v0 keeps all of them.
+
+### What v0 drops vs v1
+
+- Per-message cryptographic identity → replaced by push permission as trust anchor
+- Universal entry_id addressing → replaced by commit SHA + path + section anchor
+- Concurrent-writer merge protocol → replaced by single-writer + path sharding
+- Strict inbox/outbox addressing → replaced by activation-namespace convention
+
+Each drop has a failure mode. None of those failure modes are present in our actual topology.
+
+### The honest reframe
+
+v0 is the convention for the topology we have: **one agent identity, multiple bodies, one operator owning all GitHub permissions.** The whitepaper v1 elaborations exist for a different topology (Moltbook-style: many agents, distrusted services, centralized impersonation surface). Our problem is structurally simpler.
+
+If the topology eventually grows — third-party agents, distrusted operators, cross-organization peer comms — evolve incrementally: signing when first abuse happens, entry_id when first stable-citation need surfaces, union-merge when path-sharding breaks. **Pay the cost when the topology forces it; not before.**
+
+cn-rho (researcher persona, planned) is owned by the same operator (Axiom) — that doesn't change the topology. If/when an agent appears on the network whose operator we don't trust, the trust-anchor question becomes real, and that's the moment to add signing — not before.
+
+### Implication for the docs
+
+- `spec/OPERATOR.md § Activation logs` last paragraph updated this push: v0 is the convention for the topology we have, evolve only when topology forces it.
+- This adhoc's "What this is (and isn't)" line updated to drop "v0 is the bridge to today's volume."
+- The "Pause posture" line above updated to drop "v0 (now agent-generalized) is the bridge."
+- The cnos-side canonical `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md` still uses the "bridge to today's volume" framing in its §0 — flagged via the cnos activation log for Sigma-at-cnos to fix on its next activation.
+
+### What this isn't
+
+It isn't a claim that v0 is the right convention for every possible future. It's a claim that v0 is the right convention for **the topology we actually have**, and that pre-building for adversarial topologies we don't have is a YAGNI violation.
+
+If the v3.82.0 pause eventually lifts and the topology shifts, the doors to v1 elaborations stay open. Evolve incrementally, pay the cost when the cost is justified.
+
+Pause-aligned: this is a framing change in how we describe v0's relationship to v1, not a protocol change. v0's mechanics are unchanged.
