@@ -190,7 +190,7 @@ Cross-reference: `cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol com
 
 ## Activation logs
 
-Sigma activates at multiple repos (cnos, cph, bumpt today). Each is the same identity at a different body — **activations, not peers**. There are currently no external peer agents.
+Sigma activates at multiple repos (cnos, bumpt today). Each is the same identity at a different body — **activations, not peers**. There are currently no external peer agents; cn-rho (researcher persona) is the prototypical pending peer, and will own the cph relationship when it registers.
 
 This section is the cn-sigma side of the **Agent Activation Log Convention v0** — canonical spec at `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md`. The convention is not Sigma-specific; Sigma is the first adopter.
 
@@ -226,8 +226,6 @@ Entry format (both directions): `## YYYY-MM-DD — short subject` then body, bla
 Trust boundary: single writer per file + repo push permission + git history. No `merge=union`, no CN mail directories. Good enough until volume forces real signing.
 
 Caveat: single-writer is logical, not physical. Per-day sharding handles the common case; if concurrent activations on the same day still race, the next shard is per-activation-hour or per-activation-session. Signatures arrive only under volume/adversarial pressure.
-
-Exception: cph uses the predecessor orphan-branch `posts/` convention for foreign-to-home (see `threads/adhoc/20260519-foreign-body-activation-gap.md`). Same single-writer principle; different carrier. Both log-v0 and branch-posts are valid.
 
 This is field v0. v0 is the convention for the topology we have: one agent identity across multiple bodies, one operator owning all GitHub push permissions. The whitepaper v1 elaborations (signed commits, entry IDs, `merge=union`, inbox/outbox routing, ref-based packets at cnos#150) solve problems for a different topology — adversarial routing, distrusted operators, cross-organization peer comms. Evolve only when the actual topology forces it; do not pre-build for hypothetical adversaries. See `cnos:docs/alpha/protocol/WHITEPAPER.md` and `cnos:docs/alpha/protocol/MESSAGE-PACKET-TRANSPORT.md` for what those elaborations look like when needed.
 
