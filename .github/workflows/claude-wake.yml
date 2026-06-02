@@ -1,0 +1,62 @@
+# Wake workflow for Sigma at home (cn-sigma).
+#
+# Trigger: opening an issue whose title contains "claude-wake", and a
+# scheduled cron at :15 and :45 (staggered 15 min from cnos's wake at
+# :00 and :30 so the two wakes don't race the channel — each side sees
+# the other's most recent push within 15 min).
+#
+# Authority: CLAUDE_CODE_OAUTH_TOKEN (operator's Claude Pro/Max
+# subscription token, generated via `claude setup-token`, stored as a
+# repo secret). Same value the operator uses at cnos.
+#
+# Substrate: anthropics/claude-code-action@v1 — auth path verified
+# end-to-end in cnos#435..#438; OIDC permission + token format both
+# pinned in cnos commit a42b3d35 and round-4 green (cnos#438).
+#
+# Composition: "Activate and attach as <agent-home-url>" — invokes the
+# two peer skills in cnos.core/skills/agent/{activate,attach}/SKILL.md.
+# At cn-sigma's body, PWD origin matches the prompt URL → attach skill
+# detects mode = home. Home procedure iterates over each registered
+# activation in state/activations.md (currently cnos, bumpt), walks
+# each foreign log from last_read_foreign_log to hub HEAD, writes one
+# per-activation thread entry, and advances each cursor.
+
+name: claude-wake
+
+on:
+  issues:
+    types: [opened]
+  schedule:
+    # Every 30 minutes UTC at :15 and :45. Staggered vs cnos (:00, :30)
+    # so the two wakes don't race the channel. GH Actions cron is
+    # best-effort under load; actual cadence may drift 15-45 min during
+    # cluster congestion.
+    - cron: '15,45 * * * *'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+# Serialize wakes — never run two in parallel. Concurrent wakes would
+# race on the writer-surfaces (threads/activations/{name}/) and
+# state/activations.md cursor advances, producing duplicate entries or
+# push conflicts. cancel-in-progress: false queues new triggers behind
+# any in-flight wake.
+concurrency:
+  group: claude-wake
+  cancel-in-progress: false
+
+jobs:
+  wake:
+    if: contains(github.event.issue.title, 'claude-wake')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Activate and attach as https://github.com/usurobor/cn-sigma.
