@@ -221,7 +221,27 @@ On activation:
 8. The activation records the home-read cursor inline:
    `## YYYY-MM-DD — Read home directives through cn-sigma@{sha}`.
 
-Entry format (both directions): `## YYYY-MM-DD — short subject` then body, blank line, trailing newline. No frontmatter, no entry IDs, no envelopes.
+Entry format (both directions, per `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md` §4):
+
+```
+## YYYY-MM-DDTHH:MM:SSZ — short subject
+
+---
+at: <hub-name>
+mode: home | foreign-activation | ephemeral
+cursor_in: <agent>@<sha>
+cursor_out: <agent>@<sha>
+class: substantive | heartbeat | inaugural | directive-out
+---
+
+Body.
+```
+
+H2 carries full UTC timestamp (ISO 8601, second precision). YAML frontmatter declares `at`, `mode`, `cursor_in`, `cursor_out`, `class`. Cursor lives in `cursor_out` (read bottom-up — most recent entry of most recent file = active cursor). No trailing cursor pin line.
+
+**Read direction:** bottom-up for cursor extraction (O(1)); forward-chronological for processing inbound directives (causal order). Same file, two read patterns.
+
+**Skill operationalizing the loop:** `cnos:src/packages/cnos.core/skills/agent/attach/SKILL.md` — peer of `agent/activate`. Composition prompt: `Activate and attach as <agent-home-url>`. The wake workflow at each hub uses this prompt.
 
 Trust boundary: single writer per file + repo push permission + git history. No `merge=union`, no CN mail directories. Good enough until volume forces real signing.
 
