@@ -1,9 +1,10 @@
 # Wake workflow for Sigma at home (cn-sigma).
 #
-# Trigger: opening an issue whose title contains "claude-wake", and a
-# scheduled cron at :15 and :45 (staggered 15 min from cnos's wake at
-# :00 and :30 so the two wakes don't race the channel — each side sees
-# the other's most recent push within 15 min).
+# Trigger: opening an issue whose title contains "claude-wake", and four
+# scheduled crons at :12 :27 :42 :57 (staggered against cnos's :08 :23
+# :38 :53 so the two wakes don't race the channel and no two bodies
+# fire the same minute — combined ~7.5 min effective cadence at the
+# channel level).
 #
 # Authority: CLAUDE_CODE_OAUTH_TOKEN (operator's Claude Pro/Max
 # subscription token, generated via `claude setup-token`, stored as a
@@ -27,11 +28,18 @@ on:
   issues:
     types: [opened]
   schedule:
-    # Every 30 minutes UTC at :15 and :45. Staggered vs cnos (:00, :30)
-    # so the two wakes don't race the channel. GH Actions cron is
-    # best-effort under load; actual cadence may drift 15-45 min during
-    # cluster congestion.
-    - cron: '15,45 * * * *'
+    # Four independently-scheduled hourly crons. Each cron line is
+    # scheduled separately by GH; partial slot drops don't open a full
+    # hour-long gap. Combined effect ~4 wakes/hour expected; with even
+    # 75% drop rate we still get ~1 wake/hour guaranteed. Minutes chosen
+    # complementary to cnos (:08/:23/:38/:53) — no two bodies fire the
+    # same minute, channel race-free, ~7.5 min effective cadence at the
+    # channel level. Per cnos directive 2026-06-02T21:57Z; RCA at
+    # 2026-06-02T20:35Z (off-peak avoids :00/:30 congestion).
+    - cron: '12 * * * *'
+    - cron: '27 * * * *'
+    - cron: '42 * * * *'
+    - cron: '57 * * * *'
 
 permissions:
   contents: write
@@ -50,7 +58,7 @@ concurrency:
 
 jobs:
   wake:
-    if: contains(github.event.issue.title, 'claude-wake')
+    if: ${{ github.event_name == 'schedule' || contains(github.event.issue.title, 'claude-wake') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
