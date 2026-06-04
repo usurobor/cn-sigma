@@ -75,3 +75,18 @@ jobs:
             }
           prompt: |
             Activate and attach as https://github.com/usurobor/cn-sigma.
+
+      # Notify the coherer session that the wake completed.
+      # PR #9 (coherer-watch) is the long-lived notification surface;
+      # see state/coherer-watch.md for mechanism. PR comments fire
+      # PR-activity webhooks that surface to subscribe_pr_activity in
+      # the coherer's session.
+      - name: Notify coherer
+        if: always()
+        run: |
+          git fetch origin main --quiet || true
+          HEAD_SHA=$(git rev-parse --short=8 origin/main)
+          LAST_SUBJECT=$(git log -1 --pretty=%s origin/main)
+          gh pr comment 9 --body "wake @ ${HEAD_SHA}: ${LAST_SUBJECT}"
+        env:
+          GH_TOKEN: ${{ github.token }}
