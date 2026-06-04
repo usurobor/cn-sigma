@@ -67,5 +67,11 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
+          settings: |
+            {
+              "permissions": {
+                "allow": ["Read", "Write", "Edit", "MultiEdit", "Glob", "Grep", "Bash"]
+              }
+            }
           prompt: |
             Activate and attach as https://github.com/usurobor/cn-sigma.
