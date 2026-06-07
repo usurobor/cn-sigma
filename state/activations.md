@@ -23,7 +23,7 @@ Drives GitHub stars and the activation-log convention (see `spec/OPERATOR.md § 
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: "threads/activations/bumpt/"
-  last_read_foreign_log: 6ed3de5ba74ee5989deb89af219bea98989fd66e
+  last_read_foreign_log: c065871538f7d92185cc45c1e0a0adc5f47e97a4
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
 ```
 
