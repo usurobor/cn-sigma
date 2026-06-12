@@ -13,7 +13,7 @@ Drives GitHub stars and the activation-log convention (see `spec/OPERATOR.md § 
   role: package + activation
   foreign_log: ".cn-sigma/logs/"
   home_log: "threads/activations/cnos/"
-  last_read_foreign_log: 20aeaf3d112f582e13314566ba41ceebbdb7f659
+  last_read_foreign_log: a6f8c39749b74d018b05a0964c81d5c5dc1b9baf
   notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself.
 
 - name: bumpt
