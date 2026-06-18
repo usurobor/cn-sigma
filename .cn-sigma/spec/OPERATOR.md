@@ -54,7 +54,7 @@ When CDD applies (any issue work, review, closure, or verification): read each a
 2. Read each SKILL.md
 3. Only then start writing
 
-Do not substitute reflection after the fact for discipline before action. See: `threads/adhoc/20260412-principle-without-mechanism.md`
+Do not substitute reflection after the fact for discipline before action. See: `.cn-sigma/threads/adhoc/20260412-principle-without-mechanism.md`
 
 ### CDD dispatch standing order
 
@@ -134,7 +134,7 @@ No auto-apply exceptions.
 
 ## CDD wave-execution pattern (engineering-persona operations)
 
-Sigma operates CDD waves under three operational sub-rules. These are operator-contract content (layer 2 of `ROLES.md §4a` five-layer chain) — they answer "what dispatch shapes count as well-formed for this agent" and "what content-migration strategies does this agent refuse." They are the wave-execution complement to the engineering-persona protocol commitments above in `spec/PERSONA.md`.
+Sigma operates CDD waves under three operational sub-rules. These are operator-contract content (layer 2 of `ROLES.md §4a` five-layer chain) — they answer "what dispatch shapes count as well-formed for this agent" and "what content-migration strategies does this agent refuse." They are the wave-execution complement to the engineering-persona protocol commitments above in `.cn-sigma/spec/PERSONA.md`.
 
 These sub-rules apply when Sigma plays γ (coordinator) or δ (operator-as-architect) on a CDD wave. They constrain Sigma's dispatch shape; they do not constrain Sigma's α/β execution.
 
@@ -186,7 +186,7 @@ Empirical anchor: cnos#393 (the codification cycle that pinned this rule across 
 
 Citations: cnos#384 (parallel α dispatch needs pre-created worktrees), cnos#366 (executable-protocol roadmap; the wave-shape exemplar), cnos#376 (cnos.cdr v0.1 master), cnos#393 (δ-as-architect codification; implementation-contract dispatch-prompt template), cnos#403 (cnos.cds v0.1 master), cnos#408 / #409 / #410 (b-lite extraction precedent subs of #403).
 
-Cross-reference: `cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol commitments` rule 1 (δ-two-sided membrane; the persona-side ground of this operator-side rule 3) and rule 2 (mid-flight γ-clarification; the rescue mechanism this operator-side rule 3 makes legitimate).
+Cross-reference: `cn-sigma:.cn-sigma/spec/PERSONA.md` `## Engineering-persona protocol commitments` rule 1 (δ-two-sided membrane; the persona-side ground of this operator-side rule 3) and rule 2 (mid-flight γ-clarification; the rescue mechanism this operator-side rule 3 makes legitimate).
 
 ## Activation logs
 
@@ -204,20 +204,20 @@ The two artifacts (both per-day sharded, single-writer, append-only):
 | Surface | Single writer | Direction |
 |---|---|---|
 | `{activation-repo}:.cn-sigma/logs/YYYYMMDD.md` | Sigma at that activation | foreign → home |
-| `cn-sigma:threads/activations/{activation}/YYYYMMDD.md` | Sigma at home | home → foreign |
+| `cn-sigma:.cn-sigma/threads/activations/{activation}/YYYYMMDD.md` | Sigma at home | home → foreign |
 
 Both directions are date-sharded. The stream owner differs, but the stream shape is symmetric — each activation is a long-lived narrative channel, and durable channels are smaller, more mergeable, and more readable when split by day.
 
 On activation:
 1. Pull `cn-sigma` and the current activation repo.
-2. Read the activation's `.cn-sigma/logs/` from `last_read_foreign_log` (in `cn-sigma:state/activations.md`) to activation-repo HEAD — walk the directory; any file changed since the cursor is in range.
-3. Read `cn-sigma:threads/activations/{activation}/` for directives from home — walk the directory from the activation-side cursor (the activation scans its own logs for the last `Read home directives through cn-sigma@{sha}` entry) forward to cn-sigma HEAD.
+2. Read the activation's `.cn-sigma/logs/` from `last_read_foreign_log` (in `cn-sigma:.cn-sigma/state/activations.md`) to activation-repo HEAD — walk the directory; any file changed since the cursor is in range.
+3. Read `cn-sigma:.cn-sigma/threads/activations/{activation}/` for directives from home — walk the directory from the activation-side cursor (the activation scans its own logs for the last `Read home directives through cn-sigma@{sha}` entry) forward to cn-sigma HEAD.
 4. Do the work.
 5. Append to the local writer-owned surface (create today's file if it doesn't exist yet):
-   - at home, append to `threads/activations/{activation}/YYYYMMDD.md`;
+   - at home, append to `.cn-sigma/threads/activations/{activation}/YYYYMMDD.md`;
    - at the activation, append to `.cn-sigma/logs/YYYYMMDD.md`.
 6. Commit and push.
-7. Home Sigma updates `last_read_foreign_log` in `state/activations.md`.
+7. Home Sigma updates `last_read_foreign_log` in `.cn-sigma/state/activations.md`.
 8. The activation records the home-read cursor inline:
    `## YYYY-MM-DD — Read home directives through cn-sigma@{sha}`.
 
