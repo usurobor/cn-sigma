@@ -67,6 +67,8 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
+          bot_name: "sigma@cn-sigma.cnos"
+          bot_id: "41898282"
           settings: |
             {
               "permissions": {
