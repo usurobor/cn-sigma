@@ -11,19 +11,29 @@ CDD encodes actor identity into git committer email. The canonical form is:
 | Variant | Form | Example |
 |---|---|---|
 | Role-pure CDD | `<role>@<substrate>` | `alpha@cnos`, `gamma@cnos`, `delta@cnos` |
-| Multi-agent | `<agent>@<home-body>.<substrate>` | `sigma@cn-sigma.cnos`, `rho@cn-rho.cnos` |
+| Multi-agent, home activation | `<agent>@<home-body>.<substrate>` (collapsed) | `sigma@cn-sigma.cnos`, `rho@cn-rho.cnos` |
+| Multi-agent, foreign activation | `<agent>@<activation-body>.<home-body>.<substrate>` | `sigma@cnos.cn-sigma.cnos`, `sigma@bumpt.cn-sigma.cnos` |
 
-Read DNS-style (rightmost = root): substrate is root, body is subdomain, agent or role is leaf. The form is precise about who acted, where they live, and which substrate they run on — three pieces of load-bearing information.
+Read DNS-style (rightmost = root): substrate is root, home-body is body-domain, activation-body is sub-body-domain (when foreign), agent is leaf.
 
-## Travel rule
+## Activation-site rule + home-collapse rule
 
-In the multi-agent variant, the body in the email is the agent's **home body**, NOT the activation site.
+In the multi-agent variant, the email encodes BOTH the agent's home body AND (when foreign) the activation site:
 
-- Sigma activated at cn-sigma (γ-console): committer email `sigma@cn-sigma.cnos`
-- Sigma activated at cnos (α-at-cnos, wake-fired): committer email `sigma@cn-sigma.cnos`
-- Sigma activated at bumpt (α-at-bumpt, wake-fired): committer email `sigma@cn-sigma.cnos`
+- **Home activation** — when Sigma activates at cn-sigma (its own home body), the activation site equals the home body. Collapse the duplicate: `sigma@cn-sigma.cnos`.
+- **Foreign activation** — when Sigma activates at any other body (cnos, bumpt, etc.), the activation site is encoded as the leftmost subdomain: `sigma@<activation>.cn-sigma.cnos`.
 
-Identity belongs to the agent. The agent has one home body. The activation site is encoded in *where the commit lands* (which repo's git log), not in the committer email. Three activations, one identity.
+| Activation | Email |
+|---|---|
+| Sigma γ-console at cn-sigma (home) | `sigma@cn-sigma.cnos` |
+| Sigma α at cnos (foreign) | `sigma@cnos.cn-sigma.cnos` |
+| Sigma α at bumpt (foreign) | `sigma@bumpt.cn-sigma.cnos` |
+
+**Why this matters:** Without activation-site-in-email, all three hubs' wake-fired commits look identical (`sigma@cn-sigma.cnos`) in `git log`; the only disambiguator would be repo context. With activation-site-in-email, any aggregated commit view, cross-repo PR, or operator-side log across mirrored data correctly distinguishes γ-console / α-at-cnos / α-at-bumpt from the email alone. Self-extending: future Sigma activations at any new body get mechanically-generated emails of the form `sigma@<new>.cn-sigma.cnos`.
+
+**Why the asymmetry (3-token home vs 4-token foreign) is a feature, not a flaw:** the home-vs-foreign distinction is itself meaningful (home = γ-console authority; foreign = wake-fired α work). The collapsed-vs-full form *signals* the distinction structurally. The home email isn't a degenerate special case; it's the canonical form for "this commit landed at the agent's home body."
+
+**The home-body subdomain is constant.** Identity belongs to the agent. cn-sigma stays in the email regardless of activation site, because the agent doesn't change when activated at a foreign body — only the activation site shifts.
 
 ## Why drop `.cdd`?
 
@@ -49,15 +59,15 @@ The cn-sigma history shows two truncations of the canonical: `sigma@cn-sigma` (m
 
 ## Truncations being corrected forward
 
-1. **D24's `bot_name: "sigma@cnos"`** — this was a truncation (missing the home body subdomain). Amended via channel D24-amendment (2026-06-18T22:30Z): canonical `sigma@cn-sigma.cnos`.
+1. **D24's `bot_name: "sigma@cnos"`** — original truncation. First amended via D24-amendment (2026-06-18T22:30Z) to `sigma@cn-sigma.cnos`. Then RE-CORRECTED per activation-site rule (2026-06-18T23:30Z): canonical for cnos foreign activation is `sigma@cnos.cn-sigma.cnos`. Sigma-at-cnos applies the latter.
 
-2. **γ-console session `user.email`** — was `noreply@anthropic.com` (generic Claude Code identity) or `sigma@cn-sigma` (historical drift). Updated this session to `sigma@cn-sigma.cnos`. Future γ-console sessions need the same config; capturing here so the convention persists past chat context.
+2. **γ-console session `user.email`** — was `noreply@anthropic.com` (generic Claude Code identity) or `sigma@cn-sigma` (historical drift). Updated this session to `sigma@cn-sigma.cnos` (home activation, collapsed form — γ-console is at home). Stays. Future γ-console sessions need the same config; capturing here so the convention persists past chat context.
 
-3. **cn-sigma wake yaml** — adds `bot_name: "sigma@cn-sigma.cnos"` + `bot_id: "41898282"`. Wake-fired commits at cn-sigma attribute correctly.
+3. **cn-sigma wake yaml** — adds `bot_name: "sigma@cn-sigma.cnos"` (home activation, collapsed form) + `bot_id: "41898282"`. Stays as set. Wake-fired commits at cn-sigma attribute correctly (rare event — cn-sigma wake fires when γ-console is offline; commits land as home-form regardless).
 
-4. **cnos wake yaml** — to be updated by Sigma-at-cnos per D26/AI1 (or via the D24-amendment if not yet applied).
+4. **cnos wake yaml** — Sigma-at-cnos applies `bot_name: "sigma@cnos.cn-sigma.cnos"` (foreign activation, full form). Updated by D24-amendment + D26 corrections (2026-06-18T23:30Z follow-on).
 
-5. **bumpt wake yaml** — out of scope for D26 (Writer Locality prevents Sigma-at-cnos from writing to bumpt). Separate concern when α-at-bumpt is active.
+5. **bumpt wake yaml** — Sigma-at-bumpt applies `bot_name: "sigma@bumpt.cn-sigma.cnos"` (foreign activation, full form). Dispatched via D27 corrected (2026-06-18T23:30Z follow-on).
 
 ## CDD spec update
 
