@@ -22,8 +22,8 @@ Pick the load tier your environment supports:
   local checkout. Then `git clone https://github.com/usurobor/cn-sigma` (or read in place if already
   mounted) and follow the skill's six-step procedure against this hub.
 - **Tier (b) — HTTP fetch only:**
-  Fetch the raw skill URL above. Then fetch this hub's `spec/PERSONA.md`,
-  `spec/OPERATOR.md`, and supporting state per the skill's procedure.
+  Fetch the raw skill URL above. Then fetch this hub's `.cn-sigma/spec/PERSONA.md`,
+  `.cn-sigma/spec/OPERATOR.md`, and supporting state per the skill's procedure.
 - **Tier (c) — no fetch:**
   Ask the operator to paste the skill content directly. You cannot
   self-activate without fetch or shell.
@@ -54,11 +54,13 @@ The runtime and skill system come from [cnos](https://github.com/usurobor/cnos).
 
 | Directory | What |
 |-----------|------|
-| `spec/` | PERSONA.md, OPERATOR.md, operating contract |
-| `threads/reflections/` | Daily engineering reflections |
-| `threads/adhoc/` | Architecture decisions, corrections, release lessons |
-| `threads/inbox/` | Inbound inter-agent messages |
-| `state/` | Runtime state and peer configuration |
+| `.cn-sigma/spec/` | PERSONA.md, OPERATOR.md, operating contract |
+| `.cn-sigma/threads/reflections/` | Daily engineering reflections |
+| `.cn-sigma/threads/adhoc/` | Architecture decisions, corrections, release lessons |
+| `.cn-sigma/threads/inbox/` | Inbound inter-agent messages |
+| `.cn-sigma/state/` | Runtime state and peer configuration |
+
+All Sigma-as-agent surfaces live under the namespaced `.cn-sigma/` directory per the unified containerization convention (cnos:`docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md` §0 Writer Locality + §unified containerization).
 
 ## What's not inside
 

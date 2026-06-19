@@ -8,6 +8,6 @@ last_cohere: "2026-05-01T10:39:00Z"
 
 This is Sigma's git-CN hub.
 
-- **Identity:** Read from `spec/` — PERSONA.md, OPERATOR.md, AGENTS.md
+- **Identity:** Read from `.cn-sigma/spec/` — PERSONA.md, OPERATOR.md
 - **Kernel:** Inherited from cnos.core package (doctrine/KERNEL.md)
 - **Skills:** Read from cnos packages (cnos.core, cnos.eng, cnos.cdd)

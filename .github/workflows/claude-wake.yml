@@ -18,7 +18,7 @@
 # two peer skills in cnos.core/skills/agent/{activate,attach}/SKILL.md.
 # At cn-sigma's body, PWD origin matches the prompt URL → attach skill
 # detects mode = home. Home procedure iterates over each registered
-# activation in state/activations.md (currently cnos, bumpt), walks
+# activation in .cn-sigma/state/activations.md (currently cnos, bumpt), walks
 # each foreign log from last_read_foreign_log to hub HEAD, writes one
 # per-activation thread entry, and advances each cursor.
 
@@ -48,10 +48,10 @@ permissions:
   id-token: write
 
 # Serialize wakes — never run two in parallel. Concurrent wakes would
-# race on the writer-surfaces (threads/activations/{name}/) and
-# state/activations.md cursor advances, producing duplicate entries or
-# push conflicts. cancel-in-progress: false queues new triggers behind
-# any in-flight wake.
+# race on the writer-surfaces (.cn-sigma/threads/activations/{name}/) and
+# .cn-sigma/state/activations.md cursor advances, producing duplicate
+# entries or push conflicts. cancel-in-progress: false queues new
+# triggers behind any in-flight wake.
 concurrency:
   group: claude-wake
   cancel-in-progress: false
@@ -80,7 +80,7 @@ jobs:
 
       # Notify the coherer session that the wake completed.
       # PR #9 (coherer-watch) is the long-lived notification surface;
-      # see state/coherer-watch.md for mechanism. PR comments fire
+      # see .cn-sigma/state/coherer-watch.md for mechanism. PR comments fire
       # PR-activity webhooks that surface to subscribe_pr_activity in
       # the coherer's session.
       - name: Notify coherer
