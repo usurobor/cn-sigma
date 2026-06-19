@@ -2,7 +2,7 @@
 
 External peer **agents** — different personas with their own hubs and keys.
 
-Not the same as `state/activations.md` (Sigma's own bodies at other repos).
+Not the same as `.cn-sigma/state/activations.md` (Sigma's own bodies at other repos).
 A peer is another agent entirely (e.g., cn-rho the researcher persona,
 backed by the cdr package, distinct from Sigma's engineer/cdd profile).
 
