@@ -519,18 +519,171 @@ For P3, the transport question reduces to: which private home hub? Each operator
 
 5. **What happens when a public lesson at cnos is later traced back to a private origin?** If the public proposal lives at cnos as an issue with `private_receipt_hash`, anyone with access to that issue can see the hash. The hash is meant to prove the private repo's claim without revealing it; but a malicious party with access to the private repo could verify by computing the hash from their copy. This is acceptable for v0; flagging.
 
+### Amendment 3: Asymmetric subscription — home broadcasts; activations subscribe
+
+Operator-surfaced insight: Sigma-at-home can still send messages to private repos **as a broadcast to all activations**. Technically home doesn't even need to know a private repo exists — yet the private repo can be listening to home's broadcast.
+
+This refines the privacy doctrine in a structurally important way. The home-↔-activation relationship is **asymmetric**:
+
+| Direction | Mode | Surface | Visibility |
+|---|---|---|---|
+| Home → field (outbound) | **broadcast** | Public; published once; no addressing | Home doesn't know who listens; anyone can read |
+| Field → home (inbound) | **addressed** | Per-activation channel for known/registered activations only | Home knows the channel; only registered/disclosed activations write there |
+| Field → home (privacy-gated) | **memory-return** | Per privacy mode (P2 only; P0/P1 send nothing) | Human-approved redacted proposals via Mechanism A/B/C/D (open) |
+
+#### Why this matters for privacy
+
+The broadcast model makes **continued protocol evolution compatible with P0 silent mode**. A private repo at P0 (do not reveal usage) can still:
+
+- Pull cn-sigma's broadcast surface (it's a public repo; fetches aren't observable to the owner of cn-sigma in any operational way)
+- Read protocol updates, doctrine evolution, spec amendments, version bumps
+- Stay current with cnos discipline
+- All while never revealing to home that it exists
+
+Home's broadcast is **fire-and-forget**:
+- Home publishes spec changes, doctrine updates, version bumps, registered-activations index, etc.
+- Home has no knowledge of who fetched, who acted on the broadcast, or whether anyone consumed it.
+- Private subscribers maintain their own broadcast cursor (e.g., `last_read_broadcast: cn-sigma@<sha>`); home doesn't track per-subscriber cursors.
+
+This is the publisher-subscriber model where subscribers are anonymous to the publisher.
+
+#### Structural separation: registry vs broadcast
+
+The existing `cn-sigma:.cn-sigma/state/activations.md` is the **known-activations registry** — it lists registered bodies (cnos, bumpt) and home maintains their cursors. This is the "addressed" surface; it requires disclosure.
+
+The broadcast surface is **separate**. It exists at cn-sigma's public main branch but is targeted-at-no-one-in-particular:
+
+- Doctrine evolution events (committer-identity convention shipped; privacy modes defined; rank/period separation landed)
+- Protocol version bumps (v3.82.0 → v3.83.0)
+- Spec changes in `cn-sigma:.cn-sigma/spec/`
+- New skills shipped at cnos
+- Security advisories
+- Wave milestone announcements
+
+Private P0 activations consume broadcast without ever appearing in `activations.md`. They're invisible to the registry but receive the broadcast.
+
+#### Broadcast surface — candidate implementations
+
+**Option α — Implicit broadcast (everything on home main is broadcast):** any commit on cn-sigma's main is implicitly broadcast. Activations watch the whole repo and notice what changed.
+- Pro: zero new infra; surface already exists.
+- Pro: nothing to forget to publish.
+- Con: no explicit "this is for everyone" marker; private subscriber has to filter what's addressed (per-activation channel for cnos / bumpt) vs what's broadcast (everything else).
+- Con: noise; not everything on main is doctrine-update.
+
+**Option β — Dedicated broadcast directory:** `cn-sigma:.cn-sigma/broadcast/` for explicit broadcast events with structured frontmatter.
+- Pro: explicit; greppable; subscribers can have a clear cursor.
+- Pro: separates "for everyone" from per-activation traffic structurally.
+- Con: new convention; one more surface to maintain.
+
+**Option γ — Manifest-driven broadcast:** `cn-sigma:.cn-sigma/broadcast/manifest.yaml` lists events with timestamps + paths; subscribers diff their cursor.
+- Pro: subscribers have a single file to poll.
+- Pro: events can reference content anywhere on main.
+- Con: manifest maintenance is fiddly; risks drift between manifest and content.
+
+**γ-console lean:** Option β (dedicated broadcast directory) for v0, with Option α as the implicit fallback (anything on main is fair game; the broadcast directory is the *curated* surface for events that matter).
+
+Each broadcast item carries frontmatter like:
+
+```yaml
+---
+broadcast_id: 20260618-committer-identity-convention
+class: doctrine-evolution | protocol-version | spec-amendment | security-advisory | milestone
+relevance: all-activations | activation-roles=[α,γ] | substrate-version>=v3.82
+basis:
+  - path: threads/adhoc/20260618-committer-identity-convention.md
+    at: <sha>
+deprecation: <broadcast-id-being-superseded, if any>
+---
+```
+
+Subscribers filter by `relevance` and maintain `last_read_broadcast: cn-sigma@<sha>`.
+
+#### Subscriber-side discipline (private and public both)
+
+Wake template gains a step: **walk broadcast surface BEFORE walking addressed channel**.
+
+```
+1. fetch cn-sigma (public; no auth needed)
+2. walk cn-sigma:.cn-sigma/broadcast/ from last_read_broadcast cursor → HEAD
+3. apply broadcast items as relevance allows (doctrine reload, spec re-read, etc.)
+4. walk per-activation addressed channel (if registered) for directives
+5. produce log entry with cursor advance for BOTH broadcast and addressed channels
+```
+
+For P0 private subscribers: step 4 is skipped (no addressed channel exists at home for an unknown body). Steps 1-3 + 5 still happen entirely in private; no outbound trace.
+
+For P1/P2 private subscribers: step 4 is a private-side memory-return loop (P2 only) or a metadata-only registration ping (P1) — but NOT a per-activation channel at home.
+
+For public registered activations (cnos, bumpt): all 5 steps happen normally.
+
+#### Why this doesn't break Writer Locality
+
+Broadcast is HOME publishing to its OWN repo (cn-sigma:.cn-sigma/broadcast/). Writer Locality preserved (cn-sigma writes to cn-sigma). Subscribers READ from cn-sigma; they don't write to cn-sigma's broadcast surface.
+
+Subscriber→home traffic is per-mode:
+- P0: nothing.
+- P1: metadata-only registration via cnos#449 packet.
+- P2: redacted proposal via memory-return mechanism (issue-at-cnos / bridge / etc.).
+- Public registered activations: per-activation foreign log at cnos (or bumpt) which home pulls.
+
+In all cases, home only WRITES to home; activations only WRITE to their own bodies. Writer Locality intact.
+
+#### Implication for the broadcast acknowledgment problem
+
+Home doesn't know if broadcast was received. For most broadcast classes (doctrine evolution, spec amendments), that's fine — eventual consistency is enough.
+
+But some broadcasts may want explicit acknowledgment (e.g., security advisories: "is everyone now on patched substrate version v3.82.1?"). For those:
+
+- Public registered activations: send ack via per-activation foreign log.
+- P1/P2 private activations: send ack via memory-return mechanism or a dedicated `broadcast_ack_pending` field in their registration metadata.
+- P0 private activations: cannot ack without breaking silence; operator must accept that P0 = no-acknowledgment of broadcast.
+
+This is the cost of silent mode. It's the right cost: silence means home can't verify uptake. Operators of P0 activations accept that they're responsible for their own broadcast-consumption discipline.
+
+#### Operator amendment 3 → AC structure additions
+
+For the proposed cnos issue `agent/privacy-policy`:
+
+- **AC13** — Broadcast surface defined at `cn-sigma:.cn-sigma/broadcast/` (or equivalent at any home hub). Convention captured as `cnos:docs/gamma/conventions/AGENT-BROADCAST-v0.md` or equivalent.
+- **AC14** — Wake template walks broadcast before addressed channel; broadcast cursor maintained per subscriber.
+- **AC15** — Asymmetric subscription documented: home publishes; subscribers consume; home does NOT track per-subscriber cursors for broadcast.
+- **AC16** — P0 private activations consume broadcast silently; explicit acknowledgment is impossible by design; operators accept this as the cost of P0.
+- **AC17** — Broadcast item frontmatter shape standardized (`broadcast_id`, `class`, `relevance`, `basis`, `deprecation`).
+
+#### Open questions specific to broadcast model
+
+6. **Does broadcast supersede per-activation directives for public registered activations too?** Currently γ-console writes per-activation directives at `cn-sigma:threads/activations/cnos/...` for cnos-specific work. Could doctrine-update broadcasts replace some of those (the parts where the same directive would go to multiple activations)? Likely: keep per-activation channel for activation-specific work; broadcast for cross-cutting doctrine.
+
+7. **Broadcast cursor at subscriber side — where does it live?** For public registered activations, the foreign-log entry can advance both `cursor_in: cn-sigma@<sha>` AND `broadcast_cursor: cn-sigma:.cn-sigma/broadcast/@<sha>` (or fold them). For private P0, the cursor lives entirely in the private repo.
+
+8. **Manifest vs commit-walk for broadcast discovery?** Should subscribers walk the broadcast directory commit-by-commit, or read a manifest? Option β (dedicated directory) with commit-walk is simplest; manifest is a v1 add-on if discovery becomes expensive.
+
+9. **Does the existing `cn-sigma:.cn-sigma/spec/` and `state/` content already function as implicit broadcast?** Yes — agents already read home spec on activate. The proposal is to CURATE the broadcast events (doctrine evolution, version bumps) in a dedicated directory while letting spec/state remain as the reference surfaces they already are. The two coexist; broadcast directory is the changelog / event-stream layer atop spec/state's snapshot layer.
+
 ## Implementation surface
 
-Per reviewer's recommendation: either amend cnos#449 or file a small follow-on. γ-console suggestion:
+Per reviewer's recommendation: either amend cnos#449 or file a small follow-on. γ-console suggestion: split into TWO related cnos issues to keep cycle scope clean.
 
-- File a new cnos issue: **agent/privacy-policy: per-activation modes + memory-return mechanism**
+### Issue 1 — agent/privacy-policy: per-activation modes + memory-return
+
 - AC1–AC9 per reviewer's structure
-- AC10–AC12 per operator amendments:
+- AC10–AC12 per operator amendments 1+2:
   - **AC10**: All activations (public + private) require explicit `.cn/policy/privacy.yaml`. Absence-of-file → degraded outcome until set. No implicit defaults.
   - **AC11**: Public-mode (`P-public`) is a first-class mode with `memory_return: full | redacted-proposal | redacted-only` (per-data-class options).
   - **AC12**: Memory-return mechanism documented (per the open-question convergence). Default v0 mechanism: Mechanism A (issue-at-cnos) with explicit `inbound:redacted-memory` label. Mechanism D (bridge agent) is a deferred v1.
 
-Dispatch to Sigma-at-cnos via a new directive (D28 candidate) after this adhoc is approved and the open questions converge.
+### Issue 2 — agent/broadcast: asymmetric subscription (home publishes; activations consume)
+
+- AC13–AC17 per operator amendment 3:
+  - **AC13** — Broadcast surface defined at `cn-sigma:.cn-sigma/broadcast/` (or equivalent at any home hub). Convention captured as `cnos:docs/gamma/conventions/AGENT-BROADCAST-v0.md` or equivalent.
+  - **AC14** — Wake template walks broadcast before addressed channel; broadcast cursor maintained per subscriber.
+  - **AC15** — Asymmetric subscription documented: home publishes; subscribers consume; home does NOT track per-subscriber cursors for broadcast.
+  - **AC16** — P0 private activations consume broadcast silently; explicit acknowledgment is impossible by design; operators accept this as the cost of P0.
+  - **AC17** — Broadcast item frontmatter shape standardized (`broadcast_id`, `class`, `relevance`, `basis`, `deprecation`).
+
+The two issues are independent and shippable separately. Privacy policy can land without broadcast; broadcast can land without privacy modes (it works for public activations too). But they reinforce each other: privacy doctrine is most coherent when home-to-private channel is broadcast-only.
+
+Dispatch to Sigma-at-cnos via a new directive (D28 candidate) after this adhoc is reviewer-converged and the open questions (1-9) reach resolution.
 
 ## Related artifacts
 
@@ -544,7 +697,10 @@ Dispatch to Sigma-at-cnos via a new directive (D28 candidate) after this adhoc i
 
 ## Pending operator decisions
 
-1. Approve amendments 1 (P-public explicit) and 2 (mechanism question framing).
+1. Approve amendments 1 (P-public explicit), 2 (mechanism question framing), and 3 (asymmetric subscription).
 2. Pick a v0 mechanism for memory-return (γ-console leans Mechanism A but defers to operator/reviewer).
-3. Authorize D28 dispatch (or amendment of cnos#449) once the open questions converge.
-4. Decide P-public granularity: per-repo or per-data-class.
+3. Pick a broadcast surface form (γ-console leans Option β — dedicated `cn-sigma:.cn-sigma/broadcast/` directory — but defers).
+4. Decide whether to split into two cnos issues (privacy-policy + broadcast) or fold both into one.
+5. Authorize D28 (or amendments to cnos#449) once open questions 1–9 converge.
+6. Decide P-public granularity: per-repo or per-data-class.
+7. Decide whether to forward this adhoc to reviewer for a verdict on amendments 1+2+3 + the 9 open questions, before dispatching.
