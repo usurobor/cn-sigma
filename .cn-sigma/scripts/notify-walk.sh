@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# notify-walk.sh — walk per-activation home channel files for substantive
-# events and post them to Telegram via notify-telegram.sh.
+# notify-walk.sh v1 — walk per-activation home channel files for substantive
+# events and post them to Telegram via notify-telegram.sh with rich body
+# context (entry body excerpt + clickable GitHub URL).
 #
 # Designed to run inside the cn-sigma wake yaml AFTER Sigma's
 # claude-code-action step. Sigma's step writes per-activation home
@@ -20,32 +21,30 @@
 #   timestamp. The wake yaml's follow-up step commits + pushes the cursor
 #   file change.
 #
-# Delivery semantics — AT-LEAST-ONCE, NOT exactly-once:
-#   If POST succeeds but the cursor push (handled by the wake yaml step
-#   after this walker) fails, the next wake on a fresh runner will fetch
-#   the un-advanced cursor and re-post. v0 accepts this; mitigation
-#   requires per-message receipts (Telegram message_id correlation) which
-#   is deferred.
+# Delivery semantics — AT-LEAST-ONCE, NOT exactly-once.
 #
-# Class detection (v0 heuristic):
+# v1 enrichment (vs v0):
+#   - Notification details now include the entry's body (first ~500
+#     chars) + a clickable GitHub URL to the entry's location in the
+#     channel file.
+#   - Operator can act on most notifications from their phone without
+#     re-fetching context from γ-console.
+#
+# Class detection (v0 heuristic; unchanged):
 #   - BLOCKED / ORPHANED / FAIL / DEGRADED / SILENT → blocker
 #   - everything else with class: substantive | directive-out → milestone
 #
 # Env overrides (for testing):
-#   NOTIFY_WALK_NOTIFY_SCRIPT  — path to the per-message publisher
+#   NOTIFY_WALK_NOTIFY_SCRIPT  — path to per-message publisher
 #                                 (default: <script-dir>/notify-telegram.sh)
 #   NOTIFY_WALK_CURSORS        — path to notification-cursors.yaml
-#                                 (default: <script-dir>/../state/notification-cursors.yaml)
 #   NOTIFY_WALK_TARGETS        — path to notification-targets.yaml
-#                                 (default: <script-dir>/../state/notification-targets.yaml)
 #   NOTIFY_WALK_CHANNELS_DIR   — path to per-activation channel root
-#                                 (default: <script-dir>/../threads/activations)
+#   NOTIFY_WALK_REPO_URL       — GitHub repo URL for entry links
+#                                 (default: https://github.com/usurobor/cn-sigma)
+#   NOTIFY_WALK_BRANCH         — branch for entry links (default: main)
 #
 # No-op without TELEGRAM_BOT_TOKEN.
-#
-# Exit codes:
-#   0 - success, no-op, or all-targets-processed
-#   non-zero - script error (missing files unrecoverably, parse failure)
 
 set -euo pipefail
 
@@ -54,6 +53,13 @@ NOTIFY="${NOTIFY_WALK_NOTIFY_SCRIPT:-${SCRIPT_DIR}/notify-telegram.sh}"
 CURSORS_FILE="${NOTIFY_WALK_CURSORS:-${SCRIPT_DIR}/../state/notification-cursors.yaml}"
 TARGETS_FILE="${NOTIFY_WALK_TARGETS:-${SCRIPT_DIR}/../state/notification-targets.yaml}"
 CHANNELS_DIR="${NOTIFY_WALK_CHANNELS_DIR:-${SCRIPT_DIR}/../threads/activations}"
+REPO_URL="${NOTIFY_WALK_REPO_URL:-https://github.com/usurobor/cn-sigma}"
+BRANCH="${NOTIFY_WALK_BRANCH:-main}"
+
+# Body excerpt cap — kept well below Telegram's 4096-char limit so the
+# total payload (excerpt + URL) stays comfortable. notify-telegram's
+# own 4000-char truncation guard is a safety net.
+BODY_EXCERPT_MAX=500
 
 if [ -z "${TELEGRAM_BOT_TOKEN:-}" ]; then
     echo "[notify-walk] TELEGRAM_BOT_TOKEN not set; skipping (no-op)"
@@ -71,6 +77,26 @@ if [ ! -f "$CURSORS_FILE" ]; then
     printf 'schema: cnos.notification-cursors.v0\ncursors: {}\n' > "$CURSORS_FILE"
 fi
 
+# Extract the body of an entry (lines after the second `---` frontmatter
+# delimiter, until end of entry block). Truncate to BODY_EXCERPT_MAX
+# chars with ellipsis marker if longer.
+extract_body() {
+    local channel="$1" start="$2" end="$3"
+    local body
+    body="$(sed -n "${start},${end}p" "$channel" | awk '
+        BEGIN { fm_seen = 0 }
+        /^---[[:space:]]*$/ { fm_seen++; next }
+        fm_seen >= 2 { print }
+    ')"
+    # Trim leading/trailing blank lines
+    body="$(echo "$body" | sed -e '/./,$!d' -e ':a;/^\n*$/{$d;N;ba}' || echo "$body")"
+    # Truncate
+    if [ ${#body} -gt $BODY_EXCERPT_MAX ]; then
+        body="${body:0:$BODY_EXCERPT_MAX}…"
+    fi
+    printf '%s' "$body"
+}
+
 # Iterate each foreign-activation target (skip cn-sigma; home events are
 # γ-console-emitted, not wake-walked).
 mapfile -t TARGETS < <(yq eval '.targets | keys | .[]' "$TARGETS_FILE")
@@ -86,9 +112,6 @@ for TARGET in "${TARGETS[@]}"; do
     LAST_CURSOR="$(yq eval ".cursors.\"$TARGET\" // \"\"" "$CURSORS_FILE")"
     NEW_CURSOR="$LAST_CURSOR"
 
-    # All YYYYMMDD.md files in lexical order. Cross-day retry: a POST
-    # failure on day N stays in scope on day N+1 because we scan back to
-    # the earliest file whose entries could still be after the cursor.
     mapfile -t CHANNEL_FILES < <(find "$TARGET_DIR" -maxdepth 1 -name '[0-9]*.md' -type f | sort)
     if [ "${#CHANNEL_FILES[@]}" -eq 0 ]; then
         continue
@@ -98,75 +121,50 @@ for TARGET in "${TARGETS[@]}"; do
 
     POST_FAILED=0
     for CHANNEL in "${CHANNEL_FILES[@]}"; do
-        # Parse the channel file entry-by-entry. Each entry starts with
-        # `## <iso-timestamp> — <title>` (em-dash) and contains a YAML
-        # frontmatter block delimited by `---` lines with a `class:` field.
-        #
-        # awk emits TSV: <timestamp>\t<class>\t<title>
-        mapfile -t ENTRIES < <(awk '
-            function flush() {
-                if (ts != "") {
-                    printf "%s\t%s\t%s\n", ts, klass, title
-                }
-                ts = ""; klass = ""; title = ""; in_fm = 0
-            }
-            /^## [0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z/ {
-                flush()
-                line = $0
-                sub(/^## /, "", line)
-                # Support em-dash separator (canonical) AND ascii hyphen
-                # fallback for robustness.
-                n = index(line, " — ")
-                sep_len = length(" — ")
-                if (n == 0) {
-                    n = index(line, " - ")
-                    sep_len = length(" - ")
-                }
-                if (n > 0) {
-                    ts = substr(line, 1, n - 1)
-                    title = substr(line, n + sep_len)
-                } else {
-                    # No separator; treat everything after timestamp as
-                    # title best-effort.
-                    n = index(line, " ")
-                    if (n > 0) {
-                        ts = substr(line, 1, n - 1)
-                        title = substr(line, n + 1)
-                    } else {
-                        ts = line
-                        title = ""
-                    }
-                }
-                next
-            }
-            /^---[[:space:]]*$/ {
-                in_fm = !in_fm
-                next
-            }
-            in_fm && /^class:/ {
-                klass = $2
-                next
-            }
-            END { flush() }
-        ' "$CHANNEL")
+        CHANNEL_BASENAME="$(basename "$CHANNEL")"
 
-        for ROW in "${ENTRIES[@]}"; do
-            [ -z "$ROW" ] && continue
-            TS="$(awk -F'\t' '{print $1}' <<<"$ROW")"
-            CLASS="$(awk -F'\t' '{print $2}' <<<"$ROW")"
-            TITLE="$(awk -F'\t' '{print $3}' <<<"$ROW")"
+        # Find entry start line numbers (each `## YYYY-MM-DDTHH:MM:SSZ — title`)
+        mapfile -t ENTRY_STARTS < <(grep -n '^## 20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z' "$CHANNEL" | cut -d: -f1)
+        [ ${#ENTRY_STARTS[@]} -eq 0 ] && continue
+        TOTAL_LINES="$(wc -l < "$CHANNEL")"
+        ENTRY_STARTS+=("$((TOTAL_LINES + 1))")  # sentinel for last entry's end
 
-            # Skip heartbeats and other non-substantive classes
-            if [ "$CLASS" != "substantive" ] && [ "$CLASS" != "directive-out" ]; then
-                continue
+        for ((i = 0; i < ${#ENTRY_STARTS[@]} - 1; i++)); do
+            START="${ENTRY_STARTS[$i]}"
+            END=$((${ENTRY_STARTS[$((i + 1))]} - 1))
+
+            HEADER="$(sed -n "${START}p" "$CHANNEL")"
+            CONTENT="${HEADER#\#\# }"
+
+            # Parse timestamp + title. Em-dash canonical; ASCII hyphen fallback.
+            if [[ "$CONTENT" == *" — "* ]]; then
+                TS="${CONTENT%% — *}"
+                TITLE="${CONTENT#* — }"
+            elif [[ "$CONTENT" == *" - "* ]]; then
+                TS="${CONTENT%% - *}"
+                TITLE="${CONTENT#* - }"
+            else
+                TS="$CONTENT"
+                TITLE=""
             fi
 
-            # Skip entries at-or-before the cursor (strict greater-than)
+            # Strict greater-than cursor check
             if [ -n "$LAST_CURSOR" ] && [ ! "$TS" \> "$LAST_CURSOR" ]; then
                 continue
             fi
 
-            # Classify
+            # Extract class from frontmatter
+            CLASS="$(sed -n "${START},${END}p" "$CHANNEL" | awk '
+                BEGIN { fm = 0 }
+                /^---[[:space:]]*$/ { fm++; next }
+                fm == 1 && /^class:/ { print $2; exit }
+            ')"
+
+            if [ "$CLASS" != "substantive" ] && [ "$CLASS" != "directive-out" ]; then
+                continue
+            fi
+
+            # Classify for notification class
             NOTIFY_CLASS="milestone"
             TITLE_UPPER="$(echo "$TITLE" | tr '[:lower:]' '[:upper:]')"
             case "$TITLE_UPPER" in
@@ -174,13 +172,26 @@ for TARGET in "${TARGETS[@]}"; do
                 *)                                          NOTIFY_CLASS="milestone" ;;
             esac
 
-            # Trim summary length for safety
+            # Build entry body excerpt + URL
+            BODY_EXCERPT="$(extract_body "$CHANNEL" "$START" "$END")"
+            ENTRY_PATH=".cn-sigma/threads/activations/${TARGET}/${CHANNEL_BASENAME}"
+            ENTRY_URL="${REPO_URL}/blob/${BRANCH}/${ENTRY_PATH}#L${START}"
+
             SUMMARY="${TITLE:0:300}"
 
+            # Compose details: body excerpt + location link.
+            if [ -n "$BODY_EXCERPT" ]; then
+                DETAILS="${BODY_EXCERPT}
+
+📍 ${ENTRY_URL}"
+            else
+                DETAILS="📍 ${ENTRY_URL}"
+            fi
+
             echo "[notify-walk] POST target=$TARGET class=$NOTIFY_CLASS ts=$TS title=${TITLE:0:60}"
-            if "$NOTIFY" "$TARGET" "$NOTIFY_CLASS" "$SUMMARY"; then
+            if "$NOTIFY" "$TARGET" "$NOTIFY_CLASS" "$SUMMARY" "$DETAILS"; then
                 NEW_CURSOR="$TS"
-                LAST_CURSOR="$TS"   # so subsequent skip-check works in-loop
+                LAST_CURSOR="$TS"
             else
                 echo "[notify-walk] POST failed; cursor stays; retry next wake" >&2
                 POST_FAILED=1

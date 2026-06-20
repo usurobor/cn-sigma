@@ -71,7 +71,8 @@ mk_fake_notify() {
     local script="${dir}/fake-notify-${rc}.sh"
     cat > "$script" <<EOF
 #!/usr/bin/env bash
-echo "\$1|\$2|\$3" >> "$log"
+# Record all 4 args: target | class | summary | details
+echo "\$1|\$2|\$3|\${4:-}" >> "$log"
 exit $rc
 EOF
     chmod +x "$script"
@@ -127,7 +128,8 @@ mode: home
 class: substantive
 ---
 
-Body. Should be posted.
+Body line one with some context.
+Body line two referencing some action.
 EOF
 
 set +e
@@ -136,6 +138,8 @@ NOTIFY_WALK_NOTIFY_SCRIPT="$FAKE" \
 NOTIFY_WALK_CURSORS="${F3}/state/notification-cursors.yaml" \
 NOTIFY_WALK_TARGETS="${F3}/state/notification-targets.yaml" \
 NOTIFY_WALK_CHANNELS_DIR="${F3}/threads/activations" \
+NOTIFY_WALK_REPO_URL="https://github.com/usurobor/cn-sigma" \
+NOTIFY_WALK_BRANCH="main" \
     "$WALKER" >/dev/null 2>&1
 RC=$?
 set -e
@@ -147,6 +151,24 @@ POSTED_LINE=$(head -1 "$NOTIFY_LOG" 2>/dev/null || echo "")
 case "$POSTED_LINE" in
     cnos\|milestone\|*Directive*99*) ok "cnos|milestone|Directive 99 posted" ;;
     *)                                bad "expected cnos|milestone|Directive...; got: $POSTED_LINE" ;;
+esac
+
+# v1: details should contain body excerpt + URL with the entry's start line
+case "$POSTED_LINE" in
+    *"Body line one"*)
+        ok "v1 details include body excerpt"
+        ;;
+    *)
+        bad "v1 details missing body excerpt; got: $POSTED_LINE"
+        ;;
+esac
+case "$POSTED_LINE" in
+    *"github.com/usurobor/cn-sigma/blob/main/.cn-sigma/threads/activations/cnos/20260619.md#L"*)
+        ok "v1 details include channel URL with line anchor"
+        ;;
+    *)
+        bad "v1 details missing channel URL; got: $POSTED_LINE"
+        ;;
 esac
 
 CURSOR_AFTER=$(yq eval '.cursors.cnos' "${F3}/state/notification-cursors.yaml")
