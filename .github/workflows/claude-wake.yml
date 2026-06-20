@@ -76,7 +76,15 @@ jobs:
               }
             }
           prompt: |
-            Activate and attach as https://github.com/usurobor/cn-sigma.
+            Execute the activate + attach skills (cnos.core/skills/agent/{activate,attach}/SKILL.md) for hub https://github.com/usurobor/cn-sigma.
+
+            Required actions (do not skip even if cursors appear current):
+            1. Read .cn-sigma/state/activations.md.
+            2. For EACH registered activation (cnos, bumpt): fetch its foreign log at <hub>:.cn-sigma/logs/, walk commits from last_read_foreign_log to HEAD, append a per-activation thread entry at .cn-sigma/threads/activations/<name>/YYYYMMDD.md summarizing new commits, and update last_read_foreign_log in activations.md.
+            3. Commit + push all changes (per-activation entries + activations.md cursor updates) to main.
+            4. If a foreign-log HEAD equals last_read_foreign_log (no new commits), still append a heartbeat entry with class: heartbeat and cursor: holds.
+
+            Do not exit early. The walk is the work.
 
       # Walk per-activation home channels for substantive events and post
       # to Telegram via notify-telegram.sh. Runs AFTER Sigma's
