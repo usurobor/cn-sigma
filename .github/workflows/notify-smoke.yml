@@ -2,13 +2,11 @@
 #
 # Triggers:
 #   1. workflow_dispatch — manual via Actions tab or `gh workflow run`
+#      with optional inputs (target/class/summary/details).
 #   2. push to .cn-sigma/state/.notify-smoke-tickle — tickle-file commit
-#      lets MCP-driven sessions fire the smoke without workflow:dispatch
-#      permission. Each tickle commit (any content change) fires one run.
-#
-# Uses TELEGRAM_BOT_TOKEN secret to POST. Defaults send a benign
-# "publisher v0 live" message to cn-sigma General topic; customize via
-# workflow_dispatch inputs.
+#      sends a fixed default payload (no inputs available for push).
+#      Lets MCP-driven sessions fire smokes via commit since the GitHub
+#      App backing the MCP integration lacks workflow:dispatch permission.
 
 name: notify-smoke
 
@@ -29,7 +27,7 @@ on:
         required: true
       details:
         description: 'Optional details'
-        default: 'PR #11 merged at cn-sigma after 3-round Bohmian convergence. End-to-end Telegram path now smoke-tested. Next: D34 wake-walker integration.'
+        default: 'PR #11 merged at cn-sigma. End-to-end Telegram path smoke-tested.'
         required: false
   push:
     paths:
@@ -41,16 +39,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Send notification via notify-telegram.sh
+      # Push-trigger path: fixed default payload (no inputs available).
+      - name: Send (push trigger default)
+        if: github.event_name == 'push'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          # Indirect via env vars (NOT inline ${{ }} in run script) to avoid
-          # shell injection from inputs. Fallbacks let push-triggered runs
-          # use the same defaults as workflow_dispatch.
-          TARGET:  ${{ inputs.target  || 'cn-sigma' }}
-          CLASS:   ${{ inputs.class   || 'doctrine-evolution' }}
-          SUMMARY: ${{ inputs.summary || 'Notification publisher v0 live' }}
-          DETAILS: ${{ inputs.details || 'PR #11 merged at cn-sigma after 3-round Bohmian convergence. End-to-end Telegram path now smoke-tested. Next: D34 wake-walker integration.' }}
+        run: |
+          .cn-sigma/scripts/notify-telegram.sh \
+            cn-sigma \
+            doctrine-evolution \
+            "Notification publisher v0 live" \
+            "PR #11 merged at cn-sigma. End-to-end Telegram path smoke-tested."
+
+      # workflow_dispatch path: respects user-supplied inputs.
+      - name: Send (workflow_dispatch with inputs)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TARGET:  ${{ inputs.target }}
+          CLASS:   ${{ inputs.class }}
+          SUMMARY: ${{ inputs.summary }}
+          DETAILS: ${{ inputs.details }}
         run: |
           .cn-sigma/scripts/notify-telegram.sh \
             "$TARGET" "$CLASS" "$SUMMARY" "$DETAILS"
