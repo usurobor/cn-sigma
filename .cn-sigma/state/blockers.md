@@ -1,58 +1,34 @@
 # Blockers — current state
 
-**Updated:** 2026-06-20 05:20Z (post-PR #12 merge + cnos home-sync refresh)
+**Updated:** 2026-06-20 08:50Z (home sync; BLOCKER 2 resolved; D33 PR #463 open)
 **Class:** state; canonical surface for active blockers requiring operator attention
 
 Blocker = anything that prevents Sigma (at any body) from making forward progress and requires action from outside the agent system (operator, infrastructure, external authority).
 
 ---
 
-## BLOCKER 1 — D33 at cnos: `chore/remove-direct-notifications` push blocked (workflows permission)
+## BLOCKER 1 — D33 at cnos: PR #463 open — merge + secret delete pending
 
 **Detected:** 2026-06-20T05:00Z (Sigma-at-cnos foreign-log entry `52764d4`)
 **Surface:** `cnos:.github/workflows/` (`build.yml` + `release.yml`)
-**State:** UNRESOLVED — operator push required
+**State:** PARTIALLY RESOLVED — PR #463 open; operator merge + secret delete required
 
 **What happened:**
 - D33 audit complete: `build.yml` (−62 lines) and `release.yml` (−40 lines) notify jobs removed. Both were direct `curl` POSTs to `api.telegram.org` via `TG_BOT_TOKEN`/`TG_CHAT_ID`.
 - `claude-wake.yml` clean (preserved); no external notification steps.
-- Removal committed in branch `chore/remove-direct-notifications` (latest commit `3b2a6c0`).
-- GitHub App token lacks `workflows` scope → `git push` rejected.
-- `gh secret delete TG_BOT_TOKEN` and `gh secret delete TG_CHAT_ID` returned HTTP 403 (same permission gap).
+- Branch pushed by operator at 2026-06-20T07:16Z (commit `366ae94`); PR #463 opened: https://github.com/usurobor/cnos/pull/463
+- CI: 3 pre-existing failures (I4/I5/I6 — lint, not D33-related); substantive checks pass.
 
 **Operator action required:**
 
 ```bash
-# From a privileged context with cnos clone (workflows-scoped PAT):
-git cherry-pick 3b2a6c0     # or push branch directly if already on it
-git push origin chore/remove-direct-notifications
-gh pr create --repo usurobor/cnos \
-  --title "chore: remove direct bot notifications (cn-sigma is sole publisher now)" \
-  --body "Removed notify jobs from build.yml (−62 lines) and release.yml (−40 lines). Both posted directly to Telegram via TG_BOT_TOKEN/TG_CHAT_ID. cn-sigma home worker is now sole publisher per D33. Ref: cn-sigma PR #11."
-# After PR merges, delete orphaned secrets:
+# Merge PR #463 at https://github.com/usurobor/cnos/pull/463
+# After merge, delete orphaned secrets:
 gh secret delete TG_BOT_TOKEN --repo usurobor/cnos
 gh secret delete TG_CHAT_ID --repo usurobor/cnos
 ```
 
 ---
-
-## BLOCKER 2 — cnos#462 cleanup (D32 rescinded after AI1 already ran)
-
-**Detected:** 2026-06-20T05:00Z (Sigma-at-cnos foreign-log entry `52764d4`)
-**Surface:** https://github.com/usurobor/cnos/issues/462
-**State:** UNRESOLVED — operator cleanup required
-
-**What happened:**
-- D32 dispatched 06-20 01:00Z (open cnos issue `agent/notification-protocol`)
-- Sigma-at-cnos applied D32/AI1 at 06-20 01:38Z → cnos#462 opened
-- γ-console rescinded D32 at 02:00Z (over-scoped; the work belongs at cn-sigma alone for v0)
-- Sigma-at-cnos walked the rescission at 05:00Z and noted: "No cnos issue was the intent. But D32/AI1 had already run."
-
-**Operator action required:**
-
-- Tag cnos#462 with `priority/deferred`
-- Add comment to cnos#462:
-  > "Deferred — implementation moved to cn-sigma side per D32 rescission. cnos changes not required for v0; the home worker (cn-sigma) is sole publisher. Re-evaluate when multi-activation coordination needs explicit `notify:` opt-in semantics."
 
 ---
 
@@ -77,6 +53,12 @@ gh secret delete TG_CHAT_ID --repo usurobor/cnos
 ---
 
 ## RESOLVED THIS WINDOW (kept for one cycle for visibility)
+
+### cnos#462 cleanup (D32 rescinded — RESOLVED 06-20 ~05:48Z)
+
+- D32 was rescinded (over-scoped; v0 work stays at cn-sigma). D32/AI1 had already run (cnos#462 opened).
+- Sigma-at-cnos applied `priority/deferred` label at 05:48Z; deferred comment posted: https://github.com/usurobor/cnos/issues/462#issuecomment-4756633882
+- D32 rescission cleanup COMPLETE.
 
 ### Wave milestone resolutions (06-20 dawn ET)
 
