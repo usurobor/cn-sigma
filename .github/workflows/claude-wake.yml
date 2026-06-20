@@ -78,6 +78,20 @@ jobs:
           prompt: |
             Activate and attach as https://github.com/usurobor/cn-sigma.
 
+      # Walk today's per-activation home channels for substantive events
+      # and post to Telegram via notify-telegram.sh. Runs AFTER Sigma's
+      # claude-code-action step (which wrote/committed today's channel
+      # entries). Cursor is per-activation in notification-cursors.yaml;
+      # only events newer than the cursor are emitted. No-op without
+      # TELEGRAM_BOT_TOKEN secret.
+      - name: Notify (wake-walker → Telegram)
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          git pull --rebase origin main || true
+          .cn-sigma/scripts/notify-walk.sh
+
       # Notify the coherer session that the wake completed.
       # PR #9 (coherer-watch) is the long-lived notification surface;
       # see .cn-sigma/state/coherer-watch.md for mechanism. PR comments fire
