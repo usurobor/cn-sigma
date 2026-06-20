@@ -1,83 +1,126 @@
 # Notification targets — Telegram
 
 **Schema:** `cnos.notification-targets.v0`
-**Updated:** 2026-06-19 ET
-**Status:** cnos topic configured; cn-sigma pulse topic TBD; bots/secrets to be wired at each hub
+**Updated:** 2026-06-19 ET (Amendment: General-topic-for-cn-sigma; per-activation topics for cnos/bumpt)
+**Status:** cnos topic configured; cn-sigma → General; bumpt topic pending
 
-Canonical mapping of notification surfaces. Each entry is a Telegram destination (chat + topic) for a specific class of event. Wake workers / CI jobs read this file to know where to push.
+## Architecture (converged)
+
+- **Publisher:** cn-sigma worker (wake-fired α at home; NOT γ-console session)
+- **Bot:** single Sigma bot; token at cn-sigma as `TELEGRAM_BOT_TOKEN`
+- **Supergroup:** one `chat_id` shared across all topics; stored as `TELEGRAM_CHAT_ID` secret
+- **Topic routing:**
+  - **cn-sigma's own voice** (γ-console events: daily pulse, doctrine evolution, cross-cutting) → **General** (no `message_thread_id`)
+  - **Per-activation events** (cnos, bumpt) → respective topic (`message_thread_id` per target)
+
+Activation bodies (cnos, bumpt) emit structured events to their own foreign log only; they hold NO Telegram credentials. cn-sigma worker reads foreign logs, decides notify class, posts to Telegram.
+
+## Targets
+
+Chat and topic IDs are routing config (not credentials) → inlined here. Only the bot token lives in repo secrets.
 
 ```yaml
+supergroup:
+  chat_id: -1004411092548
+  link: "https://t.me/c/4411092548"
+
 targets:
 
-  bumpt:
-    purpose: "bumpt CI/release notifications"
-    bot: "@bump_sigma_bot"
-    chat_id: "-1003973670137"
-    topic_thread_id: "395"
-    topic_name: "Bump Sigma"
-    link_pattern: "https://t.me/c/3973670137/395"
-    doc: "bumpt:docs/CI-TELEGRAM.md"
-    status: live
-    classes:
-      - ci-pre
-      - ci-post
-      - release
-      - blocker
-
-  cnos:
-    purpose: "cnos CI/release notifications + blocker escalation"
-    bot: TBD                # pending operator confirmation: reuse @bump_sigma_bot or new bot
-    chat_id: "-1004411092548"
-    topic_thread_id: "2"
-    topic_name: TBD         # set by operator at topic creation
-    link_pattern: "https://t.me/c/4411092548/2"
-    operator_anchor_message: "https://t.me/c/4411092548/2/3"
-    doc: TBD                # cnos:docs/CI-TELEGRAM.md (planned; via cnos#agent/ci-notification)
+  cn-sigma:
+    purpose: "Sigma's own voice — daily pulse, doctrine evolution, cross-activation rollup, escalation"
+    topic_thread_id: 1         # General topic in supergroup -1004411092548
+    topic_link: "https://t.me/c/4411092548/1"
+    operator_anchor_message: "https://t.me/c/4411092548/1/5"
     status: configured-target
     classes:
-      - ci-pre
-      - ci-post
+      - daily-pulse
+      - doctrine-evolution
+      - cross-activation-rollup
+      - escalation
+
+  cnos:
+    purpose: "cnos activation events: releases, blockers, milestones, ci-failures"
+    topic_thread_id: 2
+    topic_link: "https://t.me/c/4411092548/2"
+    operator_anchor_message: "https://t.me/c/4411092548/2/3"
+    status: configured-target
+    classes:
       - release
       - blocker
-    pending:
-      - bot identity (reuse-vs-new)
-      - bot token secret at cnos repo
-      - notify script (replicate bumpt:experiment/.ci/telegram-notify.sh)
-      - workflow integration (release tag + workflow failure + manual blocker push)
+      - milestone
+      - ci-failure
 
-  cn-sigma-pulse:
-    purpose: "daily pulse rollup; cross-hub aggregated"
-    bot: TBD
-    chat_id: TBD            # operator to provide topic link
-    topic_thread_id: TBD
-    topic_name: TBD         # e.g., "Sigma Pulse"
-    link_pattern: TBD
-    doc: TBD                # cn-sigma:.cn-sigma/spec/PULSE.md (planned)
+  bumpt:
+    purpose: "bumpt activation events: same shape as cnos"
+    topic_thread_id: null      # TBD — operator to create Bumpt topic + paste link
     status: not-yet-configured
+    pending:
+      - operator creates `Bumpt` topic in supergroup -1004411092548
+      - operator pastes topic link
+      - this file updated with message_thread_id
     classes:
-      - daily-pulse
-      - cross-hub-blocker-rollup
+      - release
+      - blocker
+      - milestone
+      - ci-failure
+    legacy:
+      # Bumpt's existing direct-post setup (bumpt:experiment/.ci/telegram-notify.sh)
+      # remains live during migration. Deprecate after cn-sigma-routed flow is
+      # verified for releases + blockers.
+      legacy_bot: "@bump_sigma_bot"
+      legacy_chat_id: "-1003973670137"
+      legacy_topic_thread_id: "395"
+      legacy_topic_name: "Bump Sigma"
 ```
 
 ## Class semantics
 
-- `ci-pre`: workflow about to run (release build starting, deploy starting). Green-short shape.
-- `ci-post`: workflow completed. Green-short on success; red-detailed on failure.
-- `release`: version tag pushed. Includes tag, summary, link to release notes.
-- `blocker`: any wake / workflow detecting `outcome: failed` or `outcome: degraded` with `degraded_reason: <reason>`. Red-detailed; immediate push (not batched).
-- `daily-pulse`: scheduled daily summary from cn-sigma γ-console. Markdown rollup.
-- `cross-hub-blocker-rollup`: the pulse's blockers section, surfaced separately if any new blockers since last pulse.
+- `daily-pulse`: scheduled daily rollup from cn-sigma worker; cross-activation summary. Routes to General.
+- `doctrine-evolution`: convention/protocol updates, version bumps, wave landings. Routes to General.
+- `cross-activation-rollup`: blockers or events touching multiple activations. Routes to General.
+- `escalation`: urgent operator-attention. Routes to General (or future dedicated escalation topic).
+- `release`: version tag pushed at activation. Routes to per-activation topic. Green-short format.
+- `blocker`: any wake / workflow detecting `outcome: failed` or `outcome: degraded` at activation. Routes to per-activation topic. Red-detailed format.
+- `milestone`: activation-level non-release event (e.g., bumpt LIVE, cnos foundation merged). Routes to per-activation topic.
+- `ci-failure`: failed workflow run at activation. Routes to per-activation topic. Red-detailed.
+
+## Mechanical flow (publisher)
+
+```
+cn-sigma wake fires (cron-driven)
+  → walks each activation's foreign log from notification_cursor → HEAD
+  → for each entry with `notify:` frontmatter field since last cursor:
+      lookup target from notify.target field (cnos | bumpt | cn-sigma)
+      resolve chat_id + topic_thread_id from notification-targets.yaml + secrets
+      format message per class
+      POST to Telegram sendMessage (omit message_thread_id if target == cn-sigma)
+  → on success: advance notification_cursor per target
+  → on failure: cursor doesn't advance; next wake retries (idempotent)
+```
+
+## Secrets at cn-sigma repo
+
+Only ONE secret needed — the bot token. Chat and topic IDs are routing config (above), not credentials.
+
+| Secret name | Status |
+|---|---|
+| `TELEGRAM_BOT_TOKEN` | set by operator |
+
+Worker reads `chat_id` and `topic_thread_id` from this file directly. When the workflow file references this YAML, it reads `supergroup.chat_id` and `targets.<name>.topic_thread_id`, then calls `sendMessage` with both (or omits `message_thread_id` if `topic_thread_id: null`).
 
 ## Format conventions
 
 Per bumpt pattern (see `bumpt:docs/CI-TELEGRAM.md`):
 - **Green-short**: title + status + sha + link
 - **Red-detailed**: title + failed step + log excerpt + sha + link + operator-action-required line
-- **No-op without secrets**: if the bot token secret isn't set, the notify step exits 0 silently (so private forks / CI without notification configured don't fail)
-- **Topic-group support**: `TELEGRAM_TOPIC_ID` env var sets `message_thread_id` on the API call
+- **No-op without secrets**: if `TELEGRAM_BOT_TOKEN` absent, the notify step exits 0 silently (private deployments without Telegram don't fail wakes)
+- **Idempotency**: per-target notification cursor in `.cn-sigma/state/notification-cursors.yaml`; advance only on successful POST
 
 ## Update protocol
 
 When a target's `status` changes from `configured-target` → `live`, update this file in the same commit that wires the notification. The `pending` checklist drives the wire-up sequence.
 
 When a new target is added, append a new top-level key under `targets:` and an entry in the operator's hub-onboarding checklist.
+
+When General-vs-topic routing changes for a target, update its `topic_thread_id` field (or `topic_thread_id_secret`); workers re-read this file every wake.
+
