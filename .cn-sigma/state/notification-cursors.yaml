@@ -11,6 +11,14 @@
 # in day N stays in scope on day N+1; the failed entry's timestamp
 # remains > cursor until it lands.
 #
+# Bootstrap policy: cursors are SEEDED to the latest activation-thread
+# timestamp per target as of D34 merge. This prevents the first
+# configured run from dumping the entire historical backlog into Telegram.
+# Notifications begin from FUTURE events only — any new substantive or
+# directive-out entry with timestamp strictly greater than the seeded
+# cursor will fire. To explicitly re-seed (e.g., after extended Telegram
+# downtime), update these values manually.
+#
 # Delivery semantics: AT-LEAST-ONCE. If POST succeeds but the cursor
 # push (separate wake-yaml step) fails, the next wake will re-post.
 # Duplicate Telegram messages are possible. Exactly-once requires
@@ -21,5 +29,8 @@
 schema: cnos.notification-cursors.v0
 
 cursors:
-  cnos: null
-  bumpt: null
+  # Seeded at D34 merge time (PR #12) to the latest activation-thread
+  # timestamp per target. Future substantive entries fire; historical
+  # backlog stays silent.
+  cnos: "2026-06-20T03:50:00Z"
+  bumpt: "2026-06-19T21:49:35Z"
