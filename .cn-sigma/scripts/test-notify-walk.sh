@@ -69,10 +69,14 @@ EOF
 mk_fake_notify() {
     local dir="$1" log="$2" rc="${3:-0}"
     local script="${dir}/fake-notify-${rc}.sh"
+    # Flatten newlines in $4 so each invocation maps to exactly one line
+    # in the log; otherwise multi-line details inflate `wc -l` counts and
+    # `head -1` returns only the first body line instead of the full
+    # invocation record.
     cat > "$script" <<EOF
 #!/usr/bin/env bash
-# Record all 4 args: target | class | summary | details
-echo "\$1|\$2|\$3|\${4:-}" >> "$log"
+DETAILS_FLAT=\$(printf '%s' "\${4:-}" | tr '\n' ' ')
+printf '%s|%s|%s|%s\n' "\$1" "\$2" "\$3" "\$DETAILS_FLAT" >> "$log"
 exit $rc
 EOF
     chmod +x "$script"
