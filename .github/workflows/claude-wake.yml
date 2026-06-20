@@ -78,19 +78,44 @@ jobs:
           prompt: |
             Activate and attach as https://github.com/usurobor/cn-sigma.
 
-      # Walk today's per-activation home channels for substantive events
-      # and post to Telegram via notify-telegram.sh. Runs AFTER Sigma's
+      # Walk per-activation home channels for substantive events and post
+      # to Telegram via notify-telegram.sh. Runs AFTER Sigma's
       # claude-code-action step (which wrote/committed today's channel
       # entries). Cursor is per-activation in notification-cursors.yaml;
-      # only events newer than the cursor are emitted. No-op without
-      # TELEGRAM_BOT_TOKEN secret.
+      # only events newer than the cursor are emitted. Scans all sorted
+      # channel files (cross-day retry).
+      #
+      # Sync FIRST and only notify if sync succeeded — external POSTs
+      # must reflect current home channel state.
       - name: Notify (wake-walker → Telegram)
         if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
-          git pull --rebase origin main || true
-          .cn-sigma/scripts/notify-walk.sh
+          if git pull --rebase origin main; then
+            .cn-sigma/scripts/notify-walk.sh
+          else
+            echo "[notify] sync failed; skipping Telegram notify (external POSTs require synced state)"
+          fi
+
+      # Commit + push notification cursor advances. Separate step so the
+      # walker stays pure (state mutation only) and persistence is wake-yaml
+      # responsibility. If cursor push fails, the next wake's pull picks up
+      # the un-advanced cursor and the same entry posts again — at-least-once
+      # delivery semantics.
+      - name: Persist notification cursor
+        if: always()
+        run: |
+          if git diff --quiet .cn-sigma/state/notification-cursors.yaml; then
+            echo "[notify-cursor] no advance"
+            exit 0
+          fi
+          git -c user.email="sigma@cn-sigma.cnos" -c user.name="Sigma" \
+              add .cn-sigma/state/notification-cursors.yaml
+          git -c user.email="sigma@cn-sigma.cnos" -c user.name="Sigma" \
+              commit -m "notify-walk: advance notification cursors"
+          git push origin main || \
+            echo "[notify-cursor] push failed; cursor committed locally only; next wake may re-post (at-least-once)"
 
       # Notify the coherer session that the wake completed.
       # PR #9 (coherer-watch) is the long-lived notification surface;
