@@ -3,25 +3,25 @@
 #
 # Sigma's single-voice notification publisher. Reads routing config from
 # .cn-sigma/state/notification-targets.yaml, resolves chat_id +
-# topic_thread_id for the target, formats the message per class, POSTs
-# to Telegram's sendMessage API.
+# topic_thread_id for the target, validates the class is allowed for
+# the target, formats the message, POSTs to Telegram's sendMessage API.
 #
-# Activations write notification intents to their own foreign log (with
-# `notify:` frontmatter field). The cn-sigma worker reads foreign logs,
-# detects notify entries, and invokes this script. See cnos#agent/
-# notification-protocol for the convention.
+# Activations write notification intents to their own foreign log. The
+# cn-sigma worker reads foreign logs, detects notify-worthy events, and
+# invokes this script.
 #
 # Usage:
-#   notify-telegram.sh <target> <class> <summary> [details]
+#   notify-telegram.sh TARGET CLASS SUMMARY [DETAILS]
 #
 # Args:
-#   target   - target name (must match a key under `targets:` in
+#   TARGET   - target name (must match a key under `targets:` in
 #              notification-targets.yaml; e.g., cnos, bumpt, cn-sigma)
-#   class    - event class (release | blocker | milestone | ci-failure |
-#              daily-pulse | doctrine-evolution | cross-activation-rollup |
-#              escalation)
-#   summary  - one-line summary text
-#   details  - (optional) multi-line additional context
+#   CLASS    - event class. Must be listed under `targets.<TARGET>.classes`
+#              in the routing config. Examples: release, blocker, milestone,
+#              ci-failure (per-activation); daily-pulse, doctrine-evolution,
+#              cross-activation-rollup, escalation (cn-sigma General).
+#   SUMMARY  - one-line summary text
+#   DETAILS  - (optional) multi-line additional context
 #
 # Env:
 #   TELEGRAM_BOT_TOKEN  - bot token. If absent, exits 0 with no-op message
@@ -34,7 +34,7 @@
 # Exit codes:
 #   0 - success, or no-op (TELEGRAM_BOT_TOKEN unset)
 #   1 - argument error
-#   2 - routing config missing or target not found
+#   2 - routing config missing, target not found, OR class not allowed for target
 #   3 - Telegram API error
 
 set -euo pipefail
@@ -42,7 +42,7 @@ set -euo pipefail
 # --- input ---
 
 if [ $# -lt 3 ]; then
-    echo "Usage: notify-telegram.sh <target> <class> <summary> [details]" >&2
+    echo "Usage: notify-telegram.sh TARGET CLASS SUMMARY [DETAILS]" >&2
     exit 1
 fi
 
@@ -92,8 +92,18 @@ if [ "$TARGET_EXISTS" != "true" ]; then
     exit 2
 fi
 
+# Validate class is allowed for target
+CLASS_ALLOWED=$(echo "$YAML_BODY" | yq eval ".targets.\"$TARGET\".classes | contains([\"$CLASS\"])" -)
+if [ "$CLASS_ALLOWED" != "true" ]; then
+    echo "[notify-telegram] class '$CLASS' not allowed for target '$TARGET'" >&2
+    exit 2
+fi
+
 TOPIC_ID=$(echo "$YAML_BODY" | yq eval ".targets.\"$TARGET\".topic_thread_id" -)
-# TOPIC_ID is one of: integer (custom topic) | "null" string (General; no message_thread_id)
+if [ "$TOPIC_ID" = "null" ] || [ -z "$TOPIC_ID" ]; then
+    echo "[notify-telegram] target '$TARGET' has no topic_thread_id in routing config" >&2
+    exit 2
+fi
 
 # --- format message per class ---
 
@@ -110,7 +120,11 @@ case "$CLASS" in
     *)                       EMOJI="ℹ️" ;;
 esac
 
-MESSAGE="${EMOJI} *[${CLASS}]* ${SUMMARY}"
+# Plain text; no parse_mode. Caller-supplied summary/details often contain
+# underscores, brackets, links, hashes — all of which break Markdown
+# parsing and would cause Telegram to reject the message. We can add
+# formatting later via HTML with explicit escaping or Telegram entities.
+MESSAGE="${EMOJI} [${CLASS}] ${SUMMARY}"
 if [ -n "$DETAILS" ]; then
     MESSAGE="${MESSAGE}
 
@@ -121,31 +135,16 @@ fi
 
 API="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage"
 
-# Build POST body. Conditionally include message_thread_id only for custom topics.
-if [ "$TOPIC_ID" != "null" ] && [ -n "$TOPIC_ID" ]; then
-    JSON_BODY=$(jq -n \
-        --arg chat_id "$CHAT_ID" \
-        --arg text "$MESSAGE" \
-        --argjson topic "$TOPIC_ID" \
-        '{
-            chat_id: ($chat_id | tonumber),
-            text: $text,
-            parse_mode: "Markdown",
-            disable_web_page_preview: true,
-            message_thread_id: $topic
-        }')
-else
-    # General topic: omit message_thread_id
-    JSON_BODY=$(jq -n \
-        --arg chat_id "$CHAT_ID" \
-        --arg text "$MESSAGE" \
-        '{
-            chat_id: ($chat_id | tonumber),
-            text: $text,
-            parse_mode: "Markdown",
-            disable_web_page_preview: true
-        }')
-fi
+JSON_BODY=$(jq -n \
+    --arg chat_id "$CHAT_ID" \
+    --arg text "$MESSAGE" \
+    --argjson topic "$TOPIC_ID" \
+    '{
+        chat_id: ($chat_id | tonumber),
+        text: $text,
+        disable_web_page_preview: true,
+        message_thread_id: $topic
+    }')
 
 RESPONSE=$(curl -s -X POST "$API" \
     -H "Content-Type: application/json" \
@@ -154,8 +153,9 @@ RESPONSE=$(curl -s -X POST "$API" \
 OK=$(echo "$RESPONSE" | jq -r '.ok')
 if [ "$OK" != "true" ]; then
     DESC=$(echo "$RESPONSE" | jq -r '.description // "unknown error"')
-    echo "[notify-telegram] Telegram API error: $DESC" >&2
-    echo "[notify-telegram] request body: $JSON_BODY" >&2
+    # Don't log full request body — caller-supplied text could leak into
+    # public Actions logs. Just log target/class/error description.
+    echo "[notify-telegram] target=$TARGET class=$CLASS telegram_error=$DESC" >&2
     exit 3
 fi
 
