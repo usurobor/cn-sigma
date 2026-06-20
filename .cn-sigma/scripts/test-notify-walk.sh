@@ -157,21 +157,22 @@ case "$POSTED_LINE" in
     *)                                bad "expected cnos|milestone|Directive...; got: $POSTED_LINE" ;;
 esac
 
-# v1: details should contain body excerpt + URL with the entry's start line
-case "$POSTED_LINE" in
-    *"Body line one"*)
-        ok "v1 details include body excerpt"
-        ;;
-    *)
-        bad "v1 details missing body excerpt; got: $POSTED_LINE"
-        ;;
-esac
+# v2: details should be URL only (body excerpt removed for brevity)
 case "$POSTED_LINE" in
     *"github.com/usurobor/cn-sigma/blob/main/.cn-sigma/threads/activations/cnos/20260619.md#L"*)
-        ok "v1 details include channel URL with line anchor"
+        ok "v2 details include channel URL with line anchor"
         ;;
     *)
-        bad "v1 details missing channel URL; got: $POSTED_LINE"
+        bad "v2 details missing channel URL; got: $POSTED_LINE"
+        ;;
+esac
+# v2: details should NOT include body excerpt
+case "$POSTED_LINE" in
+    *"Body line one"*)
+        bad "v2 details should NOT contain body excerpt (only title + URL); got: $POSTED_LINE"
+        ;;
+    *)
+        ok "v2 details omit body excerpt"
         ;;
 esac
 
