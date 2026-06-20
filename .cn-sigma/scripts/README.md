@@ -29,6 +29,7 @@ notify-telegram.sh TARGET CLASS SUMMARY [DETAILS]
 |---|---|---|
 | `TELEGRAM_BOT_TOKEN` | for actual posting | Bot API token. If unset, the script exits 0 with a no-op message (private deployments without Telegram don't fail wakes). |
 | `ROUTING_FILE` | no | Optional override path to `notification-targets.yaml`. Defaults to `<script-dir>/../state/notification-targets.yaml`. |
+| `NOTIFY_TELEGRAM_DRY_RUN` | no | If set to `1`, validates routing and builds the JSON payload but does NOT call Telegram. Emits the payload to stdout and exits 0. Used by the smoke test to verify routing end-to-end without network. |
 
 ### Exit codes
 
@@ -63,10 +64,12 @@ Operator options:
 
 ### Routing resolution
 
-The script reads `notification-targets.yaml` and resolves:
+`notification-targets.yaml` is **pure YAML** — the script reads it directly with `yq` (no markdown fence extraction). Doctrine prose lives in `.cn-sigma/state/notification-targets.md` (companion).
+
+The script resolves:
 
 - `chat_id` from `supergroup.chat_id` (single supergroup; shared across all topics).
-- `topic_thread_id` from `targets.<TARGET>.topic_thread_id`. All targets currently have an explicit integer (General = 1, Cnos = 2, Bumpt = 7); the script requires a non-null value and passes it as `message_thread_id` to Telegram's `sendMessage` API. (Telegram supergroups with forum topics enabled treat the default thread as topic 1; we pass it explicitly for consistency.)
+- `topic_thread_id` from `targets.<TARGET>.topic_thread_id`. All targets have an explicit integer (General = 1, Cnos = 2, Bumpt = 7); the script requires a non-null value and passes it as `message_thread_id` to Telegram's `sendMessage` API. (Telegram supergroups with forum topics treat the default thread as topic 1; we pass it explicitly for consistency.)
 - `classes` from `targets.<TARGET>.classes` (list). The requested class must be a member; otherwise exit 2.
 
 ### Format
@@ -86,6 +89,10 @@ The script reads `notification-targets.yaml` and resolves:
 
 Plain text was chosen deliberately for v0: caller-supplied summary/details routinely contain underscores, brackets, links, and hashes that break Telegram's Markdown parsing. HTML with explicit escaping is a possible v1 upgrade for richer formatting.
 
+### Length guard
+
+Telegram `sendMessage` text caps at 4096 characters. The script truncates messages longer than the limit to a safe margin (4000 chars) and appends `[truncated]`. This prevents long blocker reports / CI excerpts from rejecting the entire notification — useful once the wake-walker is auto-invoking the script with content that varies in size.
+
 ### Dependencies
 
 - `bash` (POSIX-compatible)
@@ -101,16 +108,23 @@ This script is a single-message poster — it does NOT manage cursors. The curso
 
 ### Smoke test
 
-`test-notify-telegram.sh` (same directory) runs three quick checks without hitting the Telegram API:
+`test-notify-telegram.sh` (same directory) runs five checks without hitting the Telegram API:
 
 ```bash
 ./test-notify-telegram.sh
 ```
 
-Asserts: syntax check passes; no-token invocation exits 0; unknown target exits 2. CI runs this on every PR touching the scripts directory (see `.github/workflows/notify-script-test.yml`).
+Asserts:
+1. `bash -n` syntax check passes
+2. No-token invocation exits 0 (no-op)
+3. Unknown target exits 2 (before any curl)
+4. Class not allowed for target exits 2 (validation works)
+5. **Dry-run with valid route** exits 0 AND emits a JSON payload containing the expected `chat_id`, `message_thread_id`, and summary — proves YAML parses cleanly AND routing resolves to a buildable Telegram payload end-to-end (without this positive test, the other "exit 2" checks could pass even if YAML parsing were broken, since "config missing" and "expected validation failure" share exit code 2)
+
+CI runs this on every PR touching the scripts or routing config (see `.github/workflows/notify-script-test.yml`).
 
 ### Status
 
-- **v0**: ad-hoc invocation supported (this PR). Class validation, plain-text format, explicit topic_id.
+- **v0**: ad-hoc invocation supported (this PR). Class validation, plain-text format, explicit topic_id, length truncation, dry-run mode for tests.
 - **v0+**: wake yaml integration to walk foreign logs and auto-invoke (follow-up PR after this lands).
 - **v1**: foreign-log walker bundled; per-target cursor advance; HTML formatting with escape; privacy gate (P0 activations MUST NOT trigger publish).

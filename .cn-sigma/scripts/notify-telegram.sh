@@ -2,9 +2,10 @@
 # notify-telegram.sh — Send a notification to Telegram via the Sigma bot.
 #
 # Sigma's single-voice notification publisher. Reads routing config from
-# .cn-sigma/state/notification-targets.yaml, resolves chat_id +
-# topic_thread_id for the target, validates the class is allowed for
-# the target, formats the message, POSTs to Telegram's sendMessage API.
+# the pure-YAML file at .cn-sigma/state/notification-targets.yaml,
+# resolves chat_id + topic_thread_id for the target, validates the class
+# is allowed for the target, formats the message, POSTs to Telegram's
+# sendMessage API.
 #
 # Activations write notification intents to their own foreign log. The
 # cn-sigma worker reads foreign logs, detects notify-worthy events, and
@@ -24,20 +25,33 @@
 #   DETAILS  - (optional) multi-line additional context
 #
 # Env:
-#   TELEGRAM_BOT_TOKEN  - bot token. If absent, exits 0 with no-op message
-#                         (private deployments / forks without Telegram
-#                         configured don't fail wakes).
-#   ROUTING_FILE        - (optional) override path to notification-targets.yaml.
-#                         Defaults to ../state/notification-targets.yaml relative
-#                         to this script.
+#   TELEGRAM_BOT_TOKEN         - bot token. If absent, exits 0 with no-op
+#                                message (private deployments / forks without
+#                                Telegram configured don't fail wakes).
+#   ROUTING_FILE               - (optional) override path to
+#                                notification-targets.yaml. Defaults to
+#                                ../state/notification-targets.yaml relative
+#                                to this script.
+#   NOTIFY_TELEGRAM_DRY_RUN    - if set to "1", validates routing and builds
+#                                the payload but does NOT call the Telegram
+#                                API. Emits the resolved payload to stdout
+#                                and exits 0. Used by the smoke test to verify
+#                                end-to-end resolution without network calls.
 #
 # Exit codes:
-#   0 - success, or no-op (TELEGRAM_BOT_TOKEN unset)
+#   0 - success, no-op (TELEGRAM_BOT_TOKEN unset), or dry-run completion
 #   1 - argument error
-#   2 - routing config missing, target not found, OR class not allowed for target
+#   2 - routing config missing, target not found, class not allowed for
+#       target, OR topic_thread_id missing for target
 #   3 - Telegram API error
 
 set -euo pipefail
+
+# Message text limit per Telegram sendMessage; truncate just under to leave
+# room for the truncation marker.
+readonly TELEGRAM_TEXT_LIMIT=4096
+readonly SAFE_TRUNCATE_AT=4000
+readonly TRUNCATION_MARKER=$'\n\n[truncated]'
 
 # --- input ---
 
@@ -51,9 +65,9 @@ CLASS="$2"
 SUMMARY="$3"
 DETAILS="${4:-}"
 
-# --- no-op without bot token ---
+# --- no-op without bot token (unless dry-run) ---
 
-if [ -z "${TELEGRAM_BOT_TOKEN:-}" ]; then
+if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] && [ "${NOTIFY_TELEGRAM_DRY_RUN:-}" != "1" ]; then
     echo "[notify-telegram] TELEGRAM_BOT_TOKEN not set; skipping (no-op)"
     exit 0
 fi
@@ -69,37 +83,31 @@ if [ ! -f "$ROUTING_FILE" ]; then
     exit 2
 fi
 
-# notification-targets.yaml is a markdown file with a ```yaml fenced block.
-# Extract just the yaml block for yq.
-YAML_BODY=$(awk '/^```yaml$/{flag=1;next}/^```$/{if(flag){flag=0}}flag' "$ROUTING_FILE")
-if [ -z "$YAML_BODY" ]; then
-    echo "[notify-telegram] could not extract yaml block from $ROUTING_FILE" >&2
-    exit 2
-fi
+# Pure YAML; read directly with yq (no markdown fence extraction).
 
 # --- resolve target ---
 
-CHAT_ID=$(echo "$YAML_BODY" | yq eval '.supergroup.chat_id' -)
+CHAT_ID=$(yq eval '.supergroup.chat_id' "$ROUTING_FILE")
 if [ "$CHAT_ID" = "null" ] || [ -z "$CHAT_ID" ]; then
     echo "[notify-telegram] supergroup.chat_id not found in routing config" >&2
     exit 2
 fi
 
 # Check target exists
-TARGET_EXISTS=$(echo "$YAML_BODY" | yq eval ".targets | has(\"$TARGET\")" -)
+TARGET_EXISTS=$(yq eval ".targets | has(\"$TARGET\")" "$ROUTING_FILE")
 if [ "$TARGET_EXISTS" != "true" ]; then
     echo "[notify-telegram] target '$TARGET' not found in routing config" >&2
     exit 2
 fi
 
 # Validate class is allowed for target
-CLASS_ALLOWED=$(echo "$YAML_BODY" | yq eval ".targets.\"$TARGET\".classes | contains([\"$CLASS\"])" -)
+CLASS_ALLOWED=$(yq eval ".targets.\"$TARGET\".classes | contains([\"$CLASS\"])" "$ROUTING_FILE")
 if [ "$CLASS_ALLOWED" != "true" ]; then
     echo "[notify-telegram] class '$CLASS' not allowed for target '$TARGET'" >&2
     exit 2
 fi
 
-TOPIC_ID=$(echo "$YAML_BODY" | yq eval ".targets.\"$TARGET\".topic_thread_id" -)
+TOPIC_ID=$(yq eval ".targets.\"$TARGET\".topic_thread_id" "$ROUTING_FILE")
 if [ "$TOPIC_ID" = "null" ] || [ -z "$TOPIC_ID" ]; then
     echo "[notify-telegram] target '$TARGET' has no topic_thread_id in routing config" >&2
     exit 2
@@ -122,8 +130,7 @@ esac
 
 # Plain text; no parse_mode. Caller-supplied summary/details often contain
 # underscores, brackets, links, hashes — all of which break Markdown
-# parsing and would cause Telegram to reject the message. We can add
-# formatting later via HTML with explicit escaping or Telegram entities.
+# parsing and would cause Telegram to reject the message.
 MESSAGE="${EMOJI} [${CLASS}] ${SUMMARY}"
 if [ -n "$DETAILS" ]; then
     MESSAGE="${MESSAGE}
@@ -131,9 +138,15 @@ if [ -n "$DETAILS" ]; then
 ${DETAILS}"
 fi
 
-# --- post to Telegram ---
+# Length guard: Telegram sendMessage caps text at 4096 chars. Truncate to a
+# safe margin and append a truncation marker so long blocker reports or CI
+# excerpts don't cause the entire message to be rejected.
+MESSAGE_LEN=${#MESSAGE}
+if [ "$MESSAGE_LEN" -gt "$TELEGRAM_TEXT_LIMIT" ]; then
+    MESSAGE="${MESSAGE:0:$SAFE_TRUNCATE_AT}${TRUNCATION_MARKER}"
+fi
 
-API="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage"
+# --- build JSON payload ---
 
 JSON_BODY=$(jq -n \
     --arg chat_id "$CHAT_ID" \
@@ -145,6 +158,18 @@ JSON_BODY=$(jq -n \
         disable_web_page_preview: true,
         message_thread_id: $topic
     }')
+
+# --- dry-run short-circuit ---
+
+if [ "${NOTIFY_TELEGRAM_DRY_RUN:-}" = "1" ]; then
+    echo "[notify-telegram] DRY_RUN: would post target=$TARGET class=$CLASS"
+    echo "$JSON_BODY"
+    exit 0
+fi
+
+# --- post to Telegram ---
+
+API="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage"
 
 RESPONSE=$(curl -s -X POST "$API" \
     -H "Content-Type: application/json" \
