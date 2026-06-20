@@ -11,14 +11,20 @@ on:
     paths:
       - '.cn-sigma/scripts/notify-telegram.sh'
       - '.cn-sigma/scripts/test-notify-telegram.sh'
+      - '.cn-sigma/scripts/notify-walk.sh'
+      - '.cn-sigma/scripts/test-notify-walk.sh'
       - '.cn-sigma/state/notification-targets.yaml'
+      - '.cn-sigma/state/notification-cursors.yaml'
       - '.github/workflows/notify-script-test.yml'
   push:
     branches: [main]
     paths:
       - '.cn-sigma/scripts/notify-telegram.sh'
       - '.cn-sigma/scripts/test-notify-telegram.sh'
+      - '.cn-sigma/scripts/notify-walk.sh'
+      - '.cn-sigma/scripts/test-notify-walk.sh'
       - '.cn-sigma/state/notification-targets.yaml'
+      - '.cn-sigma/state/notification-cursors.yaml'
 
 jobs:
   smoke:
@@ -37,5 +43,8 @@ jobs:
           fi
           yq --version
 
-      - name: Run smoke tests
+      - name: Run notify-telegram smoke tests
         run: .cn-sigma/scripts/test-notify-telegram.sh
+
+      - name: Run notify-walk smoke tests
+        run: .cn-sigma/scripts/test-notify-walk.sh
