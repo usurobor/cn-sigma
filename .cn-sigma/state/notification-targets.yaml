@@ -52,12 +52,10 @@ targets:
 
   bumpt:
     purpose: "bumpt activation events: same shape as cnos"
-    topic_thread_id: null      # TBD — operator to create Bumpt topic + paste link
-    status: not-yet-configured
-    pending:
-      - operator creates `Bumpt` topic in supergroup -1004411092548
-      - operator pastes topic link
-      - this file updated with message_thread_id
+    topic_thread_id: 7
+    topic_link: "https://t.me/c/4411092548/7"
+    operator_anchor_message: "https://t.me/c/4411092548/7/8"
+    status: configured-target
     classes:
       - release
       - blocker
