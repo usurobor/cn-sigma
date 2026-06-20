@@ -172,21 +172,13 @@ for TARGET in "${TARGETS[@]}"; do
                 *)                                          NOTIFY_CLASS="milestone" ;;
             esac
 
-            # Build entry body excerpt + URL
-            BODY_EXCERPT="$(extract_body "$CHANNEL" "$START" "$END")"
+            # Build URL only (body excerpt removed in v2 — operator preference
+            # for short notifications; tap URL for full context).
             ENTRY_PATH=".cn-sigma/threads/activations/${TARGET}/${CHANNEL_BASENAME}"
             ENTRY_URL="${REPO_URL}/blob/${BRANCH}/${ENTRY_PATH}#L${START}"
 
             SUMMARY="${TITLE:0:300}"
-
-            # Compose details: body excerpt + location link.
-            if [ -n "$BODY_EXCERPT" ]; then
-                DETAILS="${BODY_EXCERPT}
-
-📍 ${ENTRY_URL}"
-            else
-                DETAILS="📍 ${ENTRY_URL}"
-            fi
+            DETAILS="📍 ${ENTRY_URL}"
 
             echo "[notify-walk] POST target=$TARGET class=$NOTIFY_CLASS ts=$TS title=${TITLE:0:60}"
             if "$NOTIFY" "$TARGET" "$NOTIFY_CLASS" "$SUMMARY" "$DETAILS"; then
