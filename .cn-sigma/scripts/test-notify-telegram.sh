@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 # test-notify-telegram.sh — smoke test for notify-telegram.sh.
 #
-# Runs five quick checks without hitting the Telegram API:
+# Runs quick checks without hitting the Telegram API:
 #   1. bash -n syntax check on notify-telegram.sh
 #   2. no-token invocation exits 0 with no-op message
 #   3. unknown target exits 2 (before any curl)
 #   4. class-not-allowed-for-target exits 2 (validation works)
-#   5. dry-run with valid route exits 0 AND payload reaches construction
-#      (proves the YAML actually parses and routing resolves end-to-end)
+#   5a. dry-run valid CUSTOM-topic route (cnos=2) → exit 0 + payload has
+#       explicit message_thread_id (positive routing-parse proof)
+#   5b. dry-run General route (cn-sigma; topic_thread_id: null) → exit 0
+#       AND payload MUST NOT contain message_thread_id (Telegram General
+#       topic semantics; passing thread_id 1 returns "message thread not
+#       found")
 #
 # Exit 0 on all pass; non-zero on first failure.
 
@@ -89,23 +93,46 @@ RC=$?
 set -e
 check_exit "class-not-allowed" $RC 2
 
-# 5. Dry-run with valid route → exit 0 + payload contains expected fields
-# This is the POSITIVE routing-parse test: proves YAML parses cleanly AND
-# the routing resolves to a buildable Telegram payload. Without this, the
-# other "exit 2" checks could pass even if the YAML extraction were broken
-# (same exit code for "config missing" and "expected validation failure").
-echo "[5] dry-run valid route → exit 0 + payload built"
+# 5a. Dry-run with valid route to a CUSTOM topic (cnos=2) → exit 0 + payload
+# contains explicit message_thread_id. This is the POSITIVE routing-parse
+# test: proves YAML parses cleanly AND routing resolves to a buildable
+# Telegram payload. Without this, the "exit 2" checks above could pass
+# even if YAML parsing were broken (same exit code for "config missing"
+# and "expected validation failure").
+echo "[5a] dry-run valid custom-topic route (cnos) → exit 0 + thread_id present"
 set +e
 OUTPUT=$(TELEGRAM_BOT_TOKEN="" ROUTING_FILE="$ROUTING" \
     NOTIFY_TELEGRAM_DRY_RUN=1 \
-    "$SCRIPT" cn-sigma daily-pulse "smoke" "details line" 2>&1)
+    "$SCRIPT" cnos release "smoke" "details line" 2>&1)
 RC=$?
 set -e
-check_exit "dry-run exit" $RC 0
-check_contains "dry-run marker"    "$OUTPUT" "DRY_RUN"
-check_contains "dry-run chat_id"   "$OUTPUT" "-1004411092548"
-check_contains "dry-run thread_id" "$OUTPUT" '"message_thread_id": 1'
-check_contains "dry-run summary"   "$OUTPUT" "[daily-pulse] smoke"
+check_exit "dry-run cnos exit" $RC 0
+check_contains "dry-run cnos marker"    "$OUTPUT" "DRY_RUN"
+check_contains "dry-run cnos chat_id"   "$OUTPUT" "-1004411092548"
+check_contains "dry-run cnos thread_id" "$OUTPUT" '"message_thread_id": 2'
+check_contains "dry-run cnos summary"   "$OUTPUT" "[release] smoke"
+
+# 5b. Dry-run for cn-sigma (General topic; topic_thread_id: null) → exit 0
+# AND payload MUST NOT contain message_thread_id (Telegram's General topic
+# has no addressable thread id; passing one gives "message thread not found").
+echo "[5b] dry-run General route (cn-sigma) → exit 0 + thread_id ABSENT"
+set +e
+OUTPUT=$(TELEGRAM_BOT_TOKEN="" ROUTING_FILE="$ROUTING" \
+    NOTIFY_TELEGRAM_DRY_RUN=1 \
+    "$SCRIPT" cn-sigma daily-pulse "smoke" 2>&1)
+RC=$?
+set -e
+check_exit "dry-run cn-sigma exit" $RC 0
+check_contains "dry-run cn-sigma marker"  "$OUTPUT" "DRY_RUN"
+check_contains "dry-run cn-sigma chat_id" "$OUTPUT" "-1004411092548"
+check_contains "dry-run cn-sigma summary" "$OUTPUT" "[daily-pulse] smoke"
+if echo "$OUTPUT" | grep -qF -- "message_thread_id"; then
+    echo "  FAIL: dry-run cn-sigma must NOT contain message_thread_id (General)" >&2
+    FAIL=$((FAIL + 1))
+else
+    echo "  PASS: dry-run cn-sigma omits message_thread_id (General)"
+    PASS=$((PASS + 1))
+fi
 
 echo "--------------------------------"
 echo "Passed: $PASS  Failed: $FAIL"
