@@ -37,7 +37,9 @@ check_contains() {
     local name="$1"
     local haystack="$2"
     local needle="$3"
-    if echo "$haystack" | grep -qF "$needle"; then
+    # Use `--` so needles beginning with `-` (e.g., the negative chat_id
+    # -1004411092548) aren't interpreted as grep options.
+    if echo "$haystack" | grep -qF -- "$needle"; then
         echo "  PASS: $name (contains '$needle')"
         PASS=$((PASS + 1))
     else
