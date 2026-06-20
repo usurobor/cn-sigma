@@ -59,8 +59,11 @@ jobs:
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getChat?chat_id=${CHAT_ID}" \
             | jq '{ok, error: .description, chat_title: .result.title, chat_type: .result.type, chat_id: .result.id, is_forum: .result.is_forum}'
 
-      # Push-trigger path: fixed default payload (no inputs available).
-      - name: Send (push trigger default)
+      # Push-trigger path: fires all three targets sequentially. Each
+      # invocation is independent; any failure fails the job (bash -e).
+      # This verifies General (cn-sigma) AND both custom topics (Cnos = 2,
+      # Bumpt = 7) in one tickle.
+      - name: Send to cn-sigma (General topic; doctrine-evolution)
         if: github.event_name == 'push'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -68,8 +71,30 @@ jobs:
           .cn-sigma/scripts/notify-telegram.sh \
             cn-sigma \
             doctrine-evolution \
-            "Notification publisher v0 live" \
-            "PR #11 merged at cn-sigma. End-to-end Telegram path smoke-tested."
+            "Notification publisher v0 live (3-target smoke)" \
+            "PR #11 merged. Verifying General + Cnos + Bumpt routing end-to-end."
+
+      - name: Send to cnos (custom topic 2; milestone)
+        if: github.event_name == 'push'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          .cn-sigma/scripts/notify-telegram.sh \
+            cnos \
+            milestone \
+            "Notification routing live for cnos events" \
+            "Future cnos releases / blockers / milestones / ci-failures will land here once the wake-walker (D34) is wired."
+
+      - name: Send to bumpt (custom topic 7; milestone)
+        if: github.event_name == 'push'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          .cn-sigma/scripts/notify-telegram.sh \
+            bumpt \
+            milestone \
+            "Notification routing live for bumpt events" \
+            "Future bumpt events will land here. Legacy bumpt direct-post (bumpt:experiment/.ci/telegram-notify.sh) stays during migration; deprecate after parity verified."
 
       # workflow_dispatch path: respects user-supplied inputs.
       - name: Send (workflow_dispatch with inputs)
