@@ -1,0 +1,17 @@
+# Per-target last-notified foreign-log SHA cursor.
+# Wake yaml's notify-walker step advances each on successful POST per target.
+# Initial state: null (no notifications posted yet by the home publisher).
+#
+# Convention defined at cnos#agent/notification-protocol (pending; D32).
+# Walker behavior: foreign log entries with `notify:` frontmatter field
+# newer than the cursor get posted; on each successful POST, advance cursor
+# to that entry's commit SHA; on failure, cursor stays; next wake retries.
+#
+# Updates: this file is updated by the wake yaml's notify-walker step.
+# Schema: cnos.notification-cursors.v0
+
+schema: cnos.notification-cursors.v0
+
+cursors:
+  cnos: null
+  bumpt: null
