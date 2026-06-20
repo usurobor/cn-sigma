@@ -69,7 +69,9 @@ Operator options:
 The script resolves:
 
 - `chat_id` from `supergroup.chat_id` (single supergroup; shared across all topics).
-- `topic_thread_id` from `targets.<TARGET>.topic_thread_id`. All targets have an explicit integer (General = 1, Cnos = 2, Bumpt = 7); the script requires a non-null value and passes it as `message_thread_id` to Telegram's `sendMessage` API. (Telegram supergroups with forum topics treat the default thread as topic 1; we pass it explicitly for consistency.)
+- `topic_thread_id` from `targets.<TARGET>.topic_thread_id`. Behavior depends on the value:
+  - **Integer** (e.g., Cnos = `2`, Bumpt = `7`) → passed as `message_thread_id` to Telegram's `sendMessage` API; posts to that custom topic.
+  - **`null`** (e.g., cn-sigma → General) → `message_thread_id` is OMITTED from the API call. Required for posting to Telegram's General topic in a forum supergroup: General has no addressable `message_thread_id` (despite the t.me URL showing `/1/`). Passing thread_id `1` returns `Bad Request: message thread not found`.
 - `classes` from `targets.<TARGET>.classes` (list). The requested class must be a member; otherwise exit 2.
 
 ### Format
@@ -108,7 +110,7 @@ This script is a single-message poster — it does NOT manage cursors. The curso
 
 ### Smoke test
 
-`test-notify-telegram.sh` (same directory) runs five checks without hitting the Telegram API:
+`test-notify-telegram.sh` (same directory) runs checks without hitting the Telegram API:
 
 ```bash
 ./test-notify-telegram.sh
@@ -119,7 +121,8 @@ Asserts:
 2. No-token invocation exits 0 (no-op)
 3. Unknown target exits 2 (before any curl)
 4. Class not allowed for target exits 2 (validation works)
-5. **Dry-run with valid route** exits 0 AND emits a JSON payload containing the expected `chat_id`, `message_thread_id`, and summary — proves YAML parses cleanly AND routing resolves to a buildable Telegram payload end-to-end (without this positive test, the other "exit 2" checks could pass even if YAML parsing were broken, since "config missing" and "expected validation failure" share exit code 2)
+5a. **Dry-run valid custom-topic route** (cnos = topic 2) exits 0 AND emits a JSON payload with explicit `message_thread_id: 2` — proves YAML parses cleanly AND routing resolves to a buildable Telegram payload end-to-end (without this positive test, the other "exit 2" checks could pass even if YAML parsing were broken, since "config missing" and "expected validation failure" share exit code 2)
+5b. **Dry-run General route** (cn-sigma; `topic_thread_id: null`) exits 0 AND the JSON payload MUST NOT contain `message_thread_id` — General topic semantics
 
 CI runs this on every PR touching the scripts or routing config (see `.github/workflows/notify-script-test.yml`).
 

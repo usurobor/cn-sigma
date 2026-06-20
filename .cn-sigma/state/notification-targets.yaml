@@ -8,7 +8,11 @@ targets:
 
   cn-sigma:
     purpose: "Sigma's own voice — daily pulse, doctrine evolution, cross-activation rollup, escalation"
-    topic_thread_id: 1
+    # General topic is special in Telegram: it does NOT have an addressable
+    # message_thread_id even though the t.me URL displays /1/. To post to
+    # General, the API call MUST omit `message_thread_id`. Setting null here
+    # signals the script to omit it.
+    topic_thread_id: null
     topic_link: https://t.me/c/4411092548/1
     operator_anchor_message: https://t.me/c/4411092548/1/5
     status: configured-target

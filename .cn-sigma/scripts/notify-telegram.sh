@@ -108,10 +108,11 @@ if [ "$CLASS_ALLOWED" != "true" ]; then
 fi
 
 TOPIC_ID=$(yq eval ".targets.\"$TARGET\".topic_thread_id" "$ROUTING_FILE")
-if [ "$TOPIC_ID" = "null" ] || [ -z "$TOPIC_ID" ]; then
-    echo "[notify-telegram] target '$TARGET' has no topic_thread_id in routing config" >&2
-    exit 2
-fi
+# topic_thread_id may be null intentionally: Telegram's General topic in a
+# forum supergroup has NO addressable message_thread_id even though the
+# t.me URL shows /1/. For those targets, we omit `message_thread_id` from
+# the API call entirely. An integer value means a custom topic and gets
+# passed through as `message_thread_id`.
 
 # --- format message per class ---
 
@@ -148,16 +149,29 @@ fi
 
 # --- build JSON payload ---
 
-JSON_BODY=$(jq -n \
-    --arg chat_id "$CHAT_ID" \
-    --arg text "$MESSAGE" \
-    --argjson topic "$TOPIC_ID" \
-    '{
-        chat_id: ($chat_id | tonumber),
-        text: $text,
-        disable_web_page_preview: true,
-        message_thread_id: $topic
-    }')
+if [ "$TOPIC_ID" = "null" ] || [ -z "$TOPIC_ID" ]; then
+    # General topic: omit message_thread_id entirely.
+    JSON_BODY=$(jq -n \
+        --arg chat_id "$CHAT_ID" \
+        --arg text "$MESSAGE" \
+        '{
+            chat_id: ($chat_id | tonumber),
+            text: $text,
+            disable_web_page_preview: true
+        }')
+else
+    # Custom topic: pass message_thread_id.
+    JSON_BODY=$(jq -n \
+        --arg chat_id "$CHAT_ID" \
+        --arg text "$MESSAGE" \
+        --argjson topic "$TOPIC_ID" \
+        '{
+            chat_id: ($chat_id | tonumber),
+            text: $text,
+            disable_web_page_preview: true,
+            message_thread_id: $topic
+        }')
+fi
 
 # --- dry-run short-circuit ---
 

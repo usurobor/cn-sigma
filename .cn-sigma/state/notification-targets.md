@@ -11,7 +11,7 @@ Routing config is a pure YAML file. This document is the doctrine: who publishes
 - **Publisher:** the cn-sigma wake worker (wake-fired α at home, mechanical). NOT γ-console session.
 - **Bot:** single Sigma bot. Token at cn-sigma as repo secret `TELEGRAM_BOT_TOKEN`. No other secrets needed; routing IDs are config, not credentials.
 - **Supergroup:** one shared chat_id across all topics (`supergroup.chat_id` in the YAML).
-- **Topic routing:** each target has an explicit `topic_thread_id` (integer). All topics — including General (cn-sigma's voice) — are passed explicitly as `message_thread_id` in the Telegram `sendMessage` call.
+- **Topic routing:** each target has a `topic_thread_id`. For custom topics, this is an integer (cnos=2, bumpt=7) and gets passed to Telegram's `sendMessage` as `message_thread_id`. For **General** (cn-sigma's voice), this is `null` and `message_thread_id` is **omitted** from the API call — Telegram's General topic in a forum supergroup has no addressable thread id (despite the t.me URL showing `/1/`; passing thread_id 1 returns `Bad Request: message thread not found`).
 
 Activation bodies (cnos, bumpt) emit structured events to their own foreign log only; they hold NO Telegram credentials. cn-sigma worker reads foreign logs, decides notify class, posts to Telegram.
 
