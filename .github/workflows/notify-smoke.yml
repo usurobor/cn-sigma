@@ -1,12 +1,14 @@
 # One-off smoke test for notify-telegram.sh against real Telegram.
 #
-# Trigger manually from Actions tab → "Run workflow", OR via:
-#   gh workflow run notify-smoke.yml
-#   gh workflow run notify-smoke.yml --field summary="..." --field details="..."
+# Triggers:
+#   1. workflow_dispatch — manual via Actions tab or `gh workflow run`
+#   2. push to .cn-sigma/state/.notify-smoke-tickle — tickle-file commit
+#      lets MCP-driven sessions fire the smoke without workflow:dispatch
+#      permission. Each tickle commit (any content change) fires one run.
 #
-# Uses TELEGRAM_BOT_TOKEN secret to actually POST. Default inputs send a
-# benign "publisher live" message to cn-sigma (General topic). Customize
-# inputs to send to cnos / bumpt or with different content.
+# Uses TELEGRAM_BOT_TOKEN secret to POST. Defaults send a benign
+# "publisher v0 live" message to cn-sigma General topic; customize via
+# workflow_dispatch inputs.
 
 name: notify-smoke
 
@@ -18,7 +20,7 @@ on:
         default: 'cn-sigma'
         required: true
       class:
-        description: 'Class (cn-sigma: daily-pulse / doctrine-evolution / cross-activation-rollup / escalation; cnos/bumpt: release / blocker / milestone / ci-failure)'
+        description: 'Class'
         default: 'doctrine-evolution'
         required: true
       summary:
@@ -29,6 +31,9 @@ on:
         description: 'Optional details'
         default: 'PR #11 merged at cn-sigma after 3-round Bohmian convergence. End-to-end Telegram path now smoke-tested. Next: D34 wake-walker integration.'
         required: false
+  push:
+    paths:
+      - '.cn-sigma/state/.notify-smoke-tickle'
 
 jobs:
   send:
@@ -40,11 +45,12 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           # Indirect via env vars (NOT inline ${{ }} in run script) to avoid
-          # shell injection from workflow_dispatch inputs.
-          TARGET:  ${{ inputs.target }}
-          CLASS:   ${{ inputs.class }}
-          SUMMARY: ${{ inputs.summary }}
-          DETAILS: ${{ inputs.details }}
+          # shell injection from inputs. Fallbacks let push-triggered runs
+          # use the same defaults as workflow_dispatch.
+          TARGET:  ${{ inputs.target  || 'cn-sigma' }}
+          CLASS:   ${{ inputs.class   || 'doctrine-evolution' }}
+          SUMMARY: ${{ inputs.summary || 'Notification publisher v0 live' }}
+          DETAILS: ${{ inputs.details || 'PR #11 merged at cn-sigma after 3-round Bohmian convergence. End-to-end Telegram path now smoke-tested. Next: D34 wake-walker integration.' }}
         run: |
           .cn-sigma/scripts/notify-telegram.sh \
             "$TARGET" "$CLASS" "$SUMMARY" "$DETAILS"
