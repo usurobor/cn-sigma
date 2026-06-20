@@ -1,0 +1,41 @@
+# Smoke test for notify-telegram.sh.
+#
+# Verifies the script's pre-Telegram-API behavior (syntax, no-op without
+# token, routing config validation) without ever calling the Telegram API.
+# Runs on PRs that touch the scripts directory or the routing config.
+
+name: notify-script-test
+
+on:
+  pull_request:
+    paths:
+      - '.cn-sigma/scripts/notify-telegram.sh'
+      - '.cn-sigma/scripts/test-notify-telegram.sh'
+      - '.cn-sigma/state/notification-targets.yaml'
+      - '.github/workflows/notify-script-test.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.cn-sigma/scripts/notify-telegram.sh'
+      - '.cn-sigma/scripts/test-notify-telegram.sh'
+      - '.cn-sigma/state/notification-targets.yaml'
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure yq (mikefarah v4+) is available
+        run: |
+          # ubuntu-latest ships mikefarah yq pre-installed; this is a guard.
+          if ! command -v yq >/dev/null 2>&1; then
+            echo "yq not found; installing"
+            sudo wget -qO /usr/local/bin/yq \
+              https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+            sudo chmod +x /usr/local/bin/yq
+          fi
+          yq --version
+
+      - name: Run smoke tests
+        run: .cn-sigma/scripts/test-notify-telegram.sh
