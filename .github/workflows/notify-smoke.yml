@@ -39,6 +39,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Diagnostic step: which bot is the token, and can it see the chat?
+      # Helps disambiguate "bot token wrong" from "bot not in chat" from
+      # "chat_id format wrong." Safe to keep — getMe returns bot username
+      # only; getChat returns chat metadata visible to that bot.
+      - name: Diagnose bot + chat access
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          set -e
+          CHAT_ID=$(yq eval '.supergroup.chat_id' .cn-sigma/state/notification-targets.yaml)
+          echo "Routing config chat_id: $CHAT_ID"
+
+          echo "--- getMe ---"
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" \
+            | jq '{ok, bot_username: .result.username, bot_id: .result.id, can_join_groups: .result.can_join_groups, can_read_all_group_messages: .result.can_read_all_group_messages}'
+
+          echo "--- getChat (chat_id=$CHAT_ID) ---"
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getChat?chat_id=${CHAT_ID}" \
+            | jq '{ok, error: .description, chat_title: .result.title, chat_type: .result.type, chat_id: .result.id, is_forum: .result.is_forum}'
+
       # Push-trigger path: fixed default payload (no inputs available).
       - name: Send (push trigger default)
         if: github.event_name == 'push'
