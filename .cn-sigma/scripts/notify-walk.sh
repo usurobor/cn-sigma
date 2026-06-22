@@ -123,8 +123,10 @@ for TARGET in "${TARGETS[@]}"; do
     for CHANNEL in "${CHANNEL_FILES[@]}"; do
         CHANNEL_BASENAME="$(basename "$CHANNEL")"
 
-        # Find entry start line numbers (each `## YYYY-MM-DDTHH:MM:SSZ — title`)
-        mapfile -t ENTRY_STARTS < <(grep -n '^## 20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z' "$CHANNEL" | cut -d: -f1)
+        # Find entry start line numbers (each `## YYYY-MM-DDTHH:MM[:SS]Z — title`)
+        # Seconds are optional — Sigma's wake writes T<HH>:<MM>Z (no seconds);
+        # γ-console / older entries use T<HH>:<MM>:<SS>Z.
+        mapfile -t ENTRY_STARTS < <(grep -n '^## 20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]\(:[0-9][0-9]\)\{0,1\}Z' "$CHANNEL" | cut -d: -f1)
         [ ${#ENTRY_STARTS[@]} -eq 0 ] && continue
         TOTAL_LINES="$(wc -l < "$CHANNEL")"
         ENTRY_STARTS+=("$((TOTAL_LINES + 1))")  # sentinel for last entry's end
