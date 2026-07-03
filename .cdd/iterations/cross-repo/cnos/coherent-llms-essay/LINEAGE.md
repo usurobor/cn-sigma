@@ -31,15 +31,16 @@ The synthesis reads as a doctrinal center for today's other cn-sigma adhocs:
 - **Repo:** `usurobor/cnos`
 - **Issue:** to be filed; assign cycle number on intake
 - **Mode:** `docs-only` (per ISSUE.md mode declaration)
-- **Title (proposed):** "cnos essay proposal: All We Need Is Coherence — the measurement law comes first (v4)"
+- **Title (proposed):** "cnos essay proposal: All We Need Is Coherence — the measurement law comes first (v5)"
 - **Prior titles (all 2026-07-03, same day):**
   - v0: *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole*
   - v1: *All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs*
   - v2: *All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems*
-  - v3: not captured at cn-sigma (operator-side private iterate, superseded by v4)
+  - v3: not captured at cn-sigma (operator-side private iterate)
+  - v4: *All We Need Is Coherence — the measurement law comes first* (governance-architecture register)
 - **Labels (proposed):** `docs`, `P2`, `area/essays`
 - **Disposition:** pending (filled at acceptance by cnos γ)
-- **Canonical target path on cnos:** `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md` (bundle slug `coherent-llms-essay/` kept across all versions — subject unchanged; title evolved: compressed → technicalized → governance-architecture-anchored).
+- **Canonical target path on cnos:** `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md` (bundle slug `coherent-llms-essay/` kept across all versions — subject unchanged; title evolved: compressed → technicalized → governance-architecture-anchored; v5 keeps v4 title but the essay's content shifted from "how should this work" to "here's what has shipped, what remains, and the concrete next artifact").
 
 ## Why a bundle, not just a channel directive-out
 
