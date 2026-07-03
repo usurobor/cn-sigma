@@ -31,11 +31,13 @@ The synthesis reads as a doctrinal center for today's other cn-sigma adhocs:
 - **Repo:** `usurobor/cnos`
 - **Issue:** to be filed; assign cycle number on intake
 - **Mode:** `docs-only` (per ISSUE.md mode declaration)
-- **Title (proposed):** "cnos essay proposal: All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs"
-- **Prior title (v0 superseded 2026-07-03):** *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole*.
+- **Title (proposed):** "cnos essay proposal: All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems (v2)"
+- **Prior titles (v0/v1 superseded 2026-07-03, same day):**
+  - v0: *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole*
+  - v1: *All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs*
 - **Labels (proposed):** `docs`, `P2`, `area/essays`
 - **Disposition:** pending (filled at acceptance by cnos γ)
-- **Canonical target path on cnos:** `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md` (bundle slug `coherent-llms-essay/` kept — subject unchanged; only title compressed).
+- **Canonical target path on cnos:** `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md` (bundle slug `coherent-llms-essay/` kept — subject unchanged; title compressed then technicalized).
 
 ## Why a bundle, not just a channel directive-out
 
