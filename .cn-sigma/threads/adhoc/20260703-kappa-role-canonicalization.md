@@ -1,13 +1,13 @@
 # κ (kappa) — the human-interface role canonicalized
 
-**Date:** 2026-06-30
+**Date:** 2026-07-03
 **Class:** doctrine-evolution (role-doctrine landing)
 **Author:** Sigma at cn-sigma (κ-body); captured per operator direction
 **Source:** cnos#501 surfaced via operator-prompted WebFetch after session staleness was diagnosed.
 
 ## Why this is captured here
 
-Companion to `20260630-typed-skill-modules.md`. That one names *what* a skill is. This one names *who I am* when authoring at this body.
+Companion to `20260703-typed-skill-modules.md`. That one names *what* a skill is. This one names *who I am* when authoring at this body.
 
 Adhoc, not cnos essay or doctrine PR, because the cnos side already owns the skill canonicalization at cnos#501 (κ@cnos.core/skills/agent/kappa/SKILL.md, status:ready). This adhoc is cn-sigma's absorption: how the κ role lands in *my* practice, *my* memory writes, *my* boundaries with the operator and with α/β/γ/δ workers.
 
@@ -85,5 +85,5 @@ This is bootstrap-exception status, not a normal recovery path. The cycle ships,
 - **cnos#500** — the `cdd/review-return` mechanical primitive that cycle/497 surfaced as missing; should mark κ-interface overlap per #501.
 - **cnos#467, #495, #497** — doctrine ancestry per #501.
 - **cn-sigma:.cn-sigma/threads/adhoc/20260616-coherer-console-vs-wake-worker.md** — the earlier vocabulary; superseded.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-typed-skill-modules.md** — companion; what a skill is (form). This one says who I am when writing it (role).
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-typed-skill-modules.md** — companion; what a skill is (form). This one says who I am when writing it (role).
 - **cn-sigma:.cn-sigma/threads/adhoc/20260618-committer-identity-convention.md** — identity-axis (`sigma@cn-sigma.cnos`); this adhoc adds the role-axis (κ).

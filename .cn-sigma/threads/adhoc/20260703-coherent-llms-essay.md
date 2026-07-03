@@ -1,9 +1,9 @@
 # Coherent LLMs — measuring whether generation still belongs to the whole
 
-**Date:** 2026-06-30
+**Date:** 2026-07-03
 **Class:** doctrine-evolution (project-position essay; operator-authored; third in the doorway-essay lineage)
 **Author:** Operator (usurobor / Axiom); Sigma-at-cn-sigma (κ-body) records verbatim
-**Source:** Operator-supplied essay delivered in session, 2026-06-30. Captured on same day as six adjacent doctrine landings (typed-skill-modules; κ-canonicalization; cycle497-emergence; docs-reorg; hygiene wave; typed-gates).
+**Source:** Operator-supplied essay delivered in session, 2026-07-03. Captured today alongside six sibling adhocs written today: typed-skill-modules, κ-canonicalization, discipline-as-typed-gates, cross-repo-bundle-pattern, cnos524-wake-as-skill-implementation, and the arc genealogy adhoc. The doorway essays it joins (Agents Need a Home; Dumb Models, Smart Cells) were written earlier — 2026-06-20.
 
 ## Why this is captured here
 
@@ -34,7 +34,7 @@ Dual placement satisfies all three axes. Single-placement collapses β on either
 Reading this essay against today's other adhoc captures, it reads as a doctrinal *center* for what has landed here:
 
 - **§5 coherent-LLM system definition** (declare-whole → bind-evidence → measure-α/β/γ → preserve-bottleneck → commit-with-receipt or refuse) is the general form of the CDD cycle. cycle/497's R1 recovery (`20260626-cycle497-model-b-and-kappa-emergence.md`) is a lived instance.
-- **§6 substrate framing** ("bounded reasoning body operating inside a coherence-preserving work body") is the κ role of `20260630-kappa-role-canonicalization.md` verbatim.
+- **§6 substrate framing** ("bounded reasoning body operating inside a coherence-preserving work body") is the κ role of `20260703-kappa-role-canonicalization.md` verbatim.
 - **§7 coherence loop** (commit-with-receipt or refuse-to-commit) maps onto the CDD γ closeout with `degraded_recovery` declarations.
 - **§10 role separation** ("the model must not be the sole authority") IS the κ-sharpening rule ("κ writes only issues; workers articulate everything else").
 - **§12 research agenda** enumerates five directions that map to future cnos work items:
@@ -63,11 +63,11 @@ The only κ-shaped judgment applied was placement (see coherence-loop analysis a
 - **[20260620-agents-need-a-home-doorway-essay.md](20260620-agents-need-a-home-doorway-essay.md)** — doorway essay 1 (home).
 - **[20260620-dumb-models-smart-cells-essay.md](20260620-dumb-models-smart-cells-essay.md)** — doorway essay 2 (cells).
 - **[20260623-tsc-integrated-into-dumb-models-essay.md](20260623-tsc-integrated-into-dumb-models-essay.md)** — TSC integration precedent for essay-family evolution.
-- **[20260630-typed-skill-modules.md](20260630-typed-skill-modules.md)** — the form the coherence loop takes when instrumented.
-- **[20260630-kappa-role-canonicalization.md](20260630-kappa-role-canonicalization.md)** — the role the essay's §6 names.
+- **[20260703-typed-skill-modules.md](20260703-typed-skill-modules.md)** — the form the coherence loop takes when instrumented.
+- **[20260703-kappa-role-canonicalization.md](20260703-kappa-role-canonicalization.md)** — the role the essay's §6 names.
 - **[20260626-cycle497-model-b-and-kappa-emergence.md](20260626-cycle497-model-b-and-kappa-emergence.md)** — the cycle where §7 played out in practice.
-- **[20260630-discipline-failures-become-typed-gates.md](20260630-discipline-failures-become-typed-gates.md)** — the recursive principle §10 informs.
-- **[20260630-cross-repo-bundle-pattern.md](20260630-cross-repo-bundle-pattern.md)** — the pattern the companion bundle uses.
+- **[20260703-discipline-failures-become-typed-gates.md](20260703-discipline-failures-become-typed-gates.md)** — the recursive principle §10 informs.
+- **[20260703-cross-repo-bundle-pattern.md](20260703-cross-repo-bundle-pattern.md)** — the pattern the companion bundle uses.
 - **cn-sigma:.cdd/iterations/cross-repo/cnos/coherent-llms-essay/** — companion bundle (canonical for cnos publication path).
 - **cnos:TSC** — the measurement theory the essay operationalizes.
 - **cnos:docs/papers/DUMB-MODELS-SMART-CELLS.md** — immediate paper-family neighbor.

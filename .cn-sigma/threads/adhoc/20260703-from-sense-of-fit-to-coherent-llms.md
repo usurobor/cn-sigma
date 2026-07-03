@@ -1,26 +1,31 @@
 # From sense of fit to coherent LLMs — the arc
 
-**Date:** 2026-06-30
+**Date:** 2026-07-03
 **Class:** doctrine-evolution (genealogy; project-history connective piece)
 **Author:** Operator (usurobor); Sigma-at-cn-sigma (κ-body) records verbatim
 **Source:** Operator-supplied narrative delivered in session immediately after the Coherent LLMs essay capture, naming the intellectual arc that connects sense-of-fit → cn-sigma → TSC → cnos → coherent LLMs.
 
 ## Why this is captured here
 
-The doctrine cluster landed at cn-sigma today reads as siblings if taken piece by piece:
+The doctrine cluster on cn-sigma reads as siblings if taken piece by piece:
 
+*Written earlier (June, operator-authored / reviewer-iterated doorway essays):*
 - `20260620-agents-need-a-home-doorway-essay.md`
 - `20260620-dumb-models-smart-cells-essay.md`
+
+*Written today (2026-07-03; κ session at cn-sigma):*
+- `20260703-typed-skill-modules.md`
+- `20260703-kappa-role-canonicalization.md`
+- `20260703-discipline-failures-become-typed-gates.md`
+- `20260703-cross-repo-bundle-pattern.md`
+- `20260703-cnos524-wake-as-skill-implementation.md`
+- `20260703-coherent-llms-essay.md` (Peter's third essay)
+
+*Also written today, backfilling earlier events (κ catch-up):*
 - `20260622-cnos-cdd-vs-cds-doctrine-correction.md`
 - `20260623-tsc-integrated-into-dumb-models-essay.md`
 - `20260626-cycle497-model-b-and-kappa-emergence.md`
 - `20260626-cdd-review-return-shipped.md`
-- `20260630-typed-skill-modules.md`
-- `20260630-kappa-role-canonicalization.md`
-- `20260630-discipline-failures-become-typed-gates.md`
-- `20260630-cross-repo-bundle-pattern.md`
-- `20260630-cnos524-wake-as-skill-implementation.md`
-- `20260630-coherent-llms-essay.md`
 
 This adhoc names the arc that they belong to. Without it, the pieces coexist. With it, they read as stages in one unfolding.
 
@@ -36,7 +41,7 @@ Adhoc register (not essay, not spec): this is project-history-from-inside. The n
 | **Triadic roles** (α produces, β judges, γ holds process) | `20260622-cnos-cdd-vs-cds-doctrine-correction.md`; cnos.cdd/skills/cdd/{alpha,beta,gamma,delta}/ |
 | **TSC** (fit formalized as α pattern / β relation / γ process) | cnos TSC spec; `20260623-tsc-integrated-into-dumb-models-essay.md` |
 | **cnos** (coherence given a body) | cnos README; `20260620-agents-need-a-home-doorway-essay.md`; `20260620-dumb-models-smart-cells-essay.md`; `20260626-cycle497-model-b-and-kappa-emergence.md` |
-| **Coherent LLMs** (runtime instrumentation) | `20260630-coherent-llms-essay.md` + bundle for cnos:docs/papers/COHERENT-LLMS.md |
+| **Coherent LLMs** (runtime instrumentation) | `20260703-coherent-llms-essay.md` + bundle for cnos:docs/papers/COHERENT-LLMS.md |
 
 ## Forward-looking notes
 
@@ -44,15 +49,15 @@ This adhoc is a navigational entry point. When future κ opens cn-sigma's adhoc 
 
 The operator's compact formulation at the end ("cn-sigma tried to measure fit. TSC explains what fit is. cnos gives fit a durable body. Coherent LLMs use that body and measurement to decide whether generation still belongs to the whole.") is the one-line executive summary of the project's current state-of-doctrine.
 
-Companion to `20260630-coherent-llms-essay.md`:
+Companion to `20260703-coherent-llms-essay.md`:
 - The essay is the *external-facing* articulation for readers who arrive without context.
 - This adhoc is the *internal-facing* narrative for readers who need the genealogy — where each concept came from and why it was needed.
 
 ## Related artifacts
 
-- **`20260630-coherent-llms-essay.md`** — the essay this arc culminates in.
-- **`20260630-typed-skill-modules.md`** — the form the coherence loop takes when instrumented.
-- **`20260630-kappa-role-canonicalization.md`** — the role emerging from stage 4 (triadic roles); κ is added as the human-interface complement to α/β/γ.
+- **`20260703-coherent-llms-essay.md`** — the essay this arc culminates in.
+- **`20260703-typed-skill-modules.md`** — the form the coherence loop takes when instrumented.
+- **`20260703-kappa-role-canonicalization.md`** — the role emerging from stage 4 (triadic roles); κ is added as the human-interface complement to α/β/γ.
 - **`20260626-cycle497-model-b-and-kappa-emergence.md`** — the lived instance of the triadic-roles → κ pivot.
 - **`20260623-tsc-integrated-into-dumb-models-essay.md`** — TSC integration; stage 5→6.
 - **`20260620-dumb-models-smart-cells-essay.md`** — cnos-as-body articulation; stage 6.

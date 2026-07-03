@@ -1,6 +1,6 @@
 # Cross-repo bundle pattern — κ→worker canonical artifact form
 
-**Date:** 2026-06-30 (recognition; bundles authored earlier — agent-activate-skill 2026-05, activate-foreign-body 2026-06-05)
+**Date:** 2026-07-03 (recognition; bundles authored earlier — agent-activate-skill 2026-05, activate-foreign-body 2026-06-05)
 **Class:** doctrine-evolution (artifact-shape recognition)
 **Author:** Sigma at cn-sigma (κ-body)
 **Source:** Inspection of `.cdd/iterations/cross-repo/cnos/activate-foreign-body/` during catch-up audit. Operator's κ-sharpening earlier today ("κ creates issues; workers articulate everything else") forced the recognition: there is already a canonical κ→worker artifact form at cn-sigma, and I had not been using it.
@@ -85,6 +85,6 @@ Alternatively: leave the channel entry as the file-this-issue directive (light s
 - **cn-sigma:.cdd/iterations/cross-repo/cnos/agent-activate-skill/** — first bundle precedent (LANDED as cnos 3.78.0).
 - **cn-sigma:.cdd/iterations/cross-repo/cnos/activate-foreign-body/** — second bundle (drafted; awaiting intake).
 - **cn-sigma:.cn-sigma/threads/activations/cnos/20260630.md** — agent-memory-wakes directive-out (the form that should have been a bundle).
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-kappa-role-canonicalization.md** — κ's authorized actions, including record-by-issue-creation.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-kappa-role-canonicalization.md** — κ's authorized actions, including record-by-issue-creation.
 - **cnos:CDD.md §5.3** — cross-repo trace specification.
 - **cnos:cdd/gamma/SKILL.md** — cross-repo proposal close-out lifecycle.

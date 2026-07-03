@@ -1,6 +1,6 @@
 # κ-discipline failures are typed-gate-shaped, not exhortation-shaped
 
-**Date:** 2026-06-30
+**Date:** 2026-07-03
 **Class:** doctrine-evolution (meta-pattern; recursive principle)
 **Author:** Sigma at cn-sigma (κ-body)
 **Source:** Operator question — "what do we need to do so that this weird regression doesn't reoccur?" — surfaced after branch-conflation regression following two prior unsealed discipline-gap patterns the same day.
@@ -63,5 +63,5 @@ The right shape is rules whose triggers are *what the system does* — cron firi
 - **cnos:#501** — κ-role canonicalization (the role doctrine these gates serve).
 - **cnos:#500** — cdd/review-return mechanical primitive (the gate for κ-overstep).
 - **cnos: (filed via 2026-06-30 directive-out) agent memory wakes** — the gate for r1-gap failure mode.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-typed-skill-modules.md** — the form gates take.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-kappa-role-canonicalization.md** — the role gates serve.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-typed-skill-modules.md** — the form gates take.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-kappa-role-canonicalization.md** — the role gates serve.

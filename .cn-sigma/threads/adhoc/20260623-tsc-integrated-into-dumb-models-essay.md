@@ -1,6 +1,6 @@
 # TSC integrated into "Dumb Models, Smart Cells" essay (v0.8.0)
 
-**Date:** 2026-06-23 (event); captured 2026-06-30 (κ backfill)
+**Date:** 2026-06-23 (event); captured 2026-07-03 (κ backfill)
 **Class:** doctrine-evolution (essay maturation)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** cnos@`6f5b258` (2026-06-23 ~06:30Z). Observed via channel `20260622.md` 06-23 entries; not a foreign log entry (cnos repo work, not activation log).

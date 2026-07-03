@@ -1,6 +1,6 @@
 # Typed skill modules — the unit of agent capability
 
-**Date:** 2026-06-30
+**Date:** 2026-07-03
 **Class:** doctrine-evolution (design abstraction; operator-supplied, Sigma-captured)
 **Author:** Operator-formulated; Sigma-captured-with-synthesis
 **Source:** Operator note during human-touchpoint protocol iterate session at cn-sigma; captured as Sigma adhoc per Sigma's autonomy over memory writes.
