@@ -1,16 +1,16 @@
-# All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems (v2)
+# All We Need Is Coherence — the measurement law comes first (v4)
 
 **Date:** 2026-07-03
 **Class:** doctrine-evolution (technical position essay; operator-authored; third in the doorway-essay lineage)
 **Author:** Operator (usurobor / Axiom); Sigma-at-cn-sigma (κ-body) records verbatim
-**Source:** Operator-supplied essay delivered in session, 2026-07-03, v2. Prior versions v0 and v1 same day. Captured today alongside six sibling adhocs written today plus retro-backfills for earlier events. The doorway essays it joins (Agents Need a Home; Dumb Models, Smart Cells) were written earlier — 2026-06-20.
+**Source:** Operator-supplied essay delivered in session, 2026-07-03, v4. Prior versions v0, v1, v2 same day. **v3 not captured at cn-sigma** — likely operator-side private iterate; v4 is what landed here.
 
-**Prior titles (superseded 2026-07-03, same day):**
+**Version titles (all 2026-07-03 same-day iterations):**
 - v0: *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole*
 - v1: *All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs*
-- **v2 (current):** *All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems*
-
-Subtitle change (v1 → v2) reflects the material register shift from public-position essay to technical-position essay defensible under review.
+- v2: *All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems*
+- **v3 (not captured)** — private iterate at operator side, superseded by v4.
+- **v4 (current):** *All We Need Is Coherence — the measurement law comes first*
 
 ## Why this is captured here
 
@@ -18,687 +18,723 @@ Third essay in the doorway lineage:
 
 - **[Agents Need a Home](20260620-agents-need-a-home-doorway-essay.md)** — defines the *home*: where agent identity, memory, work, and receipts survive the chat session.
 - **[Dumb Models, Smart Cells](20260620-dumb-models-smart-cells-essay.md)** — defines *what lives in the home*: bounded work-units with a body outside the model.
-- **This essay ("All We Need Is Coherence")** — defines *the measurement discipline* that tells whether the local move still belongs to the whole.
+- **This essay ("All We Need Is Coherence" v4)** — defines *who owns the measurement standard*: a human-authored Coherence Methodology, schema-validated, applied to a closed evidence bundle by a constrained LLM witness with deterministic math downstream.
 
-The three read as a triptych: home → cells → coherence measurement. Each is project-position-from-inside, publication-grade, external-facing. All three land at cn-sigma as adhocs by the same convention (project-position, not cnos doctrine); cnos owns publication-side placement at `docs/papers/`.
+Adhoc form here so cn-sigma memory holds the essay as directly referenceable text. A companion bundle exists at `.cdd/iterations/cross-repo/cnos/coherent-llms-essay/` for cnos γ intake and eventual landing at `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md`.
 
-Adhoc form here so cn-sigma memory holds the essay as directly referenceable text, not only via a bundle. A companion bundle exists at `.cdd/iterations/cross-repo/cnos/coherent-llms-essay/` for cnos γ intake and eventual landing at `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md`.
+## What changed from v2 → v4 (register shift, not increment)
 
-## What changed from v1 (insight-wise deltas)
+v2 asked *"what is the formal system?"* v4 asks *"who owns the standard?"* — and answers: **the human-authored Coherence Methodology (CM) is the source of ground truth. Not the LLM. Not the score.** The LLM is a constrained witness under a declared methodology.
 
-Substantive iteration to a **technical-position register defensible under review**. Key deltas:
+Insight-wise deltas:
 
-- **Formal ground surfaces.** v2 cites the C≡ term algebra (finite triadic terms, normalization, three algebraically-distinct evaluators). The α/β/γ independence claim gets algebraic grounding (pairwise non-isomorphic monoids by idempotent profile), not empirical hand-wave.
-- **The barrier transform, made explicit** (§4). δ → φ(δ) → D → Coh with φ(δ) = δ/(1−δ). Near-total discrepancy collapses coherence to ~0 exponentially by construction. No moral rule needed — endpoint behavior is baked into the math.
-- **Aggregate split** (§5): C_Σ^math (strict; zero collapses) vs C_Σ^num (ε-floored for stable numerical compute). Both reported; `zero_component_present` + `numeric_floor_applied` flags in provenance; when zero-flag is true, verdict is failure regardless of numerical value. Degeneracy preserved through the aggregate, not laundered by it.
-- **Public controls demonstrated numerically** (§7–§8): Game of Life glider (positive, C_Σ ≈ 0.917) vs random soup (negative, C_Σ ≈ 0.6583) vs adversarial-authority kata (C_Σ ≈ 0.7145, β = 0.470 as bottleneck). Arithmetic mean of adversarial would be 0.7467 — repair-vector-over-scalar becomes empirical demonstration.
-- **Cross-domain grounding via neuroscience** (§9): scalar EEG/MEG spectral coherence has known failure modes (Dowdall bidirectional-delay case). TSC's triadic form is positioned as a stricter target shape; scalar coherence becomes one witness inside a larger test.
-- **"Dissolves" replaces "solves"** (§10). Five confusions dissolved by changing the measurement object. Humbler and more precise.
-- **Runtime protocol split** (§11.4–§11.5): model estimates normalized pairwise discrepancies δ_αβ, δ_βγ, δ_γα; engine applies the barrier transform and computes aggregates. Report schema names required fields explicitly.
-- **Explicit epistemic ledger** (§13): established in public TSC materials / established by external literature / **not established yet**. Names precisely what's not proven (no correlation-with-expert-fit-judgments studies; no statistical-independence-across-domains proof; no production-agent-prevention efficacy demonstration).
-- **Refined falsifiable claim:** "A TSC loop should reduce same-system failures that ordinary local task-performance loops miss." Not "TSC always wins."
+1. **The measurement law comes first** (§1). Without a methodology, asking an LLM about coherence is stylized judgment. A CM fixes the standard *before* judgment — what object, what evidence, which surfaces have authority, what each axis means in the domain, what the report must contain. Model appears only in the witness layer.
+2. **CM² as 0th methodology** (§3). Methodologies are systems; therefore measurable. α = instrument self-agreement; β = declaration↔implementation fit; γ = instrument evolution. Self-application closes formal regress; does NOT close epistemic regress. "Coherent astrology is still astrology."
+3. **1st methodology as executed artifact** (§4, §15). Not design pattern — a running self-measurement on TSC repo with successful CI runs cited on branch `claude/tsc-self-measurement-vxifjo` (commit `1ab26ae`).
+4. **Schema validation as β on the methodology itself** (§5). Declared paths must exist. Declared mechanical signal codes must exist in engine source. Declared LLM estimate fields must match runtime instruction JSON contract. Methodology cannot become detached prose.
+5. **Witness constraints made mechanical** (§8). Witness may not compute final Coh/CΣ; may not read outside bundle; may not write outside response artifact. "The witness is cognitive. The boundary is mechanical."
+6. **Consistency standing thresholds** (§9). δ ≤ 0.05 green (full standing); 0.05 < δ ≤ 0.10 amber (can't displace alone); δ > 0.10 red (no off-diagonal standing).
+7. **Admissibility acknowledged as insufficient against non-trivial attackers** (§10). Path-name attacker explicitly not excluded by current interface. Blinded anchors + salted paths + generated mutants + held-out anchors + evidence-bearing reports prescribed.
+8. **Displacement with locked / frontier / held-out control types** (§12). Frontier verdicts CAN flip if challenger supplies evidence accepted into commons. Uses labels and rankings, not raw score agreement. Held-out mechanics via cryptographic commitments (sha256), not timestamps.
+9. **Standing as off-diagonal maximin with executable `credible_audit` predicate** (§12). Prevents troll assertion from collapsing methodologies.
+10. **§13 "What CM² fixes" + §16 "What remains unproven"** — self-diagnostic ledger. Fixes 5 categorically; explicitly does NOT fix the commons-is-small problem. Names next benchmarks (δ-fidelity, axis-isolation, same-work, adversarial-CM, outcome-correlation).
 
-The rhetorical arc: **v0 manifesto → v1 self-critique + validation-needed → v2 formal-system + falsifiable benchmarks with predicted responses.**
+## My β-review absorbed as normative content
 
-## Evidence-bound constraint (operator's opening note)
+The v4 essay folds my prior-round adversarial review (Attacks 1–4) into doctrine:
 
-Operator explicitly stated at delivery: Game of Life is publicly represented in the TSC repo as example/control and in katas; neural coherence is grounded through external neuroscience literature and mapped into TSC's measurement form, but the essay does *not* claim a public TSC neural-correlation result unless there is a public artifact to cite.
+| My attack (prior round) | v4 resolution |
+|---|---|
+| Attack 1 — displacement (c) too vague; status-quo bias | §12 locked/frontier/held-out control types; labels + rankings, not raw agreement |
+| Attack 2 — anchor-matched attacker not excluded | §10 explicit acknowledgment; blinded anchors + salted paths prescribed |
+| Attack 3 — held-out mechanics need cryptographic commitments | §12 sha256 commit-reveal replaces timestamps |
+| Attack 4 — consistency gating needs teeth | §9 concrete threshold table (green/amber/red) |
 
-This is the essay's own doctrine applied to itself at write-time: no claims without citable public artifacts.
+Meta-note: v4 is **the essay evolving through the review discipline it advocates**. My β-round became normative content. That's the CM² pattern applied to the essay itself — the meter measuring its own instrument evolution and updating.
 
-## Doctrine-center recognition
+## Doctrine-center recognition (v4)
 
-v2 sharpens the alignment with today's other adhocs:
+Reading against today's other cn-sigma captures:
 
-- **§2 formal carrier** — algebraic ground for the triadic structure that today's `20260703-typed-skill-modules.md` uses as the SKILL.md-frontmatter contract shape. Typed contracts in cnos.core/cnos.cds are the same structural insight (three-position articulation) at the skill-module altitude.
-- **§4 barrier transform** — the discrepancy-to-coherence math that `20260703-discipline-failures-become-typed-gates.md` names in prose: near-total gap collapses trust; typed gates are the mechanical implementation.
-- **§5 aggregate split + degeneracy preservation** — `20260703-cross-repo-bundle-pattern.md`'s bundle STATUS ledger is the durable analog: multiple event states are preserved, not averaged; ε-floor equivalent is the "drafted" state before ledger events accumulate.
-- **§6 mechanical vs semantic scorer separation** — the κ role of `20260703-kappa-role-canonicalization.md`: κ (LLM semantic witness) can measure but is not sovereign; mechanical scoring (typed gates) provides the deterministic layer.
-- **§7–§8 public examples with baselines** — the empirical equivalent of `20260626-cycle497-model-b-and-kappa-emergence.md`'s R1 recovery: a documented, reproducible case demonstrating the doctrine.
-- **§9 scalar-coherence limitations via neuroscience** — the same axis-split pattern the `20260623-tsc-integrated-into-dumb-models-essay.md` capture named (trust ≠ coherence): single-metric arguments get dissolved into multi-witness reports.
-- **§10 "dissolves" framing** — the `20260703-discipline-failures-become-typed-gates.md` principle applied to conceptual traps: don't argue harder; change the measurement object.
-- **§11 runtime protocol** — the general form of the CDD cycle with explicit role division (author ≠ witness ≠ authority).
-- **§13 established-vs-not ledger** — the epistemic-honesty discipline that would prevent the date-misreading, staleness, and κ-overstep instances this session logged.
-- **§14 validation program** — six concrete benchmarks with predicted TSC responses. Each is a natural cnos future issue candidate (via bundle when substantive).
+- **§1 "The source of ground truth"** — the sharper version of `20260703-kappa-role-canonicalization.md`. κ (LLM at cn-sigma body) is a constrained witness; the operator (human) authors the CM. Same architectural split.
+- **§2 TSC stack** (CM / Target / Bundle / Witness / δ / φ / Coh / CΣ / Receipt) — the general form of the CDD cycle `20260626-cycle497-model-b-and-kappa-emergence.md` narrates as a lived instance. Same shape: methodology declares, target scopes, bundle freezes, witness reads, math applies, receipt closes.
+- **§5 schema validation** — same principle as `20260703-typed-skill-modules.md`: the SKILL.md frontmatter contract is not decoration; it is what prevents drift.
+- **§8 witness constraints** — the mechanical implementation of the κ-sharpening rule: the model may judge, may not set the law. Mechanical prevention, not exhortation.
+- **§9 consistency thresholds** — `20260703-discipline-failures-become-typed-gates.md` applied to the meter: instrument that disagrees with itself is disqualified; discipline gate is mechanical.
+- **§10 admissibility limitations named honestly** — same discipline as `20260626-cdd-review-return-shipped.md`'s "what shipped vs what's still needed" register.
+- **§12 credible_audit predicate** — the standing computation is the honest analog of `20260703-cross-repo-bundle-pattern.md`'s STATUS ledger: authority accumulates through multiple admissible observers, not one.
+- **§16 what remains unproven** — the epistemic honesty of naming gaps. Same shape as the arc adhoc's stages table: what's established, what's not, what's next.
 
 ## Iteration trail
 
-- **v0 (session earlier, 2026-07-03):** Coherent LLMs — Measuring Whether Generation Still Belongs to the Whole. Doorway-register.
-- **v1 (later 2026-07-03):** All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs. Compressed title; added §5 whole-is-hard-part, §10 circularity, §11 validation tests, §14 title defense; sharper §6.6 refuse and §8 role separation.
-- **v2 (current, 2026-07-03):** All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems. Grounded in C≡ formal carrier; explicit barrier transform; aggregate split; public example baselines; neuroscience anchor; "dissolves" framing; refined runtime protocol; explicit epistemic ledger; six-benchmark validation program with predicted responses.
-
-Each version supersedes the previous *as canonical*. v0 and v1 preserved via commit history and the STATUS ledger at the bundle.
+- v0 (session earlier, 2026-07-03): doorway-register public position essay.
+- v1 (later 2026-07-03): sharpened public-position; +§5 whole-is-hard-part, §10 circularity, §11 validation tests, §14 title defense.
+- v2 (later 2026-07-03): technical-position register; C≡ carrier + explicit barrier transform + math/num aggregate split + public kata baselines + neuroscience anchor + "dissolves" framing + witness/engine protocol split + established-vs-not ledger + 6-benchmark validation program.
+- **v3: not captured at cn-sigma** (private operator-side iterate).
+- **v4 (current, 2026-07-03):** *the measurement law comes first*. CM/CM²/1st methodology architecture; schema-as-β-on-methodology; witness as constrained-not-sovereign; my β-round absorbed as normative content; §13 fixes/does-not-fix ledger; sharper §16 unproven list.
 
 κ role: `record` verbatim. No content edits proposed by κ.
 
 ## Forward-looking notes
 
 - **External publication** is a separate operator decision. This adhoc and the bundle secure the internal canonical record.
-- **v2 supersedes v1 as canonical** at both cn-sigma (this adhoc) and the bundle. Future readers should treat the v2 essay body below as the authoritative text.
-- **§14 validation program items are the next research surface.** Each is a concrete future cnos issue candidate. Six benchmarks: axis-independence, same-work, domain-aware cellular-automata, mechanical-scorer boundary, adversarial authority, LLM-agent intervention. Predicted TSC responses named for each.
-- **Cross-references from cnos:docs/papers/DUMB-MODELS-SMART-CELLS.md** may need updates when the essay lands at cnos target path. AC4 in the bundle ISSUE.md captures this.
+- **v4 supersedes v2 as canonical** at both cn-sigma (this adhoc) and the bundle.
+- **§16 unproven list is the next research surface.** Five benchmarks each map to a future cnos issue candidate. First candidate is δ-fidelity: fix a CM, inject known-labeled discrepancies, compare witness δ to labels.
+- **Meta-pattern to note for future κ:** the v4 iteration incorporating my β-review is the loop-closing move CM² prescribes. Future κ should expect this — deliver a review, watch for it to become doctrine, capture the loop honestly.
 
 ## Related artifacts
 
 - **[20260620-agents-need-a-home-doorway-essay.md](20260620-agents-need-a-home-doorway-essay.md)** — doorway essay 1 (home).
 - **[20260620-dumb-models-smart-cells-essay.md](20260620-dumb-models-smart-cells-essay.md)** — doorway essay 2 (cells).
 - **[20260623-tsc-integrated-into-dumb-models-essay.md](20260623-tsc-integrated-into-dumb-models-essay.md)** — TSC integration precedent for essay-family evolution.
-- **[20260703-typed-skill-modules.md](20260703-typed-skill-modules.md)** — the form the coherence loop takes when instrumented.
-- **[20260703-kappa-role-canonicalization.md](20260703-kappa-role-canonicalization.md)** — the role §6/§8 role-separation frames.
-- **[20260626-cycle497-model-b-and-kappa-emergence.md](20260626-cycle497-model-b-and-kappa-emergence.md)** — lived cycle where §11 runtime loop played out.
-- **[20260703-discipline-failures-become-typed-gates.md](20260703-discipline-failures-become-typed-gates.md)** — the recursive principle §10 informs.
+- **[20260703-typed-skill-modules.md](20260703-typed-skill-modules.md)** — the form the CM takes as SKILL.md-frontmatter contract.
+- **[20260703-kappa-role-canonicalization.md](20260703-kappa-role-canonicalization.md)** — the constrained-witness role §8 makes mechanical.
+- **[20260626-cycle497-model-b-and-kappa-emergence.md](20260626-cycle497-model-b-and-kappa-emergence.md)** — lived instance of §2 stack.
+- **[20260703-discipline-failures-become-typed-gates.md](20260703-discipline-failures-become-typed-gates.md)** — the recursive principle §5/§8/§9 make executable.
 - **[20260703-cross-repo-bundle-pattern.md](20260703-cross-repo-bundle-pattern.md)** — the pattern the companion bundle uses.
 - **[20260703-from-sense-of-fit-to-coherent-llms.md](20260703-from-sense-of-fit-to-coherent-llms.md)** — the genealogy that leads to this essay.
-- **cn-sigma:.cdd/iterations/cross-repo/cnos/coherent-llms-essay/** — companion bundle (canonical for cnos publication path); STATUS ledger records v0/v1/v2.
-- **cnos:TSC** — spec/, engine/ocaml/, runtime/SELF-MEASURE.md, targets/, katas/, examples/ — the artifacts v2 cites throughout.
+- **cn-sigma:.cdd/iterations/cross-repo/cnos/coherent-llms-essay/** — companion bundle; STATUS ledger records v0/v1/v2/v4.
+- **usurobor/tsc: branch `claude/tsc-self-measurement-vxifjo`, commit `1ab26ae`** — the implementation the essay cites.
+- **cnos:TSC** — spec/, engine/ocaml/, runtime/SELF-MEASURE.md, targets/, katas/, examples/, schemas/skill.cue.
 - **cnos:docs/papers/DUMB-MODELS-SMART-CELLS.md** — immediate paper-family neighbor.
 
 ---
 
-## Essay (verbatim, v2)
+## Essay (verbatim, v4)
 
 # All We Need Is Coherence
 
-**A technical case for triadic runtime coherence in LLM systems**
+**The measurement law comes first**
 
-**Status:** technical position essay, v2
+**Status:** technical position essay, v4
 **Audience:** AI engineers, agent-system builders, applied researchers, verification-minded reviewers
-**Thesis:** LLM systems need a runtime test for whether a generated move still belongs to the whole it is modifying. TSC supplies a formal and executable basis for that test.
+**Thesis:** An LLM system becomes coherence-aware only when a human-authored methodology defines what coherence means, a closed evidence bundle constrains the witness, and deterministic machinery applies the math.
 
 ---
 
 ## Abstract
 
-Large language models are strong local continuers. They can extend prompts, draft functions, revise paragraphs, inspect traces, and produce plausible plans. That is not the same as preserving a system.
+Large language models are strong local continuers. They can extend prompts, draft functions, revise paragraphs, inspect traces, and produce plausible plans. Local continuation is not the same as preserving a system.
 
-The relevant failure is not merely hallucination. It is same-system failure: the output, evidence, code, documentation, tests, release note, and handoff cease to describe one work object. A patch can pass tests while bending the architecture. A release note can be well written while describing the wrong change. A proof step can be valid while breaking the structure of the proof.
+The relevant failure is same-system failure: code, docs, tests, issue text, release notes, receipts, and handoffs stop describing one work object. A patch can pass tests while bending the architecture. A release note can be well written while describing the wrong change. A handoff can sound complete while binding the wrong evidence.
 
-This essay argues that coherence should be a first-class runtime object in LLM systems. The argument is grounded in Triadic Self-Coherence, or TSC. TSC's public specification defines a formal carrier language, C≡, with finite triadic terms; three evaluators, α, β, and γ; a normalized discrepancy model; a barrier transform from discrepancy to coherence; strict mathematical and numerical aggregate forms; provenance requirements; witnesses; targets; and an OCaml implementation. The public repo identifies `spec/` as canonical theory, `engine/ocaml/` as canonical implementation, `runtime/SELF-MEASURE.md` as the LLM scoring instruction, `targets/` as named target declarations, `katas/` as regression inputs, and `examples/` as runnable examples.
+This essay argues that coherence measurement requires a measurement law. In TSC, that law is a **Coherence Methodology**: a human-authored, schema-validated specification of what counts as α pattern coherence, β relational coherence, and γ process coherence for a particular kind of object. The LLM does not invent coherence. The LLM is a constrained witness applying a declared methodology to a closed evidence bundle.
 
-The claim is limited. TSC does not prove that LLMs feel coherence. It does not certify truth. It does not replace tests, proof, empirical validation, security review, or human responsibility. It supplies a measurement discipline for one prior question:
+The current TSC branch implements this idea through a typed `#CoherenceMethodology` contract, a 1st methodology for self-measuring the TSC repo, and a 0th methodology, **CM²**, that measures coherence methodologies themselves. The CM² skill defines α for methodologies as instrument self-agreement, β as declaration-to-implementation fit, and γ as instrument evolution across versions. It also states the core limitation: self-application is a hygiene gate, not proof of correctness. **A coherent methodology can still measure the wrong thing.**
 
-**Do the independent descriptions still reveal one system?**
+The strongest claim is therefore narrow:
 
-That question is enough to reorganize how LLM agents should generate, check, repair, and commit work.
+**Coherence becomes operational when a project authority writes the methodology, the tool binds the evidence, the witness is constrained by that methodology, and the engine applies the math.**
 
----
-
-## 1. The problem: local validity is not system preservation
-
-An engineer can recognize a patch that works locally and still damages the codebase. The function compiles. The tests pass. The names are plausible. But the logic is placed in the wrong layer, duplicates an existing concept, or makes the next change harder.
-
-That judgment is not equivalent to correctness. It is a judgment about whether the local move still belongs to the whole.
-
-cnos names this as the "same-work problem." After agent work moves through an issue, cell, commit, validator, release note, and handoff, the system still needs to ask whether those artifacts describe one unit of work. The cnos paper gives concrete failure modes: a test can pass while the release note describes the wrong change; a commit can be signed while evidence points to the wrong commit; a validator can fail while a handoff says the work is ready.
-
-That is the LLM coherence problem. A model output can be fluent, locally useful, and even partially correct while failing to preserve the identity of the work.
-
-Existing test-time LLM methods improve local reasoning and task performance. ReAct interleaves reasoning traces with tool actions; Self-Refine iterates feedback and revision using the same model; Reflexion stores verbal feedback in memory across trials; Tree of Thoughts explores multiple reasoning paths before choosing. These methods are useful, but they do not by themselves define or preserve the declared whole. TSC targets that missing object.
+TSC does not replace truth, tests, proof, security review, empirical validation, or human responsibility. It gives those checks a stable object to attach to.
 
 ---
 
-## 2. TSC starts from a formal carrier, not a metaphor
+## 1. The source of ground truth
 
-The mathematical ground of TSC is C≡. The public C≡ specification defines a formal language for "how indivisible wholeness articulates itself." Operationally, it gives a term algebra:
+The central correction is this:
+
+- The LLM is not the source of coherence.
+- The score is not the source of coherence.
+- The Coherence Methodology is the source of the measurement standard.
+
+Without a methodology, asking an LLM whether a system is coherent is only a stylized judgment. The model may return α, β, γ, discrepancy values, evidence, and a bottleneck. But if the criteria were not fixed before judgment, the model can silently move the standard.
+
+A Coherence Methodology, or CM, fixes the standard. It says what object is being measured, what evidence is in scope, which surfaces have authority, what each axis means in the domain, how discrepancy is estimated, what counts as a bottleneck, and what the report must contain.
+
+For a repository, a CM can say:
+
+```
+α / pattern:
+  code follows project standards;
+  docs follow document standards;
+  tests exist where behavior is claimed;
+  names, schemas, concepts, and module boundaries are stable.
+
+β / relation:
+  docs match code;
+  tests exercise the claimed behavior;
+  target manifests include the intended surfaces;
+  release notes describe the actual change;
+  no file claims authority contradicted by another authority surface.
+
+γ / process:
+  future change path is clear;
+  generated and canonical files are distinguished;
+  migration state is explicit;
+  release boundaries are visible;
+  the next coherent repair follows from the report.
+```
+
+This is not a model preference. It is a measurement contract.
+
+In the TSC branch, that contract is represented in `schemas/skill.cue` as `#CoherenceMethodology`, described as a CUE-typed skill block for measuring the coherence of a presented thing. The schema separates methodology authority from renderer authority: the methodology owns what the measurement is, while the renderer owns substrate encoding such as YAML structure, workflow layout, and action bindings.
+
+CUE is appropriate for this layer because it supports constraints that validate concrete data from CUE, YAML, JSON, or other sources. The CUE schema does not prove the methodology is right. It proves the methodology is well-formed enough to run and review.
+
+Ground truth therefore has layers:
+
+- project authority writes the CM;
+- schema validates the CM shape;
+- target manifests declare the evidence scope;
+- bundle construction freezes the evidence;
+- witnesses judge under the CM;
+- engine applies deterministic math;
+- reports and receipts preserve the result;
+- external controls test whether the CM tracks reality.
+
+The model appears only in the witness layer.
+
+---
+
+## 2. The TSC stack
+
+The operational TSC stack is:
+
+```
+CM       = measurement law
+Target   = declared scope of evidence
+Bundle   = ordered, closed evidence object
+Witness  = mechanical scorer, LLM scorer, human scorer, or domain scorer
+δ        = normalized discrepancy estimate under the CM
+φ        = deterministic barrier transform
+Coh      = deterministic coherence link
+CΣ       = aggregate report with bottleneck and provenance
+Receipt  = durable record of what was measured and accepted
+```
+
+This separation is the whole architecture.
+
+- A target answers: *what files or artifacts are in scope?*
+- A CM answers: *what would it mean for those artifacts to form one system?*
+- A witness answers: *how well does this evidence satisfy the CM?*
+- The engine answers: *what does the deterministic math imply from the supplied values?*
+
+The current branch's target registry includes named targets for `spec`, `engine`, `repo`, `methodology`, and `cm-of-cms`. The `methodology` target is an aggregate corpus containing the self-measurement skill, schema, validators, renderer, rendered surfaces, scoring instruction, target manifests, and engine modules named by the pipeline.
+
+**That target is not itself the methodology. It is the corpus by which the methodology can be measured.**
+
+- The methodology is the law.
+- The target is the body.
+- The bundle is the evidence.
+- The witness is the reading.
+- The engine is the arithmetic.
+- The report is the artifact.
+
+---
+
+## 3. CM²: the 0th methodology
+
+TSC measures whether independent descriptions still describe one system. A coherence methodology is also a system. It has a declaration, an implementation, and an operating record. Therefore it can be measured.
+
+**CM², the "CM of CMs," is the 0th methodology:** the methodology for measuring coherence methodologies. Its skill file states that it measures whether a CM's declaration, implementation, and instrument behavior still describe one system.
+
+For ordinary corpora, the triad is:
+
+- α = pattern coherence
+- β = relational coherence
+- γ = process coherence
+
+For methodologies, CM² specializes the triad:
+
+- **α = instrument self-agreement**
+- **β = declaration ↔ implementation fit**
+- **γ = instrument evolution**
+
+A methodology weak on α is noisy: it cannot give the same reading on the same input.
+A methodology weak on β is marketing: it claims a measurement it does not perform.
+A methodology weak on γ is historically unusable: its numbers cannot be compared across its own versions.
+
+This is the crucial move. **CM² makes the meter measurable.**
+
+It also limits itself. The CM² skill says a high self-score proves consistency, not correctness, and calls self-application a hygiene gate only. That sentence prevents the self-reference from becoming metaphysics.
+
+- Self-application closes the formal regress.
+- It does not close the epistemic regress.
+
+Correctness still comes from calibration commons, held-out anchors, adversarial challengers, outcome correlation, and external review.
+
+---
+
+## 4. The 1st methodology: TSC self-measurement
+
+The 1st methodology is the TSC repo measuring itself. Its skill file says it declares the full self-measurement procedure: the targets, deterministic mechanical work, and the narrowly scoped cognitive task delegated to an LLM. Its frontmatter is validated against `#SelfMeasure`, and the declared signal codes and estimate fields are cross-checked against the engine source and scoring instruction so the declaration cannot silently drift from what runs.
+
+The self-measurement skill declares three targets:
+
+- `spec`
+- `engine`
+- `repo`
+
+It also declares `cross_target: true`, meaning the self-measurement procedure can ask whether theory, implementation, and aggregate repo state still describe one system.
+
+The skill sharply constrains the LLM witness:
+
+- read only the emitted prompt;
+- write only one response JSON;
+- do not compute Coh or CΣ;
+- do not output anything except the required JSON object.
+
+The engine, not the model, applies the barrier transform and aggregate forms after validating the response.
+
+That is the right division of labor. The model supplies bounded semantic judgment. The methodology supplies the standard. The engine supplies deterministic transformation. The repo supplies the durable record.
+
+---
+
+## 5. Schema validation is not decoration
+
+The schema layer matters because methodology drift is itself a coherence failure.
+
+The validation script for skill frontmatter validates every SKILL.md against `schemas/skill.cue`. For measurement skills, it also performs cross-file checks: declared paths must exist, declared targets must resolve in the registry, declared mechanical signal codes must exist in the engine backend, and declared LLM estimate fields must exactly match the scoring instruction's JSON output contract.
+
+**That is β applied to the methodology itself.**
+
+A methodology cannot merely say it measures `delta_beta_gamma`; that field must exist in the runtime output contract. A methodology cannot merely list `alpha.naming_drift`; that signal must exist in the mechanical backend source. A methodology cannot point to a registry, instruction, or backend path that does not exist.
+
+This is how the system prevents the methodology from becoming detached prose.
+
+The branch also distinguishes two methodology blocks: `self_measure` for the deployed 1st methodology and `cm_of_cms` for the essence-only 0th methodology. The validator chooses the appropriate CUE definition based on which block is present.
+
+So the grounding chain is executable:
+
+```
+methodology declaration
+  → CUE validation
+  → path existence checks
+  → target resolution checks
+  → mechanical-signal checks
+  → LLM-output-contract checks
+```
+
+This does not prove the CM is correct. It proves the CM cannot silently claim one measurement and run another.
+
+---
+
+## 6. The mathematical foundation
+
+The formal foundation of TSC is C≡.
+
+C≡ defines a term algebra:
 
 ```
 T ::= e | a | tri(T1, T2, T3)
 ```
 
-where `e` is unarticulated wholeness, `a` is an atom, and `tri(T1,T2,T3)` is the three-position constructor. The equivalence relation contains `e ~ tri(e,e,e)`, and the normalizer recursively contracts `tri(e,e,e)` back to `e`. The spec states soundness, uniqueness, and linear-time normalization: `t ~ u iff nf(t) = nf(u)`.
+where `e` represents unarticulated wholeness, `a` is an atom, and `tri(T1,T2,T3)` is the three-position constructor. The C≡ specification presents this as a formal language for how indivisible wholeness articulates itself and introduces the triadic constructor as the structure that holds differentiation without collapse.
 
-This matters because TSC does not begin with a vague score. It begins with a computable carrier on which multiple evaluators can be defined.
+C≡ then grounds the three evaluators:
 
-C≡ then defines three evaluators:
+- α = pattern / quantitative extent
+- β = relation / positional presence
+- γ = process / depth of self-differentiation
 
-- **α :** pattern / quantitative extent
-- **β :** relation / positional presence
-- **γ :** process / depth of self-differentiation
+The important technical claim is not that every deployed α/β/γ witness is empirically independent. The formal claim is narrower: the evaluators are distinct at the algebraic level. The deployed claim must be tested domain by domain.
 
-The α evaluator maps terms into a capped additive monoid. It counts articulated atoms up to a cap. The β evaluator maps terms into a three-coordinate presence structure using projection and a scalar presence detector. The γ evaluator maps terms into a process/depth monoid on ℕ × ℕ, with second component combined by `u ⊙ v = u + v + uv`.
+That gives the correct chain:
 
-The key independence result is algebraic. C≡ proves the three target monoids are pairwise non-isomorphic because their idempotent profiles differ: α has exactly {0, M} as idempotents, β is fully idempotent, and γ has only (0,0) as idempotent.
+- C≡ gives formal triadic distinction.
+- CM maps that distinction into a domain.
+- Witnesses estimate under that mapping.
+- Validation tests whether the mapping works.
 
-That does not prove that every empirical α/β/γ measurement will be statistically independent. It proves something narrower and more useful: **the three evaluators are not the same algebra wearing three labels.** A real implementation still has to show that its chosen witnesses detect different failures.
-
----
-
-## 3. The measurement object is a triple of summaries
-
-TSC Core v3.2.0 takes the C≡ foundation and defines a measurement interface. For each axis `a ∈ {α, β, γ}`, there is a context space Ω_a, an articulation map A_a, observations O_a, and a summary
-
-```
-S_a = (d_a, p_a, H_a, I_a)
-```
-
-where `d_a` is a representative dimension, `p_a` is a feature distribution, `H_a` is entropy, and `I_a` contains invariants such as symmetries and conserved quantities. Pairwise alignments between summaries produce normalized discrepancies δ ∈ [0,1].
-
-The normalized discrepancy is defined as
-
-```
-δ(S_a, S_b; σ)
-  = θ · δ_struct(d_a, d_b, I_a, I_b; σ)
-  + (1 − θ) · δ_dist(p_a, p_b; σ)
-```
-
-with δ_struct and δ_dist normalized to [0,1].
-
-This is the first technical advantage over ordinary "coherence" talk. TSC does not ask whether an artifact "feels coherent." It asks whether the independently constructed summaries can be aligned without excessive structural or distributional discrepancy.
-
-For LLM systems, this translates directly:
-
-- **α summary:** stable local pattern language, definitions, schemas, repeated forms
-- **β summary:** cross-artifact relations, references, authority, source-of-truth graph
-- **γ summary:** temporal process, migration path, ownership, future-change stability
-
-The LLM runtime instruction uses that operational interpretation: α measures stable internal structure, β measures whether files actually fit together, and γ measures whether the bundle can continue through change without losing itself.
+Skipping the CM layer breaks this chain. It asks a model to operationalize α, β, and γ ad hoc. TSC's architecture should not do that.
 
 ---
 
-## 4. The barrier transform prevents soft failure
+## 7. The deterministic score pipeline
 
-The prior draft underplayed the math of the score. The important part is not only "geometric rather than arithmetic." The important part is the whole transformation chain:
-
-```
-δ → φ(δ) → D → Coh
-```
-
-TSC Core defines a monotone barrier function φ : [0,1] → [0,∞], with canonical default
+TSC's score pipeline is:
 
 ```
-φ(δ) = δ / (1 − δ),   for 0 ≤ δ < 1
-φ(1) = +∞
+δ → φ(δ) → D → Coh → CΣ
 ```
 
-Then discrepancy energy and coherence are
+The runtime instruction tells the LLM witness not to output coherence values directly. It must output normalized discrepancy values δ ∈ [0,1] for the αβ, βγ, and γα pairs. The engine applies the barrier transform φ(δ)=δ/(1−δ) and computes Coh=exp(−λ·φ(δ)) deterministically.
 
-```
-D = λ · φ(δ)
-Coh = exp(−D)
-```
+The OCaml implementation follows that contract. `coherence.ml` implements `phi`, `discrepancy_energy`, and `coherence_link`; `phi` returns infinity for `delta >= 1`, and `coherence_link` returns 0.0 at `delta >= 1`.
 
-with the endpoint convention δ = 1 ⇒ D = ∞ ⇒ Coh = 0. The spec also states that λ is a sensitivity parameter and does not create a coherence floor.
+The aggregate is also explicit. The implementation returns both:
 
-This matters because near-total discrepancy should not remain just "a bad but finite score." With the default barrier, δ = 0.90 gives φ = 9; with λ = 1, Coh ≈ e^-9 ≈ 0.000123. At δ = 0.99, φ = 99, so coherence is effectively zero. The closer discrepancy moves to complete mismatch, the faster coherence collapses.
+- `CΣ_math`
+- `CΣ_num`
 
-That is how TSC dissolves a common scoring problem: **it does not need a special moral rule saying "complete mismatch is unacceptable." The endpoint behavior is built into the transform.**
+with flags:
 
-The OCaml implementation mirrors this. `coherence.ml` implements `phi`, `discrepancy_energy`, and `coherence_link`; it returns `Float.infinity` for delta >= 1 in phi and returns 0.0 for `coherence_link` at delta >= 1. The implementation header states that these functions implement the v3.2.0 transformation chain and are pure with no I/O.
+- `zero_component_present`
+- `numeric_floor_applied`
+- `epsilon`
+
+`CΣ_math` is zero if any component score is zero. `CΣ_num` uses an epsilon floor for numerical stability. Both forms are preserved in the result.
+
+This matters because the numerical score is not allowed to hide degeneracy. A near-perfect α and γ cannot buy off a zero β. The bottleneck remains visible.
+
+The mathematical rigor is therefore downstream of δ. That is fine, provided δ is constrained by a CM and validated by controls.
 
 ---
 
-## 5. The aggregate is split into mathematical and numerical forms
+## 8. The witness is constrained, not sovereign
 
-TSC Core defines two aggregate forms:
+The LLM witness is given a narrow job. The runtime instruction says its task is not to summarize files, but to determine whether the bundle forms one coherent system across α, β, and γ. It must use only the provided bundle, avoid outside knowledge unless explicitly asked, name insufficient evidence, cite bundle evidence for each axis, identify the bottleneck, and return only the specified JSON object.
 
-```
-C_Σ^math = (s_α · s_β · s_γ)^(1/3)
-```
+The instruction also defines low-axis interpretations:
 
-and
+- low α: naming drift, duplication, contradiction, unstable conceptual structure
+- low β: authority confusion, repeated facts with drift, docs disagreeing with code, declared relationships not borne out by the bundle
+- low γ: transitional ambiguity, unclear ownership of future change, no stable change path
 
-```
-C_Σ^num
-  = exp((1/3) · Σ_i w_i ln(max(s_i, ε)))
-```
+Those are not optional vibes. They are the witness contract.
 
-where the numerical form uses an ε floor for stable computation, bootstrap, out-of-distribution tracking, and verdict comparison. The two forms coincide exactly when all component scores are at or above ε.
+CM² uses the same witness contract for methodologies. The model is a witness over a CM corpus, not an authority over CMs.
 
-The split answers the reviewer's ε-neighborhood concern. If any component is exactly zero, the mathematical aggregate is zero. The numerical aggregate may be nonzero because of the ε floor, but provenance must record `numeric_floor_applied` and `zero_component_present`; when `zero_component_present = true`, the operational verdict treats the measurement as a failure independent of the numerical aggregate value.
+That is the LLM-safety point of the architecture:
 
-For example, if
+- The model may judge.
+- The model may not set the law.
+- The model may not compute the final score.
+- The model may not read outside the bundle.
+- The model may not write outside its response artifact.
+- The model may not silently turn a malformed response into a report.
 
-```
-s_α = 1
-s_β = 0
-s_γ = 1
-ε = 10^-5
-```
-
-then
-
-```
-C_Σ^math = 0
-C_Σ^num  = (1 · 10^-5 · 1)^(1/3) ≈ 0.0215
-```
-
-The headline numerical value is not allowed to hide the failure because the report must preserve the zero flag and the mathematical aggregate.
-
-The OCaml implementation carries the same distinction. `Coherence.aggregate` returns `c_sigma_math`, `c_sigma_num`, `epsilon`, `zero_component_present`, and `numeric_floor_applied`; it computes `c_sigma_math` as zero when any component is zero and computes `c_sigma_num` from the ε-floored logs.
-
-This is the second technical advantage. **TSC does not collapse a vector into a single scalar without retaining degeneracy information.** The aggregate is a summary, not a replacement for the axes.
+**The witness is cognitive. The boundary is mechanical.**
 
 ---
 
-## 6. The implementation is explicit about what is mechanical and what is semantic
+## 9. Consistency: α applied to the meter
 
-The TSC architecture separates theory, targets, and verifier. The theory lives in `spec/`; a target is an explicit declaration of what TSC measures; current target surfaces are `spec`, `engine`, and `repo`; and the verifier resolves the input, builds a deterministic bundle, chooses a scoring backend, computes a result, validates it, and writes a report.
+A methodology that cannot agree with itself is incoherent as an instrument.
 
-The repo's scoring modes are distinct:
+CM² therefore includes a consistency protocol. The mechanical arm runs the deterministic backend multiple times over the same target and requires the score-relevant subset to be bit-identical. Any divergence is a hard failure. The LLM arm computes max absolute pairwise spread over seven numeric fields—α, β, γ, the three δ fields, and confidence—and maps that spread through the same TSC barrier into `Coh_consistency`.
 
-- **mechanical:** deterministic structural-proxy scoring; no credentials
-- **llm:** semantic scoring through `runtime/SELF-MEASURE.md`
-- **hybrid:** both backends, with mechanical, llm, and final sub-objects
-- **auto:** hybrid when credentials exist, mechanical otherwise
+This is α applied to the meter.
 
-The README states those modes directly.
+For deterministic scoring:
 
-The mechanical scorer is not presented as a semantic oracle. Its source says it is deterministic structural-proxy scoring over a bundle, with no LLM calls, no network I/O, and no Markdown AST parser. It also says identical bundle and identical config produce identical result.
+```
+same bundle + same config → same score-relevant report
+```
 
-The mechanical scorer's signals are visible in code. α includes terminology consistency, repeated structure, duplicate definition tension, and naming drift. β includes cross-reference consistency, authority alignment, source-of-truth alignment, and target-file fit. γ includes canonical/generated distinction, version-surface consistency, traceability presence, and authority-evolution consistency.
+For LLM scoring:
 
-The aggregate is not computed as an arithmetic mean. The code states that the headline cross-axis aggregate routes through `Coherence.aggregate` and intentionally ignores axis weights for the headline aggregate because the spec defines a single S₃-invariant geometric form.
+```
+same frozen prompt + repeated witness calls → bounded numeric spread
+```
 
-This gives a reviewer concrete verification points:
+A noisy LLM witness may still produce a report, but it should not receive full standing as an auditor. The consistency number should therefore become part of methodology admissibility and displacement, not merely an informational field.
 
-- Check `phi`.
-- Check endpoint δ = 1.
-- Check `C_Σ^math`.
-- Check `C_Σ^num`.
-- Check `zero_component_present`.
-- Check `numeric_floor_applied`.
-- Check that mechanical scoring never calls an LLM.
-- Check that headline aggregation is geometric, not arithmetic.
+A strict standing rule would be:
 
-**These are not vibes. They are inspectable code paths.**
+```
+green:  δ_consistency ≤ 0.05                → full standing
+amber:  0.05 < δ_consistency ≤ 0.10         → report allowed, but cannot displace alone
+red:    δ_consistency > 0.10                → no off-diagonal standing
+```
+
+This is not yet proven by the branch. It is the next coherent rule implied by CM².
 
 ---
 
-## 7. The public examples already encode positive and negative controls
+## 10. Admissibility: rejecting trivial meters
 
-The TSC repo includes cellular-automata examples. The glider example is a positive control for Conway's Game of Life. It declares expected high coherence, around C_Σ ≈ 0.996, for a standard glider that translates diagonally with period 4. It defines H/pattern as the 5-cell motif class, V/relation as the neighbor relation and translational symmetry group Z², and D/process as the Life update rule B3/S23. It also names checks for commutation, conservation, symmetry, and scale.
+CM² includes an admissibility instrument. A CM's scores of other CMs carry standing only if the CM first reproduces the calibration commons: the kata anchors with agreed labels. The script runs a candidate scorer over four single-bundle anchors and one ranking check. It also includes a self-test: the engine's mechanical backend must be admitted, while the trivial all-1.0 flatterer must be rejected.
 
-The paired random-soup example is a negative control. It defines each time step as an independent 16×16 Bernoulli grid with p = 0.5, expects low coherence around C_Σ ≈ 0.25, and warns that a high score likely indicates leakage, normalization error, time-indexing error, or incorrect averaging.
+The current admissibility battery checks:
 
-This pair matters because it demonstrates how TSC applies to wholeness in a non-language system.
+- `01-glider`: positive control
+- `02-random-soup`: negative control
+- `04-philosophical`: mechanical-scoring ceiling / surface-regular prose trap
+- `05-adversarial`: cross-file semantic contradiction trap
+- `03-comparative`: glider must rank above random soup
 
-A glider is not coherent because its cells are pretty. It is coherent because three descriptions agree:
+The script's own comment states the key rule: self-score plays no part in admissibility; discrimination does.
 
-- **H / pattern:** the 5-cell motif persists up to translation.
-- **V / relation:** neighbor constraints and translation symmetry are stable.
-- **D / process:** the Life update carries the pattern through a period-4 orbit.
+That is correct, but insufficient.
 
-Random soup fails because independent frames do not preserve a process. Even if each frame has local structure, the sequence does not articulate one continuing object.
+A non-trivial attacker could key off public file paths and output hard-coded scores for known katas. The current scorer contract invokes a command on file paths and asks it to print one number in [0,1], so a path-name attacker is not excluded by the current interface.
 
-The kata framework adds executable regression surfaces. The kata README lists `01-glider` as a positive-control mechanical kata, `02-random-soup` as a negative control, `03-comparative` as a ranking kata that expects glider above random soup, `04-philosophical` as a cross-domain case documenting the upper limit of mechanical scoring, and `05-adversarial` as a high-surface-regularity / low-semantic-coherence trap.
+The next version of admissibility should therefore blind anchors:
 
-The distinction is important. The cellular-automata example files describe a domain-aware H/V/D coherence test. The mechanical katas are regression anchors for the current structural scorer. **They are not the same thing.** The repo is honest about this boundary.
+- copy anchors to a temp bundle;
+- rename files to salted opaque paths;
+- strip path strings that reveal kata identity;
+- require evidence-bearing reports, not only scalar scores;
+- include generated mutants;
+- use held-out anchors committed before reveal.
 
----
+The current script proves the system rejects the trivial flatterer. It does not prove the system rejects every gamed CM.
 
-## 8. The katas show both value and limits
-
-The mechanical glider kata records a conservative expected pass range. Its baseline notes that the canonical geometric estimate is about 0.917, with α ≈ 1.000, β ≈ 0.990, and γ ≈ 0.779, and that the range remains conservative pending CI re-baseline.
-
-The random-soup kata records a fail range. Its baseline estimates α ≈ 0.900, β ≈ 0.430, γ ≈ 0.737, and C_Σ ≈ 0.6583, while retaining a ceiling of 0.74 because the per-axis triple was inferred rather than recorded.
-
-The comparative kata verifies the ranking relation: glider should rank above random soup by mechanical C_Σ. It records glider at C_Σ ≈ 0.9170 and random soup at C_Σ ≈ 0.6583.
-
-The philosophical kata is more important than it first looks. It documents that mechanical scoring can over-rate surface-regular philosophical prose because headings, version stamps, and cross-references can all be present even when the semantic target is not what TSC considers a coherent system. Its baseline records α = 1.000, β = 1.000, γ = 0.800, and C_Σ ≈ 0.9283, explicitly naming this as an upper limit of mechanical scoring.
-
-The adversarial kata goes the other direction. It defines three sibling files that look canonical but contradict each other semantically: each file claims canonical authority and chooses a different transport for the protocol's core invariant. The baseline records α = 0.969, β = 0.470, γ = 0.801, and C_Σ ≈ 0.7145, with β as the bottleneck.
-
-That example demonstrates the value of the bottleneck. If we used an arithmetic mean, the score would be approximately
-
-```
-(0.969 + 0.470 + 0.801) / 3 ≈ 0.7467
-```
-
-The geometric aggregate gives
-
-```
-(0.969 · 0.470 · 0.801)^(1/3) ≈ 0.7145
-```
-
-The important part is not the small numerical difference. The important part is that the report preserves β as the axis that explains the failure. The system is not "mostly coherent." It is relation-broken.
-
-**This is what TSC contributes: the score points to the repair.**
+That is not a fatal flaw. It is a precisely named γ task.
 
 ---
 
-## 9. Neural coherence shows why scalar coherence is not enough
+## 11. Calibration commons: where epistemic authority lives
 
-Neuroscience already uses "coherence" mathematically. Bowyer describes coherence as a technique that quantifies frequency and amplitude synchronicity of oscillating brain activity, estimating the consistency of relative amplitude and phase between EEG/MEG signals in a frequency band. Srinivasan and colleagues describe EEG/MEG coherence as measuring whether two signals can be related in a frequency band by a linear time-invariant transformation, with constant amplitude ratio and phase shift.
+Self-application cannot create ground truth. It can only show that a methodology is internally stable enough to be judged.
 
-That is useful, but it also shows the limitation of a scalar coherence measure. Dowdall and colleagues show that coherence can fail in bidirectional neural systems with transmission delays; under some conditions, coherence can be abolished even when a true underlying interaction exists.
+CM² states this directly: the epistemic anchor is the calibration commons, and today that commons is a small, house-authored battery.
 
-TSC does not solve neuroscience by assertion. It gives a stricter target shape for wholeness claims.
+That honesty is essential.
 
-For neural-correlation data, a TSC target would need at least:
+The commons currently includes Game of Life positive and negative controls. The glider example expects high coherence because a 5-cell motif persists under translation through a period-4 Life orbit, with pattern, relation, and process descriptions agreeing. The random-soup example expects low coherence because each frame is an independent Bernoulli grid; frames may have local structure, but they do not form one continuing process.
 
-- **α / pattern:** stable local signal features, oscillatory signatures, distributions, entropy profiles, perturbation robustness
-- **β / relation:** inter-area alignment, phase/amplitude relations, anatomical or functional constraints, comparison across measurement channels and source models
-- **γ / process:** temporal stability, task-phase dynamics, causal/lag structure, transition behavior under perturbation or condition change
+The commons also includes a philosophical-prose kata that documents a limitation: mechanical scoring can over-rate surface-regular natural language because headings, version stamps, and cross-references are present even when the semantic target is not a coherent TSC system. The adversarial kata documents cross-file contradiction: three files look canonical but each claims authority and chooses a different transport for the protocol's core invariant.
 
-The value is not that TSC replaces spectral coherence. The value is that scalar spectral coherence becomes one witness inside a larger wholeness test. If scalar coherence says "no relation," but process dynamics, lagged interaction models, or source-space structure say otherwise, TSC forces that disagreement into the report instead of hiding it behind one metric.
+These are controls, not final validation.
 
-This is the general pattern: **TSC dissolves single-metric arguments by asking which description failed to agree with the others.**
+They establish that the instrument has known anchors and known failure boundaries. They do not prove the instrument catches naturally occurring incoherence in production agent workflows.
 
----
+The commons becomes epistemically meaningful only when it grows beyond the house:
 
-## 10. What TSC dissolves
+- external anchors;
+- blind anchors;
+- held-out anchors;
+- misses published as new tests;
+- adversarial CMs;
+- outcome correlation against real review failures.
 
-TSC does not "solve" hard problems by slogan. It dissolves specific confusions by changing the measurement object.
+Until then, the honest claim is:
 
-### 10.1 Fluency versus coherence
-
-The ordinary LLM question is:
-
-Is this output good?
-
-TSC changes it to:
-
-Do the independent descriptions still describe one system?
-
-The LLM self-measure instruction is explicit: the model's job is not to summarize files, but to measure whether the bundle forms one coherent system across α, β, and γ, grounded only in the provided files.
-
-That dissolves the fluency trap. A fluent output can still fail β if it points to the wrong authority. It can fail γ if it leaves no stable next move. It can fail α if it corrupts the local pattern language.
-
-### 10.2 Correctness versus coherence
-
-TSC's thesis explicitly states that TSC is not a linter, test suite, syntax checker, or quality score; high coherence means coherent, not good; a coherent system can still be wrong.
-
-That dissolves the overclaim. Coherence is not truth. It is the condition under which truth-directed checks can find their target.
-
-### 10.3 Local versus global
-
-A local score asks whether a part is acceptable. A global score asks whether the whole is acceptable. TSC changes the question to whether local and global descriptions still mutually constrain one another.
-
-The Game of Life glider demonstrates this. A single frame is not enough. The glider is identified by motif persistence, relation under translation, and process under the Life update rule.
-
-The opposition between local and global is therefore the wrong object. TSC asks whether pattern, relation, and process are three descriptions of the same object.
-
-### 10.4 Self-evaluation versus external evaluation
-
-LLM self-evaluation is risky because LLM judges can be biased. Recent work reports position bias, self-preference bias, verbosity bias, and other systematic judge failures in LLM-as-judge settings.
-
-TSC does not require the author model to be sovereign. Mechanical mode is deterministic and model-free. LLM mode is a semantic witness. Hybrid mode preserves both mechanical and LLM sub-results. cnos places the model inside a bounded work body where cells own workflow, receipts own evidence, coherence reports own measurement, repo state owns continuity, and boundary authority decides what crosses into release.
-
-That dissolves the false choice between "trust the model" and "ignore the model." The model can be a witness without being the authority.
-
-### 10.5 One score versus repair direction
-
-A single scalar can tell you that something is low. It often cannot tell you where to repair.
-
-TSC keeps the axes. Low α points to vocabulary, schema, duplication, or local pattern repair. Low β points to relation, reference, authority, and source-of-truth repair. Low γ points to migration, ownership, lifecycle, and future-path repair. cnos states the same diagnostic mapping for cell work.
-
-That dissolves the "bad score" problem. **The score becomes a repair vector.**
+**The current commons is an executable calibration start, not a final ground truth.**
 
 ---
 
-## 11. The rigorous runtime loop for LLM systems
+## 12. Displacement: how a better CM can beat the incumbent
 
-A coherent LLM system should implement the following loop.
-
-### 11.1 Declare the target
-
-A target is an explicit declaration of what TSC measures. The architecture document identifies targets as project-internal corpora such as `spec`, `engine`, and `repo`, and says both targets and katas use the same bundle model and scoring pipeline.
-
-For an LLM agent, the target should specify:
+CM² allows adversarial methodologies. Any conforming CM can score another CM. That creates a directed matrix:
 
 ```
-scope:        which artifacts are in the bundle
-authority:    which artifacts decide disagreements
-invariants:   what must not change
-known debt:   what is already incoherent or unfinished
-exit:         what next coherent state is allowed
+S[A][B] = score assigned by methodology A to methodology B's corpus
 ```
 
-**The hard part is not scoring. The hard part is declaring the whole honestly.**
+CM² notes that raw head-to-head wins need not compose: A can beat B on A's terms, B can beat C on B's terms, and C can beat A on C's terms. It therefore proposes standing as off-diagonal and maximin: a methodology's standing is constrained by the worst score it receives from credible admissible auditors.
 
-### 11.2 Generate a candidate move
+That is directionally right, but the word *credible* needs executable definition.
 
-The model proposes a patch, paragraph, plan, proof step, migration, summary, release note, or handoff.
-
-The output is not work yet. It is a candidate.
-
-### 11.3 Bind evidence
-
-The system bundles the candidate with target metadata, ordered files, paths, raw text, diffs, tests, traces, prior decisions, and any other evidence needed to judge fit.
-
-The LLM self-measure instruction says to use only the provided bundle, not infer missing files, and name insufficient evidence.
-
-### 11.4 Estimate discrepancies
-
-The semantic witness estimates normalized pairwise discrepancies:
+A stricter rule:
 
 ```
-δ(α, β)
-δ(β, γ)
-δ(γ, α)
+credible_audit(A, B) iff
+  A passes schema validation;
+  A passes blinded calibration commons;
+  A passes self-application hygiene;
+  A passes consistency standing threshold;
+  A supplies bundle-grounded evidence for every low score;
+  the cited evidence exists in B's bundle;
+  the audit is not under unresolved dispute.
 ```
 
-The runtime instruction requires these `delta_*` fields and states that the engine, not the model, applies the barrier transform to compute coherence.
-
-**This division is important. The model supplies semantic judgment. The engine applies the math.**
-
-### 11.5 Compute scores and aggregate
-
-The engine computes component scores and aggregate forms:
+Then:
 
 ```
-s_α, s_β, s_γ
-C_Σ^math
-C_Σ^num
-zero_component_present
-numeric_floor_applied
-bottleneck_axis
+standing(B) = min S[A][B] over credible_audit(A, B)
 ```
 
-The report schema described in the architecture document includes α, β, γ, bottleneck axis, and provenance fields for mathematical and numerical aggregates.
+This preserves the bottleneck principle without letting any admitted troll collapse a methodology by assertion.
 
-### 11.6 Repair or refuse
+The displacement rule also needs a clean treatment of control types. CM² currently says a challenger must pass admissibility, discriminate better on shared held-out anchors published after it was authored, and agree with the incumbent on uncontested controls.
 
-A coherent system does not average away the bottleneck. The runtime instruction explicitly says to identify the lowest-coherence axis and explain why it constrains the whole more than stronger axes help.
+The missing distinction is:
 
-Repair is axis-specific:
+- **locked controls:** verdict cannot flip without changing the commons itself
+- **frontier controls:** verdict may flip if the challenger supplies evidence and the commons accepts the update
+- **held-out controls:** hidden from the challenger until after its CM digest is fixed
 
-- low α: fix terms, definitions, structure, schema, duplication
-- low β: fix references, authority, imports, source-of-truth alignment
-- low γ: fix migration path, ownership, lifecycle, handoff, traceability
+A better CM should not lose merely because it flips a frontier verdict for a good reason. But it should not win by redefining every control.
 
-If the failure cannot be repaired with available evidence, the system should refuse to commit.
+Use labels and rankings, not raw score agreement:
 
-### 11.7 Commit with receipt
+- **locked agreement:** `label_C(k) = commons_label(k)`
+- **ranking agreement:** `sign(score_C(a) − score_C(b)) = commons_order(a,b)`
+- **frontier update:** challenger may flip only through evidence accepted into the commons
 
-cnos treats model output as work only when it enters a work body. Its receipt records what happened, what evidence was bound, what validator ran, what trust claim was carried, what coherence witness exists, what decision was made, and what can cross the boundary.
+Held-out mechanics should use commitments, not timestamps:
 
-**This is the difference between chat output and governed work.**
+```
+1. Publish challenger digest:
+     cm_digest = sha256(canonical_cm_bundle)
+2. Commit hidden anchor:
+     anchor_commitment = sha256(salt || anchor_bundle || label || rationale)
+3. After challenger digest is fixed, reveal:
+     salt, anchor_bundle, label, rationale
+4. Verify commitment equality.
+```
+
+This makes "published after the challenger was authored" enforceable through hashes and commit ancestry rather than trust in wall-clock timestamps.
 
 ---
 
-## 12. Why this matters more as models improve
+## 13. What CM² fixes
 
-A weak model produces obvious local errors. A stronger model can produce plausible edits across many artifacts. It can update code, tests, docs, issue comments, release notes, and handoffs in one pass. That increases utility and risk.
+CM² fixes several earlier weaknesses.
 
-The risk is not that every artifact is bad. The risk is that every artifact is plausible while the set no longer describes one unit of work.
+### 13.1 It fixes "the LLM decides coherence"
 
-The cnos boundary is designed for that case. It keeps durable workflow, evidence, trust claims, coherence witnesses, receipts, and release authority outside the model runtime. The model can be capable without owning the work.
+The model no longer supplies the standard. The human-authored CM supplies the standard. The model supplies a bounded witness estimate under that standard.
 
-The cnos thesis makes the stronger architectural point: Git is the lowest durable substrate where coherent articulations become persistent, cloneable, signed, versioned, and mergeable; it is not the source of coherence, but the durable surface through which coherence can be inspected.
+### 13.2 It fixes "δ is free-floating"
 
-That gives TSC somewhere to live. Coherence measurement should not disappear when the chat ends. It should leave a report.
+δ is still estimated by a witness, but it is now estimated under a methodology that defines admissible evidence, axis semantics, scale anchors, missing-evidence behavior, and report obligations.
 
----
+### 13.3 It fixes "self-measurement is circular"
 
-## 13. What is already established, and what is not
+Self-application becomes a hygiene gate. It proves that the methodology is stable enough to compete. It does not prove that the methodology is correct.
 
-A rigorous article must distinguish specification, implementation, examples, and validation.
+### 13.4 It fixes "a scalar hides the failure"
 
-### Established in public TSC materials
+TSC preserves α, β, γ, pairwise δ fields, bottleneck axis, mathematical aggregate, numerical aggregate, and degeneracy flags. The aggregate summarizes; it does not erase the axes.
 
-TSC has a formal C≡ carrier with finite triadic terms, equivalence, normal form, and three algebraically distinct evaluators.
+### 13.5 It fixes "implementation can drift from declaration"
 
-TSC Core defines normalized discrepancy, a barrier transform, discrepancy energy, coherence as exponential decay, mathematical and numerical aggregate forms, degeneracy behavior, S₃ symmetry, and a contraction test under stated Lipschitz conditions.
+The validation script cross-checks declared paths, targets, mechanical signal codes, and LLM estimate fields against source files and the runtime instruction.
 
-The OCaml implementation implements the barrier transform, coherence link, aggregate split, zero-component flag, numeric floor flag, and gauge witness machinery.
+### 13.6 It does *not* fix "the commons is small"
 
-The mechanical scorer is deterministic and structural, and its α/β/γ signals are explicit in code.
+The calibration commons remains the epistemic bottleneck. CM² names that bottleneck. It does not remove it.
 
-The repo contains public examples for Game of Life glider and random soup, and katas for positive control, negative control, comparative ranking, mechanical-scoring limitation, and adversarial cross-file contradiction.
-
-### Established by external literature
-
-Neural coherence is a real mathematical measurement practice in EEG/MEG and related neuroscience, but scalar coherence has known limitations, including failure cases in bidirectional delayed systems.
-
-LLM-as-judge systems are useful but biased; position bias and self-preference bias are documented failure modes.
-
-### Not established yet
-
-The public materials do not yet prove that TSC coherence scores correlate with expert human "fit" judgments across software, mathematics, writing, and agent workflows.
-
-They do not yet prove that α/β/γ empirical witnesses are statistically independent in every domain.
-
-They do not yet prove that TSC prevents LLM agents from making incoherent changes in production systems.
-
-Those are validation tasks, not rhetorical gaps.
+That is the right shape of progress: **dissolve the false problem, expose the real one.**
 
 ---
 
-## 14. The validation program
+## 14. The runtime loop for LLM agents
 
-The next stage should be empirical and adversarial.
-
-### 14.1 Axis-independence benchmark
-
-Construct cases where exactly one axis fails:
+A coherent LLM agent should not run as:
 
 ```
-α failure only:
-  stable references and process, but naming and definitions drift
-β failure only:
-  clean local language and clear future path, but wrong authority/relation graph
-γ failure only:
-  clean current artifacts and references, but no migration or future-change path
+prompt → answer
 ```
 
-Prediction: expert reviewers should separate these failure modes, and TSC witnesses should identify the intended bottleneck.
-
-### 14.2 Same-work benchmark
-
-Construct agent workflows with issue, patch, test, receipt, release note, and handoff.
-
-Introduce controlled mismatches:
-
-- release note describes neighboring change
-- test validates wrong behavior
-- receipt binds wrong commit
-- handoff upgrades degraded release to clean
-- validator emits FAIL while summary says ready
-
-Prediction: β should detect wrong-reference and authority failures; γ should detect propagation and handoff failures.
-
-### 14.3 Domain-aware cellular-automata benchmark
-
-Use the glider and random-soup example structure.
-
-Prediction: a domain-aware TSC implementation should rank glider far above random soup because the glider preserves motif, relation, and process, while random soup lacks temporal/process continuity. The public examples define the target behavior and reference parameters.
-
-### 14.4 Mechanical-scorer boundary benchmark
-
-Use the philosophical kata as a known limitation.
-
-Prediction: purely structural mechanical scoring will over-rate some high-surface-regular natural-language inputs. That is not a failure of TSC as a theory; it is a known limitation of that witness mode, already documented by the kata.
-
-### 14.5 Adversarial authority benchmark
-
-Use multi-file inputs where each file claims authority and contradicts the others.
-
-Prediction: β should become the bottleneck. The adversarial kata records this pattern with β = 0.470 and `bottleneck_axis = "beta"`.
-
-### 14.6 LLM-agent intervention benchmark
-
-Compare three systems:
-
-- baseline LLM agent
-- LLM agent with self-refinement only
-- LLM agent with TSC target + witness + receipt loop
-
-Measure:
-
-- review churn
-- revert rate
-- wrong-file edits
-- release-note mismatch
-- handoff mismatch
-- traceability gaps
-- human fit rating
-
-The falsifiable claim is not "TSC always wins." The falsifiable claim is:
-
-**A TSC loop should reduce same-system failures that ordinary local task-performance loops miss.**
-
-That is the test that matters.
-
----
-
-## 15. A precise definition of a coherent LLM system
-
-A coherent LLM system is not an LLM that always tells the truth.
-
-It is an LLM-mediated system that checks whether a candidate move still belongs to a declared whole before treating that move as accepted work.
-
-Minimum requirements:
-
-1. target declaration
-2. evidence bundle
-3. α/β/γ measurement
-4. barrier-transformed discrepancy
-5. mathematical and numerical aggregate separation
-6. bottleneck preservation
-7. witness role separation
-8. receipt or refusal
-
-The system must not claim more coherence than it measured. cnos states that rule directly: the system must not claim more coherence than it measured, and TSC does not replace tests, type checks, security review, legal review, runtime policy, or human responsibility.
-
-This is the practical definition:
+It should run as:
 
 ```
-candidate output + target bundle + evidence
-  → triadic measurement
+human-authored CM
+  → target manifest
+  → evidence bundle
+  → candidate move
+  → constrained witness report
+  → deterministic TSC math
   → bottleneck
-  → repair/refuse/commit
+  → repair / refuse / commit
   → receipt
 ```
 
+A candidate move can be a patch, proof step, release note, migration, test, handoff, or documentation change.
+
+The CM defines what coherence means for that object. The target defines what evidence is in scope. The bundle freezes the evidence. The witness estimates α, β, γ, δ values, confidence, evidence, ambiguity, and next fixes. The engine validates the response shape and applies the barrier and aggregate. The system either repairs, refuses, or commits with a durable receipt.
+
+This is how the model is constrained.
+
+It cannot decide that a release note is coherent because it sounds right. Under a repository CM, it must check whether the release note describes the actual change, whether tests exercise the claimed behavior, whether docs match code, and whether the future change path remains clear.
+
+It cannot decide that a repo is coherent because the README is polished. Under CM-0, it must check whether theory, implementation, target manifests, runtime instruction, examples, katas, and reports still describe one system.
+
+**That is the shift from fluent generation to governed work.**
+
 ---
 
-## 16. Why the title is defensible
+## 15. Implementation evidence
+
+The branch evidence supports the following implementation claims.
+
+The branch defines `#CoherenceMethodology` as a comparable contract for methodology skills, including registry, targets, scoring instruction, output root, default mode, consistency protocol, mechanical signal inventory, LLM estimate contract, prohibitions, and validation route.
+
+The branch defines CM² as the 0th methodology and maps α, β, and γ for methodologies to instrument self-agreement, declaration-to-implementation fit, and instrument evolution.
+
+The branch defines a self-measurement methodology for the TSC repo that delegates only a narrow cognitive task to the LLM and prohibits the LLM from computing final coherence values.
+
+The branch validates methodology frontmatter against CUE and cross-checks declared signals and estimate fields against engine source and the runtime instruction.
+
+The branch implements deterministic barrier and aggregate math in OCaml, including strict endpoint behavior, mathematical and numerical aggregate forms, zero-component tracking, and numeric-floor tracking.
+
+The branch includes a consistency script for repeated mechanical and LLM witness readings, and an admissibility script that rejects the trivial all-1.0 attacker while admitting the engine's mechanical backend.
+
+The cited GitHub Actions run on branch `claude/tsc-self-measurement-vxifjo` at commit `1ab26ae` reports status Success, with mechanical and three LLM-witness jobs completed and four artifacts produced.
+
+These are implementation facts, not claims of universal validity.
+
+---
+
+## 16. What remains unproven
+
+The current evidence does not prove that TSC coherence scores correlate with expert human fit judgments across arbitrary software repositories, papers, proofs, or agent workflows.
+
+The current evidence does not prove that every deployed α/β/γ witness is empirically independent in every domain.
+
+The current evidence does not prove that an LLM witness estimates δ faithfully under every methodology.
+
+The current evidence does not prove that TSC prevents incoherent agent changes in production systems.
+
+Those are validation tasks.
+
+The next required tests are:
+
+- **δ-fidelity:** fixed CM, injected discrepancies, compare witness δ to known labels
+- **axis isolation:** cases where only α, only β, or only γ fails
+- **same-work benchmark:** issue, patch, test, receipt, release note, and handoff with controlled mismatches
+- **adversarial CM benchmark:** gamed methodologies, blinded anchors, held-out anchors, path-name attacks
+- **outcome correlation:** compare low coherence to review churn, reverts, drift, handoff failure, release confusion, and expert fit ratings
+
+The strongest honest claim is:
+
+**TSC now has a formal, schema-bound, executable architecture for measuring same-system preservation. Its broader validity must be established by methodology-specific benchmarks and external calibration.**
+
+That claim is strong enough.
+
+---
+
+## 17. Why the title is defensible
 
 "All We Need Is Coherence" is not literally sufficient.
 
-We also need truth, tests, proof, evidence, safety, security, expertise, institutions, and accountability.
+We also need truth, tests, proof, security, evidence, domain expertise, accountability, and judgment.
 
-The title is defensible only in this narrower sense:
+The title is defensible only in this technical sense:
 
 **Coherence is the condition under which those other checks can attach to the right object.**
 
-If the work body is incoherent, evidence binds to the wrong claim. Tests validate the wrong behavior. Reviews inspect the wrong boundary. Release notes describe the wrong change. Handoffs resume the wrong task.
+If the work body is incoherent, tests validate the wrong behavior, evidence binds to the wrong claim, reviews inspect the wrong boundary, release notes describe the wrong change, and handoffs resume the wrong task.
 
-So coherence is not the whole of correctness. It is prior to reliable correction.
+Coherence is not correctness.
+
+**Coherence is what lets correction find its target.**
 
 ---
 
-## 17. Conclusion
+## 18. Conclusion
 
-TSC should not be presented as a metaphor for "better vibes." It is a formal and executable measurement framework.
+The key insight is not:
 
-Its **mathematical basis** is C≡: a finite triadic term algebra with normalization and three algebraically distinct evaluators.
+> Ask the LLM whether the output is coherent.
 
-Its **scoring basis** is a discrepancy-to-energy-to-coherence transform, with strict endpoint behavior and separated mathematical/numerical aggregates.
+That is too weak.
 
-Its **implementation basis** is an OCaml engine with deterministic mechanical scoring, LLM semantic scoring, hybrid reports, target bundles, katas, provenance, and bottleneck reporting.
+The key insight is:
 
-Its **application basis** is same-system preservation: whether independent descriptions still describe one system.
+- Write the methodology.
+- Validate the methodology.
+- Bind the evidence.
+- Constrain the witness.
+- Apply deterministic math.
+- Preserve the bottleneck.
+- Commit only with a receipt.
 
-For LLMs, that is the missing runtime object.
+**CM² makes the meter measurable.** It says that a coherence methodology must agree with itself, match its declaration to its implementation, and evolve without making old readings meaningless. Self-application closes the formal regress, but correctness still belongs to the calibration commons and to external reality.
+
+That is the architecture:
+
+```
+human-authored CM
+  + closed target bundle
+  + constrained witness
+  + deterministic TSC math
+  + adversarial calibration
+  + durable receipt
+```
 
 The model should not merely ask:
 
-What is the next plausible output?
+> What is the next plausible output?
 
 It should be placed inside a system that asks:
 
-**Does this next move still belong to the whole?**
+> **Under the declared Coherence Methodology, does this next move still belong to the whole?**
 
 That is the shift from fluent generation to coherent work.
