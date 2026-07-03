@@ -1,9 +1,12 @@
-# Coherent LLMs — measuring whether generation still belongs to the whole
+# All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs
 
 **Date:** 2026-07-03
 **Class:** doctrine-evolution (project-position essay; operator-authored; third in the doorway-essay lineage)
 **Author:** Operator (usurobor / Axiom); Sigma-at-cn-sigma (κ-body) records verbatim
-**Source:** Operator-supplied essay delivered in session, 2026-07-03. Captured today alongside six sibling adhocs written today: typed-skill-modules, κ-canonicalization, discipline-as-typed-gates, cross-repo-bundle-pattern, cnos524-wake-as-skill-implementation, and the arc genealogy adhoc. The doorway essays it joins (Agents Need a Home; Dumb Models, Smart Cells) were written earlier — 2026-06-20.
+**Source:** Operator-supplied essay delivered in session, 2026-07-03. Captured today alongside six sibling adhocs written today plus retro-backfills for earlier events. The doorway essays it joins (Agents Need a Home; Dumb Models, Smart Cells) were written earlier — 2026-06-20.
+
+**Prior title (superseded 2026-07-03):** *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole*.
+The new title compresses to a claim — "all we need is coherence" — and the essay itself (§14) then defends why the compression is fair despite its overreach.
 
 ## Why this is captured here
 
@@ -11,52 +14,51 @@ Third essay in the doorway lineage:
 
 - **[Agents Need a Home](20260620-agents-need-a-home-doorway-essay.md)** — defines the *home*: where agent identity, memory, work, and receipts survive the chat session.
 - **[Dumb Models, Smart Cells](20260620-dumb-models-smart-cells-essay.md)** — defines *what lives in the home*: bounded work-units with a body outside the model.
-- **This essay ("Coherent LLMs")** — defines *how to measure whether the local move still belongs to the whole*.
+- **This essay ("All We Need Is Coherence")** — defines *how the system tells whether the local move still belongs to the whole*.
 
 The three read as a triptych: home → cells → coherence loop. Each is project-position-from-inside, publication-grade, external-facing. All three land at cn-sigma as adhocs by the same convention (project-position, not cnos doctrine); cnos owns publication-side placement at `docs/papers/`.
 
-Adhoc form here so cn-sigma memory holds the essay as directly referenceable text, not only via a bundle. A companion bundle exists at `.cdd/iterations/cross-repo/cnos/coherent-llms-essay/` for cnos γ intake and eventual landing at `cnos:docs/papers/COHERENT-LLMS.md`.
+Adhoc form here so cn-sigma memory holds the essay as directly referenceable text, not only via a bundle. A companion bundle exists at `.cdd/iterations/cross-repo/cnos/coherent-llms-essay/` for cnos γ intake and eventual landing at `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md` (title-matched from the new version).
 
-## Placement reasoning (coherence-loop applied to placement itself)
+## What changed from the prior version
 
-Applying the essay's own §5 definition to the placement question, three candidates were evaluated:
+Substantively sharpened. Key additions:
 
-| Placement | α (pattern) | β (relation) | γ (process) |
-|---|---|---|---|
-| cn-sigma adhoc only | strong | weak — cnos readers can't find it | weak — essay-genre evolves at cnos (Dumb Models v0.8.0 shape) |
-| cnos:docs/papers/ via bundle only | strong | weak — no direct-reference marker at cn-sigma; adhoc-inventory silent | strong |
-| **Both — adhoc verbatim at cn-sigma + bundle for cnos** | **strong** | **strong** | **strong** |
-
-Dual placement satisfies all three axes. Single-placement collapses β on either side.
+- **§5 "The whole is the hard part"** — new. Concedes that "declare the whole" is not a trivial first step. Introduces a five-part target spec (scope / authority / invariants / known tensions / exit condition) and legitimizes partial-whole declarations. This lands the essay closer to how CDD cycles actually work.
+- **§10 "The circularity problem"** — new. Self-critique of coherence frameworks that grow ornate and self-referential. Names the risk explicitly; prescribes external checks (blind human labels, ablations, adversarial examples, cross-model witnesses, public failure reports).
+- **§11 "What must be validated"** — new. Five concrete validation tests: axis independence, human fit judgment, predictive value, gameability, boundary value. Presents the program as engineering research rather than a solved method.
+- **§14 "Why the title is still fair"** — new. Defends the compressed title as *underneath* the other things we need (correctness / evidence / etc.), without claiming to replace them.
+- Sharper refusal doctrine in §6 (refuse-to-commit as first-class outcome).
+- Sharper role-separation in §8 (author ≠ witness ≠ authority; cites LLM-as-judge bias literature).
+- More explicit discipline list in §12: don't let fluency stand for fit; don't let one strong axis hide a broken one; don't let author be only witness; don't let chat be system of record; don't claim more coherence than measured.
 
 ## Doctrine-center recognition
 
-Reading this essay against today's other adhoc captures, it reads as a doctrinal *center* for what has landed here:
+Reading this version against today's other cn-sigma captures, the essay reads as a doctrinal *center* for what has landed here:
 
-- **§5 coherent-LLM system definition** (declare-whole → bind-evidence → measure-α/β/γ → preserve-bottleneck → commit-with-receipt or refuse) is the general form of the CDD cycle. cycle/497's R1 recovery (`20260626-cycle497-model-b-and-kappa-emergence.md`) is a lived instance.
-- **§6 substrate framing** ("bounded reasoning body operating inside a coherence-preserving work body") is the κ role of `20260703-kappa-role-canonicalization.md` verbatim.
-- **§7 coherence loop** (commit-with-receipt or refuse-to-commit) maps onto the CDD γ closeout with `degraded_recovery` declarations.
-- **§10 role separation** ("the model must not be the sole authority") IS the κ-sharpening rule ("κ writes only issues; workers articulate everything else").
-- **§12 research agenda** enumerates five directions that map to future cnos work items:
-  1. coherence-aware decoding
-  2. coherence memory (cnos writing-discipline informs it)
-  3. coherence benchmarks (same-work preservation)
-  4. coherence routing (authorship ≠ witnessing)
-  5. coherence deltas as release artifacts
+- **§6 coherence loop** (declare-whole → generate → bind-evidence → measure-α/β/γ → preserve-bottleneck → repair/refuse/commit → receipt) is the general form of the CDD cycle. cycle/497 R1 recovery (`20260626-cycle497-model-b-and-kappa-emergence.md`) is a lived instance where "refuse" was the wrong choice made under pressure and the recovery had to run through operator-review.md as typed evidence.
+- **§5 substrate framing** ("cnos frames this as keeping releasable agent work outside model runtimes") is the κ role of `20260703-kappa-role-canonicalization.md`. The essay says the model may help declare the whole but must not be the whole; that IS the κ-sharpening rule ("κ writes only issues").
+- **§8 role separation** (author ≠ witness ≠ authority) is the sharpened κ-boundary. LLM-as-judge bias risks cited match the reason κ must not review its own writes.
+- **§10 circularity problem** is the recursive check `20260703-discipline-failures-become-typed-gates.md` names: doctrine self-measurement must be non-sovereign; external checks (hooks, human labels, ablations) prevent the elegant-frameworks-that-cannot-be-falsified-from-outside failure mode.
+- **§11 validation tests** are five concrete cnos work items — axis independence bench, expert-fit correlation study, predictive-value tracking, gameability audits, boundary-value continuity studies. Each maps to future cnos research issues.
+- **§12 practical definition + discipline list** is what a κ-CDD-preflight enforces.
 
-Today's typed-skill-modules, κ-canonicalization, cycle497-emergence, discipline-as-typed-gates, and cross-repo-bundle adhocs all sit under this essay's umbrella. It names why they cohere as a family.
+Today's typed-skill-modules, κ-canonicalization, cycle497-emergence, discipline-as-typed-gates, and cross-repo-bundle adhocs all sit under this essay's umbrella. It names why they cohere as a family — and now §10 also warns that this very framing must be falsifiable from outside.
 
 ## Iteration trail
 
-Operator-authored; delivered essentially final. No γ-console iteration proposed; no operator amendments requested. κ role at cn-sigma is `record` (per cnos#501 authorized actions), not review or edit. The essay lands verbatim.
+- **v0 (session earlier, 2026-07-03):** operator delivered "Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole." κ captured verbatim, wrapped, placed at bundle + adhoc.
+- **v1 (later 2026-07-03; this version):** operator delivered "All We Need Is Coherence" — retitled and materially expanded (new §5 whole-is-hard-part; new §10 circularity; new §11 validation tests; new §14 title defense; sharper §6 refuse; sharper §8 role separation).
 
-The only κ-shaped judgment applied was placement (see coherence-loop analysis above) — a legitimate κ `translate` action that the essay's own criteria could evaluate.
+Both versions capture the same central claim (coherence loop with α/β/γ + preserve-bottleneck + receipt). v1 grounds it in an engineering-research posture rather than a solved-method posture.
+
+κ role: `record` verbatim. No content edits proposed.
 
 ## Forward-looking notes
 
 - **External publication** is a separate operator decision. This adhoc and the bundle secure the internal canonical record.
-- **Cnos essay-family evolution:** if the essay matures at cnos (v0.8.0-shape bumps as happened with "Dumb Models"), cn-sigma's copy stays as-authored; a subsequent adhoc captures the evolution (per the `20260623-tsc-integrated-into-dumb-models-essay.md` precedent).
-- **Research agenda items** are candidates for future cnos issues via bundle. First candidate: coherence-aware decoding as a coherent-LLM instrumentation layer over an LLM API — natural fit for a cnos.core or cnos.cds subskill.
+- **v1 supersedes v0 as canonical** at both cn-sigma (this adhoc) and the bundle. Future readers should treat the v1 essay body below as the authoritative text.
+- **§11 validation tests are the next research surface.** Each is a concrete future cnos issue candidate (via bundle when substantive).
 
 ## Related artifacts
 
@@ -64,212 +66,503 @@ The only κ-shaped judgment applied was placement (see coherence-loop analysis a
 - **[20260620-dumb-models-smart-cells-essay.md](20260620-dumb-models-smart-cells-essay.md)** — doorway essay 2 (cells).
 - **[20260623-tsc-integrated-into-dumb-models-essay.md](20260623-tsc-integrated-into-dumb-models-essay.md)** — TSC integration precedent for essay-family evolution.
 - **[20260703-typed-skill-modules.md](20260703-typed-skill-modules.md)** — the form the coherence loop takes when instrumented.
-- **[20260703-kappa-role-canonicalization.md](20260703-kappa-role-canonicalization.md)** — the role the essay's §6 names.
-- **[20260626-cycle497-model-b-and-kappa-emergence.md](20260626-cycle497-model-b-and-kappa-emergence.md)** — the cycle where §7 played out in practice.
+- **[20260703-kappa-role-canonicalization.md](20260703-kappa-role-canonicalization.md)** — the role the essay's §5 frames (bounded reasoning body inside work body).
+- **[20260626-cycle497-model-b-and-kappa-emergence.md](20260626-cycle497-model-b-and-kappa-emergence.md)** — the cycle where §6 played out in practice.
 - **[20260703-discipline-failures-become-typed-gates.md](20260703-discipline-failures-become-typed-gates.md)** — the recursive principle §10 informs.
 - **[20260703-cross-repo-bundle-pattern.md](20260703-cross-repo-bundle-pattern.md)** — the pattern the companion bundle uses.
+- **[20260703-from-sense-of-fit-to-coherent-llms.md](20260703-from-sense-of-fit-to-coherent-llms.md)** — the genealogy that leads to this essay.
 - **cn-sigma:.cdd/iterations/cross-repo/cnos/coherent-llms-essay/** — companion bundle (canonical for cnos publication path).
 - **cnos:TSC** — the measurement theory the essay operationalizes.
 - **cnos:docs/papers/DUMB-MODELS-SMART-CELLS.md** — immediate paper-family neighbor.
 
 ---
 
-## Essay (verbatim)
+## Essay (verbatim, v1)
 
-# Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole
+# All We Need Is Coherence
 
-**Governing question:** How can an LLM compute, at generation time, whether its next output still belongs to the whole system it is trying to preserve?
+**A runtime discipline for whether an LLM's next move still belongs**
 
-## Abstract
-
-Large language models are fluent local continuers. They can write code, prose, plans, proofs, and explanations with impressive surface competence, but fluency is not the same as coherence. Coherence is the relation between a local move and the whole it must preserve. This article defines a coherent LLM system as an LLM-mediated system that measures, before committing an output, whether the candidate output preserves one declared whole across pattern, relation, and process. The proposal builds on Triadic Self-Coherence, or TSC, which asks whether three independent descriptions of a system still describe one system, and on cnos, which treats agent work as durable, receipted, measurable work rather than as transient model output.
-
-The claim is deliberately operational. A coherent LLM need not possess a human feeling of elegance, beauty, or understanding. It must instead run a coherence loop: declare the target whole, generate a candidate move, measure α pattern coherence, β relational coherence, and γ process coherence, identify the bottleneck, repair the weakest axis, and commit only with evidence. This gives the model a calculable substitute for the engineer's sense that code has become hacky, or the mathematician's sense that a proof has become heavy.
-
-**Keywords:** coherence, large language models, TSC, cnos, agent systems, self-measurement, verification, alignment, software engineering
+**Status:** public position essay
+**Audience:** AI engineers, agent-system builders, applied researchers, technical reviewers
+**Governing question:** How can an LLM-based system tell whether its next output still belongs to the whole it is trying to serve?
 
 ---
 
-## 1. The missing property is not fluency
+## Abstract
 
-The central weakness of LLMs is not that they cannot produce plausible local text. The central weakness is that they do not, by default, preserve an explicit whole while producing that text.
+The title is intentionally compressed enough to be dangerous. We need more than coherence. We need truth, tests, citations, security review, domain expertise, good interfaces, and human judgment. But without coherence, those checks cannot reliably find the thing they are supposed to check.
 
-An experienced engineer can often feel when a function no longer belongs. The code may still compile. The local logic may still work. Yet the function bends the module, duplicates a concept, violates a boundary, or makes the next change harder. The engineer's judgment is not merely syntactic. It is a judgment about fit.
+Large language models are strong local continuers. They can extend a prompt, draft a function, revise a paragraph, explain a paper, inspect a trace, or produce a plausible plan. But local continuation is not the same as system preservation. A generated function can pass tests and still damage an architecture. A proof can be valid and still obscure the idea it should reveal. An agent can complete a task and still leave behind mismatched code, docs, receipts, and release notes.
 
-Mathematicians recognize the same phenomenon. A proof may be valid but ugly because it hides the structure it should reveal. Another proof may be beautiful because every step appears necessary, every lemma carries its weight, and the conclusion feels inevitable. Beauty here is not decoration. It is coherence perceived as economy, inevitability, and structural fit.
+This essay proposes a runtime discipline for LLM systems: before a generated move becomes accepted work, the system should ask whether that move still belongs to the declared whole. The proposed loop is: declare the whole, generate a candidate, bind evidence, measure fit across three axes, preserve the weakest axis, repair or refuse when needed, and commit only with a receipt.
 
-LLMs can imitate the language of such judgments. They can say that code is clean or that a proof is elegant. But the harder question is whether the system can measure, in the moment, whether its next move preserves the whole it is serving. Modern LLMs gained power through scale and in-context task specification, as shown by the few-shot capabilities of GPT-3, but that success does not by itself give the model a durable, inspectable relation to a governing whole.
+The three axes come from Triadic Self-Coherence, or TSC: α pattern coherence, β relational coherence, and γ process coherence. TSC defines coherence as the question of whether independent descriptions of a system still describe one system; it also explicitly separates coherence from correctness, quality, style, tests, and linting.
 
-This distinction matters because local plausibility can hide global incoherence. A generated function can use the right idioms and still violate the architecture. A generated paper section can sound academic and still contradict the thesis. A generated agent handoff can be well formatted and still point to the wrong evidence. Bender and colleagues framed one part of this risk as the danger of systems that generate fluent language without grounded understanding of the conditions under which the language is meaningful.
+The claim is not that LLMs feel coherence as humans do. The claim is narrower: LLM-based systems can be given an external coherence instrument. They can be made to measure, at runtime, whether the next move still belongs.
 
-The problem, then, is not simply hallucination. Hallucination is one visible failure. The deeper failure is unmeasured local continuation.
+---
 
-## 2. Coherence is the preservation of one system across descriptions
+## 1. The engineer's sense of fit
 
-TSC gives a precise form to the question humans often answer intuitively. It defines Triadic Self-Coherence as a measurement theory for systems that describe themselves. Its governing question is whether three independent descriptions of the same system still describe one system. Those descriptions are α pattern coherence, β relational coherence, and γ process coherence.
+Engineers know the feeling.
 
-This is the key move: coherence is not correctness, quality, style, linting, or test success. TSC explicitly says that a coherent system can still be wrong, while an incoherent system cannot be trusted to know whether it is right.
+A patch compiles. The tests pass. The code is not ugly in isolation. Yet something is wrong. The new function duplicates an existing concept. The name almost matches the project's language but not quite. The module imports from the wrong layer. The fix solves today's bug by making tomorrow's change harder.
 
-That distinction is essential for LLMs. A coherent output is not guaranteed true. A coherent output is one whose claims, references, structure, and future implications still belong to the same declared system. Coherence is therefore a precondition for reliable correction, not a substitute for truth.
+Nothing is obviously broken, but the system has become less itself.
 
-In TSC, the three axes are not interchangeable labels. α asks whether the pattern is stable. β asks whether the parts refer to each other consistently. γ asks whether the system can evolve without losing identity. The aggregate is geometric, not arithmetic, because one broken dimension should not be averaged away by two strong ones.
+That judgment is not merely about correctness. It is a judgment about fit. The local move either preserves the whole or bends it.
 
-This is why TSC fits the engineering intuition so well. A codebase can have high α because its local patterns are tidy, while β fails because modules point to contradictory authorities. A research note can have strong β because citations line up, while γ fails because the argument cannot survive the next revision. A release can have strong γ because the migration path is clear, while α fails because the concepts drift across files.
+Mathematicians recognize a similar distinction. A proof can be valid but ugly. Another proof can be beautiful because every step reveals why the theorem is true. The beautiful proof does more than arrive at the conclusion. It preserves and exposes the structure of the problem.
 
-Coherence is the whole surviving through all three.
+Writers know this too. A sentence can be grammatical and still not belong in the paragraph. A paragraph can be clear and still not belong in the essay. A section can be accurate and still pull the reader away from the governing question.
 
-## 3. The triadic structure prevents cheap coherence
+The shared intuition is simple:
 
-The formal layer underneath TSC is C≡, a language for how an indivisible whole articulates itself. C≡ begins from the idea of "one-as-two": wholeness can articulate into distinguishable aspects without ceasing to be one whole. The triadic constructor tri(T₁,T₂,T₃) is the minimal form that can hold distinction without fragmentation.
+**A local move can succeed locally and fail globally.**
 
-This matters for LLMs because many self-checking methods are dyadic. They ask whether an answer matches a prompt, whether a critique matches an answer, or whether a test matches a function. Those checks help, but they do not fully answer whether the output, the surrounding system, and the system's future path still cohere.
+LLMs are especially vulnerable to this failure because they are good at local success. They can produce plausible continuations across many domains. But plausibility does not guarantee that the continuation preserves the system it is extending.
 
-TSC's three axes avoid that compression. α measures pattern. β measures relation. γ measures process. C≡ argues that these evaluators are independent by showing that their target structures have distinct idempotent profiles. In simpler terms, the axes are not three names for the same score. They see genuinely different failures.
-
-This is the first design requirement for coherent LLMs:
-
-> A coherent LLM system must not ask only, "Is this output good?" It must ask, "Does this output preserve the whole across pattern, relation, and process?"
-
-The second design requirement follows from the aggregate. TSC computes aggregate coherence through a geometric form. In the mathematical aggregate, a zero component collapses the whole score; in the numerical aggregate, a small ε floor permits stable computation while still recording whether a true zero component was present.
-
-This prevents a familiar LLM failure: compensating for a broken relation with beautiful prose. A generated answer should not be considered coherent merely because it is fluent. If it points to the wrong file, changes the meaning of a term, or hides an unstable future path, the bottleneck must remain visible.
-
-## 4. Existing LLM loops improve performance but do not yet make coherence primary
-
-Many test-time methods already push LLMs beyond one-shot generation. ReAct interleaves reasoning and action so that a model can update its behavior through interaction with external environments. Self-Refine uses iterative feedback and refinement without additional training. Reflexion stores verbal feedback in memory so agents can improve across trials. Tree of Thoughts lets models explore and evaluate multiple reasoning paths rather than committing to one left-to-right continuation.
-
-These methods are valuable. They give models more room to search, revise, act, and learn from feedback. But they usually treat improvement as task success, answer quality, or trajectory performance. They do not necessarily make the declared whole the object being measured.
-
-A coherence loop asks a different question. It does not merely ask whether the model found a better answer. It asks whether the answer still belongs to the system. The target is not "better text." The target is preservation of one system through the next move.
-
-This is the contribution TSC can make to LLM architecture. It turns coherence into a first-class runtime object: declared, bundled, measured, reported, repaired, and recorded.
-
-## 5. Definition: a coherent LLM system
-
-A coherent LLM system is an LLM-mediated system that measures whether each candidate output preserves a declared whole before that output is treated as work.
-
-The definition has five parts.
-
-**First, the system must declare the whole.** The whole may be a repository, a target bundle, a paper, a proof, a product spec, a cell of work, or an agent state. Without a declared whole, there is no coherence target.
-
-**Second, the system must bind evidence.** The candidate output must be evaluated against the files, claims, constraints, references, and prior decisions that define the whole. TSC's runtime instruction requires the model to use only the provided bundle, name evidence for each axis, avoid generic praise, and report uncertainty when evidence is missing.
-
-**Third, the system must measure α, β, and γ separately.** Pattern, relation, and process failures need different repairs. The TSC self-measure instruction makes this explicit: low α points to naming drift, duplication, contradiction, or unstable conceptual structure; low β points to authority confusion or cross-file mismatch; low γ points to unclear ownership of future change or inability to survive replacement of one layer.
-
-**Fourth, the system must preserve the bottleneck.** The weakest axis constrains the whole. TSC's runtime instruction explicitly says not to average away the bottleneck.
-
-**Fifth, the system must decide what happens next.** A coherent LLM system does not stop at critique. It repairs the weakest axis, refuses to commit, or commits with a receipt that records the measurement and the risk.
-
-This definition avoids a false claim. It does not say that the model has a human inner sense of coherence. It says that the system can externalize, compute, and act on a coherence relation.
-
-## 6. cnos supplies the body in which coherence can persist
-
-A coherence measurement needs somewhere to live. If it exists only inside a chat turn, it disappears with the turn. cnos addresses this by treating agent work as durable, receipted work in a Git-native body. Its README describes a hub as a repository an agent can wake into, read, write, remember through, and use to coordinate with humans and other agents; it also states that agent work should leave receipts, evidence, decisions, and memory.
-
-The cnos thesis frames the system more deeply: cnos is a recurrent coherence system in which doctrine, documents, packages, runtime modules, repositories, traces, releases, and agents are articulations of one coherence principle at different scales.
-
-This matters because the model should not own the work. The model can produce matter for the system. The system must own the workflow, evidence, trust claims, coherence reports, and release authority. The cnos paper "Dumb Models, Smart Cells" states this boundary clearly: model capability is rented, while durable work remains in a work body made of cells, packages, receipts, coherence reports, and repository state.
-
-A coherent LLM, in this framing, is not a standalone neural network. It is a bounded reasoning body operating inside a coherence-preserving work body.
-
-That work body gives the model what it lacks by default: durable state, explicit authority, inspectable evidence, and a named boundary where local output becomes accepted work.
-
-## 7. The coherence loop
-
-The operational loop is simple.
-
-**Declare the target.** Name the whole the output must preserve. In TSC, a target declares what is being measured and which files are in scope. The repository includes named targets and supports direct file input, mechanical scoring, LLM scoring, hybrid scoring, and auto mode.
-
-**Generate a candidate move.** The LLM writes the next function, paragraph, proof step, plan, patch, handoff, or receipt.
-
-**Bundle the candidate with the whole.** The candidate is not judged alone. It is judged against the target's stable facts, references, authority surfaces, and process expectations.
-
-**Measure the three axes.** α asks whether the candidate preserves stable pattern. β asks whether it preserves relations among parts. γ asks whether it preserves the future path of the system.
-
-**Compute the aggregate without hiding the weak axis.** TSC's OCaml implementation routes aggregate computation through the canonical geometric aggregate and records mathematical and numerical aggregate forms. The mechanical scorer explicitly avoids using an arithmetic mean for the headline cross-axis aggregate.
-
-**Repair the bottleneck.** Low α means repair terms, definitions, schema, or local structure. Low β means repair references, authority, imports, claims, or cross-file alignment. Low γ means repair migration, ownership, lifecycle, traceability, or change path.
-
-**Commit with a receipt or refuse to commit.** The output becomes work only when the system records what was done, what evidence was bound, what was measured, what failed, and who accepted the boundary decision.
-
-This loop gives the LLM a real-time coherence instrument. It does not ask the model to "be more thoughtful." It changes the runtime question from "What text comes next?" to "Does this next move preserve the whole?"
-
-## 8. Example: code generation as coherence preservation
-
-Suppose an LLM is editing a repository. It writes a helper function that passes tests. A conventional evaluator may accept the patch because the local behavior is correct. A coherence evaluator asks three additional questions.
-
-α asks whether the helper uses the repository's existing concepts. If the code introduces a synonym for an existing abstraction, α drops. The local code may be clean, but the pattern language has drifted.
-
-β asks whether the helper belongs where it was placed. If it imports from the wrong layer, bypasses a canonical interface, or points documentation toward a deprecated path, β drops. The function may work, but the relation graph has bent.
-
-γ asks whether the helper preserves future change. If the patch hides generated state, lacks traceability, leaves ownership unclear, or makes the next migration ambiguous, γ drops. The function may pass today, but the system has become harder to evolve.
-
-This matches the engineer's intuition. "Hacky" code is often not locally wrong. It is globally misfit. TSC gives that misfit a measurement surface.
-
-The same pattern applies to proofs. α asks whether the proof uses stable definitions. β asks whether lemmas relate to the theorem without hidden glue. γ asks whether the proof opens a durable path for generalization, reuse, or simplification. An ugly proof is often a proof whose local steps fail one of these dimensions.
-
-## 9. Coherence is not correctness, and that is why it is useful
-
-A coherence score should never be mistaken for a truth certificate. TSC states this directly: high coherence means coherent, not good; a coherent system can be wrong.
-
-That limitation is not a weakness. It is what makes coherence useful. Correctness often requires domain tests, empirical evidence, type checks, mathematical proof, legal review, security review, or human judgment. Coherence does not replace those. It tells us whether the artifact is stable enough to be judged by them.
-
-This is especially important for agent systems. A release can pass CI while the release note describes the wrong change. A receipt can be signed while pointing to the wrong evidence. A validator can emit one verdict while the handoff says another. The cnos paper describes this as the "same-work problem": after work moves through issue, cell, commit, validator, release note, and handoff, the system must ask whether those artifacts still describe one unit of work.
-
-That is the right place for TSC. It is not the judge of all truth. It is the witness that the object presented for judgment is still one object.
-
-## 10. Why the LLM must not be the sole authority
-
-A model can participate in coherence measurement, but it should not silently become the authority over its own work.
-
-TSC handles this by separating structural proxies, semantic judgment, and provenance. Mechanical scoring is deterministic and uses structural signals such as terminology consistency, cross-reference consistency, authority alignment, version surface consistency, and traceability presence. Hybrid scoring combines mechanical and LLM results into one report while preserving both sub-objects and routing aggregate computation through the canonical coherence aggregate.
-
-This separation matters. A mechanical witness can catch obvious structural drift without trusting a model. An LLM witness can judge semantic fit that mechanical signals miss. A hybrid witness can show agreement or disagreement between the two.
-
-The cnos boundary sharpens the same point. A model should be a bounded provider inside a system-owned workflow. The receipt should record the route, evidence, validation, coherence measurement, and decision. The system must not claim more coherence than it measured.
-
-A coherent LLM system therefore needs role separation. The model may write. Another model or mechanical process may measure. A validator may check. A named boundary authority may decide. Coherence improves when those roles are explicit.
-
-## 11. From self-critique to self-measurement
-
-Self-critique asks the model to inspect its own answer. Self-measurement asks the system to inspect the relation between the answer and the whole.
-
-That difference is decisive. A self-critique can become another fluent local continuation. It can sound reflective while missing the real structural mismatch. A self-measurement loop must bind evidence, score axes, name the bottleneck, and produce a structured output.
-
-TSC's runtime instruction embodies that shift. It tells the model that its job is not to summarize the files, but to measure whether the bundle forms one coherent system across α, β, and γ. It requires positive and negative evidence for each axis, discrepancy values, confidence, unresolved ambiguity, and next fixes.
-
-This makes coherence actionable. The result is not "the answer seems good." The result is "β is the bottleneck because two authority surfaces disagree; repair the source-of-truth relation before committing."
-
-That is the missing instrument.
-
-## 12. Research agenda
-
-The coherent LLM program has five natural directions.
-
-**First, coherence-aware decoding** should evaluate candidate continuations against a target bundle before selecting the next move. The model should not only optimize for local likelihood or instruction satisfaction. It should prefer continuations that preserve α, β, and γ.
-
-**Second, coherence memory** should store stable facts once and point to them elsewhere. This follows the cnos writing discipline: a document has one governing question, each section one sub-question, each paragraph one move, each sentence one claim, and each word one job.
-
-**Third, coherence benchmarks** should measure same-work preservation across long workflows. The benchmark should include docs, code, issues, tests, receipts, releases, and handoffs, then ask whether they still describe one unit of work after model intervention.
-
-**Fourth, coherence routing** should separate authorship from witnessing. The model that writes a patch should not automatically be the only model that judges whether the patch belongs.
-
-**Fifth, coherence deltas** should become release artifacts. cnos already frames releases as movement along a coherence gradient: each cycle should produce a coherence delta and reduce a named incoherence.
-
-This agenda does not require a speculative theory of machine consciousness. It requires better runtime instrumentation.
-
-## 13. Conclusion
-
-LLMs do not need to feel coherence in order to use coherence.
-
-Human engineers and mathematicians experience coherence as a trained sense of fit. A function belongs or it does not. A proof reveals the structure or it does not. That feeling is powerful, but it is private.
-
-TSC makes the private sense operational. It asks whether independent descriptions still reveal one system. It measures pattern, relation, and process. It preserves the bottleneck. It refuses to average away collapse.
-
-cnos gives that measurement a body. It keeps work outside the model, in cells, packages, receipts, reports, and repository state. It lets the model act, but makes the work inspectable.
-
-A coherent LLM system is therefore not a model that always tells the truth, and not a model that possesses human aesthetic judgment. It is a system that can ask, before committing a local move:
+The missing runtime question is:
 
 **Does this still belong to the whole?**
 
-That question is the bridge from fluent generation to coherent work.
+---
+
+## 2. Fluency is not coherence
+
+Fluency is the ability to continue in a way that sounds right.
+
+Coherence is the preservation of one system across a move.
+
+The distinction matters because modern LLM systems often look better before they become safer. A model that writes more fluent prose can hide contradictions more elegantly. A model that edits more files can create larger mismatches. A model that calls tools can produce evidence-shaped output without preserving the relation between evidence and claim.
+
+This is not only the familiar problem of hallucination. Hallucination is one visible failure. A broader class of failures happens when every local artifact seems plausible but the artifacts no longer describe the same work.
+
+A bug report says one thing. The patch fixes a neighboring thing. The test confirms the patch. The release note describes a third thing. The handoff says the issue is closed. Nothing in the chain looks absurd by itself. The failure is that the chain is no longer one chain.
+
+That is a coherence failure.
+
+Existing test-time methods help LLMs reason, search, revise, and act. ReAct interleaves reasoning traces and task-specific actions, allowing models to update plans through interaction with tools and environments. Self-Refine improves outputs through iterative feedback and revision from the model itself. Reflexion stores verbal feedback in memory so agents can improve across trials. Tree of Thoughts lets models explore and evaluate multiple reasoning paths rather than committing to a single left-to-right continuation.
+
+These methods are useful. They make generation less one-shot. But they do not, by themselves, make the declared whole the thing being preserved. A system can reason better, refine more, remember longer, and search wider while still losing the identity of the work.
+
+Coherence is not another word for better output. It is a relation between an output and a whole.
+
+---
+
+## 3. Coherence is not correctness
+
+Correctness asks whether something is right.
+
+Coherence asks whether something still belongs.
+
+A coherent system can be wrong. An incoherent system can contain true statements. This distinction is central to TSC: a high coherence score means coherent, not good; TSC is not a linter, test suite, syntax checker, or quality score.
+
+That distinction makes coherence useful rather than inflated.
+
+Code correctness may require tests, type checks, benchmarks, runtime observation, security review, and human review. Factual correctness may require citations and source verification. Mathematical correctness may require proof. Legal, medical, and financial correctness require domain standards and accountable expertise.
+
+Coherence does not replace any of that.
+
+Coherence answers an earlier question: is the thing being checked still one thing?
+
+A release can pass CI while its release note describes the wrong change. A research summary can cite the right paper while reversing the relation between claim and evidence. A generated plan can satisfy the user's wording while violating the project's actual goal. A proof outline can contain true lemmas while failing to reveal how they compose.
+
+In each case, correctness checks may still be necessary. But first the system must preserve the object those checks are meant to evaluate.
+
+**Coherence is the condition under which correction can find its target.**
+
+---
+
+## 4. The three-axis test
+
+A single "quality" score hides too much.
+
+Something can sound consistent while pointing to the wrong authority. Something can update all references while making future change harder. Something can be easy to extend while introducing conceptual drift.
+
+TSC separates coherence into three axes:
+
+| Axis | Runtime question | Common failure |
+|---|---|---|
+| **α pattern coherence** | Does this preserve the system's language, concepts, forms, and internal structure? | Naming drift, duplicated concepts, unstable definitions, local contradiction |
+| **β relational coherence** | Do the parts still point to each other correctly? | Broken references, authority confusion, docs and implementation disagreeing |
+| **γ process coherence** | Can the system continue through change without losing identity? | No migration path, unclear ownership, brittle evolution, hidden generated state |
+
+TSC's self-measure protocol defines the axes in this practical way: α looks for stable terms, definitions, conceptual boundaries, and absence of contradiction; β looks for consistent cross-file fit and authority alignment; γ looks for authority surfaces, migration rules, canonical/generated distinctions, and clear future change paths.
+
+The axes are useful because they catch different kinds of failure.
+
+A patch can score high on α and low on β. It uses the project's language, follows the style, and looks locally clean, but it places the logic in the wrong layer.
+
+A patch can score high on β and low on γ. It updates every reference correctly, but it hard-codes a transitional rule that future changes cannot safely extend.
+
+A patch can score high on γ and low on α. It creates a workable migration path, but introduces new terms that fracture the project's conceptual language.
+
+This is the practical independence claim. It should not be treated as proven merely because the framework names three axes. The axes earn their place only if they catch different failures in real systems. That needs empirical validation.
+
+For now, the proposal is:
+
+**Measure pattern fit, relational fit, and process fit separately, because a local move can preserve one while breaking another.**
+
+---
+
+## 5. The whole is the hard part
+
+The earlier version of this argument made "declare the whole" sound like an easy first step. It is not.
+
+In real work, the whole is often unclear. The source of truth has drifted. The README says one thing, the implementation says another, and the issue tracker says a third. The team may disagree about the architecture. The roadmap may have changed. A migration may be halfway complete. The system may already be incoherent before the model touches it.
+
+So the coherence loop cannot assume a clean whole. It must construct and expose the current whole as a versioned artifact.
+
+A useful coherence target should state at least five things:
+
+1. **Scope:** which artifacts are included?
+2. **Authority:** which artifacts decide when sources disagree?
+3. **Invariants:** what must not change?
+4. **Known tensions:** what is already unresolved?
+5. **Exit condition:** what would count as a coherent next state?
+
+This changes the first move. The first move is not "score the output." The first move is "declare the best current boundary of the system."
+
+That declaration can be partial. It can be contested. It can say, "The docs and implementation disagree here." It can say, "This migration is unfinished." It can say, "This file is canonical; that one is derived." It can say, "This target is not coherent enough to modify safely."
+
+**An honest partial whole is better than a fake complete whole.**
+
+This is where durable state matters. If the declared whole lives only inside a chat turn, it will drift with the conversation. A coherence target should live in the work body: repository state, issue state, docs, receipts, reports, tests, and release artifacts.
+
+cnos frames this as keeping releasable agent work outside model runtimes. In that model, capability is rented from models, but durable work remains in a work body owned by the system: cells carry workflow, packages carry local cognition, receipts carry evidence, coherence reports carry measurement, repo state carries continuity, and boundary authority decides what crosses into release.
+
+The model may help declare the whole. **The model must not be the whole.**
+
+---
+
+## 6. The coherence loop
+
+A coherent LLM system does not merely ask a model to be careful. It changes the runtime contract.
+
+The loop is:
+
+1. declare the current whole;
+2. generate a candidate move;
+3. bind evidence;
+4. measure α, β, and γ separately;
+5. preserve the bottleneck;
+6. repair, refuse, or commit;
+7. leave a receipt.
+
+Each step has a job.
+
+### 6.1 Declare the current whole
+
+The system names the target, scope, authority surfaces, invariants, known tensions, and exit condition.
+
+For a repository, the target might include the README, architecture docs, public API, tests, issue contract, implementation files, and release notes. For a paper, it might include the thesis, definitions, claims, evidence, argument structure, and intended audience. For an agent workflow, it might include the task, tool outputs, intermediate decisions, artifacts changed, and acceptance boundary.
+
+Without a declared whole, "coherence" becomes taste.
+
+### 6.2 Generate a candidate move
+
+The model proposes a patch, paragraph, plan, proof step, review, handoff, migration, or decision.
+
+The candidate is not accepted because it is fluent. It is only a candidate.
+
+### 6.3 Bind evidence
+
+The system attaches the evidence needed to judge fit: files, diffs, issue text, prior decisions, test output, schemas, traces, citations, or receipts.
+
+TSC's self-measure instruction requires judgments to be grounded only in the provided bundle and to say when evidence is missing.
+
+This matters because coherence without evidence becomes self-congratulation.
+
+### 6.4 Measure α, β, and γ separately
+
+The system asks:
+
+Does the candidate preserve the pattern language?
+
+Does it preserve the relation graph?
+
+Does it preserve the future path?
+
+Each axis should include positive evidence, negative evidence, uncertainty, and a score or verdict.
+
+### 6.5 Preserve the bottleneck
+
+The weakest axis constrains the whole.
+
+This is why TSC uses a geometric aggregate rather than a flat average. Its thesis defines the composite score as a geometric mean and explicitly states that one zero component collapses the mathematical aggregate because coherence is not an average.
+
+This prevents a common LLM failure: compensating for a broken relation with beautiful prose.
+
+If β is broken, α elegance does not save the output. If γ is broken, a clean local patch may still be unsafe to commit. If α is broken, a well-routed change may still fracture the system's language.
+
+The bottleneck is not a detail. It is the current shape of the failure.
+
+### 6.6 Repair, refuse, or commit
+
+Low α suggests repair to terms, definitions, naming, local structure, or duplication.
+
+Low β suggests repair to references, authority, dependencies, source-of-truth alignment, or cross-file claims.
+
+Low γ suggests repair to ownership, migration path, lifecycle, traceability, or future change path.
+
+If the failure cannot be repaired with the evidence available, the system should refuse to commit. **Refusal is not model failure. It is boundary preservation.**
+
+### 6.7 Leave a receipt
+
+A model output becomes durable work only when the system records what happened, what evidence was used, what was measured, what failed, what changed, and who or what accepted the boundary decision.
+
+The receipt is what lets another human, model, validator, or future session reconstruct the move.
+
+**No receipt means no durable memory of why the move belonged.**
+
+---
+
+## 7. A concrete failure case
+
+Imagine an LLM agent is asked to fix a CLI bug.
+
+The issue says:
+
+> `cn check` should fail when the manifest is missing a required package.
+
+The agent inspects the repo, writes a patch, adds a test, updates the release note, and posts a summary. The test passes.
+
+A task-performance loop may stop there.
+
+A coherence loop asks more.
+
+**α pattern coherence:** Did the patch use the project's existing language? If the repo consistently says "package" but the patch introduces "module" for the same concept, α drops. The code may work, but the language of the system has drifted.
+
+**β relational coherence:** Did the patch modify the right layer? If the architecture says manifest validation belongs in the manifest checker but the patch puts the rule in the command parser, β drops. The behavior may be correct, but the relation between responsibility and implementation is wrong.
+
+**γ process coherence:** Can future package rules be added without repeating this special case? If the patch hard-codes one missing-package condition instead of extending the validation path, γ drops. The current bug is fixed, but the future path is worse.
+
+Now suppose the release note says:
+
+> Improves package resolution.
+
+But the issue and patch are about manifest validation. The code, issue, test, and release note no longer describe one unit of work.
+
+This is not simply a bad summary. It is a **same-work failure**.
+
+ReAct might help the agent inspect the right files. Self-Refine might improve the release note. Reflexion might help the agent remember that previous attempts failed. Tree of Thoughts might explore several fixes before choosing one. Those are useful capabilities. But unless the system explicitly checks that issue, patch, test, docs, and release note still describe one work object, the coherence failure can pass through.
+
+The coherence loop targets that gap.
+
+---
+
+## 8. Mechanical witnesses help, but they are not enough
+
+Some coherence signals can be checked mechanically.
+
+A system can look for naming drift, repeated definitions, inconsistent headings, broken links, missing source-of-truth alignment, version-surface mismatch, missing traceability, or confusion between canonical and generated artifacts.
+
+The TSC mechanical scorer is built in this spirit: it describes itself as deterministic structural proxies over a bundle, with no LLM calls or network I/O. Its default signals include terminology consistency, repeated structure, duplicate definition tension, naming drift, cross-reference consistency, authority alignment, source-of-truth alignment, version-surface consistency, and traceability presence.
+
+These checks are useful. They catch cheap drift. They are repeatable. They create evidence.
+
+But they are not sufficient.
+
+A document can use consistent terms and still be wrong. A repo can have valid links and still point to the wrong abstraction. A generated patch can satisfy a checklist while violating the design. A model can learn to game shallow coherence signals by repeating terms, adding links, and manufacturing plausible receipts.
+
+So mechanical scoring should be treated as a **witness, not an oracle**.
+
+The right architecture is layered:
+
+- deterministic witnesses catch structural drift;
+- LLM witnesses judge semantic fit against bounded evidence;
+- human reviewers resolve high-stakes or ambiguous cases;
+- receipts preserve what each witness saw;
+- benchmarks test whether witness scores correlate with expert judgment.
+
+This is also why the author of a change should not be the only judge of its coherence. LLM-as-judge systems can be useful, but recent work has documented bias risks such as position bias, verbosity bias, and self-enhancement bias.
+
+A coherent system separates roles. The model may write. Another witness may measure. A validator may check. A boundary authority may accept. The receipt records the chain.
+
+---
+
+## 9. How this differs from ordinary "coherence" scoring
+
+Many evaluation systems use "coherence" to mean readable flow. That is a valid use of the word, but it is not the use here.
+
+Readable flow asks:
+
+Does this output make sense as text?
+
+System coherence asks:
+
+Does this output still belong to the whole?
+
+A paragraph can flow beautifully while contradicting the thesis of the essay. A release note can be readable while describing the wrong patch. A plan can be clear while optimizing the wrong goal. A code comment can be well written while explaining an invariant the code no longer preserves.
+
+System coherence is closer to architecture review, configuration control, provenance, and evidence binding than to prose scoring.
+
+It is not a replacement for existing evaluations. It is a **missing evaluation target**.
+
+An ordinary eval might ask, "Did the model answer correctly?" A coherence eval asks, "Did the answer preserve the declared relation between task, evidence, artifact, and next state?"
+
+That question becomes more important as LLMs move from answering to acting.
+
+---
+
+## 10. The circularity problem
+
+A coherence system can become circular.
+
+It can define its own vocabulary, score itself by that vocabulary, report success, and become harder to falsify from outside. The more elegant the vocabulary, the more dangerous the closure.
+
+This is a real risk for TSC and for any coherence framework.
+
+The fix is not to avoid self-measurement. The fix is to make self-measurement **non-sovereign**.
+
+A credible coherence program needs external checks.
+
+It needs **blind human labels**. Engineers should compare patches and say which ones preserve architecture better without seeing the system's scores.
+
+It needs **ablation tests**. Remove α, β, or γ scoring and see whether performance drops on different failure classes.
+
+It needs **adversarial examples**. Test cases should include fluent but incoherent outputs, structurally consistent but semantically wrong outputs, locally correct but process-breaking outputs, and plausible receipts bound to the wrong evidence.
+
+It needs **cross-model witnesses**. The model that writes should not be the only model that judges.
+
+It needs **public failure reports**. When the coherence loop accepts a bad output, the miss should become part of the evidence.
+
+A coherence score is useful only if reality can embarrass it.
+
+---
+
+## 11. What must be validated
+
+This essay is a proposal, not a proof that the method works.
+
+The validation burden is clear.
+
+### 11.1 Axis independence
+
+The first test is whether α, β, and γ actually catch different failures.
+
+A benchmark should include examples where only one axis is weak:
+
+- pattern drift without relation failure;
+- relation failure without pattern drift;
+- process failure without immediate pattern or relation failure.
+
+If expert reviewers do not separate these cases, the triad is too ornate. If they do, the triad earns its keep.
+
+### 11.2 Human fit judgment
+
+The second test is whether coherence scores correlate with expert fit judgments.
+
+For software, reviewers can rate whether a patch preserves the architecture. For papers, reviewers can rate whether a section advances the thesis. For agent workflows, reviewers can rate whether issue, patch, test, receipt, and release note still describe one unit of work.
+
+### 11.3 Predictive value
+
+The third test is whether low coherence predicts future cost.
+
+A useful coherence score should predict review churn, revert risk, documentation drift, bug recurrence, migration pain, handoff failure, or release confusion.
+
+### 11.4 Gameability
+
+The fourth test is whether the system can be fooled.
+
+If a model can raise coherence by repeating terms, adding links, or generating ceremonial receipts without improving fit, the witness is too shallow.
+
+### 11.5 Boundary value
+
+The fifth test is whether durable receipts improve continuity across time.
+
+The cnos claim is that model capability should be rented while durable work remains in system-owned artifacts: cells, packages, receipts, coherence reports, and repo state. The empirical question is whether this boundary improves auditability, recovery, review, and multi-agent handoff.
+
+Until these tests are run, coherent LLMs should be presented as an engineering research program, not a solved method.
+
+---
+
+## 12. A practical definition
+
+A coherent LLM system is not an LLM that always tells the truth.
+
+It is an LLM-mediated system that checks whether a candidate output still belongs to a declared whole before treating that output as accepted work.
+
+The minimal implementation is:
+
+1. declare the current whole;
+2. generate a candidate;
+3. bind evidence;
+4. score α, β, and γ separately;
+5. identify the weakest axis;
+6. repair, refuse, or commit;
+7. record the result.
+
+The discipline is more important than the score.
+
+- Do not let fluency stand in for fit.
+- Do not let one strong dimension hide a broken one.
+- Do not let the author be the only witness.
+- Do not let the chat session be the system of record.
+- Do not claim more coherence than was measured.
+
+---
+
+## 13. Why this matters for agents
+
+Agent systems fail in ways ordinary answer evaluation does not catch.
+
+They fail when a plan and implementation drift apart.
+
+They fail when a tool result is summarized incorrectly.
+
+They fail when a patch is right but the receipt binds the wrong evidence.
+
+They fail when a second agent resumes work from a misleading handoff.
+
+They fail when no one can tell which artifact owns the truth.
+
+These are normal coordination failures. LLMs make them more likely to look finished.
+
+A weak model produces small obvious errors. A stronger agent can produce plausible work across many files, tools, and steps. It can update the code, tests, docs, issue, release note, and handoff in one pass. That is useful. It is also dangerous if the artifacts no longer describe the same work.
+
+**The more capable the model, the more important the boundary.**
+
+Coherence measurement is not a way to make the model sovereign. It is a way to keep the work inspectable.
+
+---
+
+## 14. Why the title is still fair
+
+"All We Need Is Coherence" is not literally true.
+
+We need correctness. We need evidence. We need security. We need domain expertise. We need accountability. We need taste. We need good engineering. We need institutions that decide what is allowed to ship.
+
+But coherence is special because it sits underneath the others.
+
+If the artifact is incoherent, correctness checks scatter. Evidence binds to the wrong claim. Tests confirm the wrong behavior. Reviews inspect the wrong boundary. Release notes describe the wrong change. Handoffs resume the wrong task.
+
+Coherence is not sufficient.
+
+It may be necessary.
+
+That is the sense in which the title is meant.
+
+---
+
+## 15. Conclusion
+
+LLMs are fluent local continuers. Coherent work requires more than local continuation.
+
+A coherent system must preserve a relation between what it says, what it changes, what it cites, what it records, and what it can do next. That relation is not guaranteed by better prose, longer context, tool use, self-reflection, search, or memory.
+
+The next step for LLM systems is not only better generation. It is better commitment.
+
+Before a generated move becomes work, the system should ask:
+
+**Does this still belong to the whole?**
+
+That question is small enough to run at runtime and deep enough to change the architecture of agent systems.
+
+Coherence is not truth.
+Coherence is not beauty.
+Coherence is not correctness.
+
+**Coherence is the condition under which correction can find the thing it is trying to correct.**

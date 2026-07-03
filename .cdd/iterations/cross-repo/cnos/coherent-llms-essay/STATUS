@@ -10,4 +10,5 @@
 # substrate) into an operational proposal for coherent LLM systems.
 # Operator-authored; κ-at-cn-sigma delivers verbatim per bundle pattern.
 
-2026-07-03 drafted sigma
+2026-07-03 drafted sigma            # v0 title: "Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole"
+2026-07-03 modified sigma           # v1 retitle + material expansion: "All We Need Is Coherence" (§5 whole-is-hard-part, §10 circularity, §11 validation, §14 title defense)
