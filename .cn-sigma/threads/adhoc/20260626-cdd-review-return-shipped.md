@@ -1,6 +1,6 @@
 # cnos#500 cdd/review-return — mechanical primitive shipped (PR #502)
 
-**Date:** 2026-06-26 (event); captured 2026-06-30 (κ backfill, 4-day gap)
+**Date:** 2026-06-26 (event); captured 2026-07-03 (κ backfill, 4-day gap)
 **Class:** doctrine-evolution (mechanical primitive landing)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** WebFetch of cnos#500; channel `20260630.md` recorded the PR #502 merge under "Open state" rolling summary.
@@ -9,7 +9,7 @@
 
 cnos#500 was filed 06-26 as a follow-up from cycle/497 R1 (the cycle that motivated the κ-skill at cnos#501). I captured the filing in `20260626-cycle497-model-b-and-kappa-emergence.md`. I did NOT capture that the implementation shipped four days later (PR #502 merged 06-26, same day as filing).
 
-This is a backfill correction. The `20260630-discipline-failures-become-typed-gates.md` adhoc lists cnos#500 in its "matching gates" table as "awaiting operator dispatch" — **wrong.** This adhoc supplies the correction.
+This is a backfill correction. The `20260703-discipline-failures-become-typed-gates.md` adhoc lists cnos#500 in its "matching gates" table as "awaiting operator dispatch" — **wrong.** This adhoc supplies the correction.
 
 ## What shipped (per cnos#500 + PR #502)
 
@@ -29,7 +29,7 @@ The bootstrap-exception remains an escape hatch when the primitive can't apply; 
 
 ## Implication for κ doctrine
 
-The κ-overstep gate from `20260630-discipline-failures-become-typed-gates.md` — listed as "(0) κ-overstep into α/β/γ scope, gated by cnos#501 κ-skill + cnos#500 cdd/review-return primitive when those ship" — is **half-live now**:
+The κ-overstep gate from `20260703-discipline-failures-become-typed-gates.md` — listed as "(0) κ-overstep into α/β/γ scope, gated by cnos#501 κ-skill + cnos#500 cdd/review-return primitive when those ship" — is **half-live now**:
 
 - cnos#500: SHIPPED. Mechanical primitive available.
 - cnos#501: status:ready; awaiting operator dispatch.
@@ -47,6 +47,6 @@ Pattern: even after naming the discipline failure mode, the catch-up sweep itsel
 - **cnos#500** — issue (closed).
 - **PR #502** — shipped the schema + primitives + δ wake amendments.
 - **cn-sigma:.cn-sigma/threads/adhoc/20260626-cycle497-model-b-and-kappa-emergence.md** — captures the cycle that motivated #500.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-discipline-failures-become-typed-gates.md** — the status table that this adhoc corrects.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-kappa-role-canonicalization.md** — κ-side absorption; the "R1 boundary-recovery pattern" section there now has a mechanical primitive backing it, not just doctrine.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-discipline-failures-become-typed-gates.md** — the status table that this adhoc corrects.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-kappa-role-canonicalization.md** — κ-side absorption; the "R1 boundary-recovery pattern" section there now has a mechanical primitive backing it, not just doctrine.
 - **cnos#501** — κ-role canonicalization (status:ready; companion to #500).

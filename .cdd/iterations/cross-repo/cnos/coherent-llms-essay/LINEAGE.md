@@ -10,7 +10,7 @@
 
 ## Upstream — what drives this proposal
 
-The essay is operator-authored (fresh writing, delivered to κ at cn-sigma via the same session that captured six doctrine adhocs today). κ's role per cnos#501 is `record` and `translate`; this bundle records the essay verbatim and translates its target-placement per the cnos paper-family convention.
+The essay is operator-authored (fresh writing, delivered to κ at cn-sigma via the 2026-07-03 session that also captured six sibling doctrine adhocs today plus a batch of retro-backfills for earlier events). κ's role per cnos#501 is `record` and `translate`; this bundle records the essay verbatim and translates its target-placement per the cnos paper-family convention.
 
 The essay synthesizes doctrine that already lives at cnos:
 - **TSC** as a measurement theory for α (pattern), β (relation), γ (process) coherence.
@@ -18,13 +18,13 @@ The essay synthesizes doctrine that already lives at cnos:
 - **"Dumb Models, Smart Cells" (v0.8.0)** as the substrate framing this essay extends into an operational proposal for LLM systems.
 
 The synthesis reads as a doctrinal center for today's other cn-sigma adhocs:
-- `20260630-typed-skill-modules.md` — the article's coherence loop instrument is expressed via typed skill modules (SKILL.md frontmatter contract + CUE + fixtures).
-- `20260630-kappa-role-canonicalization.md` — the article's §6 ("bounded reasoning body operating inside a coherence-preserving work body") is the κ role verbatim.
+- `20260703-typed-skill-modules.md` — the article's coherence loop instrument is expressed via typed skill modules (SKILL.md frontmatter contract + CUE + fixtures).
+- `20260703-kappa-role-canonicalization.md` — the article's §6 ("bounded reasoning body operating inside a coherence-preserving work body") is the κ role verbatim.
 - `20260626-cycle497-model-b-and-kappa-emergence.md` — the article's §7 coherence loop (commit-with-receipt or refuse-to-commit) MAPS onto cycle/497 R1 recovery: `degraded_recovery: human_interface_applied_operator_patch` is exactly the "commit with a receipt that records the risk" clause.
-- `20260630-discipline-failures-become-typed-gates.md` — the article's §10 ("the LLM must not be the sole authority") sharpens the typed-gates principle.
+- `20260703-discipline-failures-become-typed-gates.md` — the article's §10 ("the LLM must not be the sole authority") sharpens the typed-gates principle.
 
-- **Primary upstream source:** operator direct authorship in cn-sigma session, 2026-06-30.
-- **Bilateral mirror (cn-sigma-side):** small marker adhoc at `cn-sigma:.cn-sigma/threads/adhoc/20260630-coherent-llms-essay-captured.md` (companion; capture-event record, points at this bundle as canonical home).
+- **Primary upstream source:** operator direct authorship in cn-sigma session, 2026-07-03.
+- **Bilateral mirror (cn-sigma-side):** full-essay adhoc at `cn-sigma:.cn-sigma/threads/adhoc/20260703-coherent-llms-essay.md` (companion; essay body verbatim + framing wrapper, matching the doorway-essay-adhoc precedent).
 
 ## Target
 
@@ -38,7 +38,7 @@ The synthesis reads as a doctrinal center for today's other cn-sigma adhocs:
 
 ## Why a bundle, not just a channel directive-out
 
-Per cn-sigma adhoc `20260630-cross-repo-bundle-pattern.md` (this session): substantive cross-repo proposals with multi-paragraph bodies belong in bundle form. This essay is exactly that shape — 5000+ words of publication-grade content that must be filed verbatim and evolve at the target repo. Channel directive-out is reserved for lightweight signals; this is not lightweight.
+Per cn-sigma adhoc `20260703-cross-repo-bundle-pattern.md` (this session): substantive cross-repo proposals with multi-paragraph bodies belong in bundle form. This essay is exactly that shape — 5000+ words of publication-grade content that must be filed verbatim and evolve at the target repo. Channel directive-out is reserved for lightweight signals; this is not lightweight.
 
 Per cnos `CDD.md §5.3` cross-repo trace row + the precedent established by `agent-activate-skill` (cnos 3.78.0 cycle). The bundle carries (a) the essay body ready for filing, (b) bilateral trace, (c) source-side STATUS ledger for the proposal lifecycle. Without the bundle, the essay would live only inside a channel entry, which is transient by comparison.
 
@@ -47,7 +47,7 @@ Per cnos `CDD.md §5.3` cross-repo trace row + the precedent established by `age
 When cnos accepts this proposal:
 - cnos-side mirror expected at `cnos:.cdd/iterations/cross-repo/cn-sigma/coherent-llms-essay/`.
 - cn-sigma-side STATUS advances via the ledger: `drafted` → `submitted` → `accepted`/`modified`/`rejected` → `landed`.
-- Companion cn-sigma adhoc `20260630-coherent-llms-essay-captured.md` records the local capture event; it does not evolve; the essay evolves at cnos.
+- Companion cn-sigma adhoc `20260703-coherent-llms-essay-captured.md` records the local capture event; it does not evolve; the essay evolves at cnos.
 
 ## Coherence-check on placement (per the essay's own loop)
 

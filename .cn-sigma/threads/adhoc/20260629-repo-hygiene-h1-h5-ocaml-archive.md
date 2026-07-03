@@ -1,6 +1,6 @@
 # Repo hygiene H0–H5 + OCaml archive + adhoc migration directive
 
-**Date:** 2026-06-28 → 2026-06-29 (events); captured 2026-06-30 (κ backfill)
+**Date:** 2026-06-28 → 2026-06-29 (events); captured 2026-07-03 (κ backfill)
 **Class:** structural (repo hygiene wave; legacy preservation; cross-repo directive)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** Multiple commits at cnos; OCaml archive at PR #517; H2 PR #522; rest as direct main commits. Channel narrative in `.cn-sigma/threads/activations/cnos/20260629.md` 14:30Z entry (directive-out received).

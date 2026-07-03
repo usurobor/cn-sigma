@@ -1,6 +1,6 @@
 # Docs reorg passes 4A–4E + path-dependency baseline
 
-**Date:** 2026-06-26 → 2026-06-29 (events); captured 2026-06-30 (κ backfill)
+**Date:** 2026-06-26 → 2026-06-29 (events); captured 2026-07-03 (κ backfill)
 **Class:** structural (docs reorganization; not pure doctrine, but path-rippling)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** PRs #509 / #511 / #513 / #520 / #522 merged across 06-26 → 06-29. Per-pass narrative recorded in `.cn-sigma/threads/activations/cnos/202606{26,27,28,29}.md`.

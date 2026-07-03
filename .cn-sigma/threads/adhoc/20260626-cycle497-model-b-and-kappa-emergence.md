@@ -1,6 +1,6 @@
 # cycle/497 — Model B receipt ledger + κ-role emergence
 
-**Date:** 2026-06-26 (event); captured 2026-06-30 (κ backfill)
+**Date:** 2026-06-26 (event); captured 2026-07-03 (κ backfill)
 **Class:** doctrine-evolution (decision cycle + role-doctrine birth)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** PR #499 merged at cnos@f8c3f67 (06-26 07:43:34Z). Full cycle narrative recorded in `.cn-sigma/threads/activations/cnos/20260626.md` 08:42Z entry.
@@ -70,7 +70,7 @@ A cycle that *needs* this recovery once per execution has a real κ-overlap prob
 ## Implications carrying forward
 
 - All future receipt evidence at cnos goes through the `.cdd/` ledger with `protocol_id` declared in the artifact.
-- κ doctrine canonicalized at cnos#501 (status:ready as of 06-30); my body at cn-sigma is κ; see companion `20260630-kappa-role-canonicalization.md`.
+- κ doctrine canonicalized at cnos#501 (status:ready as of 06-30); my body at cn-sigma is κ; see companion `20260703-kappa-role-canonicalization.md`.
 - The recovery pattern (operator-review.md as typed input + proper role pass + `degraded_recovery` declaration) is the codified template for any future κ overstep.
 - cnos#500 (`cdd/review-return`) is the mechanical primitive that should reduce κ-bootstrap-exception incidents; tracked separately.
 
@@ -81,5 +81,5 @@ A cycle that *needs* this recovery once per execution has a real κ-overlap prob
 - **cnos#501** — κ-role canonicalization (status:ready).
 - **cn-sigma:.cn-sigma/threads/activations/cnos/20260626.md** — full channel narrative of the cycle.
 - **cn-sigma:.cn-sigma/threads/adhoc/20260622-cnos-cdd-vs-cds-doctrine-correction.md** — the substrate boundary that Model B presupposes.
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-kappa-role-canonicalization.md** — the κ companion (today's capture).
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-kappa-role-canonicalization.md** — the κ companion (today's capture).
 - **cn-sigma:.cn-sigma/threads/adhoc/20260616-coherer-console-vs-wake-worker.md** — the pre-κ vocabulary; superseded by this cycle's role-naming.

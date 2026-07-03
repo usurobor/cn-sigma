@@ -1,6 +1,6 @@
 # cnos.cdd vs cnos.cds — package boundary doctrine correction
 
-**Date:** 2026-06-22 (event); captured 2026-06-30 (κ backfill)
+**Date:** 2026-06-22 (event); captured 2026-07-03 (κ backfill)
 **Class:** doctrine-evolution (package-boundary canonicalization)
 **Author:** Sigma at cn-sigma (κ-body); backfill capture
 **Source:** PR #480 merged at cnos@f840189c; recorded in `.cn-sigma/threads/activations/cnos/20260622.md` 02:09Z. Original event was a bootstrap-δ interactive session at cnos, not a wake firing.
@@ -47,7 +47,7 @@ Other concrete protocols (cdr, cdw, future research-package protocols, content-o
 This boundary is the precondition for:
 
 - **cnos#467 architecture** (package-owned wake providers; package owns local cognition). Without the cdd/cds split, "package-owned" had ambiguous scope.
-- **Typed skill modules** (`20260630-typed-skill-modules.md`). The skill-module abstraction relies on the contract being at the right altitude — generic-cell-mechanics at cdd, software-specifics at cds.
+- **Typed skill modules** (`20260703-typed-skill-modules.md`). The skill-module abstraction relies on the contract being at the right altitude — generic-cell-mechanics at cdd, software-specifics at cds.
 - **Human-touchpoint protocol** (in flight). Sub 1 is cnos.core (admin-side, transport-neutral); Sub 2 is cnos.cds (software-state mapping). The Sub 1/Sub 2 split is impossible without the cdd/cds boundary.
 - **cycle/497 Model B receipt ledger** (`20260626-cycle497-model-b-and-kappa-emergence.md`). The `.cdd/` receipt ledger holding all-protocol receipts depends on cdd being the substrate, not a sibling of cds.
 
@@ -62,5 +62,5 @@ This boundary is the precondition for:
 - **PR #480 at cnos** — the merge that landed the correction.
 - **cn-sigma:.cn-sigma/threads/activations/cnos/20260622.md** — the channel entry of record.
 - **cnos#467** — package-owned wake providers (Sub 4 = cds-dispatch).
-- **cn-sigma:.cn-sigma/threads/adhoc/20260630-typed-skill-modules.md** — the skill-module abstraction that this boundary precedes.
+- **cn-sigma:.cn-sigma/threads/adhoc/20260703-typed-skill-modules.md** — the skill-module abstraction that this boundary precedes.
 - **cnos#403 / #408 / #409 / #410** — cnos.cds v0.1 bootstrap and b-lite extraction precedent.
