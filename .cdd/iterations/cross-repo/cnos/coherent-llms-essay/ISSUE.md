@@ -1,26 +1,27 @@
-# cnos essay proposal: All We Need Is Coherence — the measurement law comes first (v4)
+# cnos essay proposal: All We Need Is Coherence — the measurement law comes first (v5)
 
 **Mode:** `docs-only`
 **Target path (proposed):** `cnos:docs/papers/ALL-WE-NEED-IS-COHERENCE.md`
 **Suggested labels:** `docs`, `P2`, `area/essays`
 **Filing directive to cnos γ:** Land essay verbatim at target path. Do NOT modify content. This is publication-grade external-facing material, authored by the operator; κ role at cn-sigma is `record` only.
 
-**Version history (all 2026-07-03 same-day iterations except v3 which was operator-side private):**
-- **v0:** *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole* — doorway-register public position essay.
-- **v1:** *All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs* — sharpened public-position; added §5 whole-is-hard-part, §10 circularity, §11 validation, §14 title defense.
-- **v2:** *All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems* — technical-position register; C≡ carrier + explicit barrier transform + math/num aggregate split + public kata baselines + neuroscience anchor + witness/engine protocol + established-vs-not ledger + 6-benchmark validation program.
-- **v3:** not captured at cn-sigma (operator-side private iterate, superseded by v4).
-- **v4 (current):** *All We Need Is Coherence — the measurement law comes first* — governance-architecture register. Central claim: **the human-authored Coherence Methodology is the source of the measurement standard; the LLM is a constrained witness.** Introduces CM²/0th methodology, 1st methodology as executed artifact, schema-validation-as-β-on-methodology, standing thresholds, cryptographic held-out mechanics, credible_audit predicate. Absorbs the prior-round β review as normative content.
+**Version history (all 2026-07-03 same-day iterations):**
+- **v0:** *Coherent LLMs: Measuring Whether Generation Still Belongs to the Whole* — doorway-register.
+- **v1:** *All We Need Is Coherence — a runtime discipline for whether an LLM's next move still belongs* — sharpened public-position; +§5, §10, §11, §14.
+- **v2:** *All We Need Is Coherence — a technical case for triadic runtime coherence in LLM systems* — technical-position register; C≡ + barrier + aggregate split + neuroscience + validation program.
+- **v3:** not captured at cn-sigma (operator-side private).
+- **v4:** *All We Need Is Coherence — the measurement law comes first* — governance-architecture; CM/CM²/1st methodology; my prior β-review absorbed as normative content.
+- **v5 (current):** *All We Need Is Coherence — the measurement law comes first* (title kept). **Narrower claim, stronger stance.** Standing elevated to first-class in the TSC stack. Records what has shipped, what remains, and the exact next artifact.
 
 Bundle slug `coherent-llms-essay/` preserved across all versions.
 
-**Evidence-bound constraint (operator's opening note at v4):** the ground truth is the human-authored Coherence Methodology, not the LLM and not the score.
+**Evidence-bound constraint (operator's opening note at v5):** the article's claim is narrower and stronger — CM² earns standing only through methodology, bundle closure, constrained witnesses, deterministic math, and calibration that can reject tuned games. The essay records what has actually shipped versus what remains architectural.
 
 ## Why this belongs at cnos:docs/papers/
 
-- Essay-genre content adjacent to `DUMB-MODELS-SMART-CELLS.md` and (v0.8.0's) TSC-integrated form. v4 extends TSC + cnos synthesis into a governance-architecture proposal.
-- Cites the running TSC branch (`claude/tsc-self-measurement-vxifjo`, commit `1ab26ae`) throughout, including specific artifacts: `schemas/skill.cue` `#CoherenceMethodology`; `scripts/ci/validate-skill-frontmatter.sh`; `scripts/cm-consistency.sh`; `scripts/cm-admissibility.sh`; targets `spec`/`engine`/`repo`/`methodology`/`cm-of-cms`; `coherence.ml` — `phi`, `discrepancy_energy`, `coherence_link`; five katas 01–05.
-- v4's §16 names five concrete validation tasks. Each maps to a future cnos or TSC research issue.
+- Essay-genre content adjacent to `DUMB-MODELS-SMART-CELLS.md` and (v0.8.0's) TSC-integrated form. v5 extends the synthesis into a governance-architecture-with-earned-standing proposal.
+- Cites the running TSC branch (`claude/tsc-self-measurement-vxifjo`) throughout, including specific artifacts and implementation state: `#CoherenceMethodology`; `#SelfMeasure`; `#CMOfCMs`; `scripts/ci/validate-skill-frontmatter.sh`; `scripts/cm-consistency.sh`; **the current `scripts/cm-admissibility.sh` self-test outcomes (engine admitted; all-1.0 flatterer rejected; public-path lookup-table gamer rejected)**; targets `spec`/`engine`/`repo`/`methodology`/`cm-of-cms`; `coherence.ml` — `phi`, `discrepancy_energy`, `coherence_link`.
+- v5's §16 names a concrete next artifact — the held-out anchor system with five attacker files. Each attacker becomes a regression test. This ties the essay to a specific implementation deliverable.
 
 ## Acceptance criteria
 
@@ -28,50 +29,59 @@ Bundle slug `coherent-llms-essay/` preserved across all versions.
 
 **AC2** — Path/artifact repointing: essay references specific TSC paths (`schemas/skill.cue`, `scripts/*`, `engine/ocaml/coherence.ml`, target registry, katas 01–05, `runtime/SELF-MEASURE.md`). Verify each against `claude/tsc-self-measurement-vxifjo` head; report deltas if any resolve incorrectly.
 
-**AC3** — Frontmatter added per `cnos.core/skills/agent/` convention if papers require it (title, date, class=`paper`, author=`operator`, version=`v4`); confirm from paper-family precedent in `docs/papers/`.
+**AC3** — Frontmatter added per `cnos.core/skills/agent/` convention if papers require it (title, date, class=`paper`, author=`operator`, version=`v5`).
 
-**AC4** — Bidirectional link added: `DUMB-MODELS-SMART-CELLS.md` cross-references this essay as companion (dumb models frames the substrate; this essay frames the measurement-law governance); `ALL-WE-NEED-IS-COHERENCE.md` cross-references DUMB-MODELS-SMART-CELLS as prerequisite.
+**AC4** — Bidirectional link added: `DUMB-MODELS-SMART-CELLS.md` cross-references this essay as companion (dumb models frames the substrate; this essay frames the measurement-law + calibration-ceiling governance); `ALL-WE-NEED-IS-COHERENCE.md` cross-references DUMB-MODELS-SMART-CELLS as prerequisite.
 
-**AC5** — I4 (link validation) green; I5 (frontmatter) green; goldens unaffected (no wake/skill changes in this cycle).
+**AC5** — I4 (link validation) green; I5 (frontmatter) green; goldens unaffected.
 
-**AC6** — Release note entry captures the essay's landing as v4 governance-architecture essay.
+**AC6** — Release note entry captures the essay's landing as v5.
 
-**AC7** — TSC-branch implementation claims verified: `#CoherenceMethodology` exists in `schemas/skill.cue`; consistency script rejects noisy witnesses; admissibility script rejects all-1.0 flatterer and admits engine backend; cited CI run reports Success. Any diverging claim gets a companion PR with `v4.1` marker.
+**AC7** — TSC-branch implementation claims verified. Specifically:
+- `#CoherenceMethodology` exists in `schemas/skill.cue` with the fields §2/§5 name.
+- `scripts/cm-admissibility.sh` self-test rejects all-1.0 flatterer AND public-path lookup-table gamer, AND admits engine backend (§8's three self-test outcomes).
+- Anchors staged into neutral case directories with public paths removed and `kata.toml` stripped (§8).
+- Consistency script computes max-abs-pairwise over 7 numeric fields, barrier-mapped (§12).
+- Any divergent claim gets a companion PR with `v5.1` marker.
+
+**AC8** — §12 β-inconsistency (schema/body disagreement on whether LLM consistency gates or reports) surfaced to TSC γ before landing. Either the schema or body should be updated per the coherent rule the essay prescribes (mechanical = hard gate; LLM = report + off-diagonal-standing denied below floor).
 
 ## Non-goals
 
 - Do NOT edit or "improve" the essay content. Operator-authored; κ delivers verbatim.
 - Do NOT split into multiple documents or restructure the section order.
 - Do NOT publish externally in this cycle; that is a separate operator decision after landing at cnos.
-- Do NOT implement any of the §16 validation tasks in this cycle; each is a separate future issue.
-- Do NOT re-baseline TSC kata numbers in-place without a companion CI verification step (per AC7).
+- Do NOT implement any of the §16 next-artifact files in this cycle; that is a separate TSC-branch issue.
+- Do NOT re-baseline TSC kata numbers in-place without a companion CI verification step.
 
 ## Empirical anchors (cnos-side context)
 
 - `DUMB-MODELS-SMART-CELLS.md` v0.8.0 evolution (integrated TSC per cn-sigma:.cn-sigma/threads/adhoc/20260623-tsc-integrated-into-dumb-models-essay.md).
-- TSC canonical spec at cnos (`spec/`) — referenced §6 (C≡ carrier), §7 (barrier transform), §11 (calibration commons anchors), §12 (displacement).
-- TSC engine at cnos (`engine/ocaml/`) — `coherence.ml` and `Coherence.aggregate` referenced §7, §15.
-- TSC runtime instruction (`runtime/SELF-MEASURE.md`) — referenced §4, §7, §8.
-- TSC schema (`schemas/skill.cue`) — `#CoherenceMethodology`, `#SelfMeasure`, `#CMOfCMs` referenced §1, §5, §15.
-- TSC branch `claude/tsc-self-measurement-vxifjo` — §15 implementation-evidence section.
+- TSC canonical spec at cnos (`spec/`) — referenced §6 (barrier transform), §7 (calibration commons), §8 (admissibility), §12 (consistency).
+- TSC engine at cnos (`engine/ocaml/`) — `coherence.ml` referenced §6.
+- TSC runtime instruction (`runtime/SELF-MEASURE.md`) — referenced §4, §6.
+- TSC schema (`schemas/skill.cue`) — `#CoherenceMethodology`, `#SelfMeasure`, `#CMOfCMs` referenced §1, §2, §5, §12.
+- TSC branch `claude/tsc-self-measurement-vxifjo` — §8 admissibility state cited.
 - cn-sigma adhoc `20260703-typed-skill-modules.md` — the form CM takes as SKILL.md frontmatter contract.
-- cn-sigma adhoc `20260703-kappa-role-canonicalization.md` — the constrained-witness role §8 makes mechanical.
+- cn-sigma adhoc `20260703-kappa-role-canonicalization.md` — the constrained-witness role §4 makes mechanical.
 - cn-sigma adhoc `20260620-agents-need-a-home-doorway-essay.md` (companion posture: where work persists).
 
 ## Reviewer verification checklist (for cnos γ)
 
-The essay names specific verification points a reviewer should be able to check against the TSC codebase:
+The essay names specific verification points a reviewer should be able to check against the TSC codebase. Compared to v4, several checks now expect the *updated* admissibility state:
 
-- [ ] `#CoherenceMethodology` block exists in `schemas/skill.cue` with the fields §1 names.
+- [ ] `#CoherenceMethodology` block exists in `schemas/skill.cue` with `standing_scope`, registry, targets, cross-target, scoring instruction, consistency protocol, mechanical signal inventory, LLM estimate contract (§2, §5).
 - [ ] `validate-skill-frontmatter.sh` cross-checks declared paths, targets, mechanical signal codes, LLM estimate fields against source (§5).
-- [ ] `coherence.ml` implements `phi`, `discrepancy_energy`, `coherence_link` with stated endpoint behavior (§7).
-- [ ] Aggregate returns `c_sigma_math`, `c_sigma_num`, `epsilon`, `zero_component_present`, `numeric_floor_applied` (§7).
-- [ ] Runtime instruction constrains LLM to output only δ + evidence + JSON contract; forbids computing Coh/CΣ (§4, §7, §8).
-- [ ] Admissibility script rejects all-1.0 flatterer; admits engine backend; runs 5 anchors including comparative (§10).
-- [ ] Consistency script computes max-abs-pairwise over 7 numeric fields, barrier-mapped (§9).
-- [ ] Cited GitHub Actions run at commit `1ab26ae` reports Success.
+- [ ] `coherence.ml` implements `phi`, `discrepancy_energy`, `coherence_link` with stated endpoint behavior (§6).
+- [ ] Aggregate returns `c_sigma_math`, `c_sigma_num`, `epsilon`, `zero_component_present`, `numeric_floor_applied` (§6).
+- [ ] Runtime instruction constrains LLM to output only δ + evidence + JSON contract; forbids computing Coh/CΣ (§4, §6).
+- [ ] **`scripts/cm-admissibility.sh` stages anchors into neutral case directories, removes public paths, removes adjacent `kata.toml`, shuffles case order, preserves interior filenames, requires score+evidence JSON (§8).**
+- [ ] **`scripts/cm-admissibility.sh` self-test rejects public-path lookup-table gamer alongside all-1.0 flatterer, admits engine backend (§8).**
+- [ ] **Standing scope for public-commons admissibility is capped at `house-authored-public-commons` (§8, §9).**
+- [ ] Consistency script computes max-abs-pairwise over 7 numeric fields, barrier-mapped (§12).
+- [ ] **Schema/body agreement on LLM consistency gating status resolved per §12 coherent rule (mechanical hard gate + LLM off-diagonal-standing floor).**
 
-If any of these fail against current TSC main, that is a coherence-of-essay-vs-implementation issue and should be surfaced before landing.
+If any of these fail against current TSC branch head, that is a coherence-of-essay-vs-implementation issue and should be surfaced before landing.
 
 ---
 
@@ -82,9 +92,9 @@ If any of these fail against current TSC main, that is a coherence-of-essay-vs-i
 
 **The measurement law comes first**
 
-**Status:** technical position essay, v4
+**Status:** technical position essay, v5
 **Audience:** AI engineers, agent-system builders, applied researchers, verification-minded reviewers
-**Thesis:** An LLM system becomes coherence-aware only when a human-authored methodology defines what coherence means, a closed evidence bundle constrains the witness, and deterministic machinery applies the math.
+**Thesis:** An LLM system becomes coherence-aware only when a human-authored methodology defines what coherence means, a closed evidence bundle constrains the witness, deterministic machinery applies the math, and calibration limits how far the result may be trusted.
 
 ---
 
@@ -96,11 +106,11 @@ The relevant failure is same-system failure: code, docs, tests, issue text, rele
 
 This essay argues that coherence measurement requires a measurement law. In TSC, that law is a **Coherence Methodology**: a human-authored, schema-validated specification of what counts as α pattern coherence, β relational coherence, and γ process coherence for a particular kind of object. The LLM does not invent coherence. The LLM is a constrained witness applying a declared methodology to a closed evidence bundle.
 
-The current TSC branch implements this idea through a typed `#CoherenceMethodology` contract, a 1st methodology for self-measuring the TSC repo, and a 0th methodology, **CM²**, that measures coherence methodologies themselves. The CM² skill defines α for methodologies as instrument self-agreement, β as declaration-to-implementation fit, and γ as instrument evolution across versions. It also states the core limitation: self-application is a hygiene gate, not proof of correctness. **A coherent methodology can still measure the wrong thing.**
+The current TSC branch defines a comparable `#CoherenceMethodology` contract in CUE, separates methodology authority from renderer authority, requires declared targets, a scoring instruction, consistency protocol, mechanical signal inventory, LLM estimate contract, prohibitions, and standing scope. The same schema defines `#SelfMeasure`, the 1st methodology applied to the TSC repo, and `#CMOfCMs`, the 0th methodology that measures coherence methodologies themselves.
 
-The strongest claim is therefore narrow:
+The strongest claim is narrow:
 
-**Coherence becomes operational when a project authority writes the methodology, the tool binds the evidence, the witness is constrained by that methodology, and the engine applies the math.**
+**Coherence becomes operational when a project authority writes the methodology, the tool binds the evidence, the witness is constrained by that methodology, the engine applies the math, and the resulting standing is capped by the calibration actually earned.**
 
 TSC does not replace truth, tests, proof, security review, empirical validation, or human responsibility. It gives those checks a stable object to attach to.
 
@@ -129,7 +139,7 @@ For a repository, a CM can say:
 
 β / relation:
   docs match code;
-  tests exercise the claimed behavior;
+  tests exercise claimed behavior;
   target manifests include the intended surfaces;
   release notes describe the actual change;
   no file claims authority contradicted by another authority surface.
@@ -144,9 +154,7 @@ For a repository, a CM can say:
 
 This is not a model preference. It is a measurement contract.
 
-In the TSC branch, that contract is represented in `schemas/skill.cue` as `#CoherenceMethodology`, described as a CUE-typed skill block for measuring the coherence of a presented thing. The schema separates methodology authority from renderer authority: the methodology owns what the measurement is, while the renderer owns substrate encoding such as YAML structure, workflow layout, and action bindings.
-
-CUE is appropriate for this layer because it supports constraints that validate concrete data from CUE, YAML, JSON, or other sources. The CUE schema does not prove the methodology is right. It proves the methodology is well-formed enough to run and review.
+CUE is appropriate for this layer because CUE constraints can validate concrete values from CUE, YAML, JSON, or other sources. In TSC, the CUE schema owns field shape, type, and enum constraints, while the validation script owns file discovery, frontmatter extraction, and cross-file checks that keep measurement declarations honest.
 
 Ground truth therefore has layers:
 
@@ -159,7 +167,7 @@ Ground truth therefore has layers:
 - reports and receipts preserve the result;
 - external controls test whether the CM tracks reality.
 
-The model appears only in the witness layer.
+**The model appears only in the witness layer.**
 
 ---
 
@@ -168,27 +176,27 @@ The model appears only in the witness layer.
 The operational TSC stack is:
 
 ```
-CM       = measurement law
-Target   = declared scope of evidence
-Bundle   = ordered, closed evidence object
-Witness  = mechanical scorer, LLM scorer, human scorer, or domain scorer
-δ        = normalized discrepancy estimate under the CM
-φ        = deterministic barrier transform
-Coh      = deterministic coherence link
-CΣ       = aggregate report with bottleneck and provenance
-Receipt  = durable record of what was measured and accepted
+CM        = measurement law
+Target    = declared scope of evidence
+Bundle    = ordered, closed evidence object
+Witness   = mechanical scorer, LLM scorer, human scorer, or domain scorer
+δ         = normalized discrepancy estimate under the CM
+φ         = deterministic barrier transform
+Coh       = deterministic coherence link
+CΣ        = aggregate report with bottleneck and provenance
+Receipt   = durable record of what was measured and accepted
+Standing  = how far the result may be trusted
 ```
 
-This separation is the whole architecture.
+This separation is the architecture.
 
 - A target answers: *what files or artifacts are in scope?*
 - A CM answers: *what would it mean for those artifacts to form one system?*
 - A witness answers: *how well does this evidence satisfy the CM?*
 - The engine answers: *what does the deterministic math imply from the supplied values?*
+- Standing answers: *how far has this measurement earned trust?*
 
-The current branch's target registry includes named targets for `spec`, `engine`, `repo`, `methodology`, and `cm-of-cms`. The `methodology` target is an aggregate corpus containing the self-measurement skill, schema, validators, renderer, rendered surfaces, scoring instruction, target manifests, and engine modules named by the pipeline.
-
-**That target is not itself the methodology. It is the corpus by which the methodology can be measured.**
+The `#CoherenceMethodology` contract encodes this distinction. It requires a registry, targets, cross-target setting, scoring instruction, generated output root under `.tsc/`, default mode, consistency protocol, optional admissibility instrument, declared standing scope, mechanical backend and signal inventory, and LLM estimate contract. It also states that **standing scope promotes only when mechanics change, such as registered challengers and revealed held-out anchors, not by prose.**
 
 - The methodology is the law.
 - The target is the body.
@@ -196,6 +204,7 @@ The current branch's target registry includes named targets for `spec`, `engine`
 - The witness is the reading.
 - The engine is the arithmetic.
 - The report is the artifact.
+- **The standing scope is the trust boundary.**
 
 ---
 
@@ -203,7 +212,7 @@ The current branch's target registry includes named targets for `spec`, `engine`
 
 TSC measures whether independent descriptions still describe one system. A coherence methodology is also a system. It has a declaration, an implementation, and an operating record. Therefore it can be measured.
 
-**CM², the "CM of CMs," is the 0th methodology:** the methodology for measuring coherence methodologies. Its skill file states that it measures whether a CM's declaration, implementation, and instrument behavior still describe one system.
+**CM², the "CM of CMs," is the 0th methodology:** the methodology for measuring coherence methodologies. Its skill file states that a CM is measurable by the same triadic instrument because it has a declaration, implementation, and instrument behavior.
 
 For ordinary corpora, the triad is:
 
@@ -223,7 +232,7 @@ A methodology weak on γ is historically unusable: its numbers cannot be compare
 
 This is the crucial move. **CM² makes the meter measurable.**
 
-It also limits itself. The CM² skill says a high self-score proves consistency, not correctness, and calls self-application a hygiene gate only. That sentence prevents the self-reference from becoming metaphysics.
+It also limits itself. A high self-score proves consistency, not correctness. Self-application is a hygiene gate only. A coherent methodology can still measure the wrong thing.
 
 - Self-application closes the formal regress.
 - It does not close the epistemic regress.
@@ -234,44 +243,36 @@ Correctness still comes from calibration commons, held-out anchors, adversarial 
 
 ## 4. The 1st methodology: TSC self-measurement
 
-The 1st methodology is the TSC repo measuring itself. Its skill file says it declares the full self-measurement procedure: the targets, deterministic mechanical work, and the narrowly scoped cognitive task delegated to an LLM. Its frontmatter is validated against `#SelfMeasure`, and the declared signal codes and estimate fields are cross-checked against the engine source and scoring instruction so the declaration cannot silently drift from what runs.
+The 1st methodology is the TSC repo measuring itself. It asks whether the theory, implementation, runtime instruction, targets, examples, katas, reports, and release surfaces still describe one system.
 
-The self-measurement skill declares three targets:
+The runtime instruction constrains the LLM witness. It says the task is not to summarize files but to measure whether the bundle forms one coherent system across α, β, and γ. It requires the witness to use only the provided bundle, not infer missing files, name insufficient evidence, report normalized δ values, cite evidence, identify the bottleneck, and output only the required JSON object.
 
-- `spec`
-- `engine`
-- `repo`
+This is the correct division of labor:
 
-It also declares `cross_target: true`, meaning the self-measurement procedure can ask whether theory, implementation, and aggregate repo state still describe one system.
+- CM supplies the standard.
+- Target supplies the scope.
+- Bundle supplies the evidence.
+- LLM supplies bounded semantic estimates.
+- Engine validates and computes.
+- Report preserves the result.
 
-The skill sharply constrains the LLM witness:
+The LLM must not compute final coherence values. The runtime instruction requires δ values and says the engine applies the barrier transform and computes coherence deterministically.
 
-- read only the emitted prompt;
-- write only one response JSON;
-- do not compute Coh or CΣ;
-- do not output anything except the required JSON object.
-
-The engine, not the model, applies the barrier transform and aggregate forms after validating the response.
-
-That is the right division of labor. The model supplies bounded semantic judgment. The methodology supplies the standard. The engine supplies deterministic transformation. The repo supplies the durable record.
+That boundary matters. If the LLM both sets the standard and grades the output, the system is circular. If the CM sets the standard and the engine applies the math, the LLM becomes a constrained witness.
 
 ---
 
 ## 5. Schema validation is not decoration
 
-The schema layer matters because methodology drift is itself a coherence failure.
+Methodology drift is a coherence failure.
 
-The validation script for skill frontmatter validates every SKILL.md against `schemas/skill.cue`. For measurement skills, it also performs cross-file checks: declared paths must exist, declared targets must resolve in the registry, declared mechanical signal codes must exist in the engine backend, and declared LLM estimate fields must exactly match the scoring instruction's JSON output contract.
+A CM can claim one thing while the engine does another. It can declare a signal that does not exist. It can require an output field the runtime instruction does not ask for. It can point to a target not registered in the target registry.
+
+The validation script exists to catch those failures. It validates every SKILL.md frontmatter block against `schemas/skill.cue`; for measurement skills, it also vets the typed methodology definition, checks declared paths, checks that declared targets resolve in the registry, checks that every declared mechanical signal code exists in the backend source, and checks that declared LLM estimate fields exactly match the scoring instruction's JSON output contract.
 
 **That is β applied to the methodology itself.**
 
-A methodology cannot merely say it measures `delta_beta_gamma`; that field must exist in the runtime output contract. A methodology cannot merely list `alpha.naming_drift`; that signal must exist in the mechanical backend source. A methodology cannot point to a registry, instruction, or backend path that does not exist.
-
-This is how the system prevents the methodology from becoming detached prose.
-
-The branch also distinguishes two methodology blocks: `self_measure` for the deployed 1st methodology and `cm_of_cms` for the essence-only 0th methodology. The validator chooses the appropriate CUE definition based on which block is present.
-
-So the grounding chain is executable:
+The grounding chain is executable:
 
 ```
 methodology declaration
@@ -286,50 +287,19 @@ This does not prove the CM is correct. It proves the CM cannot silently claim on
 
 ---
 
-## 6. The mathematical foundation
+## 6. The deterministic math
 
-The formal foundation of TSC is C≡.
-
-C≡ defines a term algebra:
-
-```
-T ::= e | a | tri(T1, T2, T3)
-```
-
-where `e` represents unarticulated wholeness, `a` is an atom, and `tri(T1,T2,T3)` is the three-position constructor. The C≡ specification presents this as a formal language for how indivisible wholeness articulates itself and introduces the triadic constructor as the structure that holds differentiation without collapse.
-
-C≡ then grounds the three evaluators:
-
-- α = pattern / quantitative extent
-- β = relation / positional presence
-- γ = process / depth of self-differentiation
-
-The important technical claim is not that every deployed α/β/γ witness is empirically independent. The formal claim is narrower: the evaluators are distinct at the algebraic level. The deployed claim must be tested domain by domain.
-
-That gives the correct chain:
-
-- C≡ gives formal triadic distinction.
-- CM maps that distinction into a domain.
-- Witnesses estimate under that mapping.
-- Validation tests whether the mapping works.
-
-Skipping the CM layer breaks this chain. It asks a model to operationalize α, β, and γ ad hoc. TSC's architecture should not do that.
-
----
-
-## 7. The deterministic score pipeline
-
-TSC's score pipeline is:
+The score pipeline is:
 
 ```
 δ → φ(δ) → D → Coh → CΣ
 ```
 
-The runtime instruction tells the LLM witness not to output coherence values directly. It must output normalized discrepancy values δ ∈ [0,1] for the αβ, βγ, and γα pairs. The engine applies the barrier transform φ(δ)=δ/(1−δ) and computes Coh=exp(−λ·φ(δ)) deterministically.
+The runtime instruction requires the witness to output normalized discrepancy values δ ∈ [0,1] for the αβ, βγ, and γα pairs. The engine then applies the canonical barrier transform φ(δ)=δ/(1−δ) and computes coherence as Coh=exp(−λ·φ(δ)).
 
 The OCaml implementation follows that contract. `coherence.ml` implements `phi`, `discrepancy_energy`, and `coherence_link`; `phi` returns infinity for `delta >= 1`, and `coherence_link` returns 0.0 at `delta >= 1`.
 
-The aggregate is also explicit. The implementation returns both:
+The aggregate keeps two forms:
 
 - `CΣ_math`
 - `CΣ_num`
@@ -342,123 +312,25 @@ with flags:
 
 `CΣ_math` is zero if any component score is zero. `CΣ_num` uses an epsilon floor for numerical stability. Both forms are preserved in the result.
 
-This matters because the numerical score is not allowed to hide degeneracy. A near-perfect α and γ cannot buy off a zero β. The bottleneck remains visible.
+This design prevents a broken axis from disappearing inside an average. Strong α and γ cannot buy off a zero β. The bottleneck remains part of the report.
 
-The mathematical rigor is therefore downstream of δ. That is fine, provided δ is constrained by a CM and validated by controls.
-
----
-
-## 8. The witness is constrained, not sovereign
-
-The LLM witness is given a narrow job. The runtime instruction says its task is not to summarize files, but to determine whether the bundle forms one coherent system across α, β, and γ. It must use only the provided bundle, avoid outside knowledge unless explicitly asked, name insufficient evidence, cite bundle evidence for each axis, identify the bottleneck, and return only the specified JSON object.
-
-The instruction also defines low-axis interpretations:
-
-- low α: naming drift, duplication, contradiction, unstable conceptual structure
-- low β: authority confusion, repeated facts with drift, docs disagreeing with code, declared relationships not borne out by the bundle
-- low γ: transitional ambiguity, unclear ownership of future change, no stable change path
-
-Those are not optional vibes. They are the witness contract.
-
-CM² uses the same witness contract for methodologies. The model is a witness over a CM corpus, not an authority over CMs.
-
-That is the LLM-safety point of the architecture:
-
-- The model may judge.
-- The model may not set the law.
-- The model may not compute the final score.
-- The model may not read outside the bundle.
-- The model may not write outside its response artifact.
-- The model may not silently turn a malformed response into a report.
-
-**The witness is cognitive. The boundary is mechanical.**
+The rigor is downstream of δ. That is why the CM and calibration layers matter. **The math makes a validated signal flow correctly; it cannot make an unconstrained witness truthful.**
 
 ---
 
-## 9. Consistency: α applied to the meter
+## 7. Calibration commons: controls, not proof
 
-A methodology that cannot agree with itself is incoherent as an instrument.
+The calibration commons is where the methodology begins to touch reality.
 
-CM² therefore includes a consistency protocol. The mechanical arm runs the deterministic backend multiple times over the same target and requires the score-relevant subset to be bit-identical. Any divergence is a hard failure. The LLM arm computes max absolute pairwise spread over seven numeric fields—α, β, γ, the three δ fields, and confidence—and maps that spread through the same TSC barrier into `Coh_consistency`.
+The Game of Life glider example is a positive control. It expects high coherence because a 5-cell motif persists under translation through a period-4 Life orbit, with pattern, relation, and process descriptions agreeing. The random-soup example is a negative control. It expects low coherence because each time step is an independent Bernoulli grid; frames may have local structure, but they do not form one continuing process.
 
-This is α applied to the meter.
+The adversarial kata is a different kind of control. It contains three sibling files that look canonical but contradict one another across files; each claims authority and chooses a different transport for the protocol's core invariant. The kata expects failure and names β as the bottleneck axis.
 
-For deterministic scoring:
+These controls are useful. They are not final validation.
 
-```
-same bundle + same config → same score-relevant report
-```
+They show that the instrument has anchors, expected failures, and regression surfaces. They do not prove the instrument catches naturally occurring incoherence in production agent workflows.
 
-For LLM scoring:
-
-```
-same frozen prompt + repeated witness calls → bounded numeric spread
-```
-
-A noisy LLM witness may still produce a report, but it should not receive full standing as an auditor. The consistency number should therefore become part of methodology admissibility and displacement, not merely an informational field.
-
-A strict standing rule would be:
-
-```
-green:  δ_consistency ≤ 0.05                → full standing
-amber:  0.05 < δ_consistency ≤ 0.10         → report allowed, but cannot displace alone
-red:    δ_consistency > 0.10                → no off-diagonal standing
-```
-
-This is not yet proven by the branch. It is the next coherent rule implied by CM².
-
----
-
-## 10. Admissibility: rejecting trivial meters
-
-CM² includes an admissibility instrument. A CM's scores of other CMs carry standing only if the CM first reproduces the calibration commons: the kata anchors with agreed labels. The script runs a candidate scorer over four single-bundle anchors and one ranking check. It also includes a self-test: the engine's mechanical backend must be admitted, while the trivial all-1.0 flatterer must be rejected.
-
-The current admissibility battery checks:
-
-- `01-glider`: positive control
-- `02-random-soup`: negative control
-- `04-philosophical`: mechanical-scoring ceiling / surface-regular prose trap
-- `05-adversarial`: cross-file semantic contradiction trap
-- `03-comparative`: glider must rank above random soup
-
-The script's own comment states the key rule: self-score plays no part in admissibility; discrimination does.
-
-That is correct, but insufficient.
-
-A non-trivial attacker could key off public file paths and output hard-coded scores for known katas. The current scorer contract invokes a command on file paths and asks it to print one number in [0,1], so a path-name attacker is not excluded by the current interface.
-
-The next version of admissibility should therefore blind anchors:
-
-- copy anchors to a temp bundle;
-- rename files to salted opaque paths;
-- strip path strings that reveal kata identity;
-- require evidence-bearing reports, not only scalar scores;
-- include generated mutants;
-- use held-out anchors committed before reveal.
-
-The current script proves the system rejects the trivial flatterer. It does not prove the system rejects every gamed CM.
-
-That is not a fatal flaw. It is a precisely named γ task.
-
----
-
-## 11. Calibration commons: where epistemic authority lives
-
-Self-application cannot create ground truth. It can only show that a methodology is internally stable enough to be judged.
-
-CM² states this directly: the epistemic anchor is the calibration commons, and today that commons is a small, house-authored battery.
-
-That honesty is essential.
-
-The commons currently includes Game of Life positive and negative controls. The glider example expects high coherence because a 5-cell motif persists under translation through a period-4 Life orbit, with pattern, relation, and process descriptions agreeing. The random-soup example expects low coherence because each frame is an independent Bernoulli grid; frames may have local structure, but they do not form one continuing process.
-
-The commons also includes a philosophical-prose kata that documents a limitation: mechanical scoring can over-rate surface-regular natural language because headings, version stamps, and cross-references are present even when the semantic target is not a coherent TSC system. The adversarial kata documents cross-file contradiction: three files look canonical but each claims authority and chooses a different transport for the protocol's core invariant.
-
-These are controls, not final validation.
-
-They establish that the instrument has known anchors and known failure boundaries. They do not prove the instrument catches naturally occurring incoherence in production agent workflows.
-
-The commons becomes epistemically meaningful only when it grows beyond the house:
+The commons becomes epistemically stronger only when it grows beyond the public house-authored set:
 
 - external anchors;
 - blind anchors;
@@ -469,72 +341,190 @@ The commons becomes epistemically meaningful only when it grows beyond the house
 
 Until then, the honest claim is:
 
-**The current commons is an executable calibration start, not a final ground truth.**
+**The current commons is an executable calibration start, not final ground truth.**
 
 ---
 
-## 12. Displacement: how a better CM can beat the incumbent
+## 8. Admissibility: what is now fixed
 
-CM² allows adversarial methodologies. Any conforming CM can score another CM. That creates a directed matrix:
+Earlier versions treated path blinding as future work. That is stale.
 
-```
-S[A][B] = score assigned by methodology A to methodology B's corpus
-```
+The current admissibility script stages every anchor into a neutral case directory before the scorer sees it. It removes the public `katas/` path, removes adjacent `kata.toml`, shuffles case order, preserves interior filenames, and requires the candidate scorer to return a JSON object containing both score **and evidence**. It rejects a low score with no evidence as unfalsifiable.
 
-CM² notes that raw head-to-head wins need not compose: A can beat B on A's terms, B can beat C on B's terms, and C can beat A on C's terms. It therefore proposes standing as off-diagonal and maximin: a methodology's standing is constrained by the worst score it receives from credible admissible auditors.
+The script's self-test requires three outcomes:
 
-That is directionally right, but the word *credible* needs executable definition.
+- engine mechanical backend admitted;
+- trivial all-1.0 flatterer rejected;
+- public-path lookup-table gamer rejected.
 
-A stricter rule:
+The public-path gamer is now a regression case. The old path-keyed attack is closed.
 
-```
-credible_audit(A, B) iff
-  A passes schema validation;
-  A passes blinded calibration commons;
-  A passes self-application hygiene;
-  A passes consistency standing threshold;
-  A supplies bundle-grounded evidence for every low score;
-  the cited evidence exists in B's bundle;
-  the audit is not under unresolved dispute.
-```
+This is progress, but the standing remains capped. The script explicitly preserves interior filenames because filenames are part of the measured artifact, and it names the residual leak: public basenames can still be memorized. For that reason, standing earned by this public battery is scoped only to `house-authored-public-commons`; held-out anchors are the only mechanism that can lift that scope.
 
-Then:
+Therefore current admissibility means:
 
-```
-standing(B) = min S[A][B] over credible_audit(A, B)
-```
+- the candidate is not the trivial flatterer;
+- the candidate is not the old public-path lookup table;
+- the candidate can reproduce the public commons under staged paths;
+- the candidate has *not* earned external standing.
 
-This preserves the bottleneck principle without letting any admitted troll collapse a methodology by assertion.
+It does not mean:
 
-The displacement rule also needs a clean treatment of control types. CM² currently says a challenger must pass admissibility, discriminate better on shared held-out anchors published after it was authored, and agree with the incumbent on uncontested controls.
+- the candidate measures coherence in general;
+- the candidate cannot be tuned to the public five;
+- the candidate can judge other CMs with full standing;
+- the calibration commons is independent of the house.
 
-The missing distinction is:
+**This distinction must stay visible. Otherwise the public commons becomes a credential rather than a test.**
 
-- **locked controls:** verdict cannot flip without changing the commons itself
-- **frontier controls:** verdict may flip if the challenger supplies evidence and the commons accepts the update
-- **held-out controls:** hidden from the challenger until after its CM digest is fixed
+---
 
-A better CM should not lose merely because it flips a frontier verdict for a good reason. But it should not win by redefining every control.
+## 9. The residual gamer
 
-Use labels and rankings, not raw score agreement:
+The remaining public-commons attack is simple.
 
-- **locked agreement:** `label_C(k) = commons_label(k)`
-- **ranking agreement:** `sign(score_C(a) − score_C(b)) = commons_order(a,b)`
-- **frontier update:** challenger may flip only through evidence accepted into the commons
+A candidate can ignore coherence and key off preserved public basenames or public file contents. It can output scores tuned to the five public anchors and attach boilerplate evidence to satisfy the JSON contract.
 
-Held-out mechanics should use commitments, not timestamps:
+That candidate measures nothing.
+
+It can still pass the public battery because public anchors are public. The current script acknowledges this by capping standing scope at `house-authored-public-commons`.
+
+The only real closure is held-out anchors.
+
+The requirement is not more prose. The requirement is a commit-reveal mechanism:
 
 ```
-1. Publish challenger digest:
-     cm_digest = sha256(canonical_cm_bundle)
-2. Commit hidden anchor:
-     anchor_commitment = sha256(salt || anchor_bundle || label || rationale)
-3. After challenger digest is fixed, reveal:
-     salt, anchor_bundle, label, rationale
-4. Verify commitment equality.
+1. Challenger registers a canonical CM digest.
+2. Anchor author commits:
+     sha256(salt || anchor_bundle || label || rationale || loss_function)
+3. After the challenger digest is fixed, anchor author reveals:
+     salt, anchor bundle, label, rationale, loss function.
+4. Evaluator verifies:
+     sha256(salt || anchor_bundle || label || rationale || loss_function)
+   equals the prior commitment.
+5. The challenger and incumbent are evaluated on the same revealed anchor.
+6. Standing may promote only if the challenger beats the incumbent
+   under the predeclared loss.
 ```
 
-This makes "published after the challenger was authored" enforceable through hashes and commit ancestry rather than trust in wall-clock timestamps.
+A held-out anchor is valid for a challenger only if the challenger's digest was fixed before reveal and the anchor content was not present in the challenger's registered bundle.
+
+That gives the program a real second result:
+
+- public basename/content gamer may pass public commons;
+- the same gamer fails held-out anchors.
+
+**Until that result exists, standing above public commons is architecturally described but empirically unearned.**
+
+---
+
+## 10. Evidence is not just existence
+
+The current evidence rule blocks one failure: a low score with no evidence. That is necessary.
+
+It is not sufficient.
+
+A hostile auditor can cite real evidence and cherry-pick it. It can point to genuine debt notes, TODOs, unresolved limitations, or transitional docs and assign a catastrophic γ score while ignoring counterevidence that the debt is bounded, tracked, or already under repair.
+
+So `credible_audit` cannot mean only:
+
+- the cited evidence exists in the object bundle
+
+It must mean:
+
+- the cited evidence exists;
+- the cited evidence is relevant to the claimed axis failure;
+- the severity follows the CM's scale;
+- counterevidence was considered or declared absent;
+- the audit is not under unresolved dispute.
+
+This creates a new required object: a **dispute record**.
+
+```
+audit_status:
+  uncontested
+  disputed
+  accepted
+  rejected
+  provisional
+
+adjudicator:
+  house
+  external_steward
+  quorum
+  automated_label
+  mixed
+
+standing_effect:
+  accepted low audit enters maximin standing;
+  disputed audit is reported but does not collapse standing;
+  rejected audit is archived as a failed challenge;
+  provisional audit affects only provisional standing.
+```
+
+If the house is the only adjudicator, house authority re-enters through the dispute layer. Therefore **the adjudicator must be named, and the standing effect must be explicit.**
+
+A low audit should not collapse standing merely because it cites a real file. It should collapse standing only when its evidence, relevance, severity, and counterevidence treatment survive the dispute process.
+
+---
+
+## 11. Locked, frontier, and held-out controls
+
+The locked/frontier distinction is useful, but it creates a new authority surface.
+
+If the house can classify a contestable judgment as locked, the incumbent can freeze its own ground truth. If every control remains frontier, challengers can churn the commons by relabeling everything.
+
+The default should be:
+
+> new controls are frontier
+
+A control becomes locked only after promotion:
+
+```
+locked_control(c) iff
+  c has a public label and rationale;
+  c has survived N independent CM readings;
+  c has no active dispute;
+  c has non-house provenance or stewardship;
+  c has remained label-stable across a declared operating window.
+```
+
+Before those conditions hold, a challenger may flip the control by supplying evidence that survives commons review.
+
+Held-out controls are separate. Their role is not long-term stability; their role is adversarial evaluation after challenger registration.
+
+So the commons has three classes:
+
+- **frontier:** contestable, evidence can flip it
+- **locked:** stable enough to serve as public ground
+- **held-out:** hidden until after challenger commitment
+
+This prevents the incumbent from freezing house judgments while preserving a path to stable public ground.
+
+---
+
+## 12. Consistency: α applied to the meter
+
+A methodology that cannot agree with itself is incoherent as an instrument.
+
+CM² therefore includes a consistency protocol. The mechanical arm requires identical repeated results for the deterministic backend. The LLM arm samples repeated witness outputs against the same frozen prompt, computes the max absolute pairwise difference over numeric fields, and maps that spread through the TSC barrier into `Coh_consistency`.
+
+This is α applied to the meter.
+
+There is one current β issue to resolve before publication: the schema and body need to agree on whether LLM consistency is merely reported or gates off-diagonal standing. The `#CoherenceMethodology` standing field allows values such as `reported-not-gating`, `passed`, and `failed`, while the CM² body says the LLM arm is a standing gate below the floor.
+
+The coherent rule is:
+
+```
+mechanical consistency:
+  hard gate
+
+LLM consistency:
+  report always published;
+  off-diagonal standing denied below the floor
+```
+
+That preserves evidence of instability without letting unstable witnesses act as auditors.
 
 ---
 
@@ -548,7 +538,7 @@ The model no longer supplies the standard. The human-authored CM supplies the st
 
 ### 13.2 It fixes "δ is free-floating"
 
-δ is still estimated by a witness, but it is now estimated under a methodology that defines admissible evidence, axis semantics, scale anchors, missing-evidence behavior, and report obligations.
+δ is still estimated by a witness, but it is estimated under a methodology that defines admissible evidence, axis semantics, scale anchors, missing-evidence behavior, and report obligations.
 
 ### 13.3 It fixes "self-measurement is circular"
 
@@ -566,11 +556,53 @@ The validation script cross-checks declared paths, targets, mechanical signal co
 
 The calibration commons remains the epistemic bottleneck. CM² names that bottleneck. It does not remove it.
 
-That is the right shape of progress: **dissolve the false problem, expose the real one.**
+That is progress: **dissolve the false problem, expose the real one.**
 
 ---
 
-## 14. The runtime loop for LLM agents
+## 14. What remains unproven
+
+The current evidence does not prove that TSC coherence scores correlate with expert human fit judgments across arbitrary software repositories, papers, proofs, or agent workflows.
+
+The current evidence does not prove that every deployed α/β/γ witness is empirically independent in every domain.
+
+The current evidence does not prove that an LLM witness estimates δ faithfully under every methodology.
+
+The current evidence does not prove that TSC prevents incoherent agent changes in production systems.
+
+The current evidence does not prove that public-commons admissibility gives standing beyond the public house-authored commons.
+
+Those are validation tasks.
+
+The next required tests are:
+
+- **δ-fidelity:** fixed CM, injected discrepancies, compare witness δ to known labels
+- **axis isolation:** cases where only α, only β, or only γ fails
+- **same-work benchmark:** issue, patch, test, receipt, release note, and handoff with controlled mismatches
+- **adversarial CM benchmark:** gamed methodologies, blinded anchors, held-out anchors, path-name attacks, basename attacks, boilerplate-evidence attacks, cherry-pick attacks
+- **outcome correlation:** compare low coherence to review churn, reverts, drift, handoff failure, release confusion, and expert fit ratings
+
+The strongest honest claim is:
+
+**TSC now has a formal, schema-bound, executable architecture for measuring same-system preservation. Its broader validity must be established by methodology-specific benchmarks, held-out anchors, adversarial challengers, and external calibration.**
+
+That claim is strong enough.
+
+---
+
+## 15. Why this matters for LLM agents
+
+LLM agents fail in ways ordinary answer evaluation does not catch.
+
+They fail when a tool result is summarized incorrectly.
+
+They fail when a patch is right but the receipt binds the wrong evidence.
+
+They fail when a release note describes a neighboring change.
+
+They fail when a second agent resumes from a misleading handoff.
+
+They fail when docs, code, tests, and issue state no longer describe one unit of work.
 
 A coherent LLM agent should not run as:
 
@@ -590,69 +622,72 @@ human-authored CM
   → bottleneck
   → repair / refuse / commit
   → receipt
+  → standing scope
 ```
 
 A candidate move can be a patch, proof step, release note, migration, test, handoff, or documentation change.
 
 The CM defines what coherence means for that object. The target defines what evidence is in scope. The bundle freezes the evidence. The witness estimates α, β, γ, δ values, confidence, evidence, ambiguity, and next fixes. The engine validates the response shape and applies the barrier and aggregate. The system either repairs, refuses, or commits with a durable receipt.
 
-This is how the model is constrained.
+The model cannot decide that a release note is coherent because it sounds right. Under a repository CM, it must check whether the release note describes the actual change, whether tests exercise the claimed behavior, whether docs match code, and whether the future change path remains clear.
 
-It cannot decide that a release note is coherent because it sounds right. Under a repository CM, it must check whether the release note describes the actual change, whether tests exercise the claimed behavior, whether docs match code, and whether the future change path remains clear.
-
-It cannot decide that a repo is coherent because the README is polished. Under CM-0, it must check whether theory, implementation, target manifests, runtime instruction, examples, katas, and reports still describe one system.
+The model cannot decide that a repo is coherent because the README is polished. Under CM-0, it must check whether theory, implementation, target manifests, runtime instruction, examples, katas, and reports still describe one system.
 
 **That is the shift from fluent generation to governed work.**
 
 ---
 
-## 15. Implementation evidence
+## 16. The next artifact
 
-The branch evidence supports the following implementation claims.
+The next coherent artifact is not another essay section. It is a **held-out anchor system**.
 
-The branch defines `#CoherenceMethodology` as a comparable contract for methodology skills, including registry, targets, scoring instruction, output root, default mode, consistency protocol, mechanical signal inventory, LLM estimate contract, prohibitions, and validation route.
+Minimum files:
 
-The branch defines CM² as the 0th methodology and maps α, β, and γ for methodologies to instrument self-agreement, declaration-to-implementation fit, and instrument evolution.
+```
+schemas/heldout-anchor.cue
+schemas/challenger-registration.cue
+scripts/cm-register-challenger.sh
+scripts/cm-heldout-commit.sh
+scripts/cm-heldout-reveal.sh
+scripts/cm-heldout-evaluate.sh
+scripts/cm-heldout-self-test.sh
+anchors/heldout/commitments/
+anchors/heldout/reveals/
+anchors/heldout/results/
+attackers/path-gamer.py
+attackers/basename-gamer.py
+attackers/flatterer.py
+attackers/evidence-boilerplate-gamer.py
+attackers/cherry-pick-assassin.py
+```
 
-The branch defines a self-measurement methodology for the TSC repo that delegates only a narrow cognitive task to the LLM and prohibits the LLM from computing final coherence values.
+Acceptance tests:
 
-The branch validates methodology frontmatter against CUE and cross-checks declared signals and estimate fields against engine source and the runtime instruction.
+```
+path-gamer:
+  rejected by public blinded admissibility
 
-The branch implements deterministic barrier and aggregate math in OCaml, including strict endpoint behavior, mathematical and numerical aggregate forms, zero-component tracking, and numeric-floor tracking.
+basename-gamer:
+  may pass public commons
+  must fail held-out anchors
 
-The branch includes a consistency script for repeated mechanical and LLM witness readings, and an admissibility script that rejects the trivial all-1.0 attacker while admitting the engine's mechanical backend.
+flatterer:
+  rejected everywhere
 
-The cited GitHub Actions run on branch `claude/tsc-self-measurement-vxifjo` at commit `1ab26ae` reports status Success, with mechanical and three LLM-witness jobs completed and four artifacts produced.
+evidence-boilerplate-gamer:
+  rejected when low scores cite no relevant evidence
 
-These are implementation facts, not claims of universal validity.
+cherry-pick-assassin:
+  enters dispute, not maximin standing,
+  unless evidence relevance and severity survive adjudication
+```
 
----
+This would produce the next measured result:
 
-## 16. What remains unproven
+- public commons can be gamed by basename/content memorization;
+- held-out anchors reject the same gamer.
 
-The current evidence does not prove that TSC coherence scores correlate with expert human fit judgments across arbitrary software repositories, papers, proofs, or agent workflows.
-
-The current evidence does not prove that every deployed α/β/γ witness is empirically independent in every domain.
-
-The current evidence does not prove that an LLM witness estimates δ faithfully under every methodology.
-
-The current evidence does not prove that TSC prevents incoherent agent changes in production systems.
-
-Those are validation tasks.
-
-The next required tests are:
-
-- **δ-fidelity:** fixed CM, injected discrepancies, compare witness δ to known labels
-- **axis isolation:** cases where only α, only β, or only γ fails
-- **same-work benchmark:** issue, patch, test, receipt, release note, and handoff with controlled mismatches
-- **adversarial CM benchmark:** gamed methodologies, blinded anchors, held-out anchors, path-name attacks
-- **outcome correlation:** compare low coherence to review churn, reverts, drift, handoff failure, release confusion, and expert fit ratings
-
-The strongest honest claim is:
-
-**TSC now has a formal, schema-bound, executable architecture for measuring same-system preservation. Its broader validity must be established by methodology-specific benchmarks and external calibration.**
-
-That claim is strong enough.
+**That result matters more than expanding the manifesto.**
 
 ---
 
@@ -690,9 +725,10 @@ The key insight is:
 - Constrain the witness.
 - Apply deterministic math.
 - Preserve the bottleneck.
+- **Cap standing by calibration actually earned.**
 - Commit only with a receipt.
 
-**CM² makes the meter measurable.** It says that a coherence methodology must agree with itself, match its declaration to its implementation, and evolve without making old readings meaningless. Self-application closes the formal regress, but correctness still belongs to the calibration commons and to external reality.
+**CM² makes the meter measurable.** It says that a coherence methodology must agree with itself, match its declaration to its implementation, and evolve without making old readings meaningless. Self-application closes the formal regress, but correctness still belongs to calibration, adversarial testing, held-out evidence, and external reality.
 
 That is the architecture:
 
@@ -702,6 +738,8 @@ human-authored CM
   + constrained witness
   + deterministic TSC math
   + adversarial calibration
+  + held-out anchors
+  + dispute process
   + durable receipt
 ```
 
@@ -711,6 +749,6 @@ The model should not merely ask:
 
 It should be placed inside a system that asks:
 
-> **Under the declared Coherence Methodology, does this next move still belong to the whole?**
+> **Under the declared Coherence Methodology, does this next move still belong to the whole, and how far has this measurement earned standing?**
 
 That is the shift from fluent generation to coherent work.
