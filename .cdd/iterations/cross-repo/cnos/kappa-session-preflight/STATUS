@@ -1,0 +1,5 @@
+# Event ledger for cross-repo proposal: cnos/kappa-session-preflight (sigma-side source)
+# Sub of: foundation-completion-wave (master).
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+
+2026-07-04 drafted sigma

@@ -1,0 +1,12 @@
+# Event ledger for cross-repo proposal: cnos/reflect-rN-wake-family (sigma-side source)
+# Sub of: foundation-completion-wave (master).
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Subsumes prior directive-out for agent-memory-wakes at
+# cn-sigma:.cn-sigma/threads/activations/cnos/20260630.md (2026-06-30
+# 19:00Z). That directive-out was heavier than the directive-out
+# format warrants; per cn-sigma:.cn-sigma/threads/adhoc/20260703-cross
+# -repo-bundle-pattern.md, substantive cross-repo work belongs in
+# bundle form. This bundle is the correct-shape version.
+
+2026-07-04 drafted sigma

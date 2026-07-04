@@ -1,0 +1,8 @@
+# Event ledger for cross-repo proposal: cnos/human-touchpoint-protocol-wave (sigma-side source)
+# Sub of: foundation-completion-wave (master).
+# Filing kind: nested wave master. Its own subs (Sub 3.1 human-
+# touchpoint-generic + Sub 3.2 human-gates-cds-overlay) file
+# sequentially per §1 default AFTER this master lands.
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+
+2026-07-04 drafted sigma
