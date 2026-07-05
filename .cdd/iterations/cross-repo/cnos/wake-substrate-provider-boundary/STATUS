@@ -3,20 +3,23 @@
 # Events: submitted | accepted | modified | rejected | landed
 # Format: <ISO-8601 date> <event> <actor> [target-ref]
 #
-# Wave master: execution decomposition of cnos#452 (substrate boundary) with
-# cnos#453 carried as the held canary sub. Authored by κ (Sigma at cn-sigma)
-# from operator's swappable-LLM proposal. NOT yet filed at cnos: filing +
-# dispatch is γ-at-cnos + δ gate, and cnos is out of this session's GitHub
-# scope. Sub 0 (status-truth reconciliation) must run at cnos before any
-# α/β build dispatch — this bundle was authored without live cnos read access.
+# CURRENT STATE (2026-07-05): FILED + β-reviewed + Sub 0 executed.
+#   - Master filed at cnos#596; new precondition cell Sub 0 at cnos#597.
+#   - cnos#452 (contract + claude-code) and cnos#453 (executor + NIM canary)
+#     linked as native GitHub sub-issues of #596; wave Sub 1/2 map to #452 and
+#     Sub 3/4 to #453 — NOT re-filed (would duplicate two open issues).
+#   - Local sub1-/sub2- bundle dirs retained only as superseded provenance.
+#   - Sub 0 reconciliation ran against LIVE cnos: #450 closed/not_planned/
+#     superseded; #467 closed/completed (shipped wake-provider + install-wake);
+#     #579 Step-5 table stale; cnos-agent-admin.yml uses cn.wake-provider.v1 but
+#     invokes claude-code-action@v1 (model claude-sonnet-5) — substrate lock live.
+#
+# HISTORICAL (pre-filing, superseded — kept for provenance): this bundle was
+# first authored as a cn-sigma-only artifact while cnos was out of session scope
+# ("NOT yet filed; filing+dispatch is γ-at-cnos + δ gate; authored without live
+# cnos read access"). Operator then directed real GH filing and authorized adding
+# cnos to the session; the CURRENT STATE block above supersedes that framing.
 
 2026-07-05 drafted sigma
-2026-07-05 submitted sigma #596 (master), #597 (Sub 0)
-# Reconciliation on filing: reading live #452/#453 showed #452 was already
-# scope-corrected (2026-06-16) into contract + claude-code + openai-compat stub,
-# and #453 already owns the functional executor + NIM canary. So wave Sub 1/Sub 2
-# map to #452 (not re-filed) and Sub 3/Sub 4 map to #453 (not re-filed) — filing
-# them would duplicate two open issues. Filed the umbrella master (#596) + the one
-# genuinely-new precondition cell Sub 0 (#597), and linked #452/#453/#597 as GitHub
-# native sub-issues of #596. The local sub1-/sub2- bundle dirs are retained for
-# provenance but are superseded by #452 on filing.
+2026-07-05 submitted sigma #596 (master), #597 (Sub 0); linked #452/#453/#597 under #596
+2026-07-05 modified sigma  β REQUEST CHANGES applied (F1 labels: #596 +tracking, #597 +kind/process; F3/F4 contract+closure comment on #596; F5 Sub 0 reconciliation comments on #452/#453/#597)

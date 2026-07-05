@@ -6,7 +6,7 @@
 - **Branch:** `claude/cn-sigma-activation-gwxlt3` (this session's designated branch). NOTE: prior cross-repo bundles were carried on cn-sigma `main` per operator preference; this one lands on the session branch per the session git directive. Operator merges to `main` if the standing convention should hold — that is a δ gate, not κ's to take.
 - **Path:** `.cdd/iterations/cross-repo/cnos/wake-substrate-provider-boundary/`
 - **Filing kind:** wave master (execution decomposition beneath an existing issue), not a cell-scope proposal.
-- **Source posture:** κ (Sigma at cn-sigma) authored this bundle. κ carries operator intent into a typed executable artifact (issue pack) — authorized. κ does **not** file at cnos or dispatch worker cells; that is γ-at-cnos + δ external gate. cnos is also out of this session's GitHub scope, which independently prevents filing from here.
+- **Source posture:** κ (Sigma at cn-sigma) authored this bundle. κ carries operator intent into a typed executable artifact (issue pack) — authorized. κ does **not** file at cnos or dispatch worker cells; that is γ-at-cnos + δ external gate. _(Historical: at authoring time cnos was out of session scope, which prevented filing from here. The operator then directed filing and authorized adding cnos to the session — see `## Filed`. κ still holds the dispatch/close gates; filing was the operator-directed external action.)_
 
 ## Upstream — what drives this wave
 
@@ -22,7 +22,7 @@ Operator directive (2026-07-05): "set up a wave for swappable LLMs; thoroughly r
 - **Repo:** `usurobor/cnos`
 - **Issue relationship:** decomposition beneath `cnos#452`; `cnos#453` carried as Sub 4 (held canary).
 - **Suggested labels:** `P2`, `area/agent`, `area/cds`, `kind/process`, `protocol:cds`.
-- **Disposition:** pending (filed by cnos γ on next wake, after Sub 0).
+- **Disposition:** ~~pending (filed by cnos γ on next wake, after Sub 0)~~ — **FILED 2026-07-05** as #596 (master) + #597 (Sub 0); see `## Filed` below. Pre-filing text retained as historical only.
 - **Canonical mirror expected on cnos:** `cnos:.cdd/iterations/cross-repo/cn-sigma/wake-substrate-provider-boundary/`.
 
 ## Sub-bundle enumeration
@@ -50,7 +50,7 @@ Operator directed κ to file real GH issues (not just the bundle). Added `usurob
 
 Reconciliation on filing: live #452 was already scope-corrected (2026-06-16) into contract + claude-code + openai-compat stub; #453 already owns the functional executor + canary. Wave Sub 1/2 → #452, Sub 3/4 → #453 — not re-filed (would duplicate). This is exactly Sub 0's own finding, applied at filing time.
 
-Labels used are the live cnos set (`P1`, `area/agent`, `area/wake`, `area/runtime`) — the bundle's originally-suggested `area/cds`/`protocol:cds`/`kind/process` were not applied (not in cnos's label set).
+Labels (corrected 2026-07-05 per β F1): #596 = `P1`, `area/agent`, `area/wake`, `area/runtime`, `tracking`; #597 = `P1`, `area/agent`, `area/wake`, `kind/process`. **Correction to an earlier claim:** `area/cds` and `kind/process` *do* exist in cnos's label set (live #579 carries both) — they were simply *not applied* to these issues, not absent. `protocol:cds` was not used/verified. `kind/docs` does not exist; `kind/process` is the accepted process/docs-equivalent kind label used for the Sub 0 reconciliation cell.
 
 ## Boundary note (κ)
 
