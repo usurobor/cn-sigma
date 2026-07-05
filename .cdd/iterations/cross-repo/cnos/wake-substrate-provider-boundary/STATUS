@@ -1,0 +1,13 @@
+# Event ledger for cross-repo proposal: cnos/wake-substrate-provider-boundary (sigma-side source)
+# Bundle state (per cnos:.cdd/iterations/cross-repo/README.md): open
+# Events: submitted | accepted | modified | rejected | landed
+# Format: <ISO-8601 date> <event> <actor> [target-ref]
+#
+# Wave master: execution decomposition of cnos#452 (substrate boundary) with
+# cnos#453 carried as the held canary sub. Authored by κ (Sigma at cn-sigma)
+# from operator's swappable-LLM proposal. NOT yet filed at cnos: filing +
+# dispatch is γ-at-cnos + δ gate, and cnos is out of this session's GitHub
+# scope. Sub 0 (status-truth reconciliation) must run at cnos before any
+# α/β build dispatch — this bundle was authored without live cnos read access.
+
+2026-07-05 drafted sigma
