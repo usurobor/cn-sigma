@@ -43,10 +43,13 @@ Operator directed κ to file real GH issues (not just the bundle). Added `usurob
 
 | GH issue | Role |
 |---|---|
-| **#596** | wave master tracker (umbrella over #452/#453 + Sub 0) |
+| **#596** | wave master tracker (umbrella over #452/#453 + Sub 0/0.25) |
 | **#597** | Sub 0 — status-truth reconciliation (the one genuinely-new cell) |
+| **#598** | Sub 0.25 — human quickstart oracle (user-first re-center, 2026-07-05); mock at `sub0_25-human-quickstart/QUICKSTART.md` |
 | #452 | linked as native sub-issue — execution cell A (contract + claude-code) |
 | #453 | linked as native sub-issue — execution cell B (executor + NIM canary) |
+
+**Wave re-ordering (operator, 2026-07-05, user-first):** Sub 0 (#597) → Sub 0.25 (#598 human quickstart, the design oracle) → Sub 0.5 (impl mock/golden pack derived from the quickstart; files next per §1) → Sub 1 (#452 contract + Claude continuity) → Sub 2 (#453 executor + canary). The human guide is the optimization target; every schema/fixture/workflow-diff/report is justified only by whether it makes the guide true. #452 held until the quickstart exists; #453 hermetic-only until the quickstart defines safe canary/refusal/fallback/rollback.
 
 Reconciliation on filing: live #452 was already scope-corrected (2026-06-16) into contract + claude-code + openai-compat stub; #453 already owns the functional executor + canary. Wave Sub 1/2 → #452, Sub 3/4 → #453 — not re-filed (would duplicate). This is exactly Sub 0's own finding, applied at filing time.
 
