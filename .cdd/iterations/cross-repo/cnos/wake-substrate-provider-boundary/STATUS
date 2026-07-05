@@ -11,3 +11,12 @@
 # α/β build dispatch — this bundle was authored without live cnos read access.
 
 2026-07-05 drafted sigma
+2026-07-05 submitted sigma #596 (master), #597 (Sub 0)
+# Reconciliation on filing: reading live #452/#453 showed #452 was already
+# scope-corrected (2026-06-16) into contract + claude-code + openai-compat stub,
+# and #453 already owns the functional executor + NIM canary. So wave Sub 1/Sub 2
+# map to #452 (not re-filed) and Sub 3/Sub 4 map to #453 (not re-filed) — filing
+# them would duplicate two open issues. Filed the umbrella master (#596) + the one
+# genuinely-new precondition cell Sub 0 (#597), and linked #452/#453/#597 as GitHub
+# native sub-issues of #596. The local sub1-/sub2- bundle dirs are retained for
+# provenance but are superseded by #452 on filing.

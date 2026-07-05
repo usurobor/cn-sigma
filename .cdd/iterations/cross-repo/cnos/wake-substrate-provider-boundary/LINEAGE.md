@@ -37,6 +37,21 @@ Operator directive (2026-07-05): "set up a wave for swappable LLMs; thoroughly r
 
 Sub 3 and Sub 4 are enumerated in the master but not yet given their own bundle dirs: OPERATOR §1 default is sequential filing (Sub N files when Sub N−1 closes), and Sub 4 additionally holds for the operator gate. Bounded authoring over speculative over-production (Sigma loss function).
 
+## Filed (2026-07-05, operator-directed)
+
+Operator directed κ to file real GH issues (not just the bundle). Added `usurobor/cnos` to the session (operator-authorized via AskUserQuestion) and filed at cnos:
+
+| GH issue | Role |
+|---|---|
+| **#596** | wave master tracker (umbrella over #452/#453 + Sub 0) |
+| **#597** | Sub 0 — status-truth reconciliation (the one genuinely-new cell) |
+| #452 | linked as native sub-issue — execution cell A (contract + claude-code) |
+| #453 | linked as native sub-issue — execution cell B (executor + NIM canary) |
+
+Reconciliation on filing: live #452 was already scope-corrected (2026-06-16) into contract + claude-code + openai-compat stub; #453 already owns the functional executor + canary. Wave Sub 1/2 → #452, Sub 3/4 → #453 — not re-filed (would duplicate). This is exactly Sub 0's own finding, applied at filing time.
+
+Labels used are the live cnos set (`P1`, `area/agent`, `area/wake`, `area/runtime`) — the bundle's originally-suggested `area/cds`/`protocol:cds`/`kind/process` were not applied (not in cnos's label set).
+
 ## Boundary note (κ)
 
 This bundle is the artifact; it is not a dispatch. Filing at cnos, assigning a cycle number, and claiming α/β/γ cells are γ-at-cnos + δ moves. Under the session's κ pin, κ stops at "executable contract recorded + handed off." The STATUS ledger tracks the handoff (`submitted` when γ-at-cnos files).

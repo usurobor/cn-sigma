@@ -1,5 +1,7 @@
 # wave: wake-substrate provider boundary — model-swappable LLM runtime
 
+> **FILED 2026-07-05 (operator-directed):** master → **cnos#596**; new precondition Sub 0 → **cnos#597**; execution cells **cnos#452** (contract + claude-code) and **cnos#453** (openai-compat executor + NIM canary) linked as native sub-issues of #596. On reading live #452/#453, wave Sub 1/Sub 2 were found already covered by #452 and Sub 3/Sub 4 by #453 — so they were **not** re-filed (would duplicate open issues). The GH master body (#596) is the filed, reconciled version; the sections below are the as-authored bundle (retained for provenance).
+
 **Filing mode:** master tracker (wave shape per `cnos:src/packages/cnos.cdd/skills/cdd/issue/SKILL.md` + `cnos:.cn-sigma/spec/OPERATOR.md §1 Wave dispatch shape`).
 **Relationship to existing issues:** this is the **execution decomposition of cnos#452** (`agent/wake-substrate: model-agnostic wake action with multi-backend support`), which is already enumerated as **Step 7** of `foundation-completion-wave` (#579). cnos#453 (`wake-substrate-openai-compat` executor + NIM canary) is **Step 8**, carried here as the held canary sub (Sub 4). This bundle does **not** open a competing master; #452 remains the substrate-boundary issue and this decomposition hangs beneath it.
 **Suggested labels:** `P2`, `area/agent`, `area/cds`, `kind/process`, `protocol:cds`.
