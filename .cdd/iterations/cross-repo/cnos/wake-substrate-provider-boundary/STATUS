@@ -23,4 +23,7 @@
 2026-07-05 drafted sigma
 2026-07-05 submitted sigma #596 (master), #597 (Sub 0); linked #452/#453/#597 under #596
 2026-07-05 modified sigma  β REQUEST CHANGES applied (F1 labels: #596 +tracking, #597 +kind/process; F3/F4 contract+closure comment on #596; F5 Sub 0 reconciliation comments on #452/#453/#597)
+# Spun off (doctrine generalization, not a wave sub): the human-guide-first
+# lesson from Sub 0.25 was generalized into the cdd/issue skill — filed as
+# cnos#599 (docs/P1/cdd, docs-only skill iteration) on operator direction.
 2026-07-05 modified sigma  wave re-centered user-first (operator): filed Sub 0.25 human-quickstart oracle at #598 (linked under #596); QUICKSTART.md mock authored in bundle; #596 patched with "Human quickstart oracle" + re-ordered sub tree (0 → 0.25 → 0.5 → 1 → 2) + dispatch gates (#452 held until quickstart exists; #453 hermetic-only until quickstart defines safe canary/refusal/fallback/rollback)
