@@ -26,4 +26,5 @@
 # Spun off (doctrine generalization, not a wave sub): the human-guide-first
 # lesson from Sub 0.25 was generalized into the cdd/issue skill — filed as
 # cnos#599 (docs/P1/cdd, docs-only skill iteration) on operator direction.
+2026-07-05 dispatched sigma  #597 (Sub 0) made claimable per operator: +dispatch:cell +protocol:cds +status:todo (labels verified live). First+only cell dispatched; #452/#453 held. Reconciliation AC1-AC3 already attached; residual = #596 body patch (cell's job) then close. #598/Sub 0.5 next; #453 hermetic-only.
 2026-07-05 modified sigma  wave re-centered user-first (operator): filed Sub 0.25 human-quickstart oracle at #598 (linked under #596); QUICKSTART.md mock authored in bundle; #596 patched with "Human quickstart oracle" + re-ordered sub tree (0 → 0.25 → 0.5 → 1 → 2) + dispatch gates (#452 held until quickstart exists; #453 hermetic-only until quickstart defines safe canary/refusal/fallback/rollback)
