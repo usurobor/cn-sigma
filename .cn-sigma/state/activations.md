@@ -1,4 +1,4 @@
-# Activations – v1.2.0
+# Activations – v1.3.0
 
 Places where Sigma activates (same identity, multiple bodies).
 This is **not** a peer list — there are currently no external peer agents.
@@ -26,6 +26,16 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   home_log: ".cn-sigma/threads/activations/bumpt/"
   last_read_foreign_log: 01e3cad8dded46ec02bf103e80581a4489a15b5c
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
+
+- name: tsc
+  hub: https://github.com/usurobor/tsc
+  role: activation
+  activated: 2026-07-06
+  convention: log-v0
+  foreign_log: ".cn-sigma/logs/"
+  home_log: ".cn-sigma/threads/activations/tsc/"
+  last_read_foreign_log: d17551732937df0b2478e2e1a0a900f11d09ab72
+  notes: TSC (triadic self-coherence) tenant repo, vendored cnos 3.82.0. Sigma activates as δ to run the CDS FSM + the CM0-compiler wave (tsc#77). Registered 2026-07-06 on operator directive.
 ```
 
 ## Removed: cph (2026-06-01)
