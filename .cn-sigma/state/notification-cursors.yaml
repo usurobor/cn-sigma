@@ -31,5 +31,5 @@ cursors:
   # Seeded at D34 merge time (PR #12) to the latest activation-thread
   # timestamp per target. Future substantive entries fire; historical
   # backlog stays silent.
-  cnos: "2026-07-04T04:51:38Z"
+  cnos: "2026-07-09T11:27:49Z"
   bumpt: "2026-07-02T21:02:31Z"
