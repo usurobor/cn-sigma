@@ -14,7 +14,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   role: package + activation
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/cnos/"
-  last_read_foreign_log: 5ae38a97585d4f017160d1eac88da067f207a016
+  last_read_foreign_log: c2bead01df8c6ce465ac0d2354555d8816a0c09e
   notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself.
 
 - name: bumpt
@@ -24,7 +24,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/bumpt/"
-  last_read_foreign_log: 099c07cf32160b0ce2dfc9bd7f34c412ff188156
+  last_read_foreign_log: a94cd570c214d6c432b1970100cffa3674bc0f00
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
 
 - name: tsc
@@ -34,7 +34,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/tsc/"
-  last_read_foreign_log: d17551732937df0b2478e2e1a0a900f11d09ab72
+  last_read_foreign_log: 26aab5023f03dc7d0abf82e5fdba20134fc6adad
   notes: TSC (triadic self-coherence) tenant repo, vendored cnos 3.82.0. Sigma activates as δ to run the CDS FSM + the CM0-compiler wave (tsc#77). Registered 2026-07-06 on operator directive.
 ```
 
