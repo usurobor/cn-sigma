@@ -24,7 +24,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/bumpt/"
-  last_read_foreign_log: 083ee24fc1ffdcd06fe2c6891131cff7a5d14865
+  last_read_foreign_log: 79ef973122b5994098644f5fbee2f70052c9a4d4
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
 
 - name: tsc
