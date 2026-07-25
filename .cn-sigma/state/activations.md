@@ -14,7 +14,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   role: package + activation
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/cnos/"
-  last_read_foreign_log: 325f3da42b94db2bd99b087e753d5786ee3ced3c
+  last_read_foreign_log: 0f9a3e2cfae47458f7de079956b1c7b6dbcb6d36
   notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself.
 
 - name: bumpt
