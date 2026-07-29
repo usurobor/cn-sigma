@@ -14,7 +14,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   role: package + activation
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/cnos/"
-  last_read_foreign_log: f5226e83811bb36d175f5fbc95e7c4d73a806c0b
+  last_read_foreign_log: 676c57290c20de248ea1a8df134c938c393690e4
   notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself. (2026-07-29 walk corrected a cursor-integrity bug: a prior recorded value here, 84899263bda73dd6fde79b7f6a790c8910be588f, was a mislabeled cn-sigma-repo SHA, not a real cnos-repo SHA — see .cn-sigma/threads/activations/cnos/20260729.md 12:19:25Z entry. Cursor verified present via `git cat-file -t` before each subsequent walk anchors on it.)
 
 - name: bumpt
@@ -24,7 +24,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/bumpt/"
-  last_read_foreign_log: eb615ba16effe54be5a2c4e0342854cbef88c84c
+  last_read_foreign_log: 190242c284a99620f9562d766de542da80dd62b1
   notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
 
 - name: tsc
