@@ -15,7 +15,7 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/cnos/"
   last_read_foreign_log: e8a04ede9fb8acdb4e07c979a27390fbeee786aa
-  notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself. (2026-07-29 walk corrected a cursor-integrity bug: a prior recorded value here, 84899263bda73dd6fde79b7f6a790c8910be588f, was a mislabeled cn-sigma-repo SHA, not a real cnos-repo SHA — see .cn-sigma/threads/activations/cnos/20260729.md 12:19:25Z entry. Cursor verified present via `git cat-file -t` before each subsequent walk anchors on it. 2026-07-31T23:32:10Z walk found the inverse bug on the *foreign* side this time: the cnos activation's own log entry at that wake mislabeled its `cursor_out` as a cn-sigma SHA when it was actually a cnos-repo SHA — flagged and deferred to operator in .cn-sigma/threads/activations/cnos/20260731.md, not correctable from home per Writer Locality. Does not affect this field, which is independently verified against cnos-repo HEAD each walk.)
+  notes: cnos is both the substrate package and a repo where Sigma activates to work on cnos itself. (2026-07-29 walk corrected a cursor-integrity bug: a prior recorded value here, 84899263bda73dd6fde79b7f6a790c8910be588f, was a mislabeled cn-sigma-repo SHA, not a real cnos-repo SHA — see .cn-sigma/threads/activations/cnos/20260729.md 12:19:25Z entry. Cursor verified present via `git cat-file -t` before each subsequent walk anchors on it. 2026-07-31T23:32:10Z walk found the inverse bug on the *foreign* side this time: the cnos activation's own log entry at that wake mislabeled its `cursor_out` as a cn-sigma SHA when it was actually a cnos-repo SHA — flagged and deferred to operator in .cn-sigma/threads/activations/cnos/20260731.md, not correctable from home per Writer Locality. Does not affect this field, which is independently verified against cnos-repo HEAD each walk. 2026-07-31T23:40:39Z walk: genuine hold, cnos main unmoved at this same SHA.)
 
 - name: bumpt
   hub: https://github.com/usurobor/bumpt
@@ -24,8 +24,8 @@ Path note: `foreign_log` is the path at the foreign body's repo (relative to tha
   convention: log-v0
   foreign_log: ".cn-sigma/logs/"
   home_log: ".cn-sigma/threads/activations/bumpt/"
-  last_read_foreign_log: 071d8ec136f87a6950b0414804f06788a8e040d7
-  notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432.
+  last_read_foreign_log: 8adde66e1b1b812715c1a49dfbcd3245cbc3aa14
+  notes: Project hub; Sigma activates there as bump-sigma. First activation registered after the v0 log convention shipped. See cnos#431 / cnos#432. (2026-07-31T23:40:39Z walk: cursor advanced 071d8ec1→8adde66e, one new bump-sigma self-referential attach-cycle heartbeat, no directive addressed to home.)
 
 - name: tsc
   hub: https://github.com/usurobor/tsc
