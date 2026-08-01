@@ -1,10 +1,35 @@
 # Wave state
 
-**Updated:** 2026-06-20
+**Updated:** 2026-08-01 (git-native program section below; cohere-wave block is stale — see its note)
 
 Cross-cutting state that doesn't belong to a single channel entry.
 
+## Repo-coherence + git-native program (active — 2026-08-01)
+
+The three-plane model: `main` HEAD = current state · `main` ancestry = the CDD episodes that warranted it · independent append-only refs = channels/journals/telemetry · **promotion** = the only lawful crossing from an independent stream into project authority. Manual open-set (stands in for the #683 radar until it ships).
+
+| Goal / item | Home | State |
+|---|---|---|
+| Repo cleanup — docs surface | cnos #679 | ✅ MERGED (merge commit `042f26a9`) |
+| Repo cleanup — code pass + first-principle doctrine (`§5` + `KERNEL §2.1`) | cnos #681 | ✅ MERGED (merge commit `894fc4ca`) |
+| `.cdd` dematerialization (ancestry plane) | cnos #682 | design-ready; contract reconciled (scope-fix comment 5150296362); **NOT dispatched — awaits operator go** |
+| Sigma comms → git-native (independent-stream plane) | cnos #684 | design-ready; cursor-ownership/Writer-Locality pinned (comment 5150295869); **NOT dispatched** |
+| ↳ hub adoption (2b): migrate cnos/bumpt channels off `main` → orphan refs; rewrite `activate/SKILL.md` (write-own-ref / poll-other) + `spec/OPERATOR.md` | cn-sigma | pending #684 ratify; `activations.md v1.3` seeds the schema |
+| cmp added to activations | cn-sigma `activations.md v1.3` | ✅ registered (orphan-ref, tip `8986ad8`); **first ingest pending an attach** |
+| open-items ledger / radar | cnos #683 | design-ready; NOT dispatched (this section is the manual stand-in) |
+| repo-self-coherence methodology | cnos #680 | filed |
+| reviewer/cell learnings | cnos #674, #675, #676, #677, #678 | filed |
+
+**Recommended sequence:** ratify #684 (2a) → hub migration (2b) → #682 in parallel on cnos.
+
+### Parked operator decisions
+
+- **γ-firebreak fork — #671 / #672:** **A** operator closes γ · **B** external γ · **C** accept the bootstrap residual. External-β established that γ≠κ cannot be proven inside one AI trust-domain → routed to the operator. Also in `cnos:.cdd/unreleased/671/self-coherence.md` (Known debt). Blocks the #671 wave returning to its authorization gate.
+- **#682 / #684 dispatch** — both design-ready, awaiting explicit operator authorization to dispatch (and, for #682, whether to drive it as κ-via-cnos-PR or via cds-dispatch).
+
 ## Cohere wave (v3.83.0 target)
+
+> ⚠️ **Pre-July surface — needs a freshness pass.** This table was last touched 2026-06-20 and predates the cell-runtime-doctrine wave (#671), the repo-cleanup stack (#679/#681), and the git-native program above. Carried forward un-verified rather than silently dropped; reconcile against current cnos issue state before relying on it.
 
 | Step | Issue / PR | State |
 |---|---|---|
