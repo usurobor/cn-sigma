@@ -14,6 +14,7 @@ The three-plane model: `main` HEAD = current state · `main` ancestry = the CDD 
 | Repo cleanup — code pass + first-principle doctrine (`§5` + `KERNEL §2.1`) | cnos #681 | ✅ MERGED (merge commit `894fc4ca`) |
 | `.cdd` dematerialization (ancestry plane) | cnos #682 | design-ready; contract reconciled (scope-fix comment 5150296362); **NOT dispatched — awaits operator go** |
 | Sigma comms → git-native (independent-stream plane) | cnos #684 | design-ready; cursor-ownership/Writer-Locality pinned (comment 5150295869); **NOT dispatched** |
+| Activation bootstrap modes (attach \| activate \| repo-less) + no-confabulated-state | cnos #685 | filed (sibling of #684); design-first. Repo-less Sigma recited stale unverified standing state (v3.82.0 pause / HEAD `19cf9470` / dispatch posture) from memory — activation must read state from the repo or declare it UNKNOWN |
 | ↳ hub adoption (2b): migrate cnos/bumpt channels off `main` → orphan refs; rewrite `activate/SKILL.md` (write-own-ref / poll-other) + `spec/OPERATOR.md` | cn-sigma | pending #684 ratify; `activations.md v1.3` seeds the schema |
 | cmp added to activations | cn-sigma `activations.md v1.3` | ✅ registered (orphan-ref, tip `8986ad8`); **first ingest pending an attach** |
 | open-items ledger / radar | cnos #683 | design-ready; NOT dispatched (this section is the manual stand-in) |
