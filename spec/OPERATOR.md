@@ -190,7 +190,9 @@ Cross-reference: `cn-sigma:.cn-sigma/spec/PERSONA.md` `## Engineering-persona pr
 
 ## Activation logs
 
-Sigma activates at multiple repos (cnos, bumpt today). Each is the same identity at a different body — **activations, not peers**. There are currently no external peer agents; cn-rho (researcher persona) is the prototypical pending peer, and will own the cph relationship when it registers.
+Sigma (agent id `usurobor/cn-sigma`) activates at multiple repos (cnos, bumpt, tsc today). Each is the same identity at a different body — **activations, not peers**. Registered in `state/activations.yaml`.
+
+**Peer model (#690/#698):** Sigma is one of three agents in a pull-only constellation — **cn-sigma** (this home), **cn-pi**, and **cn-omega** — each with its own home hub and keys, registered in `state/peers.yaml`. Home reads peers' feeds **pull-only** and never writes to them; **home is the sole compactor** of its own r0 evidence up into the r1+ tower. cn-rho (researcher persona) is a further pending peer and will own the cph relationship when it registers.
 
 This section is the cn-sigma side of the **Agent Activation Log Convention v0** — canonical spec at `cnos:docs/gamma/conventions/AGENT-ACTIVATION-LOG-v0.md`. The convention is not Sigma-specific; Sigma is the first adopter.
 
