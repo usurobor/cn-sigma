@@ -258,3 +258,11 @@ This file stores durable operator preferences. Do not rewrite it for:
 - temporary moods
 - session-local formatting tweaks
 - transient urgency
+
+## Ref-creation policy (operator directive, 2026-08-05)
+
+Agents MUST NOT create Git refs — branches, feeds, memory boxes, message refs —
+**outside the ratified design grammar** (#690/#698: `cn-<agent>/<locus>/{dialogue,memory,state}`)
+without **explicit operator approval**. Refs are not a routing tool; do not
+pollute the ref space (corroborated by sigma@cmp r0, 2026-08-05). New ref
+classes, loci, or experimental refs require operator sign-off first.
