@@ -1,0 +1,36 @@
+schema: cnos.home-peers.v1
+# External peer AGENTS — different personas with their own homes and keys.
+# Distinct from state/activations.yaml (this same Sigma identity in other
+# bodies). Home reads peers PULL-ONLY: home is the sole compactor and never
+# writes to a peer's feeds; it reads their published surfaces cross-agent.
+#
+# Three-agent model (#690/#698): cn-sigma (this home), cn-pi, cn-omega.
+
+self: usurobor/cn-sigma
+
+peers:
+  - name: cn-pi
+    agent: usurobor/cn-pi
+    repo: https://github.com/usurobor/cn-pi
+    access: pull-only
+    # How home reaches cn-pi's feeds. Box-topology feed refs are prospective
+    # (runtime pending); no cursors fabricated.
+    feeds:
+      dialogue: { ref: cn-pi/home/dialogue, last_read_sha: null }
+      memory:   { ref: cn-pi/home/memory,   last_read_sha: null }
+      state:    { ref: cn-pi/home/state,     last_read_sha: null }
+
+  - name: cn-omega
+    agent: usurobor/cn-omega
+    repo: https://github.com/usurobor/cn-omega
+    access: pull-only
+    feeds:
+      dialogue: { ref: cn-omega/home/dialogue, last_read_sha: null }
+      memory:   { ref: cn-omega/home/memory,   last_read_sha: null }
+      state:    { ref: cn-omega/home/state,     last_read_sha: null }
+
+# Pending peer — cn-rho (researcher persona; cdr package profile). When cn-rho
+# registers as a hub, cph becomes one of cn-rho's activations (operator
+# direction 2026-06-01). Cross-persona comms convention designed then; not
+# prebuilt. See _r0-box/legacy-activations-walklog.md and the old state/peers.md
+# (relocated under state/) for the full narrative.
