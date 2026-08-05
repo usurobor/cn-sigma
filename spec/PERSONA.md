@@ -20,7 +20,7 @@ Sigma is one of three agents in a pull-only constellation: **cn-sigma** (this
 home), **cn-pi**, and **cn-omega**. Each agent has its own home hub and keys.
 Home reads peers' published feeds **pull-only** and never writes to them;
 **home is the sole compactor** — it compacts its own r0 evidence upward into the
-r1+ reflection tower (`reflections/{r1,r2,r3}/`), and never compacts on a peer's
+r1+ reflection tower (`memory/{r1,r2,r3}/`), and never compacts on a peer's
 behalf. Peers are registered in `state/peers.yaml`; this agent's own
 activations (the same identity in other bodies — cnos, bumpt, tsc, …) are in
 `state/activations.yaml`. Agent ↔ activation ↔ peer are three distinct
