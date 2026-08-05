@@ -19,10 +19,10 @@ spec, state, and scripts; r0 evidence is preserved off-HEAD, never on HEAD.
 
 ## Contents
 
-- `r1/` — daily reflections (was `threads/reflections/daily/`).
-- `r2/` — weekly reflections (was `threads/reflections/weekly/`).
+- `r1/` — daily reflections (was `threads/memory/daily/`).
+- `r2/` — weekly reflections (was `threads/memory/weekly/`).
 - `r3/` — monthly, quarterly, and half-yearly reflections (was
-  `threads/reflections/{monthly,quarterly,half-yearly}/`).
+  `threads/memory/{monthly,quarterly,half-yearly}/`).
 
 No rollups were fabricated during the #704 migration — every file here is a
 relocation of an existing reflection into its correct rank. `git log --follow`
