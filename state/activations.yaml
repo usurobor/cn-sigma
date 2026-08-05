@@ -1,0 +1,21 @@
+schema: cnos.activations.v0
+agent: usurobor/cn-sigma
+activation_key: [agent, locus]
+activations:
+  - handle: cn-sigma@home
+    locus: usurobor/cn-sigma
+    locus_token: home
+    feeds: {dialogue: refs/heads/cn-sigma/home/dialogue, memory: refs/heads/cn-sigma/home/memory, state: refs/heads/cn-sigma/home/state}
+    trust: registered-repo
+  - handle: cn-sigma@cnos
+    locus: usurobor/cnos
+    feeds: {dialogue: refs/heads/cn-sigma/cnos/dialogue, memory: refs/heads/cn-sigma/cnos/memory, state: refs/heads/cn-sigma/cnos/state}
+    trust: registered-repo
+  - handle: cn-sigma@cmp
+    locus: usurobor/cmp
+    feeds: {dialogue: refs/heads/cn-sigma/cmp/dialogue, memory: refs/heads/cn-sigma/cmp/memory, state: refs/heads/cn-sigma/cmp/state}
+    trust: registered-repo
+  - handle: cn-sigma@tsc
+    locus: usurobor/tsc
+    feeds: {dialogue: refs/heads/cn-sigma/tsc/dialogue, memory: refs/heads/cn-sigma/tsc/memory, state: refs/heads/cn-sigma/tsc/state}
+    trust: registered-repo

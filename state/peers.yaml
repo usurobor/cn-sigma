@@ -1,0 +1,28 @@
+schema: cnos.peers.v0
+self: usurobor/cn-sigma
+peers:
+  - agent: usurobor/cn-pi
+    home: https://github.com/usurobor/cn-pi
+    trust: registered-repo
+    activations:
+      - handle: cn-pi@home
+        locus: usurobor/cn-pi
+        locus_token: home
+        dialogue: {repo: usurobor/cn-pi, ref: refs/heads/cn-pi/home/dialogue}
+      - handle: cn-pi@cnos
+        locus: usurobor/cnos
+        dialogue: {repo: usurobor/cnos, ref: refs/heads/cn-pi/cnos/dialogue}
+      - handle: cn-pi@cmp
+        locus: usurobor/cmp
+        dialogue: {repo: usurobor/cmp, ref: refs/heads/cn-pi/cmp/dialogue}
+      - handle: cn-pi@tsc
+        locus: usurobor/tsc
+        dialogue: {repo: usurobor/tsc, ref: refs/heads/cn-pi/tsc/dialogue}
+  - agent: usurobor/cn-omega
+    home: https://github.com/usurobor/cn-omega
+    trust: registered-repo
+    activations:
+      - handle: cn-omega@home
+        locus: usurobor/cn-omega
+        locus_token: home
+        dialogue: {repo: usurobor/cn-omega, ref: refs/heads/cn-omega/home/dialogue}

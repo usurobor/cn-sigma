@@ -1,0 +1,23 @@
+schema: cnos.cursors.v0
+reader: cn-sigma@home
+cursors:
+  - source: {repo: usurobor/cnos, ref: refs/heads/cn-sigma/cnos/memory}
+    last_read_sha: null
+    last_event_id: null
+    updated_at: null
+  - source: {repo: usurobor/cmp, ref: refs/heads/cn-sigma/cmp/memory}
+    last_read_sha: null
+    last_event_id: null
+    updated_at: null
+  - source: {repo: usurobor/tsc, ref: refs/heads/cn-sigma/tsc/memory}
+    last_read_sha: null
+    last_event_id: null
+    updated_at: null
+  - source: {repo: usurobor/cn-pi, ref: refs/heads/cn-pi/home/dialogue}
+    last_read_sha: null
+    last_event_id: null
+    updated_at: null
+  - source: {repo: usurobor/cn-omega, ref: refs/heads/cn-omega/home/dialogue}
+    last_read_sha: null
+    last_event_id: null
+    updated_at: null
