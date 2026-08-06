@@ -1,0 +1,81 @@
+schema: cnos.home-activations.v1
+# This agent's own activations (loci) — the same Sigma identity in other
+# bodies. NOT peers (a peer is a different agent; see peers.yaml).
+#
+# Supersedes the prose walk-log registry formerly at state/activations.md,
+# relocated to _r0-box/legacy-activations-walklog.md (r0 history, zero loss).
+#
+# Two ref layers per locus:
+#   - log_v0: the activation-log-v0 foreign->home cursor. This is the LIVE
+#     mechanism today (per cnos AGENT-ACTIVATION-LOG-v0). last_read_foreign_log
+#     SHAs are real, carried forward from the old registry.
+#   - feeds: the #690/#698 box-topology {dialogue,memory,state} feed refs.
+#     The box-topology runtime does not exist yet (future #690 Sub 2-5 work),
+#     so these ref names are prospective and last_read_sha is null/pending.
+#     No SHAs fabricated.
+
+agent: usurobor/cn-sigma
+
+loci:
+  - name: cnos
+    repo: https://github.com/usurobor/cnos
+    role: package + activation
+    convention: agent-activation-log-v0
+    log_v0:
+      foreign_log: ".cn-sigma/logs/"
+      home_log: "_r0-box/activations/cnos/"
+      last_read_foreign_log: cbe42051aee116033e75b716b8319f1a0128679f
+    feeds:
+      dialogue: { ref: cn-sigma/cnos/dialogue, last_read_sha: null }
+      memory:   { ref: cn-sigma/cnos/memory,   last_read_sha: null }
+      state:    { ref: cn-sigma/cnos/state,    last_read_sha: null }
+
+  - name: bumpt
+    repo: https://github.com/usurobor/bumpt
+    role: activation
+    activated: 2026-05-30
+    convention: agent-activation-log-v0
+    log_v0:
+      foreign_log: ".cn-sigma/logs/"
+      home_log: "_r0-box/activations/bumpt/"
+      last_read_foreign_log: 09035aedd3e9764bc35d63b51682a2949c519efe
+    feeds:
+      dialogue: { ref: cn-sigma/bumpt/dialogue, last_read_sha: null }
+      memory:   { ref: cn-sigma/bumpt/memory,   last_read_sha: null }
+      state:    { ref: cn-sigma/bumpt/state,    last_read_sha: null }
+
+  - name: tsc
+    repo: https://github.com/usurobor/tsc
+    role: activation
+    activated: 2026-07-06
+    convention: agent-activation-log-v0
+    log_v0:
+      foreign_log: ".cn-sigma/logs/"
+      home_log: "_r0-box/activations/tsc/"
+      last_read_foreign_log: e2172fdcf1a44c7e103eb9e41cf2512b82d4865c
+    feeds:
+      dialogue: { ref: cn-sigma/tsc/dialogue, last_read_sha: null }
+      memory:   { ref: cn-sigma/tsc/memory,   last_read_sha: null }
+      state:    { ref: cn-sigma/tsc/state,    last_read_sha: null }
+
+  - name: cmp
+    # Known locus per the #704 dispatch context. No activation-log-v0 cursor
+    # nor home_log channel exists on HEAD yet; repo URL unconfirmed on HEAD.
+    # δ to seed repo + cursors. Refs prospective; nothing fabricated.
+    repo: null            # pending: δ to confirm (likely usurobor/cmp)
+    role: activation
+    convention: agent-activation-log-v0
+    status: known-unseeded
+    log_v0:
+      foreign_log: ".cn-sigma/logs/"
+      home_log: null
+      last_read_foreign_log: null
+    feeds:
+      dialogue: { ref: cn-sigma/cmp/dialogue, last_read_sha: null }
+      memory:   { ref: cn-sigma/cmp/memory,   last_read_sha: null }
+      state:    { ref: cn-sigma/cmp/state,    last_read_sha: null }
+
+# Removed locus — cph (2026-06-01): reassigned to cn-rho's domain when cn-rho
+# registers as a peer (operator direction 2026-06-01). Not in any agent's
+# activations list until then. Historical detail preserved in
+# _r0-box/legacy-activations-walklog.md and the adhoc threads it cites.
